@@ -1,0 +1,64 @@
+.masthead {
+  display: flex;
+  flex-direction: column;
+  height: 100px; /* Default height */
+}
+
+.masthead .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.masthead .logo {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+.masthead .logo img {
+  max-width: 360px;
+  transition: all 0.3s ease;
+}
+
+.masthead-border {
+  width: 100%;
+  height: 2px;
+  background-color: #000;
+}
+
+.navigation a {
+  color: white; /* navigation text color  */
+  text-decoration: none;
+  font-size: 25px; /* font size */
+  font-family: 'glyphicons-halflings-regular', sans-serif; /* applied available font */
+}
+
+.navigation a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .masthead .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .masthead .logo {
+    flex: 1 1 100%;
+    text-align: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .masthead .container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .masthead .logo {
+    flex: 0 0 auto;
+    text-align: left;
+  }
+}

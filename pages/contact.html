@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="UiASub">
+    <meta name="title" content="UiASub Contact">
+    <link rel="shortcut icon" href="../images/uiasub/Icon.png">
+
+    <title>UiASub Contact</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom styles for this template -->
+    <link href="../css/carousel.css" rel="stylesheet">
+    <link href="../css/custom.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <!--HEADER-->
+    <div id="header"></div>
+    <script>
+      fetch('../header.html')
+        .then(response => response.text())
+        .then(data => { document.getElementById('header').innerHTML = data; });
+    </script>
+
+    <!-- Contact Section -->
+    <section class="callout py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <h1> Kontakt <span class="text-primary">UiASub</span> </h1>
+                    <hr>
+                    <p class="lead">
+                        Vi vil gjerne høre fra deg! Ta kontakt via e-post på 
+                        <a href="mailto:hei@uiasub.com">hei@uiasub.com</a> 
+                        eller følg oss på sosiale medier:
+                    </p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item mr-3">
+                            <a href="https://www.instagram.com/uia.sub/" target="_blank">Instagram</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="https://no.linkedin.com/company/uiasub" target="_blank">LinkedIn</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <div id="footer"></div>
+    <script>
+      fetch('../footer.html')
+        .then(response => response.text())
+        .then(data => { document.getElementById('footer').innerHTML = data; });
+    </script>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
