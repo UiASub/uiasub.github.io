@@ -5,13 +5,16 @@ This repository contains the source code for UiASub`s website. The site is built
 ## Quick Start
 
 1. **Clone the repository**
+
  ```sh
  git clone https://github.com/UiASub/uiasub.github.io.git
  cd uiasub.github.io
  ```
 
 2. **Open `index.html` in your browser**
- - You can simply double-click `index.html` or use a local web server for best results:
+
+- You can simply double-click `index.html` or use a local web server for best results:
+
  ```sh
  python3 -m http.server
  # Then visit http://localhost:8000 in your browser
@@ -37,17 +40,20 @@ This repository contains the source code for UiASub`s website. The site is built
 
 1. Fork this repository to your own GitHub account.
 2. Create a new branch for your changes:
+
  ```sh
  git checkout -b my-feature-branch
  ```
 
 3. Make your changes and commit them:
+
  ```sh
  git add .
  git commit -m "Describe your changes"
  ```
 
 4. Push to your fork:
+
  ```sh
  git push origin my-feature-branch
  ```

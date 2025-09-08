@@ -26,20 +26,14 @@
   </head>
 
   <body>
-  
-    <div class="masthead">
-      <div class="container" style="display: flex; align-items: center; justify-content: space-between;">
-        <div class="logo col-xs-6">
-          <a href="/"><img src="../images/uiasub/Ui-White.png" style="max-width: 360px;" /></a>
-        </div>
-        <div class="powered col-xs-6" style="display: flex; align-items: center; justify-content: center;">
-          <a href="/pages/sponsors.html">
-            <p style="font-size:24px; margin: 0;">SPONSORS</p>
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="masthead-border"></div>
+
+    <!--HEADER-->
+    <div id="header"></div>
+    <script>
+      fetch('/header.html')
+        .then(response => response.text())
+        .then(data => { document.getElementById('header').innerHTML = data; });
+    </script>
 
     <!-- Marketing messaging and featurettes
     ================================================== -->
@@ -90,20 +84,12 @@
     </div><!-- /.container -->
 
     <!-- FOOTER -->
-
-    <footer>
-      <div class="footer" style="display: flex; justify-content: flex-end; align-items: center;">
-        <div class="container" style="display: flex; justify-content: flex-end; align-items: center;">
-          <p class="footer-sub" style="margin-right: 20px;"><strong>Stay in Touch</strong></p>
-          <ul style="list-style: none; margin: 0; padding: 0; display: flex;">
-            <li style="margin-right: 10px;"><a href="https://www.instagram.com/uia.sub/" target="_blank" style="color: #1b3dc8;">Instagram</a></li>
-            <li><a href="https://no.linkedin.com/company/uiasub" target="_blank" style="color: #1b3dc8;">LinkedIn</a></li>
-          </ul>
-          <a href="/" style="margin-left: 20px;"><img src="../images/uiasub/Icon-7.png" style="width:20px; height:auto;" /></a>
-          <p style="margin: 0; margin-left: 10px;">&copy; UIASUB</p>
-        </div>
-      </div>
-    </footer>
+     <div id="footer"></div>
+      <script>
+        fetch('../footer.html')
+          .then(response => response.text())
+          .then(data => { document.getElementById('footer').innerHTML = data; });
+      </script>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
