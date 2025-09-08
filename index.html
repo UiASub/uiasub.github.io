@@ -9,7 +9,7 @@
     <meta name="title" content="uiasub">
     <link rel="shortcut icon" href="images/uiasub/Icon1.png">
 
-    <title>UiASub Ocineering</title>
+    <title>UiASub ROV Engineering</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -24,22 +24,15 @@
     <link href="css/carousel.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
   </head>
-
   <body>
   
-    <div class="masthead">
-      <div class="container" style="display: flex; align-items: center; justify-content: space-between;">
-        <div class="logo col-xs-6">
-          <a href="/"><img src="images/uiasub/Ui-White.png" style="max-width: 360px;" /></a>
-        </div>
-        <div class="powered col-xs-6" style="display: flex; align-items: center; justify-content: center;">
-          <a href="/powered-uiasub.html">
-            <p style="font-size:24px; margin: 0;">SPONSORS</p>
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="masthead-border"></div>
+    <!-- HEADER -->
+  <div id="header"></div>
+  <script>
+    fetch('/header.html')
+      .then(response => response.text())
+      .then(data => { document.getElementById('header').innerHTML = data; });
+  </script>
 
     <!-- Carousel
     ================================================== -->
@@ -52,7 +45,7 @@
       </ol>
       <div class="carousel-inner" role="listbox">
         <div class="item active">
-          <img class="first-slide" src="images/slider-bg-2.jpg" alt="First slide">
+          <img class="first-slide" src="images/infrastructure/slider-bg-2.jpg" alt="First slide">
           <div class="container">
             <div class="carousel-caption">
               <div class="col-md-8">
@@ -72,7 +65,7 @@
           </div>
         </div>
         <div class="item">
-          <img class="second-slide" src="images/slider-bg-2.jpg" alt="Second slide">
+          <img class="second-slide" src="images/infrastructure/slider-bg-2.jpg" alt="Second slide">
           <div class="container">
             <div class="carousel-caption">
               <div class="col-md-8">
@@ -92,7 +85,7 @@
           </div>
         </div>
         <div class="item">
-          <img class="third-slide" src="images/slider-bg-2.jpg" alt="Third slide">
+          <img class="third-slide" src="images/infrastructure/slider-bg-2.jpg" alt="Third slide">
           <div class="container">
             <div class="carousel-caption">
                 <div class="col-md-8">
@@ -175,7 +168,7 @@
 
       <div class="row featurette">
         <div class="col-sm-4">
-          <img class="featurette-image img-responsive center-block" src="images/front-icons/cloud-platform.png" alt="Generic placeholder image 1">
+          <img class="featurette-image img-responsive center-block" src="images/front-icons/ROV-bilde.png" alt="Generic placeholder image 1">
         </div>
         <div class="col-sm-8">
           <h2 class="featurette-heading"><a class="nostyle" name="common-runtime">Common Runtime Services & Libraries</a></h2>
@@ -190,7 +183,7 @@
 
       <div class="row featurette">
         <div class="col-sm-4">
-          <img class="featurette-image img-responsive center-block" src="images/front-icons/content-engineering.png" alt="Generic placeholder image 1">
+          <img class="featurette-image img-responsive center-block" src="images/front-icons/ROV-bilde.png" alt="Generic placeholder image 1">
         </div>
         <div class="col-sm-8">
           <h2 class="featurette-heading"><a class="nostyle" name="content-encoding">Content Encoding</a></h2>
@@ -204,7 +197,7 @@
 
       <div class="row featurette">
         <div class="col-sm-4">
-          <img class="featurette-image img-responsive center-block" src="images/front-icons/data-persistence.png" alt="Generic placeholder image 1">
+          <img class="featurette-image img-responsive center-block" src="images/front-icons/ROV-bilde.png" alt="Generic placeholder image 1">
         </div>
         <div class="col-sm-8">
           <h2 class="featurette-heading"><a class="nostyle" name="data-persistence">Data Persistence</a></h2>
@@ -218,17 +211,14 @@
 
       <div class="row featurette">
         <div class="col-sm-4">
-          <img class="featurette-image img-responsive center-block" src="images/front-icons/insight-performance.png" alt="Generic placeholder image 1">
+          <img class="featurette-image img-responsive center-block" src="images/front-icons/ROV-bilde.png" alt="Generic placeholder image 1">
         </div>
         <div class="col-sm-8">
           <h2 class="featurette-heading"><a class="nostyle" name="insight-reliability-performance">Insight, Reliability and Performance</a></h2>
           <h3> Scale</h3>
           <p class="lead">telement</p>
-          <p class="lead">huh
+          <p class="lead">huh</p>
           <p class="lead">B</p>
-            </p>
-          </p>
-          </p>
         </div>
       </div>
 
@@ -236,7 +226,7 @@
 
       <div class="row featurette">
         <div class="col-sm-4">
-          <img class="featurette-image img-responsive center-block" src="images/front-icons/security.png" alt="Generic placeholder image 1">
+          <img class="featurette-image img-responsive center-block" src="images/front-icons/ROV-bilde.png" alt="Generic placeholder image 1">
         </div>
         <div class="col-sm-8">
           <h2 class="featurette-heading"><a class="nostyle" name="security">Security</a></h2>
@@ -251,7 +241,7 @@
 
       <div class="row featurette">
         <div class="col-sm-4">
-          <img class="featurette-image img-responsive center-block" src="images/front-icons/user-interface.png" alt="Generic placeholder image 1">
+          <img class="featurette-image img-responsive center-block" src="images/front-icons/ROV-bilde.png" alt="Generic placeholder image 1">
         </div>
         <div class="col-sm-8">
           <h2 class="featurette-heading"><a class="nostyle" name="user-interface">User Interface</a></h2>
@@ -267,19 +257,12 @@
 
     <!-- FOOTER -->
 
-    <footer>
-      <div class="footer" style="display: flex; justify-content: flex-end; align-items: center;">
-        <div class="container" style="display: flex; justify-content: flex-end; align-items: center;">
-          <p class="footer-sub" style="margin-right: 20px;"><strong>Stay in Touch</strong></p>
-          <ul style="list-style: none; margin: 0; padding: 0; display: flex;">
-            <li style="margin-right: 10px;"><a href="https://www.instagram.com/uia.sub/" target="_blank">Instagram</a></li>
-            <li><a href="https://no.linkedin.com/company/uiasub" target="_blank">LinkedIn</a></li>
-          </ul>
-          <a href="/" style="margin-left: 20px;"><img src="images/uiasub/Icon-7.png" style="width:20px; height:auto;" /></a>
-          <p style="margin: 0; margin-left: 10px;">&copy; UIASUB</p>
-        </div>
-      </div>
-    </footer>
+    <div id="footer"></div>
+    <script>
+      fetch('footer.html')
+        .then(response => response.text())
+        .then(data => { document.getElementById('footer').innerHTML = data; });
+    </script>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
