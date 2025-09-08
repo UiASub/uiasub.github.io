@@ -1,6 +1,6 @@
 # UiASub Website
 
-This repository contains the source code for the UiASub student organization website. The site is built with HTML, CSS (Bootstrap), and JavaScript, and is designed to showcase UiASub's projects, sponsors, and activities.
+This repository contains the source code for UiASub`s website. The site is built with HTML, CSS (Bootstrap), and JavaScript, and is designed to showcase UiASub's projects, sponsors, and activities.
 
 ## Quick Start
 
