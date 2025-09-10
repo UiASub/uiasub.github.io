@@ -22,6 +22,7 @@
     <!-- Custom styles for this template -->
     <link href="../css/carousel.css" rel="stylesheet">
     <link href="../css/custom.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/waves.css">
   </head>
 
   <body>
@@ -58,7 +59,20 @@
             </div>
         </div>
     </section>
-
+    <div class="wrapper">
+      <svg class="wavesContainer flipped" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(0,95,153,0.8)"></use>
+          <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(0,95,153,0.6)"></use>
+          <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(0,95,153,0.4)"></use>
+          <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(0,95,153,0.2)"></use>
+        </g>
+      </svg>
+    </div>
+    <script src="../js/waves.js"></script>
     <!-- FOOTER -->
     <div id="footer"></div>
     <script>
