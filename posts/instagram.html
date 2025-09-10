@@ -9,11 +9,13 @@
 	<h1>UiASub Instagram Feed</h1>
 	<!-- Replace the src URL below with your actual SnapWidget/Instagram widget link -->
 	<iframe src="https://snapwidget.com/embed/your-widget-id" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%; height:600px;"></iframe>
-</body>
+
     <div id="footer"></div>
     <script>
       fetch('../footer.html')
         .then(response => response.text())
         .then(data => { document.getElementById('footer').innerHTML = data; });
     </script>
+    <script src="../js/waves.js"></script>
+    </body>
 </html>
