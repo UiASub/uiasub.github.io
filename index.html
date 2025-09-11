@@ -30,7 +30,7 @@
     <!-- HEADER -->
   <div id="header"></div>
   <script>
-    fetch('/header.html')
+    fetch('header.html')
       .then(response => response.text())
       .then(data => { document.getElementById('header').innerHTML = data; });
   </script>
@@ -50,7 +50,7 @@
           <div class="container">
             <div class="carousel-caption">
               <div class="col-md-8">
-                <h2>Om oss</h2>
+                <h2>Hvem er vi?</h2>
                 <h3>Exploring the depths, engineering the future!</h3>
                 <hr/>
                 <p>UiASub er en studentorganisasjon ved Universitetet i Agder som samler studenter med interesse for teknologi, innovasjon og maritim utvikling. </p>
@@ -69,18 +69,18 @@
           <img class="second-slide" src="images/infrastructure/slider-bg-2.jpg" alt="Second slide">
           <div class="container">
             <div class="carousel-caption">
-              <div class="col-md-8">
-                <h2>Words</h2>
-                <h3>many words?</h3>
-                <hr/>
-                <p>wooooords</p>
-                <p>some words</p>
-                <p>words</p>
+              <div class="col-md-8 modern-section">
+                <h2 class="modern-headline">Hva tilbyr vi?</h2>
+                <h3 class="modern-subheading">Oppdag nye horisonter innen undervannsteknologi</h3>
+                <hr class="modern-divider"/>
+                <p class="modern-text">Som medlem av UiASub får du muligheten til å involvere deg i nyskapende prosjekter som sømløst kombinerer praktisk arbeid med banebrytende forskning. Vi skaper innovative løsninger for utfordringene som finnes under havoverflaten.</p>
+                <p class="modern-text">Medlemskapet åpner døren til eksklusive workshops, nettverksmuligheter med ledende industriprofiler og et inspirerende fellesskap, alt designet for å styrke både din tekniske ekspertise og karrieremuligheter.</p>
+                <p class="modern-text">Det handler ikke bare om banebrytende undervannsteknologi, men også om å bygge et solid fellesskap og et nettverk som støtter deg på veien mot fremtiden.</p>
               </div>
               <div class="col-md-4">
-                <div class="carousel-image">
-                  <img src="images/carousel/content-image.jpg" alt="Second Slide Image" />
-                </div>
+              <div class="carousel-image">
+                <img src="/images/front-icons/IMG_4896-scaled.jpg" alt="Second Slide Image" style="max-width:480px;"/>
+              </div>
               </div>
             </div>
           </div>
@@ -95,7 +95,7 @@
                 <hr/>
                 <p>Hvis du ønsker å ha stor innvirkning i en voksende studentorganisasjon og jobbe med et høytytende team, start her. Jobb med talentfulle kollegaer på utfordrende problemer som påvirker fremtiden.</p>
                 <p>Hos UiASub setter vi pris på høy ytelse, frihet og ansvar. Vi fokuserer ikke på regler, prosesser eller prosedyrer. Vi er ærlige og åpne og søker fortreffelighet i alt vi gjør.</p>
-                <p>Hvis du ønsker å bli en del av vårt team, ikke nøl med å ta <a href="pages/contact.html">kontakt med oss</a> eller <a href="https://anon.to/ay32jT" class="btn btn-primary">Søk her</a></p>
+                <p>Hvis du ønsker å bli en del av vårt team, ikke nøl med å ta <a href="src/pages/contact.html">kontakt med oss</a> eller <a href="https://anon.to/ay32jT" class="btn btn-primary">Søk her</a></p>
                 </div>
               <div class="col-md-4">
                 <div class="carousel-image">
@@ -127,7 +127,7 @@
       <hr class="featurette-divider">
       <div class="row featurette">
         <div class="col-sm-4">
-          <img class="featurette-image img-responsive center-block" src="images/uiasub/NewK2untitled.png" alt="Generic placeholder image 1">
+          <img class="featurette-image img-responsive center-block" src="images/front-icons/491440310_17895485013198102_8891979541426359705_n.jpg" alt="Generic placeholder image 1">
         </div>
         <div class="col-sm-8">
           <h2 class="featurette-heading"><a class="nostyle" name="build-and-delivery-tools">K2 ROV</a></h2>
@@ -142,7 +142,7 @@
 
       <div class="row featurette">
         <div class="col-sm-4">
-          <img class="featurette-image img-responsive center-block" src="images/front-icons/ROV-bilde.png" alt="Generic placeholder image 1">
+          <img class="featurette-image img-responsive center-block" src="images/front-icons/NewK2untitled.png" alt="Generic placeholder image 1">
         </div>
         <div class="col-sm-8">
           <h2 class="featurette-heading"><a class="nostyle" name="common-runtime">Common Runtime Services & Libraries</a></h2>
@@ -231,7 +231,10 @@
 
     </div>
 
-    </div><!-- /.container -->
+    </div>
+    
+    <!-- /.container -->
+    
     <div class="wrapper">
       <svg class="wavesContainer flipped" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
         <defs>
