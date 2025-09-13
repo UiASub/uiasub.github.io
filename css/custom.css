@@ -47,7 +47,7 @@ color: #989da4
 }
 
 .powered a:hover {
-text decoration: underline;
+text-decoration: underline;
 }
 
 .powered a:visited {
@@ -104,7 +104,7 @@ margin: 0;
 
 .carousel-caption h3 {
 font-weight:200;
-color: #ea2a2e;
+color: #10a3dd;
 font-size: 22px;
 margin: 0;
 }
@@ -280,7 +280,7 @@ padding-top: 40px;
     height: 633px;
     background-color: #060607;
   }
-
+}
 
 @media (max-width: 767px) {
   .carousel-caption p {
@@ -344,4 +344,17 @@ padding-top: 40px;
   .sidebar {
     margin-top: 15px;
   }
+}
+
+/* Apply gradient and animation to the first, second, and third slides */
+.carousel-inner .first-slide,
+.carousel-inner .second-slide,
+.carousel-inner .third-slide {
+    background: linear-gradient(to bottom, #002f4b, #005377);
+    animation: underwater 6s infinite alternate;
+}
+
+@keyframes underwater {
+    0% { background-position: 40% 40%; }
+    100% { background-position: 80% 80%; }
 }

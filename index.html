@@ -25,19 +25,22 @@
     <link href="css/custom.css" rel="stylesheet">
     <link rel="stylesheet" href="css/waves.css">
   </head>
-  <body>
-  
-    <!-- HEADER -->
-  <div id="header"></div>
-  <script>
-    fetch('header.html')
-      .then(response => response.text())
-      .then(data => { document.getElementById('header').innerHTML = data; });
-  </script>
 
+  <body>
+
+    <!--HEADER-->
+    <div id="header"></div>
+    <script>
+      fetch('/header.html')
+        .then(response => response.text())
+        .then(data => { document.getElementById('header').innerHTML = data; });
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <!-- Carousel
     ================================================== -->
-  <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="7000"> <!-- Speed for movement -->
+  <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="8500"> <!-- Speed for movement -->
       <!-- Indicators -->
       <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -46,60 +49,69 @@
       </ol>
       <div class="carousel-inner" role="listbox">
         <div class="item active">
-          <img class="first-slide" src="images/infrastructure/slider-bg-2.jpg" alt="First slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <div class="col-md-8">
-                <h2>Hvem er vi?</h2>
-                <h3>Exploring the depths, engineering the future!</h3>
-                <hr/>
-                <p>UiASub er en studentorganisasjon ved Universitetet i Agder som samler studenter med interesse for teknologi, innovasjon og maritim utvikling. </p>
-                <p>Vi jobber med prosjekter innen undervannsrobotikk og moderne undervannsteknologi.</p>
-                <p> Gjennom samarbeid på tvers av fagområder utforsker vi løsninger innen undervannsrobotikk og moderne undervannsteknologi. </p>
-              </div>
-                <div class="col-md-4">
-                <div class="carousel-image">
-                  <img src="images/carousel/legg-ut-6-scaled.jpg" alt="First Slide Image" style="max-width:400px;" />
+          <div class="first-slide" style="background: url('images/infrastructure/layered-waves-haikei.svg') no-repeat center center; background-size: cover; height: 520px; width: 100%; position: relative;">
+            <div class="foreground" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10;">
+              <div class="container">
+                <div class="carousel-caption">
+                  <div class="col-md-8">
+                    <h2>Hvem er vi?</h2>
+                    <h3>Exploring the depths, engineering the future!</h3>
+                    <hr/>
+                    <p>UiASub er en studentorganisasjon ved Universitetet i Agder som samler studenter med interesse for teknologi, innovasjon og maritim utvikling. </p>
+                    <p>Vi jobber med prosjekter innen undervannsrobotikk og moderne undervannsteknologi.</p>
+                    <p> Gjennom samarbeid på tvers av fagområder utforsker vi løsninger innen undervannsrobotikk og moderne undervannsteknologi. </p>
+                  </div>
+                    <div class="col-md-4">
+                    <div class="carousel-image">
+                      <img src="images/carousel/legg-ut-6-scaled.jpg" alt="First Slide Image" style="max-width:400px;" />
+                    </div>
+                    </div>
                 </div>
-                </div>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <img class="second-slide" src="images/infrastructure/slider-bg-2.jpg" alt="Second slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <div class="col-md-8 modern-section">
-                <h2 class="modern-headline">Hva tilbyr vi?</h2>
-                <h3 class="modern-subheading">Oppdag nye horisonter innen undervannsteknologi</h3>
-                <hr class="modern-divider"/>
-                <p class="modern-text">Som medlem av UiASub får du muligheten til å involvere deg i nyskapende prosjekter som sømløst kombinerer praktisk arbeid med banebrytende forskning. Vi skaper innovative løsninger for utfordringene som finnes under havoverflaten.</p>
-                <p class="modern-text">Medlemskapet åpner døren til eksklusive workshops, nettverksmuligheter med ledende industriprofiler og et inspirerende fellesskap, alt designet for å styrke både din tekniske ekspertise og karrieremuligheter.</p>
-                <p class="modern-text">Det handler ikke bare om banebrytende undervannsteknologi, men også om å bygge et solid fellesskap og et nettverk som støtter deg på veien mot fremtiden.</p>
-              </div>
-              <div class="col-md-4">
-              <div class="carousel-image">
-                <img src="/images/front-icons/IMG_4896-scaled.jpg" alt="Second Slide Image" style="max-width:480px;"/>
-              </div>
               </div>
             </div>
           </div>
         </div>
         <div class="item">
-          <img class="third-slide" src="images/infrastructure/slider-bg-2.jpg" alt="Third slide">
-          <div class="container">
-            <div class="carousel-caption">
-                <div class="col-md-8">
-                <h2>Bli Medlem!</h2>
-                <h3>Ønsker du å jobbe med denne teknologien?</h3>
-                <hr/>
-                <p>Hvis du ønsker å ha stor innvirkning i en voksende studentorganisasjon og jobbe med et høytytende team, start her. Jobb med talentfulle kollegaer på utfordrende problemer som påvirker fremtiden.</p>
-                <p>Hos UiASub setter vi pris på høy ytelse, frihet og ansvar. Vi fokuserer ikke på regler, prosesser eller prosedyrer. Vi er ærlige og åpne og søker fortreffelighet i alt vi gjør.</p>
-                <p>Hvis du ønsker å bli en del av vårt team, ikke nøl med å ta <a href="src/pages/contact.html">kontakt med oss</a> eller <a href="https://anon.to/ay32jT" class="btn btn-primary">Søk her</a></p>
+          <div class="second-slide" style="background: url('images/infrastructure/layered-waves-haikei.svg') no-repeat center center; background-size: cover; height: 520px; width: 100%; position: relative;">
+            <div class="foreground" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10;">
+              <div class="container">
+                <div class="carousel-caption">
+                  <div class="col-md-8 modern-section">
+                    <h2 class="modern-headline">Hva tilbyr vi?</h2>
+                    <h3 class="modern-subheading">Oppdag nye horisonter innen undervannsteknologi</h3>
+                    <hr class="modern-divider"/>
+                    <p class="modern-text">Som medlem av UiASub får du muligheten til å involvere deg i nyskapende prosjekter som sømløst kombinerer praktisk arbeid med banebrytende forskning. Vi skaper innovative løsninger for utfordringene som finnes under havoverflaten.</p>
+                    <p class="modern-text">Medlemskapet åpner døren til eksklusive workshops, nettverksmuligheter med ledende industriprofiler og et inspirerende fellesskap, alt designet for å styrke både din tekniske ekspertise og karrieremuligheter.</p>
+                    <p class="modern-text">Det handler ikke bare om banebrytende undervannsteknologi, men også om å bygge et solid fellesskap og et nettverk som støtter deg på veien mot fremtiden.</p>
+                  </div>
+                  <div class="col-md-4">
+                  <div class="carousel-image">
+                    <img src="/images/front-icons/IMG_4896-scaled.jpg" alt="Second Slide Image" style="max-width:480px;"/>
+                  </div>
+                  </div>
                 </div>
-              <div class="col-md-4">
-                <div class="carousel-image">
-                  <img src="images/carousel/IMG_0096-scaled.jpg" alt="Third Slide Image" style="max-width:400px;" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="third-slide" style="background: url('images/infrastructure/layered-waves-haikei.svg') no-repeat center center; background-size: cover; height: 520px; width: 100%; position: relative;">
+            <div class="foreground" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10;">
+              <div class="container">
+                <div class="carousel-caption">
+                  <div class="col-md-8">
+                    <h2>Bli Medlem!</h2>
+                    <h3>Ønsker du å jobbe med denne teknologien?</h3>
+                    <hr/>
+                    <p>Hvis du ønsker å ha stor innvirkning i en voksende studentorganisasjon og jobbe med et høytytende team, start her. Jobb med talentfulle kollegaer på utfordrende problemer som påvirker fremtiden.</p>
+                    <p>Hos UiASub setter vi pris på høy ytelse, frihet og ansvar. Vi fokuserer ikke på regler, prosesser eller prosedyrer. Vi er ærlige og åpne og søker fortreffelighet i alt vi gjør.</p>
+                    <p>Hvis du ønsker å bli en del av vårt team, ikke nøl med å ta <a href="src/pages/contact.html">kontakt med oss</a> eller <a href="https://anon.to/ay32jT" class="btn btn-primary bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Søk her</a></p>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="carousel-image">
+                      <img src="images/carousel/IMG_0096-scaled.jpg" alt="Third Slide Image" style="max-width:400px;" />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -119,113 +131,120 @@
     <!-- Marketing messaging and featurettes
     ================================================== -->
 
-    <div class="container marketing">
+    <div class="container mx-auto px-4 py-12">
 
      <!-- START THE FEATURETTES -->
 
     <div class="col-sm-12">
-      <hr class="featurette-divider">
-      <div class="row featurette">
-        <div class="col-sm-4">
-          <img class="featurette-image img-responsive center-block" src="images/front-icons/491440310_17895485013198102_8891979541426359705_n.jpg" alt="Generic placeholder image 1">
+      <hr class="border-gray-300 my-8">
+      <div class="row featurette flex flex-wrap items-center mb-12">
+        <div class="col-sm-4 flex justify-center">
+          <img class="rounded-lg shadow-lg" src="images/front-icons/491440310_17895485013198102_8891979541426359705_n.jpg" alt="Generic placeholder image 1">
         </div>
-        <div class="col-sm-8">
-          <h2 class="featurette-heading"><a class="nostyle" name="build-and-delivery-tools">K2 ROV</a></h2>
-          <h3>Vår nye ROV</h3>
-          <p class="lead">Dette er vår nye og forbedrede ROV K2. 8 vektoriserte thrustere gjør at ROV-en kan bevege seg med 6 frihetsgrader. Vår Power Unit gjør ROV-en perfekt for lengre undervannsoppdrag, samtidig som den fortsatt kan levere maksimal kraft.</p>
-          <p class="lead">Forventes å være produsert innen 2026</p>
-            <p class="lead">Etter nøye vurdering har vi gått fra tre beholdere til en enkelt sentral beholder på grunn av oppdriftsproblemer. Etter hvert som beholderens radius økte, ble ubalansen mellom oppdrift og vekt mer tydelig. For å løse dette har vi valgt en mer kompakt design. Til tross for denne endringen forblir ROV-ens kjernefunksjonalitet og interne komponenter like pålitelige og effektive.</p>
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-sm-4">
-          <img class="featurette-image img-responsive center-block" src="images/front-icons/NewK2untitled.png" alt="Generic placeholder image 1">
-        </div>
-        <div class="col-sm-8">
-          <h2 class="featurette-heading"><a class="nostyle" name="common-runtime">Common Runtime Services & Libraries</a></h2>
-          <h3>words</h3>
-          <p class="lead">Hva er «TAC Challenge»?</p>
-          <p class="lead">En AUV / ROV-konkurranse for studenter fra hele verden.</p>
-          <p class="lead"> l33t c0d3</p>
+        <div class="col-sm-8 text-white">
+          <h2 class="text-3xl font-bold mb-4"><a class="nostyle" name="build-and-delivery-tools">K2 ROV</a></h2>
+          <h3 class="text-xl font-semibold mb-4">Vår nye ROV</h3>
+          <p class="text-lg leading-relaxed mb-4">Dette er vår nye og forbedrede ROV K2. 8 vektoriserte thrustere gjør at ROV-en kan bevege seg med 6 frihetsgrader. Vår Power Unit gjør ROV-en perfekt for lengre undervannsoppdrag, samtidig som den fortsatt kan levere maksimal kraft.</p>
+          <p class="text-lg leading-relaxed mb-4">Forventes å være produsert innen 2026</p>
+          <p class="text-lg leading-relaxed">Etter nøye vurdering har vi gått fra tre beholdere til en enkelt sentral beholder på grunn av oppdriftsproblemer. Etter hvert som beholderens radius økte, ble ubalansen mellom oppdrift og vekt mer tydelig. For å løse dette har vi valgt en mer kompakt design. Til tross for denne endringen forblir ROV-ens kjernefunksjonalitet og interne komponenter like pålitelige og effektive.</p>
         </div>
       </div>
 
-      <hr class="featurette-divider">
+      <hr class="border-gray-300 my-8">
 
-      <div class="row featurette">
-        <div class="col-sm-4">
-          <img class="featurette-image img-responsive center-block" src="images/carousel/legg-ut-6-scaled.jpg" alt="Placeholder bilde">
+      <div class="row featurette flex flex-wrap items-center mb-12">
+        <div class="col-sm-4 flex justify-center">
+          <img class="rounded-lg shadow-lg" src="images/carousel/legg-ut-6-scaled.jpg" alt="Placeholder bilde">
         </div>
-        <div class="col-sm-8">
-          <h2 class="featurette-heading"><a class="nostyle" name="big-data">Bli med oss!</a></h2>
-          <h3>Exploring the depths, engineering the future</h3>
-          <p class="lead">
+        <div class="col-sm-8 text-white">
+          <h2 class="text-3xl font-bold mb-4"><a class="nostyle" name="big-data">Bli med oss!</a></h2>
+          <h3 class="text-xl font-semibold mb-4">Exploring the depths, engineering the future</h3>
+          <p class="text-lg leading-relaxed mb-4">
         UiASub er en studentdrevet organisasjon dedikert til å fremme undervannsteknologi og utforskning. Vår misjon er å stimulere til innovasjon, samarbeid og utdanning innen marinteknologi og autonome systemer. 
           </p>
-          <p class="lead">
+          <p class="text-lg leading-relaxed mb-4">
           Organisasjonen drives som et selskap og gir verdifull praktisk erfaring for din fremtidige karriere. Vi søker ingeniører, HR- og ledelsestalenter, markedsførings- og mediestudenter med flere.</p>
-          <a href="https://anon.to/ay32jT" class="btn btn-primary">Søk her</a>
+          <a href="https://anon.to/ay32jT" target="_blank" rel="noopener noreferrer" class="btn btn-primary bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Søk her</a>
         </div>
       </div>
 
-      <hr class="featurette-divider">
+      <hr class="border-gray-300 my-8">
 
-      <div class="row featurette">
-        <div class="col-sm-4">
-          <img class="featurette-image img-responsive center-block" src="images/front-icons/ROV-bilde.png" alt="Generic placeholder image 1">
+      <div class="row featurette flex flex-wrap items-center mb-12">
+        <div class="col-sm-4 flex justify-center">
+          <img class="rounded-lg shadow-lg" src="images/front-icons/blob-scene-haikei.png" alt="Generic placeholder image 1">
         </div>
-        <div class="col-sm-8">
-          <h2 class="featurette-heading"><a class="nostyle" name="data-persistence">Data Persistence</a></h2>
-          <h3>the Cloud.</h3>
-          <p class="lead">1.</p>
-          <p class="lead">a.</p>
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-sm-4">
-          <img class="featurette-image img-responsive center-block" src="images/front-icons/ROV-bilde.png" alt="Generic placeholder image 1">
-        </div>
-        <div class="col-sm-8">
-          <h2 class="featurette-heading"><a class="nostyle" name="insight-reliability-performance">Insight, Reliability and Performance</a></h2>
-          <h3> Scale</h3>
-          <p class="lead">telement</p>
-          <p class="lead">huh</p>
-          <p class="lead">B</p>
+        <div class="col-sm-8 text-white">
+          <h2 class="text-3xl font-bold mb-4"><a class="nostyle" name="data-persistence">Partnere</a></h2>
+          <h3 class="text-xl font-semibold mb-4">UiASub kan fortsette på grunn av hjelpen deres.</h3>
+          <ul class="list-disc pl-5">
+        <li><span class="font-medium">IXYS:</span> [Beskrivelse av IXYS]</li>
+        <li><span class="font-medium">Würth Elektronik:</span> [Beskrivelse av Würth Elektronik]</li>
+        <li><span class="font-medium">FFU:</span> [Beskrivelse av FFU]</li>
+          </ul>
+          <div class="mt-2">
+        <a href="/src/pages/sponsors.html" target="_blank" rel="noopener noreferrer" class="btn btn-primary bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Se mer</a>
+          </div>
         </div>
       </div>
 
-      <hr class="featurette-divider">
+      <hr class="border-gray-300 my-8">
 
-      <div class="row featurette">
-        <div class="col-sm-4">
-          <img class="featurette-image img-responsive center-block" src="images/front-icons/ROV-bilde.png" alt="Generic placeholder image 1">
+      <div class="row featurette flex flex-wrap items-center mb-12">
+        <div class="col-sm-4 flex justify-center">
+          <img class="rounded-lg shadow-lg" src="images/front-icons/cropped-TAC-Challenge-test-crop-2.png" alt="Generic placeholder image 1">
         </div>
-        <div class="col-sm-8">
-          <h2 class="featurette-heading"><a class="nostyle" name="security">Security</a></h2>
-          <h3>Defending at Scale</h3>
-          <p class="lead">yes.</p>
-          <p class="lead">long long words</p>
+        <div class="col-sm-8 text-white">
+          <h2 class="text-3xl font-bold mb-4"><a class="nostyle" name="common-runtime">TAC Challenge</a></h2>
+          <h3 class="text-xl font-semibold mb-4">Where concepts meets reality</h3>
+          <p class="text-lg leading-relaxed mb-4">Hva er «TAC Challenge»?</p>
+          <p class="text-lg leading-relaxed">En AUV / ROV-konkurranse for studenter fra hele verden.</p>
+          <p class="text-lg leading-relaxed mb-4">Konkurransen fokuserer på å utvikle innovative løsninger for undervannsoperasjoner, og gir deltakerne muligheten til å teste sine ferdigheter i en realistisk setting.</p>
+          <a href="https://tacchallenge.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Les mer</a>
+        </div>
+      </div>
+
+      <hr class="border-gray-300 my-8">
+
+      <div class="row featurette flex flex-wrap items-center mb-12">
+        <div class="col-sm-4 flex justify-center">
+          <img class="rounded-lg shadow-lg" src="images/front-icons/ROV-bilde.png" alt="Generic placeholder image 1">
+        </div>
+        <div class="col-sm-8 text-white">
+          <h2 class="text-3xl font-bold mb-4"><a class="nostyle" name="insight-reliability-performance">Insight, Reliability and Performance</a></h2>
+          <h3 class="text-xl font-semibold mb-4"> Scale</h3>
+          <p class="text-lg leading-relaxed mb-4">telement</p>
+          <p class="text-lg leading-relaxed mb-4">huh</p>
+          <p class="text-lg leading-relaxed mb-4">B</p>
+        </div>
+      </div>
+
+      <hr class="border-gray-300 my-8">
+
+      <div class="row featurette flex flex-wrap items-center mb-12">
+        <div class="col-sm-4 flex justify-center">
+          <img class="rounded-lg shadow-lg" src="images/front-icons/ROV-bilde.png" alt="Generic placeholder image 1">
+        </div>
+        <div class="col-sm-8 text-white">
+          <h2 class="text-3xl font-bold mb-4"><a class="nostyle" name="security">Security</a></h2>
+          <h3 class="text-xl font-semibold mb-4">Defending at Scale</h3>
+          <p class="text-lg leading-relaxed mb-4">yes.</p>
+          <p class="text-lg leading-relaxed mb-4">long long words</p>
           </p>
         </div>
       </div>
 
-      <hr class="featurette-divider">
+      <hr class="border-gray-300 my-8">
 
-      <div class="row featurette">
-        <div class="col-sm-4">
-          <img class="featurette-image img-responsive center-block" src="images/front-icons/ROV-bilde.png" alt="Generic placeholder image 1">
+      <div class="row featurette flex flex-wrap items-center mb-12">
+        <div class="col-sm-4 flex justify-center">
+          <img class="rounded-lg shadow-lg" src="images/front-icons/ROV-bilde.png" alt="Generic placeholder image 1">
         </div>
-        <div class="col-sm-8">
-          <h2 class="featurette-heading"><a class="nostyle" name="user-interface">User Interface</a></h2>
-          <h3>words words.</h3>
-          <p class="lead">webp.</p>
-          <p class="lead">we</p>
+        <div class="col-sm-8 text-white">
+          <h2 class="text-3xl font-bold mb-4"><a class="nostyle" name="user-interface">User Interface</a></h2>
+          <h3 class="text-xl font-semibold mb-4">words words.</h3>
+          <p class="text-lg leading-relaxed mb-4">webp.</p>
+          <p class="text-lg leading-relaxed mb-4">we</p>
         </div>
       </div>
 
