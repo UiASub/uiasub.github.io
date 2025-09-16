@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="UiASub">
-    <meta name="title" content="UiASub About">
+    <meta name="title" content="UiASub Contact">
     <link rel="shortcut icon" href="/images/uiasub/Icon1.png">
 
-    <title>UiASub About</title>
+    <title>UiASub Contact</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -23,7 +23,7 @@
     <link href="/css/carousel.css" rel="stylesheet">
     <link href="/css/custom.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/waves.css">
-    
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
@@ -33,22 +33,32 @@
     <!--HEADER-->
     <div id="header"></div>
     <script>
-      fetch('/header.html')
+      fetch('../header.html')
         .then(response => response.text())
         .then(data => { document.getElementById('header').innerHTML = data; });
     </script>
 
-    <!-- Om Oss Seksjon -->
+    <!-- Contact Section -->
     <div class="callout">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <h1 class="text-5xl font-bold">Om <span class="text-blue-600">UiASub</span></h1>
-                    <hr class="my-4 border-t-2 border-gray-300">
-                    <p class="text-lg text-gray-500">UiASub dedikerer seg til å fremme undervannsteknologi og innovasjon. Teamet vårt jobber utrettelig for å designe, utvikle og implementere banebrytende løsninger for undervannsutforskning og forskning.</p>
-                </div>
-            </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <h1 class="text-5xl font-bold">Contact <span class="text-blue-600">UiASub</span></h1>
+            <hr class="my-4 border-t-2 border-gray-300">
+            <p class="text-lg text-gray-500">We would love to hear from you! Please contact us via email at 
+              <a href="mailto:uia.submerged@gmail.com" class="text-blue-500 hover:underline">uia.submerged@gmail.com</a> 
+              or follow us on social media:</p>
+            <ul class="list-inline">
+              <li class="list-inline-item mr-3">
+                <a href="https://www.instagram.com/uia.sub/" target="_blank">Instagram</a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://no.linkedin.com/company/uiasub" target="_blank">LinkedIn</a>
+              </li>
+            </ul>
+          </div>
         </div>
+      </div>
     </div>
 
     <div class="wrapper">
@@ -68,7 +78,7 @@
     <!-- FOOTER -->
     <div id="footer"></div>
     <script>
-      fetch('/footer.html')
+      fetch('../footer.html')
         .then(response => response.text())
         .then(data => { document.getElementById('footer').innerHTML = data; });
     </script>
@@ -80,14 +90,5 @@
     <script src="/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="/js/ie10-viewport-bug-workaround.js"></script>
-    <script>
-      window.addEventListener('DOMContentLoaded', function() {
-        const wavesContainer = document.querySelector('.wavesContainer');
-        if (wavesContainer) {
-          wavesContainer.classList.add('flipped'); // Ensure the flipped class is applied
-          console.log('Wave animation initialized and flipped');
-        }
-      });
-    </script>
   </body>
 </html>

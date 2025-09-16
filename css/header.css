@@ -62,3 +62,60 @@
     text-align: left;
   }
 }
+
+.language-selector {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: rgb(175, 184, 226);
+  border: 1px solid #cccccc00;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.076);
+  z-index: 1000;
+  list-style: none;
+  padding: 5px;
+  margin: 0;
+  min-width: 120px;
+}
+
+.dropdown-menu li a {
+  display: flex; /* Ensures the box surrounds the text and aligns items */
+  align-items: center; /* Centers the text and image vertically */
+  padding: 5px 10px; /* Adds padding around the text */
+  min-width: 150px; /* Ensures the box is wide enough for longer text */
+  box-sizing: border-box; /* Includes padding in the width calculation */
+  text-decoration: none;
+  color: black;
+  border-radius: 5px; /* Optional: Adds rounded corners */
+  white-space: nowrap; /* Prevents text wrapping */
+  overflow: hidden; /* Ensures the text stays inside the box */
+  text-overflow: ellipsis; /* Adds ellipsis for overflowing text */
+}
+
+.dropdown-menu li a img {
+  margin-right: 8px; /* space image and text */
+}
+
+.dropdown-menu li a:hover {
+  background-color: #f0f0f0; /* Highlight effect on hover */
+  border-radius: 10x; /* Optional: Adds rounded corners */
+}
+
+.language-selector:hover .dropdown-menu {
+  display: block;
+}
