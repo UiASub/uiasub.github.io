@@ -11,7 +11,7 @@ a.nostyle {
  }
 
 .masthead {
-  margin-top: 32px;
+  margin-top: 0;
   margin-bottom: 32px;
   background-color: #000000;
   -webkit-box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);

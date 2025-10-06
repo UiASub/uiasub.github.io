@@ -9,6 +9,7 @@
     <meta name="title" content="UiASub">
     <link rel="shortcut icon" href="images/uiasub/Icon1.png">
 
+
     <title>UiASub ROV Engineering</title>
 
     <!-- Bootstrap core CSS -->
@@ -26,6 +27,8 @@
     <link rel="stylesheet" href="css/waves.css">
   </head>
 
+  </head>
+  
   <body>
 
     <!--HEADER-->
@@ -33,7 +36,13 @@
     <script>
       fetch('/header.html')
         .then(response => response.text())
-        .then(data => { document.getElementById('header').innerHTML = data; });
+        .then(data => { 
+          document.getElementById('header').innerHTML = data;
+          // Load header behavior script after header is injected
+          var script = document.createElement('script');
+          script.src = '/js/header.js';
+          document.body.appendChild(script);
+        });
     </script>
 
     <!-- Tailwind CSS -->

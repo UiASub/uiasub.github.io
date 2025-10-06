@@ -5,50 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UiASub</title>
     <link rel="stylesheet" href="/css/header.css">
-    <link href="css/custom.css" rel="stylesheet">
+    <link href="/css/custom.css" rel="stylesheet">
 </head>
 <body>
     <div class="masthead">
-      <div class="container" style="display: flex; align-items: center; justify-content: space-between;">
-        <div class="logo col-xs-6">
-      <a href="/"><img id="logo" src="/images/uiasub/Ui-White.png" style="max-width: 350px; transition: all 0.3s ease;" /></a>
+      <div class="logo-language-container">
+        <div class="logo">
+          <a href="/"><img id="logo" src="/images/uiasub/Ui-White.png" alt="UiASub Logo" /></a>
         </div>
-        <div class="navigation col-xs-6" style="display: flex; align-items: center; justify-content: center;">
-          <a href="/src/pages/about.html" style="margin-right: 25px;">Om oss</a>
-          <a href="/src/pages/contact.html" style="margin-right: 25px;">Kontakt oss</a>
-          <a href="/src/pages/sponsors.html" style="margin-right: 25px;">Sponsorer</a>
-          <div class="language-selector" style="margin-right: 25px;">
-            <button class="dropdown-toggle">
-              <img src="/images/no.svg" alt="Norwegian" style="width: 24px; height: 24px;">
-            </button>
-            <ul class="dropdown-menu">
-              <li>
-                <a href="/">
-                  <img src="/images/no.svg" alt="Norwegian" style="width: 24px; height: 24px;"> Norsk
-                </a>
-              </li>
-              <li>
-                <a href="/src/en/">
-                  <img src="/images/gb.svg" alt="English" style="width: 24px; height: 24px;"> English
-                </a>
-              </li>
-            </ul>
-          </div>
+        <div class="language-selector">
+          <button class="dropdown-toggle">
+            <img src="/images/no.svg" alt="Norwegian" style="width: 20px; height: 20px;">
+          </button>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="/">
+                <img src="/images/no.svg" alt="Norwegian" style="width: 20px; height: 20px;"> Norsk
+              </a>
+            </li>
+            <li>
+              <a href="/src/en/">
+                <img src="/images/gb.svg" alt="English" style="width: 20px; height: 20px;"> English
+              </a>
+            </li>
+          </ul>
         </div>
+      </div>
+      <div class="navigation">
+        <a href="/src/pages/about.html">Om oss</a>
+        <a href="/src/pages/contact.html">Kontakt oss</a>
+        <a href="/src/pages/sponsors.html">Sponsorer</a>
       </div>
     </div>
     <div class="masthead-border"></div>
-
-    <script>
-      window.addEventListener('scroll', function() {
-        const logo = document.getElementById('logo');
-        if (window.scrollY > 50) {
-          logo.style.maxWidth = '200px';
-        } else {
-          logo.style.maxWidth = '350px';
-        }
-      });
-    </script>
-    <script src="js/header.js"></script>
 </body>
 </html>
