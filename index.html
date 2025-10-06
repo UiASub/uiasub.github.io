@@ -38,39 +38,11 @@
         .then(response => response.text())
         .then(data => { 
           document.getElementById('header').innerHTML = data;
-          
-          // Initialize scroll functionality after header is loaded
-          const logo = document.getElementById('logo');
-          if (logo) {
-            window.addEventListener('scroll', function() {
-              if (window.scrollY > 50) {
-                logo.style.maxWidth = '180px';
-              } else {
-                logo.style.maxWidth = '280px';
-              }
-            });
-          }
-          
-          // Initialize dropdown functionality
-          initializeDropdown();
+          // Load header behavior script after header is injected
+          var script = document.createElement('script');
+          script.src = '/js/header.js';
+          document.body.appendChild(script);
         });
-      
-      function initializeDropdown() {
-        const toggle = document.querySelector('.dropdown-toggle');
-        const menu = document.querySelector('.dropdown-menu');
-        
-        if (toggle && menu) {
-          toggle.addEventListener('click', () => {
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-          });
-
-          document.addEventListener('click', (e) => {
-            if (!toggle.contains(e.target) && !menu.contains(e.target)) {
-              menu.style.display = 'none';
-            }
-          });
-        }
-      }
     </script>
 
     <!-- Tailwind CSS -->
