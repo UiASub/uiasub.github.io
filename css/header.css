@@ -237,9 +237,9 @@
   background-color: #f0f0f0;
 }
 
-.language-selector:hover .dropdown-menu {
+/* .language-selector:hover .dropdown-menu {
   display: block;
-}
+} */
 
 /* Mobile dropdown adjustments */
 @media screen and (max-width: 768px) {
