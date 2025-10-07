@@ -4,6 +4,13 @@
   padding: 0 !important;
 }
 
+/* Prevent FOUC (Flash of Unstyled Content) */
+.masthead .logo img {
+  max-width: 280px !important;
+  height: auto !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 /* Responsive Header Styles */
 .masthead {
   background-color: #000000;
@@ -237,9 +244,9 @@
   background-color: #f0f0f0;
 }
 
-/* .language-selector:hover .dropdown-menu {
-  display: block;
-} */
+.language-selector:hover .dropdown-menu {
+  display: block !important;
+}
 
 /* Mobile dropdown adjustments */
 @media screen and (max-width: 768px) {

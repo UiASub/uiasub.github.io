@@ -1,21 +1,15 @@
 .footer {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
 }
 
 .footer .container {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-}
-
-.footer-sub {
-  margin-right: 20px;
-  flex: 1 1 100%;
-  text-align: center;
 }
 
 .footer ul {
@@ -24,15 +18,10 @@
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
 }
 
 .footer ul li {
   margin-right: 10px;
-}
-
-.footer a {
-  margin-left: 20px;
 }
 
 .footer img {
@@ -42,69 +31,97 @@
 
 .footer p {
   margin: 0;
-  margin-left: 10px;
 }
 
 @media (max-width: 768px) {
   .footer {
     flex-direction: column;
     align-items: center;
+    padding: 15px 10px;
   }
 
   .footer .container {
     flex-direction: column;
     align-items: center;
-  }
-
-  .footer-sub {
-    margin-right: 0;
-    text-align: center;
-  }
-
-  .footer ul {
-    justify-content: center;
-  }
-
-  .footer a {
-    margin-left: 0;
-  }
-}
-
-@media (min-width: 1024px) {
-  .footer {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-  }
-
-  .footer .container {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
     width: 100%;
   }
 
+  .footer-left {
+    margin-right: 0 !important;
+    margin-bottom: 15px;
+    text-align: center;
+    flex-direction: column !important;
+  }
+
   .footer-sub {
-    flex: 0 0 auto;
-    text-align: left;
-    margin-right: auto;
+    margin-right: 0 !important;
+    margin-bottom: 10px !important;
+    text-align: center;
+    font-size: 14px;
   }
 
   .footer ul {
     justify-content: center;
-    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 8px;
   }
 
   .footer ul li {
-    margin-right: 15px;
+    margin-right: 8px;
+    margin-bottom: 5px;
   }
 
-  .footer a {
-    margin-left: auto;
+  .footer ul li a {
+    font-size: 14px;
+    padding: 5px 8px;
+    display: inline-block;
   }
 
-  .footer img {
-    margin-left: 10px;
+  .footer-right {
+    margin-top: 10px;
+    flex-direction: row !important;
+    align-items: center;
+  }
+
+  .footer-right img {
+    width: 18px;
+    margin-right: 8px !important;
+  }
+
+  .footer-right p {
+    font-size: 12px;
+    margin: 0 !important;
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 480px) {
+  .footer {
+    padding: 12px 8px;
+  }
+
+  .footer-sub {
+    font-size: 13px !important;
+  }
+
+  .footer ul li a {
+    font-size: 13px;
+    padding: 4px 6px;
+  }
+
+  .footer ul {
+    gap: 6px;
+  }
+
+  .footer ul li {
+    margin-right: 6px;
+  }
+
+  .footer-right img {
+    width: 16px;
+  }
+
+  .footer-right p {
+    font-size: 11px;
   }
 }

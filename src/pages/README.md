@@ -1,13 +1,10 @@
 For pages
 
 # Header
+
     <!--HEADER-->
     <div id="header"></div>
-    <script>
-      fetch('/header.html')
-        .then(response => response.text())
-        .then(data => { document.getElementById('header').innerHTML = data; });
-    </script>
+    <script src="/js/header.js"></script>
 
 # Footer
     <!-- FOOTER -->

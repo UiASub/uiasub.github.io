@@ -45,10 +45,47 @@ body {
 .carousel-caption {
   z-index: 10;
   text-align: left;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row; /* or column if you want vertical stacking */
+  display: block !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: auto !important;
+  transform: translate(-50%, -50%) !important;
+  width: 90% !important;
+  max-width: 1200px !important;
+  padding: 20px !important;
+}
+
+/* Custom layout using CSS Grid */
+.carousel-caption {
+  display: grid !important;
+  grid-template-columns: 1fr auto !important;
+  gap: 60px !important;
+  align-items: center !important;
+}
+
+/* Custom grid layout for carousel content */
+.carousel-caption .carousel-text {
+  grid-column: 1 !important;
+  max-width: 500px !important;
+  margin: 0 !important;
+}
+
+.carousel-caption .carousel-image-container {
+  grid-column: 2 !important;
+  justify-self: end !important;
+  margin: 0 !important;
+  transform: translateX(40px) !important;
+}
+
+/* Override any Bootstrap column styles in carousel */
+.carousel-caption .col-md-4,
+.carousel-caption .col-md-8 {
+  position: static !important;
+  float: none !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
 /* Declare heights because of positioning of img element */
@@ -56,6 +93,12 @@ body {
   height: 520px;
   background-color: #060607;
 }
+
+/* Reduce carousel control width to prevent overlap with buttons */
+.carousel-control {
+  width: 10% !important;
+}
+
 .carousel-inner > .item > img {
   position: absolute;
   top: 0;
@@ -139,5 +182,147 @@ body {
 @media (min-width: 992px) {
   .featurette-heading {
     margin-top: 120px;
+  }
+}
+
+/* MOBILE CAROUSEL STYLES
+-------------------------------------------------- */
+
+/* Mobile styles for carousel - stack content vertically */
+@media (max-width: 767px) {
+  /* Reduce carousel height on mobile */
+  .carousel {
+    height: auto;
+    min-height: 400px;
+  }
+  
+  .carousel .item {
+    height: auto;
+    min-height: 400px;
+    padding: 20px 0;
+  }
+  
+  /* Stack carousel content vertically on mobile */
+  .carousel-caption {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: none !important;
+    gap: 20px !important;
+    position: static !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: none !important;
+    padding: 20px 15px !important;
+    text-align: center !important;
+  }
+  
+  /* Text content on mobile */
+  .carousel-caption .carousel-text {
+    grid-column: auto !important;
+    max-width: none !important;
+    margin: 0 0 20px 0 !important;
+    order: 2;
+  }
+  
+  /* Image container on mobile */
+  .carousel-caption .carousel-image-container {
+    grid-column: auto !important;
+    justify-self: center !important;
+    margin: 0 auto 20px auto !important;
+    transform: none !important;
+    order: 1;
+    text-align: center;
+  }
+  
+  /* Responsive images on mobile */
+  .carousel-caption .carousel-image img {
+    max-width: 280px !important;
+    width: 90% !important;
+    height: auto !important;
+  }
+  
+  /* Mobile typography adjustments */
+  .carousel-caption h2 {
+    font-size: 24px !important;
+    margin-bottom: 10px !important;
+  }
+  
+  .carousel-caption h3 {
+    font-size: 18px !important;
+    margin-bottom: 15px !important;
+  }
+  
+  .carousel-caption p {
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+    margin-bottom: 12px !important;
+  }
+  
+  /* Adjust carousel controls for mobile */
+  .carousel-control {
+    width: 8% !important;
+  }
+  
+  .carousel-control .glyphicon-chevron-left,
+  .carousel-control .glyphicon-chevron-right {
+    font-size: 20px !important;
+  }
+  
+  /* Hide carousel indicators on very small screens */
+  .carousel-indicators {
+    bottom: 10px !important;
+  }
+  
+  .carousel-indicators li {
+    width: 8px !important;
+    height: 8px !important;
+    margin: 0 3px !important;
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+  .carousel {
+    min-height: 350px;
+  }
+  
+  .carousel .item {
+    min-height: 350px;
+  }
+  
+  .carousel-caption {
+    padding: 15px 10px !important;
+  }
+  
+  .carousel-caption h2 {
+    font-size: 20px !important;
+  }
+  
+  .carousel-caption h3 {
+    font-size: 16px !important;
+  }
+  
+  .carousel-caption p {
+    font-size: 13px !important;
+  }
+  
+  .carousel-caption .carousel-image img {
+    max-width: 240px !important;
+  }
+}
+
+/* Tablet styles */
+@media (min-width: 768px) and (max-width: 991px) {
+  .carousel-caption {
+    gap: 40px !important;
+    padding: 15px !important;
+  }
+  
+  .carousel-caption .carousel-image-container {
+    transform: translateX(20px) !important;
+  }
+  
+  .carousel-caption .carousel-image img {
+    max-width: 350px !important;
   }
 }
