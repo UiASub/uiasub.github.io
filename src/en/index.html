@@ -1,288 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        <meta name="description" content="Next generation ROV engineering">
-        <meta name="title" content="UiASub">
-        <link rel="shortcut icon" href="/images/uiasub/Icon1.png">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="Next generation ROV engineering">
+    <meta name="title" content="UiASub">
+    <link rel="shortcut icon" href="/images/uiasub/Icon1.png">
 
-        <title>UiASub ROV Engineering</title>
 
-        <!-- Bootstrap core CSS -->
-        <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <title>UiASub ROV Engineering</title>
 
-        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
 
-        <!-- Custom styles for this template -->
-        <link href="/css/carousel.css" rel="stylesheet">
-        <link href="/css/custom.css" rel="stylesheet">
-        <link rel="stylesheet" href="/css/waves.css">
-    </head>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
-    <body>
+    <!-- Custom styles for this template -->
+    <link href="/css/carousel.css" rel="stylesheet">
+    <link href="/css/custom.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/waves.css">
+  </head>
 
-        <!--HEADER-->
-        <div id="header"></div>
-        <script>
-            fetch('header.html')
-                .then(response => response.text())
-                .then(data => { document.getElementById('header').innerHTML = data; });
-        </script>
+  
+  <body>
 
-        <!-- Tailwind CSS -->
-        <script src="https://cdn.tailwindcss.com"></script>
+    <!--HEADER-->
+    <div id="header-eng"></div>
+    <script src="/js/header.js"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
         <!-- Carousel
-        ================================================== -->
-        <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="8500">
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner" role="listbox">
-                <div class="item active">
-                    <div class="first-slide" style="background: url('/images/infrastructure/layered-waves-haikei.svg') no-repeat center center; background-size: cover; height: 520px; width: 100%; position: relative;">
-                        <div class="foreground" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10;">
-                            <div class="container">
-                                <div class="carousel-caption">
-                                    <div class="col-md-8">
-                                        <h2>Who are we?</h2>
-                                        <h3>Exploring the depths, engineering the future!</h3>
-                                        <hr/>
-                                        <p>UiASub is a student organization at the University of Agder that brings together students with an interest in technology, innovation, and maritime development.</p>
-                                        <p>We work on projects in underwater robotics and modern underwater technology.</p>
-                                        <p>Through interdisciplinary collaboration, we explore solutions in underwater robotics and modern underwater technology.</p>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="carousel-image">
-                                            <img src="/images/carousel/legg-ut-6-scaled.jpg" alt="First Slide Image" style="max-width:400px;" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+    ================================================== -->
+  <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="14000"> <!-- Speed for movement of slide-->
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <div class="first-slide" style="background: url('/images/infrastructure/layered-waves-haikei_1.svg') no-repeat center center; background-size: cover; height: 520px; width: 100%; position: relative;">
+            <div class="foreground" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10;">
+              <div class="container">
+                <div class="carousel-caption">
+                  <div class="carousel-text" style="margin-right: 60px; margin-top: 30px;">
+                    <h2>Who are we?</h2>
+                    <h3>Exploring the depths, engineering the future!</h3>
+                    <hr/>
+                    <p>UiASub is a student organization at the University of Agder that brings together students with an interest in technology, innovation and maritime development.</p>
+                    <p>We work with projects in underwater robotics and modern underwater technology.</p>
+                    <p>Through collaboration across disciplines, we explore solutions in underwater robotics and modern underwater technology.</p>
+                  </div>
+                  <div class="carousel-image-container" style="margin-left: 100px;">
+                    <div class="carousel-image">
+                      <img src="/images/carousel/legg-ut-6-scaled.jpg" alt="First Slide Image" style="max-width:400px;" />
                     </div>
+                  </div>
                 </div>
-                <div class="item">
-                    <div class="second-slide" style="background: url('/images/infrastructure/layered-waves-haikei.svg') no-repeat center center; background-size: cover; height: 520px; width: 100%; position: relative;">
-                        <div class="foreground" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10;">
-                            <div class="container">
-                                <div class="carousel-caption">
-                                    <div class="col-md-8 modern-section">
-                                        <h2 class="modern-headline">What do we offer?</h2>
-                                        <h3 class="modern-subheading">Discover new horizons in underwater technology</h3>
-                                        <hr class="modern-divider"/>
-                                        <p class="modern-text">As a member of UiASub, you have the opportunity to engage in innovative projects that seamlessly combine hands-on work with groundbreaking research. We create innovative solutions for the challenges that lie beneath the ocean's surface.</p>
-                                        <p class="modern-text">Membership opens the door to exclusive workshops, networking opportunities with leading industry professionals, and an inspiring community, all designed to enhance both your technical expertise and career opportunities.</p>
-                                        <p class="modern-text">It's not just about groundbreaking underwater technology, but also about building a solid community and network that supports you on the path to the future.</p>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="carousel-image">
-                                            <img src="/images/front-icons/IMG_4896-scaled.jpg" alt="Second Slide Image" style="max-width:480px;"/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="third-slide" style="background: url('/images/infrastructure/layered-waves-haikei.svg') no-repeat center center; background-size: cover; height: 520px; width: 100%; position: relative;">
-                        <div class="foreground" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10;">
-                            <div class="container">
-                                <div class="carousel-caption">
-                                    <div class="col-md-8">
-                                        <h2>Become a Member!</h2>
-                                        <h3>Do you want to work with this technology?</h3>
-                                        <hr/>
-                                        <p>If you want to have a significant impact in a growing student organization and work with a high-performing team, start here. Work with talented colleagues on challenging problems that affect the future.</p>
-                                        <p>At UiASub, we value high performance, freedom, and responsibility. We do not focus on rules, processes, or procedures. We are honest and open and strive for excellence in everything we do.</p>
-                                        <p>If you want to become part of our team, do not hesitate to <a href="/src/pages/contact.html">contact us</a> or <a href="https://anon.to/ay32jT" class="btn btn-primary bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">apply here</a></p>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="carousel-image">
-                                            <img src="/images/carousel/IMG_0096-scaled.jpg" alt="Third Slide Image" style="max-width:400px;" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
-            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div><!-- /.carousel -->
-
-        <!-- Marketing messaging and featurettes
-        ================================================== -->
-
-        <div class="container mx-auto px-4 py-12">
-
-            <!-- START THE FEATURETTES -->
-
-            <div class="col-sm-12">
-                <hr class="border-gray-300 my-8">
-                <div class="row featurette flex flex-wrap items-center mb-12">
-                    <div class="col-sm-4 flex justify-center">
-                        <img class="rounded-lg shadow-lg" src="/images/front-icons/491440310_17895485013198102_8891979541426359705_n.jpg" alt="Generic placeholder image 1">
+          </div>
+        </div>
+        <div class="item">
+          <div class="second-slide" style="background: url('/images/infrastructure/layered-waves-haikei_1.svg') no-repeat center center; background-size: cover; height: 520px; width: 100%; position: relative;">
+            <div class="foreground" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10;">
+              <div class="container">
+                <div class="carousel-caption">
+                  <div class="carousel-text modern-section">
+                    <h2 class="modern-headline">What do we offer?</h2>
+                    <h3 class="modern-subheading">Discover new horizons in underwater technology</h3>
+                    <hr class="modern-divider"/>
+                    <p class="modern-text">As a member of UiASub, you get the opportunity to engage in innovative projects that seamlessly combine practical work with cutting-edge research. We create innovative solutions to the challenges found beneath the ocean surface.</p>
+                    <p class="modern-text">Membership opens the door to exclusive workshops, networking opportunities with leading industry professionals and an inspiring community, all designed to strengthen both your technical expertise and career opportunities.</p>
+                    <p class="modern-text">It's not just about groundbreaking underwater technology, but also about building a solid community and a network that supports you on the path to the future.</p>
+                  </div>
+                  <div class="carousel-image-container">
+                    <div class="carousel-image">
+                      <img src="/images/front-icons/IMG_4896-scaled.jpg" alt="Second Slide Image" style="max-width:450px;"/>
                     </div>
-                    <div class="col-sm-8 text-white">
-                        <h2 class="text-3xl font-bold mb-4"><a class="nostyle" name="build-and-delivery-tools">K2 ROV</a></h2>
-                        <h3 class="text-xl font-semibold mb-4">Our new ROV</h3>
-                        <p class="text-lg leading-relaxed mb-4">This is our new and improved ROV K2. 8 vectorized thrusters allow the ROV to move with 6 degrees of freedom. Our Power Unit makes the ROV perfect for longer underwater missions while still delivering maximum power.</p>
-                        <p class="text-lg leading-relaxed mb-4">Expected to be produced by 2026</p>
-                        <p class="text-lg leading-relaxed">After careful consideration, we moved from three containers to a single central container due to buoyancy issues. As the container's radius increased, the imbalance between buoyancy and weight became more apparent. To resolve this, we opted for a more compact design. Despite this change, the core functionality and internal components of the ROV remain as reliable and efficient as before.</p>
-                    </div>
+                  </div>
                 </div>
-
-                <hr class="border-gray-300 my-8">
-
-                <div class="row featurette flex flex-wrap items-center mb-12">
-                    <div class="col-sm-4 flex justify-center">
-                        <img class="rounded-lg shadow-lg" src="/images/carousel/legg-ut-6-scaled.jpg" alt="Placeholder image">
-                    </div>
-                    <div class="col-sm-8 text-white">
-                        <h2 class="text-3xl font-bold mb-4"><a class="nostyle" name="big-data">Join Us!</a></h2>
-                        <h3 class="text-xl font-semibold mb-4">Exploring the depths, engineering the future</h3>
-                        <p class="text-lg leading-relaxed mb-4">
-                            UiASub is a student-run organization dedicated to promoting underwater technology and exploration. Our mission is to stimulate innovation, collaboration, and education in marine technology and autonomous systems.
-                        </p>
-                        <p class="text-lg leading-relaxed mb-4">
-                            The organization is run like a company and provides valuable hands-on experience for your future career. We are looking for engineers, HR and leadership talents, marketing and media students, among others.
-                        </p>
-                        <a href="https://anon.to/ay32jT" target="_blank" rel="noopener noreferrer" class="btn btn-primary bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">apply here</a>
-                    </div>
-                </div>
-
-                <hr class="border-gray-300 my-8">
-
-                <div class="row featurette flex flex-wrap items-center mb-12">
-                    <div class="col-sm-4 flex justify-center">
-                        <img class="rounded-lg shadow-lg" src="/images/front-icons/blob-scene-haikei.png" alt="Generic placeholder image 1">
-                    </div>
-                    <div class="col-sm-8 text-white">
-                        <h2 class="text-3xl font-bold mb-4"><a class="nostyle" name="data-persistence">Partners</a></h2>
-                        <h3 class="text-xl font-semibold mb-4">UiASub can continue thanks to their support.</h3>
-                        <ul class="list-disc pl-5">
-                            <li><span class="font-medium">IXYS:</span> Supplies advanced control systems and components for underwater, surface, air, and space applications.</li>
-                            <li><span class="font-medium">Würth Elektronik:</span> Offers a wide range of electronic components and solutions for various industries.</li>
-                            <li><span class="font-medium">FFU:</span> Specializes in advanced underwater technology and solutions for marine research and exploration.</li>
-                        </ul>
-                        <div class="mt-2">
-                            <a href="/src/pages/sponsors.html" target="_blank" rel="noopener noreferrer" class="btn btn-primary bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">See more</a>
-                        </div>
-                    </div>
-                </div>
-
-                <hr class="border-gray-300 my-8">
-
-                <div class="row featurette flex flex-wrap items-center mb-12">
-                    <div class="col-sm-4 flex justify-center">
-                        <img class="rounded-lg shadow-lg" src="/images/front-icons/cropped-TAC-Challenge-test-crop-2.png" alt="Generic placeholder image 1">
-                    </div>
-                    <div class="col-sm-8 text-white">
-                        <h2 class="text-3xl font-bold mb-4"><a class="nostyle" name="common-runtime">TAC Challenge</a></h2>
-                        <h3 class="text-xl font-semibold mb-4">Where concepts meets reality</h3>
-                        <p class="text-lg leading-relaxed mb-4">What is "TAC Challenge"?</p>
-                        <p class="text-lg leading-relaxed">An AUV/ROV competition for students from around the world.</p>
-                        <p class="text-lg leading-relaxed mb-4">The competition focuses on developing innovative solutions for underwater operations and gives participants the opportunity to test their skills in a realistic setting.</p>
-                        <a href="https://tacchallenge.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Learn more</a>
-                    </div>
-                </div>
-
-                <hr class="border-gray-300 my-8">
-
-                <div class="row featurette flex flex-wrap items-center mb-12">
-                    <div class="col-sm-4 flex justify-center">
-                        <img class="rounded-lg shadow-lg" src="/images/front-icons/ROV-bilde.png" alt="Generic placeholder image 1">
-                    </div>
-                    <div class="col-sm-8 text-white">
-                        <h2 class="text-3xl font-bold mb-4"><a class="nostyle" name="insight-reliability-performance">Insight, Reliability and Performance</a></h2>
-                        <h3 class="text-xl font-semibold mb-4">Scale</h3>
-                        <p class="text-lg leading-relaxed mb-4">telement</p>
-                        <p class="text-lg leading-relaxed mb-4">huh</p>
-                        <p class="text-lg leading-relaxed mb-4">B</p>
-                    </div>
-                </div>
-
-                <hr class="border-gray-300 my-8">
-
-                <div class="row featurette flex flex-wrap items-center mb-12">
-                    <div class="col-sm-4 flex justify-center">
-                        <img class="rounded-lg shadow-lg" src="/images/front-icons/ROV-bilde.png" alt="Generic placeholder image 1">
-                    </div>
-                    <div class="col-sm-8 text-white">
-                        <h2 class="text-3xl font-bold mb-4"><a class="nostyle" name="security">Security</a></h2>
-                        <h3 class="text-xl font-semibold mb-4">Defending at Scale</h3>
-                        <p class="text-lg leading-relaxed mb-4">yes.</p>
-                        <p class="text-lg leading-relaxed mb-4">long long words</p>
-                    </div>
-                </div>
-
-                <hr class="border-gray-300 my-8">
-
-                <div class="row featurette flex flex-wrap items-center mb-12">
-                    <div class="col-sm-4 flex justify-center">
-                        <img class="rounded-lg shadow-lg" src="/images/front-icons/ROV-bilde.png" alt="Generic placeholder image 1">
-                    </div>
-                    <div class="col-sm-8 text-white">
-                        <h2 class="text-3xl font-bold mb-4"><a class="nostyle" name="user-interface">User Interface</a></h2>
-                        <h3 class="text-xl font-semibold mb-4">words words.</h3>
-                        <p class="text-lg leading-relaxed mb-4">webp.</p>
-                        <p class="text-lg leading-relaxed mb-4">we</p>
-                    </div>
-                </div>
-
+              </div>
             </div>
-
+          </div>
         </div>
-        
-        <!-- /.container -->
-        
-        <div class="wrapper">
-            <svg class="wavesContainer flipped" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-                <defs>
-                    <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
-                </defs>
-                <g class="parallax">
-                    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(0,95,153,0.8)"></use>
-                    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(0,95,153,0.6)"></use>
-                    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(0,95,153,0.4)"></use>
-                    <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(0,95,153,0.2)"></use>
-                </g>
-            </svg>
+        <div class="item">
+          <div class="third-slide" style="background: url('/images/infrastructure/layered-waves-haikei_1.svg') no-repeat center center; background-size: cover; height: 520px; width: 100%; position: relative;">
+            <div class="foreground" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10;">
+              <div class="container">
+                <div class="carousel-caption">
+                  <div class="carousel-text">
+                    <h2>Become a Member!</h2>
+                    <h3>Do you want to work with this technology?</h3>
+                    <hr/>
+                    <p>If you want to have a major impact in a growing student organization and work with a high-performing team, start here. Work with talented colleagues on challenging problems that affect the future.</p>
+                    <p>At UiASub we value high performance, freedom and responsibility. We don't focus on rules, processes or procedures. We are honest and open and seek excellence in everything we do.</p>
+                    <p>If you want to become part of our team, don't hesitate to <a href="/src/en/pages/contact">contact us</a> or <a href="https://anon.to/ay32jT" class="btn btn-primary bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Apply here</a></p>
+                  </div>
+                  <div class="carousel-image-container">
+                    <div class="carousel-image">
+                      <img src="/images/carousel/IMG_0096-scaled.jpg" alt="Third Slide Image" style="max-width:400px;" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+    <!-- /.carousel -->
 
-        <!-- FOOTER -->
-        <div id="footer"></div>
-        <script>
-            fetch('footer.html')
-                .then(response => response.text())
-                .then(data => { document.getElementById('footer').innerHTML = data; });
-        </script>
+    <!--  featurettes
+    ================================================== -->
 
-        <!-- Bootstrap core JavaScript
-        ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <script src="/js/bootstrap.min.js"></script>
-        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        <script src="/js/ie10-viewport-bug-workaround.js"></script>
-        <script src="/js/waves.js"></script>
-    </body>
+    <div class="container mx-auto px-4 py-12">
+
+     <!-- START THE FEATURETTES -->
+
+    <div class="col-sm-12">
+      <hr class="border-gray-300 my-8">
+      <div class="row featurette flex flex-wrap items-center mb-12">
+        <div class="col-sm-4 flex justify-center">
+          <img class="rounded-lg shadow-lg" src="/images/front-icons/491440310_17895485013198102_8891979541426359705_n.jpg" alt="Generic placeholder image 1">
+        </div>
+        <div class="col-sm-8 text-white">
+          <h2 class="text-3xl font-bold mb-4"><a class="nostyle" name="build-and-delivery-tools">K2 ROV</a></h2>
+          <h3 class="text-xl font-semibold mb-4">Our new ROV</h3>
+          <p class="text-lg leading-relaxed mb-4">This is our new and improved ROV K2. 8 vectorized thrusters allow the ROV to move with 6 degrees of freedom. Our Power Unit makes the ROV perfect for longer underwater missions, while still being able to deliver maximum power.</p>
+          <p class="text-lg leading-relaxed mb-4">Expected to be produced by 2026</p>
+          <p class="text-lg leading-relaxed">After careful consideration, we have gone from three containers to a single central container due to buoyancy issues. As the container's radius increased, the imbalance between buoyancy and weight became more apparent. To solve this, we have chosen a more compact design. Despite this change, the ROV's core functionality and internal components remain equally reliable and efficient.</p>
+        </div>
+      </div>
+
+      <hr class="border-gray-300 my-8">
+
+      <div class="row featurette flex flex-wrap items-center mb-12">
+        <div class="col-sm-4 flex justify-center">
+          <img class="rounded-lg shadow-lg" src="/images/carousel/legg-ut-6-scaled.jpg" alt="Placeholder image">
+        </div>
+        <div class="col-sm-8 text-white">
+          <h2 class="text-3xl font-bold mb-4"><a class="nostyle" name="big-data">Join us!</a></h2>
+          <h3 class="text-xl font-semibold mb-4">Exploring the depths, engineering the future</h3>
+          <p class="text-lg leading-relaxed mb-4">
+        UiASub is a student-driven organization dedicated to advancing underwater technology and exploration. Our mission is to stimulate innovation, collaboration and education in marine technology and autonomous systems.
+          </p>
+          <p class="text-lg leading-relaxed mb-4">
+          The organization is run like a company and provides valuable practical experience for your future career. We are looking for engineers, HR and management talents, marketing and media students and more.</p>
+          <a href="https://anon.to/ay32jT" target="_blank" rel="noopener noreferrer" class="btn btn-primary bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Apply here</a>
+        </div>
+      </div>
+
+      <hr class="border-gray-300 my-8">
+
+      <div class="row featurette flex flex-wrap items-center mb-12">
+        <div class="col-sm-4 flex justify-center">
+          <img class="rounded-lg shadow-lg" src="/images/front-icons/blob-scene-haikei.png" alt="Generic placeholder image 1">
+        </div>
+        <div class="col-sm-8 text-white">
+          <h2 class="text-3xl font-bold mb-4"><a class="nostyle" name="data-persistence">Partners</a></h2>
+          <h3 class="text-xl font-semibold mb-4">UiASub can continue because of their help.</h3>
+          <ul class="list-disc pl-5">
+        <li><span class="font-medium">IXYS:</span> Provides advanced control systems and components for underwater, surface, air and space applications.</li>
+        <li><span class="font-medium">Würth Elektronik:</span> Offers a wide range of electronic components and solutions for various industries.</li>
+        <li><span class="font-medium">FFU:</span> Specializes in advanced underwater technology and solutions for marine research and exploration.</li>
+          </ul>
+          <div class="mt-2">
+        <a href="/src/en/pages/sponsors" target="_blank" rel="noopener noreferrer" class="btn btn-primary bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Learn more</a>
+          </div>
+        </div>
+      </div>
+
+      <hr class="border-gray-300 my-8">
+
+      <div class="row featurette flex flex-wrap items-center mb-12">
+        <div class="col-sm-4 flex justify-center">
+          <img class="rounded-lg shadow-lg" src="/images/front-icons/cropped-TAC-Challenge-test-crop-2.png" alt="Generic placeholder image 1">
+        </div>
+        <div class="col-sm-8 text-white">
+          <h2 class="text-3xl font-bold mb-4"><a class="nostyle" name="common-runtime">TAC Challenge</a></h2>
+          <h3 class="text-xl font-semibold mb-4">Where concepts meets reality</h3>
+          <p class="text-lg leading-relaxed mb-4">What is "TAC Challenge"?</p>
+          <p class="text-lg leading-relaxed">An AUV / ROV competition for students from around the world.</p>
+          <p class="text-lg leading-relaxed mb-4">The competition focuses on developing innovative solutions for underwater operations, giving participants the opportunity to test their skills in a realistic setting.</p>
+          <a href="https://tacchallenge.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Read more</a>
+        </div>
+      </div>
+
+<!--      <hr class="border-gray-300 my-8">
+
+      <div class="row featurette flex flex-wrap items-center mb-12">
+        <div class="col-sm-4 flex justify-center">
+          <img class="rounded-lg shadow-lg" src="/images/front-icons/ROV-bilde.png" alt="Generic placeholder image 1">
+        </div>
+        <div class="col-sm-8 text-white">
+          <h2 class="text-3xl font-bold mb-4"><a class="nostyle" name="insight-reliability-performance">Insight, Reliability and Performance</a></h2>
+          <h3 class="text-xl font-semibold mb-4"> Scale</h3>
+          <p class="text-lg leading-relaxed mb-4">telement</p>
+          <p class="text-lg leading-relaxed mb-4">huh</p>
+          <p class="text-lg leading-relaxed mb-4">B</p>
+        </div>
+      </div>
+
+      <hr class="border-gray-300 my-8">
+
+      <div class="row featurette flex flex-wrap items-center mb-12">
+        <div class="col-sm-4 flex justify-center">
+          <img class="rounded-lg shadow-lg" src="/images/front-icons/ROV-bilde.png" alt="Generic placeholder image 1">
+        </div>
+        <div class="col-sm-8 text-white">
+          <h2 class="text-3xl font-bold mb-4"><a class="nostyle" name="security">Security</a></h2>
+          <h3 class="text-xl font-semibold mb-4">Defending at Scale</h3>
+          <p class="text-lg leading-relaxed mb-4">yes.</p>
+          <p class="text-lg leading-relaxed mb-4">long long words</p>
+        </div>
+      </div>
+
+      <hr class="border-gray-300 my-8">
+
+      <div class="row featurette flex flex-wrap items-center mb-12">
+        <div class="col-sm-4 flex justify-center">
+          <img class="rounded-lg shadow-lg" src="/images/front-icons/ROV-bilde.png" alt="Generic placeholder image 1">
+        </div>
+        <div class="col-sm-8 text-white">
+          <h2 class="text-3xl font-bold mb-4"><a class="nostyle" name="user-interface">Git Testing</a></h2>
+          <h3 class="text-xl font-semibold mb-4">words words.</h3>
+          <p class="text-lg leading-relaxed mb-4">webp.</p>
+          <p class="text-lg leading-relaxed mb-4">we</p>
+        </div>
+      </div> -->
+
+    </div>
+
+    </div>
+    
+    <!-- /.container -->
+    
+    <div class="wrapper">
+      <svg class="wavesContainer flipped" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(0,95,153,0.8)"></use>
+          <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(0,95,153,0.6)"></use>
+          <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(0,95,153,0.4)"></use>
+          <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(0,95,153,0.2)"></use>
+        </g>
+      </svg>
+    </div>
+
+    <!-- FOOTER -->
+
+    <div id="footer"></div>
+    <script>
+      fetch('/src/en/footer.html')
+        .then(response => response.text())
+        .then(data => { document.getElementById('footer').innerHTML = data; });
+    </script>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="/js/waves.js"></script>
+  </body>
 </html>
