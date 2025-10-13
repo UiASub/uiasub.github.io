@@ -8,32 +8,40 @@
 </head>
 <body>
     <div class="masthead">
-      <div class="logo-language-container">
+      <div class="masthead-top">
         <div class="logo">
           <a href="/src/en"><img id="logo" src="/images/uiasub/Ui-White.png" alt="UiASub Logo" style="max-width: 280px; height: auto;" /></a>
         </div>
-        <div class="language-selector">
-          <button class="dropdown-toggle">
-            <img src="/images/gb.svg" alt="English" style="width: 20px; height: 20px;">
+        <div class="header-right">
+          <div class="language-selector">
+            <button class="dropdown-toggle">
+              <img src="/images/gb.svg" alt="English" style="width: 20px; height: 20px;">
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="/">
+                  <img src="/images/no.svg" alt="Norwegian" style="width: 20px; height: 20px;"> Norsk
+                </a>
+              </li>
+              <li>
+                <a href="/src/en">
+                  <img src="/images/gb.svg" alt="English" style="width: 20px; height: 20px;"> English
+                </a>
+              </li>
+            </ul>
+          </div>
+          <button class="hamburger-menu" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
           </button>
-          <ul class="dropdown-menu">
-            <li>
-              <a href="/">
-                <img src="/images/no.svg" alt="Norwegian" style="width: 20px; height: 20px;"> Norsk
-              </a>
-            </li>
-            <li>
-              <a href="/src/en">
-                <img src="/images/gb.svg" alt="English" style="width: 20px; height: 20px;"> English
-              </a>
-            </li>
-          </ul>
         </div>
       </div>
       <div class="navigation">
         <a href="/src/en/pages/about">About Us</a>
         <a href="/src/en/pages/contact">Contact Us</a>
         <a href="/src/en/pages/sponsors">Sponsors</a>
+        <a href="/src/pages/login.html" id="loginLink">Log In</a>
       </div>
     </div>
     <div class="masthead-border"></div>

@@ -2,13 +2,19 @@
 #header {
   margin: 0 !important;
   padding: 0 !important;
+  min-height: 60px;
 }
 
 /* Prevent FOUC (Flash of Unstyled Content) */
+#header:empty {
+  opacity: 0;
+}
+
 .masthead .logo img {
   max-width: 280px !important;
   height: auto !important;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: block;
 }
 
 /* Responsive Header Styles */
@@ -50,6 +56,20 @@
   padding: 0 !important;
 }
 
+/* Desktop layout */
+.masthead-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .navigation {
   display: flex;
   align-items: center;
@@ -82,22 +102,71 @@
   transform: translateY(0);
 }
 
+/* Logged in state styling */
+#loginLink[style*="color: rgb(59, 165, 93)"],
+#loginLink[style*="color:#3ba55d"] {
+  background-color: rgba(59, 165, 93, 0.2);
+  border: 1px solid rgba(59, 165, 93, 0.5);
+}
+
+#loginLink[style*="color: rgb(59, 165, 93)"]:hover,
+#loginLink[style*="color:#3ba55d"]:hover {
+  background-color: rgba(59, 165, 93, 0.3);
+  border: 1px solid rgba(59, 165, 93, 0.7);
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1002;
+  transition: all 0.3s ease;
+}
+
+.hamburger-menu span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger-menu:hover span {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.hamburger-menu.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
 /* Mobile Responsive Breakpoint */
 @media screen and (max-width: 768px) {
   .masthead {
     padding: 10px 15px;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     min-height: auto;
   }
   
-  .logo-language-container {
+  .masthead-top {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    margin-bottom: 20px;
-    position: relative;
+    margin-bottom: 0;
   }
   
   .masthead .logo {
@@ -108,10 +177,23 @@
     max-width: 240px;
   }
   
+  .hamburger-menu {
+    display: flex;
+  }
+  
   .navigation {
     flex-direction: column;
     width: 100%;
     gap: 8px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+    margin-top: 0;
+  }
+  
+  .navigation.active {
+    max-height: 400px;
+    margin-top: 15px;
   }
   
   .navigation a {
@@ -122,6 +204,7 @@
     font-size: 16px;
     border-radius: 25px;
     max-width: 200px;
+    opacity: 1;
   }
   
   .language-selector {
@@ -162,18 +245,10 @@
   }
 }
 
-/* Desktop layout */
-.logo-language-container {
-  display: flex;
-  align-items: center;
-  flex: 1;
-}
-
 /* Language Selector Styles */
 .language-selector {
   position: relative;
   z-index: 1001;
-  margin-left: auto;
 }
 
 .dropdown-toggle {
@@ -203,17 +278,18 @@
 .dropdown-menu {
   display: none;
   position: absolute;
-  top: 100%;
+  top: calc(100% + 8px);
   right: 0;
-  background-color: rgb(175, 184, 226);
-  border: 1px solid #cccccc00;
+  background-color: #2b2d31;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   z-index: 1000;
   list-style: none;
-  padding: 5px;
+  padding: 8px;
   margin: 0;
-  min-width: 120px;
+  min-width: 150px;
+  max-width: 180px;
   width: max-content;
 }
 
@@ -225,23 +301,28 @@
 .dropdown-menu li a {
   display: flex !important;
   align-items: center;
-  padding: 8px 12px;
+  padding: 10px 14px;
   box-sizing: border-box;
   text-decoration: none !important;
-  color: black !important;
+  color: #ffffff !important;
   border-radius: 6px;
   white-space: nowrap;
   float: none !important;
-  margin: 1px 0 !important;
+  margin: 2px 0 !important;
   width: 100%;
+  font-size: 15px;
+  transition: background-color 0.2s;
 }
 
 .dropdown-menu li a img {
-  margin-right: 8px;
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
 }
 
 .dropdown-menu li a:hover {
-  background-color: #f0f0f0;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .language-selector:hover .dropdown-menu {

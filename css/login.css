@@ -1,0 +1,158 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'gg sans', 'Noto Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: #5865f2;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+}
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  backdrop-filter: blur(10px);
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(-3px);
+  color: white;
+}
+
+.back-button:active {
+  transform: translateX(-1px);
+}
+
+.container {
+  background: #313338;
+  border-radius: 8px;
+  padding: 32px;
+  max-width: 480px;
+  width: 100%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  color: #f2f3f5;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+p {
+  color: #b5bac1;
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 20px;
+  line-height: 20px;
+}
+
+button {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 4px;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.17s ease;
+  margin-bottom: 8px;
+}
+
+#loginBtn {
+  background: #5865f2;
+  color: white;
+}
+
+#loginBtn:hover {
+  background: #4752c4;
+}
+
+#loadBtn {
+  background: #248046;
+  color: white;
+}
+
+#loadBtn:hover {
+  background: #1a6334;
+}
+
+#logout {
+  background: transparent;
+  color: #f23f43;
+  border: 1px solid #f23f43;
+}
+
+#logout:hover {
+  background: rgba(242, 63, 67, 0.1);
+}
+
+#userInfo {
+  background: #2b2d31;
+  padding: 16px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  color: #dbdee1;
+  font-size: 14px;
+}
+
+#output {
+  background: #2b2d31;
+  color: #dbdee1;
+  padding: 16px;
+  border-radius: 4px;
+  overflow-x: auto;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  border: 1px solid #1e1f22;
+  min-height: 60px;
+}
+
+#output:empty {
+  display: none;
+}
+
+#logout, #secretBox {
+  display: none;
+}
+
+.discord-logo {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.discord-logo svg {
+  width: 130px;
+  height: auto;
+  fill: #5865f2;
+}
+
+@media (max-width: 480px) {
+
+  
+  h1 {
+    font-size: 20px;
+  }
+}
