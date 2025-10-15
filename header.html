@@ -6,6 +6,8 @@
     <title>UiASub</title>
     <link rel="stylesheet" href="/css/header.css">
     <link href="/css/custom.css" rel="stylesheet">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#003f7f">
 </head>
 <body>
     <div class="masthead">
@@ -46,5 +48,18 @@
       </div>
     </div>
     <div class="masthead-border"></div>
+    <script>
+      // Register service worker if available
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/service-worker.js').then(function(reg) {
+            // registration successful
+            console.log('ServiceWorker registration successful with scope: ', reg.scope);
+          }).catch(function(err) {
+            console.warn('ServiceWorker registration failed: ', err);
+          });
+        });
+      }
+    </script>
 </body>
 </html>

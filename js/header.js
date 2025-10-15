@@ -52,6 +52,52 @@ function initializeHeader() {
       setTimeout(() => {
         checkLoginStatus(isEnglish);
       }, 0);
+      // Ensure manifest and theme-color meta exist in document head (useful when header.html is injected into body)
+      try {
+        if (!document.querySelector('link[rel="manifest"]')) {
+          const m = document.createElement('link');
+          m.rel = 'manifest';
+          m.href = '/manifest.webmanifest';
+          document.head.appendChild(m);
+        }
+        if (!document.querySelector('meta[name="theme-color"]')) {
+          const meta = document.createElement('meta');
+          meta.name = 'theme-color';
+          meta.content = '#003f7f';
+          document.head.appendChild(meta);
+        }
+      } catch (e) {
+        console.warn('Could not add manifest/meta to head:', e);
+      }
+
+      // Register service worker from header code to ensure registration on pages using header injection.
+      // Register as early as possible and request root scope so the SW can control top-level pages.
+      if ('serviceWorker' in navigator) {
+        const registerSW = () => {
+          navigator.serviceWorker.register('/service-worker.js', { scope: '/' })
+            .then(function(reg) {
+              console.log('ServiceWorker registered from header.js with scope:', reg.scope);
+              // Check whether the service worker is controlling the page
+              if (navigator.serviceWorker.controller) {
+                console.log('ServiceWorker is controlling the page.');
+              } else {
+                // Wait until ready and then report
+                navigator.serviceWorker.ready.then(() => {
+                  console.log('ServiceWorker ready. Controller:', navigator.serviceWorker.controller);
+                });
+              }
+            }).catch(function(err) {
+              console.warn('ServiceWorker registration from header.js failed:', err);
+            });
+        };
+
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+          // register immediately if DOM is already interactive
+          registerSW();
+        } else {
+          window.addEventListener('load', registerSW);
+        }
+      }
   });
 }
 
