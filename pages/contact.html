@@ -22,6 +22,7 @@
     <!-- Custom styles for this template -->
     <link href="/css/carousel.css" rel="stylesheet">
     <link href="/css/custom.css" rel="stylesheet">
+    <link href="/css/header.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/waves.css">
 
     <!-- Tailwind CSS -->
@@ -30,35 +31,34 @@
 
   <body>
 
+  
     <!--HEADER-->
-
-    <!--HEADER-->
-    <div id="header-eng"></div>
+    <div id="header"></div>
     <script src="/js/header.js"></script>
-
+    
     <!-- Contact Section -->
     <div class="callout">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12">
-            <h1 class="text-5xl font-bold">Contact <span class="text-blue-600">UiASub</span></h1>
-            <hr class="my-4 border-t-2 border-gray-300">
-            <p class="text-lg text-gray-500">We would love to hear from you! Please contact us via email at 
-              <a href="mailto:uia.submerged@gmail.com" class="text-blue-500 hover:underline">uia.submerged@gmail.com</a> 
-              or follow us on social media:</p>
-            <ul class="list-inline">
-              <li class="list-inline-item mr-3">
-                <a href="https://www.instagram.com/uia.sub/" target="_blank">Instagram</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="https://no.linkedin.com/company/uiasub" target="_blank">LinkedIn</a>
-              </li>
-            </ul>
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12">
+                <h1 class="text-5xl font-bold">Kontakt <span class="text-blue-600">UiASub</span></h1>
+                <hr class="my-4 border-t-2 border-gray-300">
+                <p class="text-lg text-white">Vi vil gjerne høre fra deg! Ta kontakt via e-post på 
+                    <a href="mailto:uia.submerged@gmail.com" class="text-blue-500 hover:underline">uia.submerged@gmail.com</a> 
+                    eller følg oss på sosiale medier:</p>
+                <ul class="list-inline">
+                    <li class="list-inline-item mr-3">
+                        <a href="https://www.instagram.com/uia.sub/" target="_blank">Instagram</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="https://no.linkedin.com/company/uiasub" target="_blank">LinkedIn</a>
+                    </li>
+                </ul>
           </div>
         </div>
       </div>
     </div>
-
+    <!-- Waves -->
     <div class="wrapper">
       <svg class="wavesContainer flipped" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
         <defs>
@@ -73,20 +73,25 @@
       </svg>
     </div>
     <script src="/js/waves.js"></script>
+    <script>
+      window.addEventListener('DOMContentLoaded', function() {
+        const wavesContainer = document.querySelector('.wavesContainer');
+        if (wavesContainer) {
+          wavesContainer.classList.add('flipped'); // Ensure the flipped class is applied
+          console.log('Wave animation initialized and flipped');
+        }
+      });
+    </script>
     <!-- FOOTER -->
     <div id="footer"></div>
     <script>
-      fetch('../footer.html')
+      fetch('/footer.html')
         .then(response => response.text())
         .then(data => { document.getElementById('footer').innerHTML = data; });
     </script>
-
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   </body>
 </html>

@@ -21,7 +21,7 @@ function getAccessToken() {
 
 const accessToken = getAccessToken();
 if (!accessToken) {
-  window.location.href = '/src/pages/login.html';
+  window.location.href = '/pages/login.html';
 }
 
 const logoutBtn = document.getElementById("logout");
@@ -39,7 +39,7 @@ let currentEquipmentId = null;
 
 logoutBtn.onclick = () => {
   window.localStorage.removeItem('access_token');
-  window.location.href = '/src/pages/login.html';
+  window.location.href = '/pages/login.html';
 };
 
 

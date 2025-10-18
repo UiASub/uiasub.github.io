@@ -8,7 +8,7 @@ function initializeHeader() {
   
   if (englishHeader) {
     targetElement = englishHeader;
-    headerPath = '/src/en/header.html';
+    headerPath = '/en/header.html';
     isEnglish = true;
   } else if (norwegianHeader) {
     targetElement = norwegianHeader;
@@ -148,7 +148,7 @@ async function checkLoginStatus(isEnglish) {
   if (!token) {
     // Not logged in
     loginLink.textContent = isEnglish ? ' Log Inn' : ' Logg Inn';
-    loginLink.href = '/src/pages/login.html';
+    loginLink.href = '/pages/login.html';
     loginLink.style.color = '';
     return;
   }
@@ -164,16 +164,16 @@ async function checkLoginStatus(isEnglish) {
     const payload = await res.json().catch(() => null);
     if (res.status === 200 && payload && payload.ok === true) {
       loginLink.textContent = isEnglish ? ' Logged In' : ' Logget Inn';
-      loginLink.href = '/src/pages/equipment.html';
+      loginLink.href = '/pages/equipment.html';
       loginLink.style.color = '#3ba55d';
     } else {
       loginLink.textContent = isEnglish ? ' Log Inn' : ' Logg Inn';
-      loginLink.href = '/src/pages/login.html';
+      loginLink.href = '/pages/login.html';
       loginLink.style.color = '';
     }
   } catch (e) {
     loginLink.textContent = isEnglish ? ' Log Inn' : ' Logg Inn';
-    loginLink.href = '/src/pages/login.html';
+    loginLink.href = '/pages/login.html';
     loginLink.style.color = '';
   }
 }
