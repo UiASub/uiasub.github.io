@@ -4,7 +4,8 @@
   display: flex;
   align-items: flex-end;
   overflow: hidden;
-  background: linear-gradient(to bottom, #000000, #001f3f); /* Black transitioning to dark blue */
+  /* Make wrapper background transparent so the page gradient from custom.css shows through */
+  background: transparent;
 }
 
 .waves {
@@ -21,25 +22,25 @@
 }
 
 .parallax > use:nth-child(1) {
-  fill: rgba(0, 0, 0, 0.8); /* Black */
+  fill: rgba(0, 20, 35, 0.85); /* deep sea almost-black */
   animation-delay: -2s;
   animation-duration: 7s;
 }
 
 .parallax > use:nth-child(2) {
-  fill: rgba(0, 31, 63, 0.6); /* Dark blue */
+  fill: rgba(0, 47, 77, 0.6); /* deep teal */
   animation-delay: -3s;
   animation-duration: 10s;
 }
 
 .parallax > use:nth-child(3) {
-  fill: rgba(0, 0, 0, 0.4); /* Black */
+  fill: rgba(0, 31, 63, 0.45); /* dark blue */
   animation-delay: -4s;
   animation-duration: 13s;
 }
 
 .parallax > use:nth-child(4) {
-  fill: rgba(0, 31, 63, 0.2); /* Dark blue */
+  fill: rgba(0, 95, 119, 0.25); /* muted teal highlight */
   animation-delay: -5s;
   animation-duration: 20s;
 }
@@ -84,7 +85,8 @@
   width: 100%;
   height: 110px; /* Slightly increase height */
   overflow: hidden;
-  z-index: 5;
+  /* keep waves visually behind foreground content */
+  z-index: 1;
 }
 
 .waves {

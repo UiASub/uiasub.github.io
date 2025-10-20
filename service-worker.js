@@ -1,11 +1,11 @@
-const CACHE_NAME = 'uiasub-static-v1';
+const CACHE_NAME = 'uiasub-static-v2';
 const PRECACHE_URLS = [
   '/',
   '/index.html',
   '/manifest.webmanifest',
   '/header.html',
   '/footer.html',
-  '/css/bootstrap.min.css',
+  '/css/contact.css',
   '/css/custom.css',
   '/offline.html',
   '/images/uiasub/Icon.png',

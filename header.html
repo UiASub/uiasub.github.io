@@ -49,7 +49,7 @@
     </div>
     <div class="masthead-border"></div>
     <script>
-      // Register service worker if available
+      // Register service worker 
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', function() {
           navigator.serviceWorker.register('/service-worker.js').then(function(reg) {

@@ -1,0 +1,183 @@
+/* Removed external Google Fonts import to avoid loading custom fonts on this page */
+body, html{
+	/* removed height:100% to avoid forcing full-viewport height on this page
+	   which, combined with shared waves rules, caused large gaps/overlap */
+	padding: 0;
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+h1{
+	font-weight: normal;
+	font-size: 4em;
+	/* center and be responsive: remove fixed width */
+	margin: 30px auto 0;
+	max-width: 100%;
+	width: auto;
+	color: #F90;
+	text-align: center;
+
+}
+
+/* Animation webkit */
+@-webkit-keyframes myfirst
+{
+	0% {margin-left: -235px}
+	90% {margin-left: 100%;}
+	100% {margin-left: 100%;}
+}
+
+/* Animation */
+@keyframes myfirst
+{
+	0% {margin-left: -235px}
+	70% {margin-left: 100%;}
+	100% {margin-left: 100%;}
+}
+
+.fish{
+	background-image: url('http://www.geertjanhendriks.nl/codepen/form/fish.png');
+	width: 235px;
+	height: 104px;
+	margin-left: -235px;
+	position: absolute;	
+	animation: myfirst 24s;
+	-webkit-animation: myfirst 24s;
+	animation-iteration-count: infinite;
+	-webkit-animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	-webkit-animation-timing-function: linear;
+	z-index: 1; /* keep fish behind the form */
+	pointer-events: none; /* don't interfere with inputs */
+}
+
+#fish{
+	top: 120px;
+}
+
+#fish2{
+	top: 260px;
+	animation-delay: 12s;
+	-webkit-animation-delay: 12s;
+}
+
+
+header{
+	height: 160px;
+	background: url('http://www.geertjanhendriks.nl/codepen/form/golf.png') repeat-x bottom;
+}
+
+/* Make the form container transparent and smaller */
+#form{
+	/* avoid forcing the form container to match viewport height;
+	   let it size based on content so waves sit directly after the callout */
+	height: auto;
+	background-color: transparent; /* was #98d4f3 */
+	overflow: hidden;
+	position: relative;
+	padding-top: 20px;
+	padding-bottom: 6px; /* reduce space before waves */
+}
+form{
+	margin: 0 auto;
+	max-width: 420px; /* smaller form */
+	width: 100%;
+	padding-top: 20px;
+	color: inherit; /* don't force white on descendants */
+	position: relative;
+	z-index: 3; /* ensure form is above absolute fish elements */
+}
+label, input, textarea{
+	display: block;	
+}
+input, textarea{
+	width: 100%;
+	max-width: 100%;
+	border: none;
+	border-radius: 14px;
+	outline: none;
+	padding: 10px;
+	font-family: inherit;
+	font-size: 0.95em;
+	color: #222222; /* ensure typed text is dark and readable */
+	transition: border 0.5s;
+	-webkit-transition: border 0.5s;
+	-moz-transition: border 0.5s;
+	-o-transition: border 0.5s;
+	border: solid 2px rgba(0,0,0,0.08);
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+}
+
+input::placeholder, textarea::placeholder{
+	color: #9aa;
+}
+input:focus, textarea:focus{
+	border: solid 3px #77bde0;	
+}
+
+textarea{
+	height: 110px;
+	resize: vertical; 
+	overflow: auto;
+}
+input[type="submit"]{
+	background-color: #F90;
+	color: white;
+	height: 44px;
+	cursor: pointer;
+	margin-top: 18px;
+	font-size: 1.05em;
+	font-family: inherit;
+	-webkit-transition: background-color 0.5s;
+	-moz-transition: background-color 0.5s;
+	-o-transition: background-color 0.5s;
+	transition: background-color 0.5s;
+	padding: 0 18px;
+	border-radius: 10px;
+}
+input[type="submit"]:hover{
+	background-color: #e58f0e;
+	
+}
+.formgroup label{
+	font-size: 1.15em;
+	margin-top: 14px;
+	padding-left: 6px;
+	display: block;
+}
+.formgroup, .formgroup-active, .formgroup-error{
+	background-repeat: no-repeat;
+	background-position: right bottom;
+	background-size: 12%;
+	transition: background-image 0.7s;
+	-webkit-transition: background-image 0.7s;
+	-moz-transition: background-image 0.7s;
+	-o-transition: background-image 0.7s;
+	width: 100%;
+	padding-top: 6px;
+}
+
+.formgroup{
+	background-image: url('http://www.geertjanhendriks.nl/codepen/form/pixel.gif');	
+}
+.formgroup-active{
+	background-image: url('http://www.geertjanhendriks.nl/codepen/form/octo.png');
+}
+.formgroup-error{
+	background-image: url('http://www.geertjanhendriks.nl/codepen/form/octo-error.png');
+	color: red;
+}
+
+/* Ensure form inputs always display dark text (override other site rules) */
+#form input, #form textarea, #form input::placeholder, #form textarea::placeholder {
+	color: #222222 !important;
+	-webkit-text-fill-color: #222222 !important; /* Chrome autofill/text fill */
+}
+
+/* Autofill background fix for Chrome (optional) */
+input:-webkit-autofill, textarea:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px white inset !important;
+	box-shadow: 0 0 0px 1000px white inset !important;
+	-webkit-text-fill-color: #222222 !important;
+}

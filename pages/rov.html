@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="UiASub">
+    <meta name="title" content="UiASub Ocineering">
+    <link rel="shortcut icon" href="/images/uiasub/Icon1.png">
+
+    <title>K2 in 3D</title>
+
+    <!-- Bootstrap core CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/carousel.css" rel="stylesheet">
+    <link href="/css/custom.css" rel="stylesheet">
+    <link href="/css/header.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/waves.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- model-viewer (Web Component for glTF/GLB) -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+  </head>
+<!--HEADER-->
+<body>
+  <!--HEADER-->
+  <div id="header"></div>
+  <script src="/js/header.js"></script>
+
+<!-- Use model-viewer for a GLB model (convert your OBJ to .glb and place at /images/uiasub/K2-Rov.glb) -->
+<model-viewer
+  src="/images/uiasub/K2-Rov.glb"
+  alt="K2 ROV 3D model"
+  style="width:100%; height:80vh; min-height:480px; display:block;"
+  camera-controls
+  auto-rotate
+  exposure="1"
+  shadow-intensity="1"
+  ar
+  poster="/images/uiasub/K2-Rov.webp"
+  environment-image="neutral">
+  <div class="fallback">3D preview under development — only works in Chrome-based browsers.</div>
+</model-viewer>
+
+  <!-- FOOTER -->
+  <div id="footer"></div>
+  <script>
+    fetch('/footer.html')
+      .then(response => response.text())
+      .then(data => { document.getElementById('footer').innerHTML = data; });
+  </script>
+</body>
+</html>

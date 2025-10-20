@@ -45,6 +45,13 @@ function initializeHeader() {
       // Initialize dropdown functionality
       initializeDropdown();
 
+      // Initialize theme toggle if present
+      try {
+        initThemeToggle();
+      } catch (e) {
+        // ignore if toggle not present yet
+      }
+
       // Initialize hamburger menu
       initializeHamburgerMenu();
 
@@ -104,18 +111,72 @@ function initializeHeader() {
 function initializeDropdown() {
   const toggle = document.querySelector('.dropdown-toggle');
   const menu = document.querySelector('.dropdown-menu');
-  
+
   if (toggle && menu) {
-    toggle.addEventListener('click', () => {
-      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    // Keep a reference to the original parent so we can restore the menu
+    const originalParent = menu.parentNode;
+    const originalNext = menu.nextSibling;
+
+    let isOpen = false;
+
+    function openMenu() {
+      // move menu to body and position it fixed so it floats above all content
+      const rect = toggle.getBoundingClientRect();
+      if (menu.parentNode !== document.body) {
+        document.body.appendChild(menu);
+      }
+      menu.style.display = 'block';
+      menu.style.position = 'fixed';
+      menu.style.left = Math.max(8, rect.left) + 'px';
+      // align the menu's top to the toggle bottom, with small gap
+      menu.style.top = (rect.bottom + 8) + 'px';
+      menu.style.right = 'auto';
+      // ensure menu width is at least toggle width
+      const minW = Math.max(menu.offsetWidth || 0, rect.width);
+      menu.style.minWidth = Math.max(120, rect.width) + 'px';
+      menu.style.zIndex = 2000;
+      isOpen = true;
+      toggle.setAttribute('aria-expanded', 'true');
+    }
+
+    function closeMenu() {
+      // Restore menu into original DOM place to keep markup predictable
+      if (originalParent && menu.parentNode !== originalParent) {
+        if (originalNext) originalParent.insertBefore(menu, originalNext);
+        else originalParent.appendChild(menu);
+      }
+      menu.style.display = 'none';
+      // clear fixed positioning styles we set when opened
+      menu.style.position = '';
+      menu.style.left = '';
+      menu.style.top = '';
+      menu.style.right = '';
+      menu.style.minWidth = '';
+      menu.style.zIndex = '';
+      isOpen = false;
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (isOpen) closeMenu();
+      else openMenu();
     });
 
+    // Close when clicking outside
     document.addEventListener('click', (e) => {
       if (!toggle.contains(e.target) && !menu.contains(e.target)) {
-        menu.style.display = 'none';
+        if (isOpen) closeMenu();
       }
     });
-    }
+
+    // Close on ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' || e.key === 'Esc') {
+        if (isOpen) closeMenu();
+      }
+    });
+  }
   }
 
 function initializeHamburgerMenu() {
@@ -145,10 +206,11 @@ async function checkLoginStatus(isEnglish) {
   const EDGE_FUNCTION_URL = "https://iiauxyfisphubpsaffag.supabase.co/functions/v1/discord-role-sync";
   const token = window.localStorage.getItem('access_token');
   if (!loginLink) return;
+  const pagesPrefix = isEnglish ? '/en' : '';
   if (!token) {
     // Not logged in
-    loginLink.textContent = isEnglish ? ' Log Inn' : ' Logg Inn';
-    loginLink.href = '/pages/login.html';
+    loginLink.textContent = isEnglish ? ' Log In' : ' Logg Inn';
+    loginLink.href = `${pagesPrefix}/pages/login.html`;
     loginLink.style.color = '';
     return;
   }
@@ -164,16 +226,16 @@ async function checkLoginStatus(isEnglish) {
     const payload = await res.json().catch(() => null);
     if (res.status === 200 && payload && payload.ok === true) {
       loginLink.textContent = isEnglish ? ' Logged In' : ' Logget Inn';
-      loginLink.href = '/pages/equipment.html';
+      loginLink.href = `${pagesPrefix}/pages/equipment.html`;
       loginLink.style.color = '#3ba55d';
     } else {
-      loginLink.textContent = isEnglish ? ' Log Inn' : ' Logg Inn';
-      loginLink.href = '/pages/login.html';
+      loginLink.textContent = isEnglish ? ' Log In' : ' Logg Inn';
+      loginLink.href = `${pagesPrefix}/pages/login.html`;
       loginLink.style.color = '';
     }
   } catch (e) {
-    loginLink.textContent = isEnglish ? ' Log Inn' : ' Logg Inn';
-    loginLink.href = '/pages/login.html';
+    loginLink.textContent = isEnglish ? ' Log In' : ' Logg Inn';
+    loginLink.href = `${pagesPrefix}/pages/login.html`;
     loginLink.style.color = '';
   }
 }

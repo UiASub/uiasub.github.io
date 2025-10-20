@@ -28,6 +28,7 @@
   justify-content: space-between;
   min-height: 50px;
   margin: 0 !important;
+  z-index: 1200; /* ensure header and its dropdowns sit above page content */
 }
 
 .masthead .logo {
@@ -255,14 +256,16 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: 12px 16px;
-  display: flex;
+  padding: 6px 8px; /* tightened */
+  display: inline-flex;
   align-items: center;
+  gap: 8px;
   color: white;
-  border-radius: 25px;
-  transition: all 0.3s ease;
+  border-radius: 10px;
+  transition: all 0.18s ease;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
+  line-height: 1;
 }
 
 .dropdown-toggle:hover {
@@ -278,19 +281,25 @@
 .dropdown-menu {
   display: none;
   position: absolute;
-  top: calc(100% + 8px);
+  top: calc(100% + 6px);
   right: 0;
   background-color: #2b2d31;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  z-index: 1000;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  z-index: 1300; /* above other page layers */
   list-style: none;
-  padding: 8px;
+  padding: 6px 8px; /* tightened */
   margin: 0;
-  min-width: 150px;
-  max-width: 180px;
-  width: max-content;
+  min-width: 120px;
+  max-width: 180px; /* keep menu compact */
+  width: auto;
+  white-space: nowrap;
+  max-height: 220px; /* prevent very tall menu */
+  overflow-y: auto;
+  opacity: 0;
+  transform: translateY(-6px) scale(0.98);
+  transition: opacity 180ms ease, transform 180ms ease;
 }
 
 .dropdown-menu li {
@@ -299,9 +308,10 @@
 }
 
 .dropdown-menu li a {
-  display: flex !important;
+  display: inline-flex !important;
   align-items: center;
-  padding: 10px 14px;
+  gap: 8px;
+  padding: 6px 10px;
   box-sizing: border-box;
   text-decoration: none !important;
   color: #ffffff !important;
@@ -309,24 +319,31 @@
   white-space: nowrap;
   float: none !important;
   margin: 2px 0 !important;
-  width: 100%;
-  font-size: 15px;
-  transition: background-color 0.2s;
+  width: auto;
+  font-size: 14px;
+  transition: background-color 0.14s;
 }
 
 .dropdown-menu li a img {
-  margin-right: 10px;
-  width: 20px;
-  height: 20px;
+  margin-right: 8px;
+  width: 18px;
+  height: 18px;
   flex-shrink: 0;
 }
 
 .dropdown-menu li a:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
+/* Allow hover-open on non-touch devices but don't force with !important */
 .language-selector:hover .dropdown-menu {
-  display: block !important;
+  display: block;
+}
+
+/* When script shows the menu (inline style), we still want the animated appearance */
+.dropdown-menu[style*="display: block"] {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
 }
 
 /* Mobile dropdown adjustments */
