@@ -25,7 +25,7 @@
 
   const accessToken = getAccessToken();
   if (!accessToken) {
-    window.location.href = '/src/pages/login.html';
+    window.location.href = '/pages/login.html';
   }
   const EDGE_FUNCTION_URL = `${SUPABASE_URL}/functions/v1/discord-role-sync`;
   // Helper: call the Edge Function proxy for storage operations
@@ -350,7 +350,7 @@
       authBanner.innerHTML = `
         <div class="auth-warning">
           <strong>Not Signed In</strong>
-          <p>You must sign in with Discord to upload files. <a href="/src/pages/login.html">Sign in here</a></p>
+          <p>You must sign in with Discord to upload files. <a href="/pages/login.html">Sign in here</a></p>
         </div>
       `
       authBanner.className = 'auth-banner warning'
@@ -378,7 +378,7 @@
   document.addEventListener('DOMContentLoaded', async () => {
     if (!accessToken) {
       showAuthStatus(false)
-      window.location.href = '/src/pages/login.html'
+      window.location.href = '/pages/login.html'
       return
     }
     // Verify token with Edge Function
@@ -403,11 +403,11 @@
         loadFiles()
       } else {
         showAuthStatus(false)
-        document.body.innerHTML = '<div style="color:#f23f43;text-align:center;padding:32px;">Access denied: You do not have permission to view this page.<br><a href="/src/pages/login.html">Log in again</a></div>';
+        document.body.innerHTML = '<div style="color:#f23f43;text-align:center;padding:32px;">Access denied: You do not have permission to view this page.<br><a href="/pages/login.html">Log in again</a></div>';
       }
     } catch (e) {
       showAuthStatus(false)
-      document.body.innerHTML = '<div style="color:#f23f43;text-align:center;padding:32px;">Network error or authorization failed.<br><a href="/src/pages/login.html">Log in again</a></div>';
+      document.body.innerHTML = '<div style="color:#f23f43;text-align:center;padding:32px;">Network error or authorization failed.<br><a href="/pages/login.html">Log in again</a></div>';
     }
     document.getElementById('refreshFiles')?.addEventListener('click', () => loadFiles())
     document.getElementById('searchFiles')?.addEventListener('input', (e) => {

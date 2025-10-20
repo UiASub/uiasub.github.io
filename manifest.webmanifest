@@ -1,0 +1,24 @@
+{
+  "lang": "no",
+  "dir": "ltr",
+  "name": "UiASub",
+  "short_name": "UiASub",
+  "icons": [{
+    "src": "/images/uiasub/Icon.png",
+    "sizes": "64x64",
+    "type": "image/webp"
+  }, {
+    "src": "/images/uiasub/Icon.png",
+    "sizes": "64x64"
+  }, {
+    "src": "/images/uiasub/Icon.png",
+    "sizes": "128x128"
+  }],
+  "scope": "/",
+  "id": "uiasub-app",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "landscape",
+  "theme_color": "aliceblue",
+  "background_color": "red"
+}

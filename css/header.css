@@ -212,37 +212,6 @@
     margin-left: 0;
     z-index: 1001;
   }
-  
-  .dropdown-toggle {
-    padding: 8px 10px;
-    border-radius: 20px;
-  }
-}
-
-/* Extra small devices */
-@media screen and (max-width: 480px) {
-  .masthead {
-    padding: 15px 10px;
-  }
-  
-  .masthead .logo img {
-    max-width: 200px;
-  }
-  
-  .navigation a {
-    margin: 6px auto;
-    padding: 10px 18px;
-    font-size: 15px;
-    max-width: 180px;
-  }
-  
-  .dropdown-toggle {
-    padding: 10px 14px;
-  }
-  
-  .language-selector {
-    max-width: 180px;
-  }
 }
 
 /* Language Selector Styles */
@@ -299,7 +268,7 @@
 }
 
 .dropdown-menu li a {
-  display: flex !important;
+  display: flex;
   align-items: center;
   padding: 10px 14px;
   box-sizing: border-box;
@@ -322,11 +291,13 @@
 }
 
 .dropdown-menu li a:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
-.language-selector:hover .dropdown-menu {
-  display: block !important;
+/* When script shows the menu (inline style), we still want the animated appearance */
+.dropdown-menu[style*="display: block"] {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
 }
 
 /* Mobile dropdown adjustments */

@@ -139,6 +139,42 @@ color: #fff;
 font-weight: bold;
 }
 
+/* Restore sea-like theme and improve carousel contrast after Bootstrap update */
+body {
+  /* subtle deep-sea gradient */
+  background: linear-gradient(180deg, #012033 0%, #00111a 100%);
+  color: #e6f7ff;
+}
+
+/* Make carousel foreground overlay darker and more sea-like so text stands out */
+.carousel-item .foreground {
+  background: linear-gradient(180deg, rgba(0,50,80,0.65) 0%, rgba(0,15,30,0.45) 100%);
+}
+
+/* Ensure captions stay readable on top of background images */
+.carousel-caption h2,
+.carousel-caption h3,
+.carousel-caption p,
+.carousel-caption a {
+  color: #ffffff;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
+
+/* Indicators: subtle translucent dots that fit the dark theme */
+.carousel-indicators [data-bs-target] {
+  background-color: rgba(255,255,255,0.45);
+  border-color: rgba(255,255,255,0.2);
+}
+.carousel-indicators .active {
+  background-color: #ffffff;
+}
+
+/* Prev/Next controls: lighten the default icons for visibility */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.6)) brightness(1.05);
+}
+
 .marketing {
 background: url('images/content-bg.jpg') top center repeat-x;
 background-color: #000;
@@ -269,7 +305,6 @@ padding-top: 40px;
 /* RESPONSIVE STYLES
 -------------------------------------------------- */
 
-
 @media (max-width: 993px) {
   .carousel {
     height: 633px;
@@ -350,8 +385,12 @@ padding-top: 40px;
 .carousel-inner .first-slide,
 .carousel-inner .second-slide,
 .carousel-inner .third-slide {
-    background: linear-gradient(to bottom, #002f4b, #005377);
-    animation: underwater 6s infinite alternate;
+  /* Layer gradient over the svg background so the SVG shows through */
+  background-image: linear-gradient(to bottom, rgba(0,47,75,0.6), rgba(0,83,119,0.6)), url('../images/infrastructure/layered-waves-haikei_1.svg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  animation: underwater 6s infinite alternate;
 }
 
 @keyframes underwater {

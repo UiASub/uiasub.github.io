@@ -21,7 +21,7 @@ function getAccessToken() {
 
 const accessToken = getAccessToken();
 if (!accessToken) {
-  window.location.href = '/src/pages/login.html';
+  window.location.href = '/pages/login.html';
 }
 
 const logoutBtn = document.getElementById("logout");
@@ -31,6 +31,9 @@ const equipmentList = document.getElementById("equipmentList");
 const addEquipmentBtn = document.getElementById("addEquipmentBtn");
 const newEquipmentName = document.getElementById("newEquipmentName");
 const newEquipmentDesc = document.getElementById("newEquipmentDesc");
+const newEquipmentNumber = document.getElementById("newEquipmentNumber");
+const newEquipmentWhere = document.getElementById("newEquipmentWhere");
+const newEquipmentNumberInStorage = document.getElementById("newEquipmentNumberInStorage");
 const assignModal = document.getElementById("assignModal");
 const assignUserName = document.getElementById("assignUserName");
 const cancelAssign = document.getElementById("cancelAssign");
@@ -39,7 +42,7 @@ let currentEquipmentId = null;
 
 logoutBtn.onclick = () => {
   window.localStorage.removeItem('access_token');
-  window.location.href = '/src/pages/login.html';
+  window.location.href = '/pages/login.html';
 };
 
 
@@ -76,23 +79,76 @@ async function callEdge(action, payload = {}) {
   }
 }
 
-// Display equipment cards
+// Display equipment: if rows include expanded schema render a table, otherwise show cards
 function displayEquipment(equipment) {
-  equipmentList.innerHTML = equipment.length === 0
-    ? '<div style="color:#b5bac1;text-align:center;padding:32px;">No equipment yet.</div>'
-    : equipment.map(item => {
-      const isLoaned = item.loaned_to && item.loaned_to.trim() !== '';
-      return `<div class="equipment-card ${isLoaned ? 'loaned':'available'}">
-        <div class="equipment-name">${item.name}</div>
-        ${item.description ? `<div style='color:#b5bac1;font-size:14px;'>${item.description}</div>` : ''}
-        <div class="equipment-status">${isLoaned ? '🔴 Loaned Out':'🟢 Available'}</div>
-        ${isLoaned ? `<div class='loaned-to'>👤 ${item.loaned_to}${item.loaned_at ? `<div style='font-size:12px;color:#949ba4;'>Since: ${new Date(item.loaned_at).toLocaleDateString()}</div>` : ''}</div>` : ''}
-        <div class="equipment-actions">
-          ${isLoaned ? `<button class='btn-small btn-return' onclick='returnEquipment("${item.id}")'>Return</button>` : `<button class='btn-small btn-assign' onclick='openAssignModal("${item.id}")'>Assign</button>`}
-          <button class='btn-small btn-delete' onclick='deleteEquipment("${item.id}","${item.name}")'>Delete</button>
-        </div>
-      </div>`;
-    }).join('');
+  if (!equipment || equipment.length === 0) {
+    equipmentList.innerHTML = '<div style="color:#b5bac1;text-align:center;padding:32px;">No equipment yet.</div>';
+    return;
+  }
+
+  const esc = s => (s === null || s === undefined) ? '' : String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+  // Detect expanded Supabase rows (objects with these keys)
+  const expandedKeys = ['name','number','where','number_in_storage','loaned_to','description','loaned_at','created_at'];
+  const isExpanded = equipment.every(it => it && typeof it === 'object' && expandedKeys.every(k => k in it || k === 'created_at'));
+
+  if (isExpanded) {
+    // render table with columns matching schema
+    let html = '<table style="width:100%;border-collapse:collapse;color:#e6eaee;">';
+    html += '<thead><tr>';
+    const headers = ['name','number','where','number_in_storage','loaned_to','description','loaned_at','created_at'];
+    headers.forEach(h => {
+      html += `<th style="text-align:left;padding:6px 8px;border-bottom:1px solid rgba(255,255,255,0.06);">${esc(h)}</th>`;
+    });
+    html += '<th style="text-align:left;padding:6px 8px;border-bottom:1px solid rgba(255,255,255,0.06);">Actions</th>';
+    html += '</tr></thead><tbody>';
+
+    equipment.forEach(row => {
+      html += '<tr>';
+      const fmtDate = v => {
+        if (!v) return '';
+        const d = new Date(v);
+        return isNaN(d.getTime()) ? esc(v) : esc(d.toLocaleString());
+      };
+      html += `<td style="padding:6px 8px;border-bottom:1px solid rgba(255,255,255,0.03);">${esc(row.name)}</td>`;
+      html += `<td style="padding:6px 8px;border-bottom:1px solid rgba(255,255,255,0.03);">${esc(row.number)}</td>`;
+      html += `<td style="padding:6px 8px;border-bottom:1px solid rgba(255,255,255,0.03);">${esc(row.where)}</td>`;
+      html += `<td style="padding:6px 8px;border-bottom:1px solid rgba(255,255,255,0.03);">${esc(row.number_in_storage)}</td>`;
+      html += `<td style="padding:6px 8px;border-bottom:1px solid rgba(255,255,255,0.03);">${esc(row.loaned_to)}</td>`;
+      html += `<td style="padding:6px 8px;border-bottom:1px solid rgba(255,255,255,0.03);">${esc(row.description)}</td>`;
+      html += `<td style="padding:6px 8px;border-bottom:1px solid rgba(255,255,255,0.03);">${fmtDate(row.loaned_at)}</td>`;
+      html += `<td style="padding:6px 8px;border-bottom:1px solid rgba(255,255,255,0.03);">${fmtDate(row.created_at)}</td>`;
+      // actions
+      const id = row.id ?? '';
+      const isLoaned = row.loaned_to && String(row.loaned_to).trim() !== '';
+      let actions = '';
+      if (id) {
+        actions += isLoaned ? `<button class='btn-small btn-return' onclick='returnEquipment("${esc(id)}")'>Return</button> ` : `<button class='btn-small btn-assign' onclick='openAssignModal("${esc(id)}")'>Assign</button> `;
+        actions += `<button class='btn-small btn-delete' onclick='deleteEquipment("${esc(id)}","${esc(row.name)}")'>Delete</button>`;
+      }
+      html += `<td style="padding:6px 8px;border-bottom:1px solid rgba(255,255,255,0.03);">${actions}</td>`;
+      html += '</tr>';
+    });
+
+    html += '</tbody></table>';
+    equipmentList.innerHTML = html;
+    return;
+  }
+
+  // fallback: original card rendering
+  equipmentList.innerHTML = equipment.map(item => {
+    const isLoaned = item.loaned_to && item.loaned_to.trim() !== '';
+    return `<div class="equipment-card ${isLoaned ? 'loaned':'available'}">
+      <div class="equipment-name">${item.name}</div>
+      ${item.description ? `<div style='color:#b5bac1;font-size:14px;'>${item.description}</div>` : ''}
+      <div class="equipment-status">${isLoaned ? '🔴 Loaned Out':'🟢 Available'}</div>
+      ${isLoaned ? `<div class='loaned-to'>👤 ${item.loaned_to}${item.loaned_at ? `<div style='font-size:12px;color:#949ba4;'>Since: ${new Date(item.loaned_at).toLocaleDateString()}</div>` : ''}</div>` : ''}
+      <div class="equipment-actions">
+        ${isLoaned ? `<button class='btn-small btn-return' onclick='returnEquipment("${item.id}")'>Return</button>` : `<button class='btn-small btn-assign' onclick='openAssignModal("${item.id}")'>Assign</button>`}
+        <button class='btn-small btn-delete' onclick='deleteEquipment("${item.id}","${item.name}")'>Delete</button>
+      </div>
+    </div>`;
+  }).join('');
 }
 
 // Add new equipment
@@ -100,16 +156,26 @@ addEquipmentBtn.onclick = async () => {
   const name = newEquipmentName.value.trim();
   if (!name) return alert('Enter equipment name');
   try {
-    const res = await callEdge('add_equipment', {
+    const payload = {
       name,
       description: newEquipmentDesc.value.trim() || null
-    });
+    };
+    const num = newEquipmentNumber && newEquipmentNumber.value ? Number(newEquipmentNumber.value) : null;
+    if (num !== null && !isNaN(num)) payload.number = num;
+    if (newEquipmentWhere && newEquipmentWhere.value.trim()) payload.where = newEquipmentWhere.value.trim();
+    const nis = newEquipmentNumberInStorage && newEquipmentNumberInStorage.value ? Number(newEquipmentNumberInStorage.value) : null;
+    if (nis !== null && !isNaN(nis)) payload.number_in_storage = nis;
+
+    const res = await callEdge('add_equipment', payload);
     if (!res.ok) throw new Error(res.error || 'Failed to add equipment');
   } catch (e) {
     alert(e.message);
   }
   newEquipmentName.value = '';
   newEquipmentDesc.value = '';
+  if (newEquipmentNumber) newEquipmentNumber.value = '';
+  if (newEquipmentWhere) newEquipmentWhere.value = '';
+  if (newEquipmentNumberInStorage) newEquipmentNumberInStorage.value = '';
   loadEquipment();
 };
 

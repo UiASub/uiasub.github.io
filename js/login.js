@@ -31,7 +31,7 @@ if (urlParams.get('error') === 'unauthorized' && errorMessage) {
 
 // Discord OAuth login button
 loginBtn.onclick = () => {
-  const redirectTo = window.location.origin + '/src/pages/login.html';
+  const redirectTo = window.location.origin + '/pages/login.html';
   const oauthUrl = `https://iiauxyfisphubpsaffag.supabase.co/auth/v1/authorize?provider=discord&redirect_to=${encodeURIComponent(redirectTo)}`;
   window.location.href = oauthUrl;
 };
@@ -85,7 +85,7 @@ if (hash && hash.includes('access_token')) {
           // Both checks passed — save token and redirect
           window.localStorage.setItem('access_token', accessToken);
           window.location.hash = '';
-          window.location.href = '/src/pages/equipment.html';
+          window.location.href = '/pages/equipment.html';
         } catch (e) {
           window.localStorage.removeItem('access_token');
           window.location.hash = '';
