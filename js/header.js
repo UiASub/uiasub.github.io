@@ -31,15 +31,12 @@ function initializeHeader() {
       });
       
       // Initialize scroll functionality after header is loaded
+      // Logo sizing is controlled by CSS to preserve original layout and dropdown behavior.
+      // Leave JS out of sizing changes to avoid conflicts or unexpected height shifts.
       const logo = document.getElementById('logo');
       if (logo) {
-        window.addEventListener('scroll', function() {
-          if (window.scrollY > 50) {
-            logo.style.maxWidth = '180px';
-          } else {
-            logo.style.maxWidth = '280px';
-          }
-        });
+        // Optional: keep a class-based small-on-scroll behavior if desired later.
+        // No inline style changes here to let CSS determine dimensions.
       }
 
       // Initialize dropdown functionality

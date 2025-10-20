@@ -278,7 +278,7 @@ body {
   .carousel-item > .second-slide,
   .carousel-item > .third-slide {
     background-image: none !important;
-    background-color: #042433 !important;
+    background-color: transparent !important;
     background-size: cover !important;
     background-position: center top !important;
     padding-top: 8px !important;
@@ -297,8 +297,8 @@ body {
   /* Ensure rules target Bootstrap 5 markup (.carousel-item) as well as legacy selectors */
   .carousel-item {
     height: auto !important;
-    min-height: 320px !important;
-    padding: 12px 0 !important;
+    min-height: 0 !important;
+    padding: 0 !important;
   }
 
   /* Allow slide wrapper backgrounds to shrink on mobile */
@@ -306,7 +306,7 @@ body {
   .carousel-item > .second-slide,
   .carousel-item > .third-slide {
     height: auto !important;
-    min-height: 280px !important;
+    min-height: 0 !important;
     background-position: center top !important;
   }
 
@@ -350,8 +350,8 @@ body {
   }
 
   /* Ensure headings inside the actual markup inherit our improved styles */
-  .carousel-item .foreground h2 { font-size: 22px !important; font-weight: 800 !important; margin-bottom: 6px !important; }
-  .carousel-item .foreground h3 { font-size: 16px !important; font-weight: 700 !important; margin-bottom: 8px !important; }
+  .carousel-item .foreground h2 { font-size: 26px !important; font-weight: 800 !important; margin-bottom: 6px !important; }
+  .carousel-item .foreground h3 { font-size: 18px !important; font-weight: 700 !important; margin-bottom: 8px !important; }
 
   /* Keep controls usable on mobile */
   .carousel-control-prev, .carousel-control-next { width: 12% !important; }
@@ -362,13 +362,13 @@ body {
   /* Reduce carousel height on mobile */
   .carousel {
     height: auto;
-    min-height: 400px;
+    min-height: 0 !important;
   }
   
   .carousel .item {
     height: auto;
-    min-height: 400px;
-    padding: 20px 0;
+    min-height: 0 !important;
+    padding: 0 !important;
   }
   
   /* Stack carousel content vertically on mobile */
@@ -410,7 +410,7 @@ body {
   
   /* Mobile typography adjustments */
   .carousel-caption h2 {
-    font-size: 22px !important;
+    font-size: 26px !important;
     margin-bottom: 8px !important;
     text-shadow: 0 2px 8px rgba(0,0,0,0.6);
     letter-spacing: -0.5px;
@@ -459,7 +459,7 @@ body {
     width: 100% !important;
   }
 
-  /* Make slide images fill the width and keep aspect ratio */
+  /* Make slide images fill the width and keep aspect ratio (cover to avoid letterboxing) */
   .carousel .carousel-inner img, .carousel .carousel-item img {
     display: block !important;
     width: 100% !important;
@@ -481,6 +481,11 @@ body {
     border-radius: 8px !important;
     box-shadow: 0 6px 20px rgba(0,0,0,0.45) !important;
     text-align: left !important;
+  }
+
+  /* Ensure slide wrapper backgrounds are transparent so image edges aren't filled with site background */
+  #myCarousel, #myCarousel .carousel-inner, #myCarousel .carousel-item, #myCarousel .carousel-item > .first-slide, #myCarousel .carousel-item > .second-slide, #myCarousel .carousel-item > .third-slide {
+    background: transparent !important;
   }
 
   .carousel-caption h2, .carousel-caption h3 { text-align: left !important; }
