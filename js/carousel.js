@@ -1,57 +1,70 @@
-/* Carousel v2.0 initializer (moved out of index.html)
-   - Initializes Bootstrap carousel
-   - Wires thumbnail active state
-   - Adds keyboard navigation (left/right)
-   - Ensures lazy images in active slide are set
+/* Scroll-driven video hero
+   - Maps scroll progress over the hero section to video playback time
+   - Plays/pauses based on visibility
+   - Falls back to simple play on click for mobile
 */
 (function () {
-  try {
-    var el = document.querySelector('#myCarousel');
-    if (!el || !window.bootstrap) return;
+  var video = document.getElementById('heroVideo');
+  var hero = document.getElementById('video-hero');
+  if (!video || !hero) return;
 
-    var carousel = new bootstrap.Carousel(el, { interval: parseInt(el.getAttribute('data-bs-interval')) || 8000, ride: el.getAttribute('data-bs-ride') || false, pause: 'hover' });
+  // Ensure we can read duration; if not available, wait for metadata
+  function init() {
+    var duration = video.duration || 1;
 
-    // Thumbnails: keep active class in sync
-    var thumbs = el.querySelectorAll('.carousel-thumbs .thumb');
-    function setActiveThumb(index) {
-      thumbs.forEach(function (t, i) {
-        t.classList.toggle('active', i === index);
-        t.setAttribute('aria-pressed', String(i === index));
-      });
+    // Map scroll progress within hero to video time
+    function onScroll() {
+      var rect = hero.getBoundingClientRect();
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      // progress 0..1 where 0 means top of hero at bottom of viewport, 1 means bottom of hero at top of viewport
+      var start = vh; // when hero top is at bottom
+      var end = -rect.height; // when hero bottom is at top
+      var total = start - end;
+      var offset = rect.top - end;
+      var progress = Math.min(Math.max(1 - (offset / total), 0), 1);
+
+      // set video time
+      try {
+        video.currentTime = progress * duration;
+      } catch (e) {
+        // Some browsers restrict setting currentTime before user interaction; ignore
+      }
+
+      // Play if hero is at least partially visible, pause otherwise
+      if (rect.bottom > 0 && rect.top < vh) {
+        if (video.paused) {
+          video.play().catch(function () {});
+        }
+      } else {
+        if (!video.paused) video.pause();
+      }
     }
 
-    // Update on slide event
-    el.addEventListener('slid.bs.carousel', function (ev) {
-      var idx = (ev && typeof ev.to === 'number') ? ev.to : Array.from(el.querySelectorAll('.carousel-item')).indexOf(ev.relatedTarget) || 0;
-      setActiveThumb(idx);
-      // Ensure images in the active slide are loaded (safety for lazy loading)
-      var imgs = el.querySelectorAll('.carousel-item.active img.lazy');
-      imgs.forEach(function (img) { if (img.dataset && img.dataset.src && img.src !== img.dataset.src) img.src = img.dataset.src; });
-    });
-
-    // Wire thumbnail clicks to navigate carousel
-    thumbs.forEach(function (btn, i) {
-      btn.addEventListener('click', function (e) {
-        e.preventDefault();
-        carousel.to(i);
-        setActiveThumb(i);
-      });
-    });
-
-    // Keyboard support: left/right to navigate
-    el.tabIndex = 0;
-    el.addEventListener('keydown', function (e) {
-      if (e.key === 'ArrowLeft') {
-        e.preventDefault(); carousel.prev();
-      } else if (e.key === 'ArrowRight') {
-        e.preventDefault(); carousel.next();
+    // Throttle scroll with requestAnimationFrame
+    var ticking = false;
+    function onScrollRaf() {
+      if (!ticking) {
+        window.requestAnimationFrame(function () { onScroll(); ticking = false; });
+        ticking = true;
       }
+    }
+
+    window.addEventListener('scroll', onScrollRaf, { passive: true });
+    window.addEventListener('resize', onScrollRaf);
+
+    // Provide click-to-play for touch devices / when browser blocks autoplay
+    hero.addEventListener('click', function () {
+      if (video.paused) video.play().catch(function () {});
+      else video.pause();
     });
 
-    // Initial active thumb
-    setActiveThumb(0);
+    // Kickstart one render
+    onScroll();
+  }
 
-  } catch (e) {
-    console.error('Carousel v2.0 (external) init failed', e);
+  if (video.readyState >= 1) {
+    init();
+  } else {
+    video.addEventListener('loadedmetadata', init);
   }
 })();

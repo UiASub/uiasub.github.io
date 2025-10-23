@@ -1,531 +1,59 @@
-/* GLOBAL STYLES
-/* GLOBAL STYLES
--------------------------------------------------- */
-/* NOTE: page color/background is defined in custom.css. Avoid overriding here to prevent theme conflicts. */
+/* i dont know what 10% of this does */
+/* maybe like 20% now */
 
-/* Backwards-compatibility: many older styles target Bootstrap 3's `.item` selector.
-   Add aliases so rules also apply to Bootstrap 5's `.carousel-item`. This prevents
-   duplicated/conflicting declarations across CSS files. */
+/* ensure consistent box-sizing for carousel items */
 .carousel-item {
-  /* ensure consistent box-sizing for carousel items */
   box-sizing: border-box;
 }
-body {
-  color: #5a5a5a;
-}
-
-
-/* CUSTOMIZE THE NAVBAR
--------------------------------------------------- */
-
-/* Special class on .container surrounding .navbar, used for positioning it into place. */
-.navbar-wrapper {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 20;
-}
-
-/* Flip around the padding for proper display in narrow viewports */
-.navbar-wrapper > .container {
-  padding-right: 0;
-  padding-left: 0;
-}
-.navbar-wrapper .navbar {
-  padding-right: 15px;
-  padding-left: 15px;
-}
-.navbar-wrapper .navbar .container {
-  width: auto;
-}
-
-
-/* CUSTOMIZE THE CAROUSEL
--------------------------------------------------- */
-
-/* Carousel base class */
-.carousel {
-  height: 520px;
-  margin-bottom: 0px;
+/* Video hero styles (replaces carousel styles) */
+.video-hero {
   position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #002436;
+  height: 85vh;
+  min-height: 420px;
+  display: block;
+  --hero-scale: 1; /* default scale (can be overridden by JS on the container) */
 }
-/* Since positioning the image, we need to help out the caption */
-/* The cleaned .carousel-caption rules appear later in the file (Bootstrap 5 friendly) */
-
-/* Custom grid layout for carousel content */
-.carousel-caption .carousel-text {
-  grid-column: 1 !important;
-  max-width: 500px !important;
-  margin: 0 !important;
+.hero-video {
+  /* normal document flow so the video appears in-place */
+  position: static;
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  /* apply only scale so video doesn't shift horizontally */
+  transform-origin: center center;
+  transform: scale(var(--hero-scale));
+  will-change: transform;
+  transition: transform 160ms linear;
+  z-index: 1;
 }
-
-.carousel-caption .carousel-image-container {
-  grid-column: 2 !important;
-  justify-self: end !important;
-  margin: 0 !important;
-  transform: translateX(40px) !important;
-}
-
-/* Override any Bootstrap column styles in carousel */
-.carousel-caption .col-md-4,
-.carousel-caption .col-md-8 {
-  position: static !important;
-  float: none !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
-/* Declare heights because of positioning of img element */
-.carousel-item {
-  height: 520px; /* fixed visual height for carousel slides */
-  background-color: #060607;
-}
-
-/* Controls: target Bootstrap 5 prev/next controls */
-.carousel-control-prev,
-.carousel-control-next {
-  width: 10%;
-}
-
-
-.carousel-caption {
-  z-index: 10;
-  text-align: left;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%;
-  max-width: 1200px;
-  padding: 20px;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 60px;
-  align-items: center;
-}
-
-/* Make caption background slightly translucent for readability over busy images (no HTML change required) */
-.carousel-caption::before {
-  content: '';
+.hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.5));
-  z-index: 6;
-  border-radius: 6px;
-}
-
-/* Ensure direct children render above the background pseudo-element */
-.carousel-caption > * {
-  position: relative;
-  z-index: 10;
-}
-
-/* Ensure controls and indicators are above the foreground overlay */
-.carousel-control-prev,
-.carousel-control-next {
-  z-index: 40;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  pointer-events: auto;
-}
-.carousel-indicators {
-  z-index: 40;
-  pointer-events: auto;
-}
-
-/* Modern slide wrapper: move inline slide backgrounds into CSS for maintainability */
-.carousel-item > .first-slide,
-.carousel-item > .second-slide,
-.carousel-item > .third-slide {
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  height: 520px;
-  width: 100%;
-  position: relative;
-}
-
-.carousel-item > .first-slide { background-image: url('../images/infrastructure/layered-waves-haikei_1.svg'); }
-.carousel-item > .second-slide { background-image: url('../images/infrastructure/layered-waves-haikei_1.svg'); }
-.carousel-item > .third-slide { background-image: url('../images/infrastructure/layered-waves-haikei_1.svg'); }
-
-/* Foreground overlay positioning (keeps captions centered) */
-.carousel-item .foreground {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 10;
   display: flex;
   align-items: center;
-  pointer-events: none; /* allow clicks to pass through to controls */
+  justify-content: center;
+  pointer-events: none;
+  z-index: 2;
 }
-
-/* If the foreground contains interactive elements (links/buttons), enable pointer events for them */
-.carousel-item .foreground a,
-.carousel-item .foreground button,
-.carousel-item .foreground input,
-.carousel-item .foreground [role="button"] {
+.video-hero .hero-content { width: 40%; }
+.hero-content {
   pointer-events: auto;
+  text-align: left;
+  max-width: 900px;
+  padding: 2rem;
 }
-/* Featurettes
-------------------------- */
-
-.featurette-divider {
-  margin: 40px 0; /* Space out the Bootstrap <hr> more */
-}
-
-/* Thin out the marketing headings */
-.featurette-heading {
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -1px;
-}
-
-
-/* RESPONSIVE CSS
--------------------------------------------------- */
-
-@media (min-width: 768px) {
-  /* Navbar positioning foo */
-  .navbar-wrapper {
-    margin-top: 20px;
-  }
-  .navbar-wrapper .container {
-    padding-right: 15px;
-    padding-left: 15px;
-  }
-  .navbar-wrapper .navbar {
-    padding-right: 0;
-    padding-left: 0;
-  }
-
-  /* The navbar becomes detached from the top, so we round the corners */
-  .navbar-wrapper .navbar {
-    border-radius: 4px;
-  }
-
-  /* Bump up size of carousel content */
-  .carousel-caption p {
-    margin-bottom: 20px;
-    font-size: 14px;
-    font-weight: 200;
-    line-height: 1.4;
-    margin-bottom: 10px;
-  }
-
-  .featurette-heading {
-    font-size: 50px;
-  }
-}
-
-@media (min-width: 992px) {
-  .featurette-heading {
-    margin-top: 120px;
-  }
-}
-
-/* MOBILE CAROUSEL STYLES
--------------------------------------------------- */
-
-/* Mobile styles for carousel - stack content vertically */
-@media (max-width: 767px) {
-  /* Ensure carousel and slides collapse to content height on tiny screens */
-  .carousel, .carousel-item, .carousel-item > .first-slide,
-  .carousel-item > .second-slide, .carousel-item > .third-slide {
-    height: auto !important;
-    min-height: 0 !important;
-    padding-bottom: 0 !important;
-  }
-
-  /* Remove any pseudo-element background clipping that might overlap text on narrow screens */
-  .carousel-caption::before { display: none; }
-
-  /* Ensure foreground is non-overlapping and flows with content */
-  .carousel-item .foreground { position: relative !important; display: block !important; box-sizing: border-box !important; }
-
-  /* Place image above text for better UX on mobile (image first, then text) */
-  .carousel-item .foreground .row { flex-direction: column-reverse !important; }
-
-  /* Larger tap targets for controls on mobile */
-  .carousel-control-prev, .carousel-control-next { width: 18% !important; }
-  .carousel-control-prev-icon, .carousel-control-next-icon { width: 44px; height: 44px; }
-  /* Additional overrides to match legacy mobile stacking (Bootstrap 5 differences) */
-  .carousel .container {
-    padding-left: 12px !important;
-    padding-right: 12px !important;
-  }
-
-  /* Force rows inside carousel to be vertical stacks on mobile */
-  .carousel .row {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 12px !important;
-    align-items: center !important;
-  }
-
-  /* Make columns full width in carousel on mobile */
-  .carousel .col-md-7, .carousel .col-md-5, .carousel .col-sm-8, .carousel .col-sm-4 {
-    width: 100% !important;
-    flex: 0 0 100% !important;
-    max-width: 100% !important;
-  }
-
-  /* Remove large background images on mobile to avoid clipping/overlap and improve contrast */
-  .carousel-item > .first-slide,
-  .carousel-item > .second-slide,
-  .carousel-item > .third-slide {
-    background-image: none !important;
-    background-color: transparent !important;
-    background-size: cover !important;
-    background-position: center top !important;
-    padding-top: 8px !important;
-  }
-
-  /* Ensure the foreground does not overlap due to absolute positioning */
-  .carousel-item .foreground {
-    position: relative !important;
-    padding-top: 6px !important;
-    padding-bottom: 6px !important;
-  }
-
-  /* Keep the thumbnail strip off-screen on tiny devices, or allow horizontal scroll */
-  .carousel-thumbs { display: none !important; }
-
-  /* Ensure rules target Bootstrap 5 markup (.carousel-item) as well as legacy selectors */
-  .carousel-item {
-    height: auto !important;
-    min-height: 0 !important;
-    padding: 0 !important;
-  }
-
-  /* Allow slide wrapper backgrounds to shrink on mobile */
-  .carousel-item > .first-slide,
-  .carousel-item > .second-slide,
-  .carousel-item > .third-slide {
-    height: auto !important;
-    min-height: 0 !important;
-    background-position: center top !important;
-  }
-
-  /* Make the foreground act as the stacking container (no absolute positioning on mobile) */
-  .carousel-item .foreground {
-    position: relative !important;
-    display: block !important;
-    inset: auto !important;
-    width: 100% !important;
-    height: auto !important;
-    padding: 8px 12px !important;
-    align-items: stretch !important;
-    pointer-events: auto !important;
-  }
-
-  /* Stack the content columns vertically and center them */
-  .carousel-item .foreground .row {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 12px !important;
-  }
-
-  .carousel-item .foreground .col-md-7,
-  .carousel-item .foreground .col-md-5,
-  .carousel-item .foreground .col-sm-8,
-  .carousel-item .foreground .col-sm-4 {
-    width: 100% !important;
-    max-width: 720px !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-
-  /* Scale images inside the slide properly */
-  .carousel-item .foreground img,
-  .carousel-item .foreground .img-fluid {
-    max-width: 92% !important;
-    width: auto !important;
-    height: auto !important;
-    margin: 0 auto !important;
-  }
-
-  /* Ensure headings inside the actual markup inherit our improved styles */
-  .carousel-item .foreground h2 { font-size: 26px !important; font-weight: 800 !important; margin-bottom: 6px !important; }
-  .carousel-item .foreground h3 { font-size: 18px !important; font-weight: 700 !important; margin-bottom: 8px !important; }
-
-  /* Keep controls usable on mobile */
-  .carousel-control-prev, .carousel-control-next { width: 12% !important; }
-
-  /* Slightly increase spacing under mobile carousel */
-  .carousel { margin-bottom: 24px !important; }
-
-  /* Reduce carousel height on mobile */
-  .carousel {
-    height: auto;
-    min-height: 0 !important;
-  }
-  
-  .carousel .item {
-    height: auto;
-    min-height: 0 !important;
-    padding: 0 !important;
-  }
-  
-  /* Stack carousel content vertically on mobile */
-  .carousel-caption {
-    display: flex !important;
-    flex-direction: column !important;
-    grid-template-columns: none !important;
-    gap: 20px !important;
-    position: static !important;
-    transform: none !important;
-    width: 100% !important;
-    max-width: none !important;
-    padding: 12px 12px !important;
-    text-align: center !important;
-  }
-  
-  /* Text content on mobile */
-  .carousel-caption .carousel-text {
-    grid-column: 1;
-    max-width: 500px;
-    margin: 0;
-  }
-
-  .carousel-caption .carousel-image-container {
-    grid-column: auto !important;
-    justify-self: center !important;
-    margin: 0 auto 20px auto !important;
-    transform: none !important;
-    order: 1;
-    text-align: center;
-  }
-  
-  /* Responsive images on mobile */
-  .carousel-caption .carousel-image img {
-    max-width: 280px !important;
-    width: 90% !important;
-    height: auto !important;
-  }
-  
-  /* Mobile typography adjustments */
-  .carousel-caption h2 {
-    font-size: 26px !important;
-    margin-bottom: 8px !important;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.6);
-    letter-spacing: -0.5px;
-  }
-  
-  .carousel-caption h3 {
-    font-size: 18px !important;
-    margin-bottom: 15px !important;
-  }
-  
-  .carousel-caption p {
-    font-size: 14px !important;
-    line-height: 1.4 !important;
-    margin-bottom: 12px !important;
-  }
-  
-  /* Adjust carousel controls for mobile (Bootstrap 5 selectors) */
-  .carousel-control-prev,
-  .carousel-control-next {
-    width: 8% !important;
-  }
-
-  /* Control icon sizing */
-  .carousel-control-prev-icon,
-  .carousel-control-next-icon {
-    font-size: 20px !important;
-  }
-  
-  /* Hide carousel indicators on very small screens */
-  .carousel-indicators {
-    bottom: 10px !important;
-  }
-  
-  /* Bootstrap 5 uses buttons inside .carousel-indicators */
-  .carousel-indicators [data-bs-target],
-  .carousel-indicators button {
-    width: 8px !important;
-    height: 8px !important;
-    margin: 0 3px !important;
-    border-radius: 50% !important;
-  }
-
-  /* Force images and inner container to behave like a stacked block on mobile */
-  .carousel .carousel-inner, .carousel .carousel-item {
-    display: block !important;
-    width: 100% !important;
-  }
-
-  /* Make slide images fill the width and keep aspect ratio (cover to avoid letterboxing) */
-  .carousel .carousel-inner img, .carousel .carousel-item img {
-    display: block !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    height: auto !important;
-    object-fit: cover !important;
-  }
-
-  /* Place caption below the image and make it clearly readable */
-  .carousel-caption {
-    position: relative !important;
-    transform: none !important;
-    top: auto !important;
-    left: auto !important;
-    margin-top: 8px !important;
-    width: calc(100% - 24px) !important;
-    padding: 12px !important;
-    background: rgba(0,0,0,0.45) !important;
-    border-radius: 8px !important;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.45) !important;
-    text-align: left !important;
-  }
-
-  /* Ensure slide wrapper backgrounds are transparent so image edges aren't filled with site background */
-  #myCarousel, #myCarousel .carousel-inner, #myCarousel .carousel-item, #myCarousel .carousel-item > .first-slide, #myCarousel .carousel-item > .second-slide, #myCarousel .carousel-item > .third-slide {
-    background: transparent !important;
-  }
-
-  .carousel-caption h2, .carousel-caption h3 { text-align: left !important; }
-
-  /* Make controls larger and ensure they sit vertically centered */
-  .carousel-control-prev, .carousel-control-next {
-    width: 56px !important;
-    height: 56px !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-  }
-  .carousel-control-prev-icon, .carousel-control-next-icon {
-    width: 32px !important;
-    height: 32px !important;
-    background-size: 32px 32px !important;
-  }
-}
-
-/* Hide thumbnail strip on small screens to save vertical space */
-@media (max-width: 767px) {
-  .carousel-thumbs { display: none !important; }
-}
-
-/* Strengthen desktop carousel headings to match featurette prominence */
-#myCarousel h2 {
-  font-size: 3rem;
-  line-height: 1.02;
-  font-weight: 800;
+.hero-content h1, .hero-content .lead, .hero-content .small-pill {
   color: #ffffff;
-  text-shadow: 0 6px 18px rgba(0,0,0,0.6);
+  /* subtle shadow for readability over video */
+  text-shadow: 0 6px 18px rgba(0,0,0,0.55);
 }
-#myCarousel h3 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #eaf6ff;
-  text-shadow: 0 4px 12px rgba(0,0,0,0.45);
-}
-
-/* Slight translucent pill behind small headings on large screens to match featurette look */
-.carousel-caption .small-pill {
+.hero-content h1 { font-size: 4.6rem; margin: 0 0 .5rem 0; line-height: 1.05; }
+.hero-content .lead { opacity: 0.95; }
+.hero-content .small-pill {
   display: inline-block;
   background: rgba(255,255,255,0.06);
   color: rgba(255,255,255,0.95);
@@ -534,143 +62,134 @@ body {
   font-weight: 600;
   margin-bottom: 10px;
 }
+.hero-content h1 { font-size: 2.4rem; margin: 0 0 .25rem 0; }
+.hero-content h2 { font-size: 1.25rem; margin: 0 0 1rem 0; color: #10a3dd; }
+.hero-content .lead { font-size: 1rem; color: rgba(230,247,255,0.95); }
 
-/* Extra small mobile devices */
-@media (max-width: 480px) {
-  .carousel {
-    min-height: 350px;
-  }
-  
-  .carousel .item {
-    min-height: 350px;
-  }
-  
-  .carousel-caption {
-    padding: 15px 10px !important;
-  }
-  
-  .carousel-caption h2 {
-    font-size: 20px !important;
-  }
-  
-  .carousel-caption h3 {
-    font-size: 16px !important;
-  }
-  
-  .carousel-caption p {
-    font-size: 13px !important;
-  }
-  
-  .carousel-caption .carousel-image img {
-    max-width: 240px !important;
-  }
-}
-
-/* Tablet styles */
-@media (min-width: 768px) and (max-width: 991px) {
-  .carousel-caption {
-    gap: 40px !important;
-    padding: 15px !important;
-  }
-  
-  .carousel-caption .carousel-image-container {
-    transform: translateX(20px) !important;
-  }
-  
-  .carousel-caption .carousel-image img {
-    max-width: 350px !important;
-  }
-}
-
-/* High-specificity mobile overrides for #myCarousel to restore stacked mobile behaviour */
 @media (max-width: 767px) {
-  /* Make the carousel and slides flow normally */
-  #myCarousel, #myCarousel .carousel-inner, #myCarousel .carousel-item {
-    display: block !important;
-    position: relative !important;
-    width: 100% !important;
-    height: auto !important;
-    min-height: 0 !important;
-  }
-
-  /* Images fill width and keep aspect ratio */
-  #myCarousel img {
-    width: 100% !important;
-    max-width: 100% !important;
-    height: auto !important;
-    object-fit: cover !important;
-    display: block !important;
-    margin: 0 auto !important;
-  }
-
-  /* Ensure foreground and rows stack and do not overlap */
-  #myCarousel .foreground {
-    position: relative !important;
-    inset: auto !important;
-    width: 100% !important;
-    height: auto !important;
-    display: block !important;
-    padding: 8px 12px !important;
-  }
-  #myCarousel .foreground .row { flex-direction: column !important; }
-
-  /* Caption below the image, readable background */
-  #myCarousel .carousel-caption {
-    position: relative !important;
-    transform: none !important;
-    top: auto !important;
-    left: auto !important;
-    width: calc(100% - 24px) !important;
-    margin: 8px 12px !important;
-    padding: 12px !important;
-    background: rgba(3,18,24,0.72) !important;
-    border-radius: 8px !important;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.6) !important;
-    text-align: left !important;
-  }
-
-  /* Make headings prominent but not oversized on very small screens */
-  #myCarousel .carousel-caption h2 { font-size: 20px !important; line-height: 1.1 !important; font-weight: 800 !important; }
-  #myCarousel .carousel-caption h3 { font-size: 15px !important; font-weight: 700 !important; color: #e6f6ff !important; }
-
-  /* Controls: larger tap targets and keep them visible */
-  #myCarousel .carousel-control-prev, #myCarousel .carousel-control-next {
-    width: 56px !important;
-    height: 56px !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-  }
-  #myCarousel .carousel-control-prev-icon, #myCarousel .carousel-control-next-icon { width: 28px !important; height: 28px !important; }
-
-  /* Hide thumbnails on phones */
-  #myCarousel + .carousel-thumbs, #myCarousel .carousel-thumbs { display: none !important; }
+  /* Mobile: reduce hero height so it doesn't push content off-screen */
+  .video-hero { height: 55vh; min-height: 320px; }
+  .hero-video { width: 100%; height: 100%; max-height: none; object-fit: cover; }
+  .hero-overlay { align-items: center; }
+  .hero-content { padding: 1rem; text-align: center; width: 100%; }
+  .hero-content h1 { font-size: 1.6rem; }
 }
-
-/* v2.0 thumbnail active state and spacing tweaks */
-.carousel-thumbs .thumb.active img {
-  outline: 3px solid rgba(0,127,255,0.9);
-  transform: scale(1.03);
+@keyframes underwater {
+    0% { background-position: 40% 40%; }
+    100% { background-position: 80% 80%; }
 }
-.carousel-thumbs .thumb img {
-  transition: transform 160ms ease, outline 160ms ease;
-}
-
-/* Add bottom spacing under carousel to avoid overlap with following content (featurettes) */
-.carousel { margin-bottom: 40px; }
+/* Gigantic, cool hero typography for the video hero on index.html */
 @media (min-width: 992px) {
-  .carousel { margin-bottom: 80px; }
+  .video-hero .hero-content h1 {
+    font-size: clamp(4.6rem, 6vw, 8.4rem); /* scalable between 4.6rem and 8.4rem */
+    line-height: 1.12; /* further increase to avoid clipped descenders */
+    letter-spacing: -0.5px;
+    font-weight: 800;
+    margin-bottom: 0.2rem;
+    text-transform: none;
+    /* gradient text */
+    background: white;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    /* subtle glow */
+    text-shadow: 0 6px 24px rgba(122,0,255,0.08), 0 2px 8px rgba(0,0,0,0.12);
+    transform: translateZ(0);
+  }
 }
 
-/* Featurette column headings: target the exact markup used (col-sm-8 h2) */
-.col-sm-8 h2, .col-sm-8 .text-3xl {
-  font-size: 2rem; /* ~32px */
-  font-weight: 700;
-  color: #ffffff;
+@media (max-width: 991.98px) {
+  .video-hero .hero-content h1 {
+    font-size: clamp(2rem, 6.5vw, 4.6rem);
+    line-height: 1.02;
+    letter-spacing: -0.3px;
+    text-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  }
 }
 
-@media (min-width: 768px) {
-  /* Ensure carousel headings are prominent on tablet+ */
-  #myCarousel h2 { font-size: 3.25rem; }
-  #myCarousel h3 { font-size: 1.5rem; }
-  .col-sm-8 h2 { font-size: 2.5rem; }
+@media (prefers-reduced-motion: no-preference) {
+  /* Disable headline float animation to prevent clipping on some videos/layouts */
+  .video-hero .hero-content h1 {
+    animation: none;
+  }
+  @keyframes hero-slow-float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(0); }
+    100% { transform: translateY(0); }
+  }
+}
+
+/* Give the hero content a touch more bottom padding on wide screens so large type doesn't touch the container edge */
+@media (min-width: 992px) {
+  .video-hero .hero-content { padding-bottom: 3.5rem; }
+}
+
+/* Hero CTA .hero-cta */
+.hero-cta {
+  font-size: 18px;
+  color: #e1e1e1;
+  font-family: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  background: none;
+  text-transform: uppercase;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: color;
+}
+
+.hero-cta:focus,
+.hero-cta:hover {
+  color: #fff;
+}
+
+.hero-cta:focus:after,
+.hero-cta:hover:after {
+  width: 100%;
+  left: 0%;
+}
+
+.hero-cta:after {
+  content: "";
+  pointer-events: none;
+  bottom: -2px;
+  left: 50%;
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: #fff;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: width, left;
+}
+/* Gigantic shadowed typography styles 
+https://codepen.io/juanbrujo/pen/DBKxxM
+*/
+.video-hero .hero-content .deepshadow h1 {
+background: none !important;
+-webkit-background-clip: border-box !important;
+background-clip: border-box !important;
+color: #e0dfdc !important;
+-webkit-text-fill-color: #e0dfdc !important;
+letter-spacing: .1em;
+text-shadow:
+  0 -1px 0 #fff,
+  0 1px 0 #2e2e2e,
+  0 2px 0 #2c2c2c,
+  0 3px 0 #2a2a2a,
+  0 4px 0 #282828,
+  0 5px 0 #262626,
+  0 6px 0 #242424,
+  0 7px 0 #222,
+  0 8px 0 #202020,
+  0 9px 0 #1e1e1e,
+  0 10px 0 #1c1c1c,
+  0 11px 0 #1a1a1a,
+  0 12px 0 #181818,
+  0 13px 0 #161616,
+  0 14px 0 #141414,
+  0 15px 0 #121212,
+  0 22px 30px rgba(0, 0, 0, 0.9);
 }

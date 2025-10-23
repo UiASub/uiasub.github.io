@@ -2,14 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="Next generation ROV engineering">
     <meta name="title" content="UiASub">
-  <link rel="shortcut icon" href="/images/uiasub/Icon1.png">
-  <link rel="manifest" href="/manifest.webmanifest">
     <meta name="theme-color" content="#003f7f">
+    <link rel="shortcut icon" href="images/uiasub/Icon1.png">
+    <link rel="manifest" href="/manifest.webmanifest">
 
     <title>UiASub ROV Engineering</title>
 
@@ -18,112 +17,52 @@
     <!-- Bootstrap core CSS (v5) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">    
     <!-- Custom styles for this template -->
-  <link href="/css/carousel.css" rel="stylesheet">
-  <link href="/css/custom.css" rel="stylesheet">
-  <link href="/css/header.css" rel="stylesheet">
-  <link rel="stylesheet" href="/css/waves.css">
-  <link rel="stylesheet" href="/css/carousel-fix.css">
+    <link href="/css/carousel.css" rel="stylesheet">
+    <link href="/css/header.css" rel="stylesheet">
+    <link href="/css/custom.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/waves.css">
   </head>
 
   <body>
   <!--HEADER-->
   <div id="header-eng"></div>
   <script src="/js/header.js"></script>
+  <script src="/js/data-collapse.js"></script>
 
     <!-- Carousel v2.0  -->
     <div id="myCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="8000" aria-roledescription="carousel">
 
       <!-- Visible controls) -->
 
-      <div class="carousel-inner" role="listbox">
-  <div class="carousel-item active" data-index="0" aria-label="Slide 1: Who are we?">
-          <div class="first-slide">
-            <div class="foreground">
-              <div class="container">
-                <div class="row align-items-center">
-                  <div class="col-md-7 text-white">
-                    <h2>Who are we?</h2>
-                    <h3>Exploring the depths, engineering the future!</h3>
-                    <p>UiASub is a student organization at the University of Agder bringing together students interested in technology, innovation and maritime development.</p>
-                    <p>We work on projects in underwater robotics and modern subsea technology.</p>
-                    <p>Through interdisciplinary collaboration we explore solutions for underwater robotics and contemporary subsea systems.</p>
-                  </div>
-                  <div class="col-md-5 d-flex justify-content-center">
-                    <img data-src="/images/carousel/legg-ut-6-scaled.jpg" src="/images/carousel/legg-ut-6-scaled.jpg" alt="First Slide Image" class="img-fluid rounded shadow lazy" style="max-width:400px;" loading="lazy" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-  <div class="carousel-item" data-index="1" aria-label="Slide 2: What do we offer?">
-          <div class="second-slide">
-            <div class="foreground">
-              <div class="container">
-                <div class="row align-items-center">
-                  <div class="col-md-7 text-white">
-                    <h2>What do we offer?</h2>
-                    <h3>Discover new horizons in subsea technology</h3>
-                    <p>As a member of UiASub you'll have the opportunity to get involved in innovative projects that combine hands-on work with cutting-edge research. We build practical solutions for challenges beneath the surface.</p>
-                    <p>Membership gives access to workshops, networking opportunities with industry professionals, and a supportive, inspiring community.</p>
-                  </div>
-                  <div class="col-md-5 d-flex justify-content-center">
-                    <img data-src="/images/front-icons/IMG_4896-scaled.jpg" src="/images/front-icons/IMG_4896-scaled.jpg" alt="Second Slide Image" class="img-fluid rounded shadow lazy" style="max-width:450px;" loading="lazy" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-  <div class="carousel-item" data-index="2" aria-label="Slide 3: Become a member!">
-          <div class="third-slide">
-            <div class="foreground">
-              <div class="container">
-                <div class="row align-items-center">
-                  <div class="col-md-7 text-white">
-                    <h2>Become a member!</h2>
-                    <h3>Want to work with this technology?</h3>
-                    <hr/>
-                    <p>If you want to make an impact in a growing student organization and collaborate with a high-performing team, start here. Work with talented colleagues on challenging problems that shape the future.</p>
-                    <p>At UiASub we value autonomy, responsibility and high performance. We focus on results, openness and continuous improvement.</p>
-                    <p>If you'd like to join our team, feel free to <a href="/en/pages/contact.html">contact us</a> or <a href="https://anon.to/ay32jT" class="btn btn-primary bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Apply here</a></p>
-                  </div>
-                  <div class="col-md-5 d-flex justify-content-center">
-                    <img data-src="/images/carousel/IMG_0096-scaled.jpg" src="/images/carousel/IMG_0096-scaled.jpg" alt="Third Slide Image" class="img-fluid rounded shadow lazy" style="max-width:400px;" loading="lazy" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Thumbnails-->
-      <div class="carousel-thumbs d-flex justify-content-center gap-3 p-3" role="tablist" aria-label="Carousel thumbnails">
-        <button class="thumb btn btn-link p-0 active" data-bs-target="#myCarousel" data-bs-slide-to="0" aria-label="Go to slide 1" aria-pressed="true">
-          <img src="/images/carousel/legg-ut-6-scaled.jpg" alt="Slide 1 thumbnail" class="rounded shadow" style="width:80px; height:56px; object-fit:cover;" loading="lazy">
-        </button>
-        <button class="thumb btn btn-link p-0" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Go to slide 2" aria-pressed="false">
-          <img src="/images/front-icons/IMG_4896-scaled.jpg" alt="Slide 2 thumbnail" class="rounded shadow" style="width:80px; height:56px; object-fit:cover;" loading="lazy">
-        </button>
-        <button class="thumb btn btn-link p-0" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Go to slide 3" aria-pressed="false">
-          <img src="/images/carousel/IMG_0096-scaled.jpg" alt="Slide 3 thumbnail" class="rounded shadow" style="width:80px; height:56px; object-fit:cover;" loading="lazy">
-        </button>
-      </div>
-
-      <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev" aria-label="Previous slide">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next" aria-label="Next slide">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
+      <!-- hero removed — placeholder for new hero component -->
+      <!-- TODO: add new hero here -->
+<div class="container py-5">
+  <div class="row">
+    <hr class="my-5">
+      <div class="col">
     </div>
-    <!-- /.carousel v2.0 -->
-
+  </div>
+</div>
+<!--https://uiverse.io/PriyanshuGupta28/slimy-rattlesnake-42-->
+      <div class="marquee">
+        <div class="marquee__inner">
+          <div class="marquee__group">
+            <span>Hello World</span>
+            <span>Hello World</span>
+            <span>Hello World</span>
+            <span>Hello World</span>
+            <span>Hello World</span>
+          </div>
+        
+          <div class="marquee__group">
+            <span>Hello World</span>
+            <span>Hello World</span>
+            <span>Hello World</span>
+            <span>Hello World</span>
+            <span>Hello World</span>
+          </div>
+        </div>
+      </div>
     <!-- Featurettes (Bootstrap grid version) -->
     <div class="container py-5">
       <div class="row">
@@ -141,7 +80,7 @@
               <p>Expected production completed by 2026</p>
               <p>After careful consideration we moved from three housings to a single central pressure vessel due to buoyancy challenges. As the radius increased, imbalance between buoyancy and weight became more apparent. To resolve this we chose a more compact design. Despite this change, the ROV's core functionality and internal components remain reliable and effective.</p>
               <div class="border-top border-light my-3" style="width:70px;"></div>
-              <a href="/en/pages/rov.html" target="_blank" rel="noopener noreferrer" class="btn btn-primary">See it here</a>
+              <a href="pages/rov.html" target="_blank" rel="noopener noreferrer" class="btn btn-primary">See it here</a>
             </div>
           </div>
 
@@ -176,7 +115,7 @@
                 <li><strong>FFU:</strong> Specializes in advanced subsea technology and solutions for marine research and exploration.</li>
               </ul>
               <div class="border-top border-light my-3" style="width:70px;"></div>
-              <a href="/en/pages/sponsors.html" target="_blank" rel="noopener noreferrer" class="btn btn-primary">See more</a>
+              <a href="pages/sponsors.html" target="_blank" rel="noopener noreferrer" class="btn btn-primary">See more</a>
             </div>
           </div>
 

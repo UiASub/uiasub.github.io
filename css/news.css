@@ -1,0 +1,102 @@
+.card {
+  width: 300px;
+  height: 325px;
+  background: #e8e8e8;
+  border-radius: 15px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  color: #212121;
+  border: 2px solid #ab4b38;
+  transition: all .5s ease;
+}
+
+.icons {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  transition: opacity 0.5s ease;
+  opacity: 0;
+}
+
+.image {
+  width: 300px;
+  height: 148px;
+  background: rgb(223,235,56);
+  background: rgb(56,235,226);
+  background: linear-gradient(163deg, rgba(56,235,226,1) 0%, rgba(134,221,245,1) 50%);
+}
+
+.save {
+  background: #eb4b38;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.see-more {
+  background: #ab4b38;
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+
+.save, .see-more {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 5px;
+  padding: 5px;
+}
+
+.save__icon, .see-more__icon {
+  width: 15px;
+  fill: white;
+}
+
+.card__info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  padding: 15px;
+  gap: 3px;
+}
+
+.page {
+  font-size: 13px;
+  font-weight: 100;
+}
+
+.title {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 17px;
+  color: black;
+}
+
+.content {
+  font-size: 14px;
+}
+
+.card:hover {
+  box-shadow: 5px 5px 10px 0px #ab4b3866;
+}
+
+.card:hover .icons {
+  z-index: 1;
+  opacity: 1;
+}
+
+.card:hover .image {
+  filter: brightness(.8);
+}
+
+.card:hover .title {
+  color: #ab4b38;
+}

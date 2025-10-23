@@ -13,15 +13,6 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: system-ui, -apple-system, sans-serif;
-  background-color: oklch(0.145 0 0);
-  color: oklch(0.985 0 0);
-  /* allow content to scroll on long pages */
-  min-height: 100vh;
-  overflow: auto;
-}
-
 .main-container {
   display: flex;
   flex-direction: column;

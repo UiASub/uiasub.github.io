@@ -2,7 +2,6 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="UiASub">
     <meta name="title" content="UiASub About">
@@ -17,10 +16,20 @@
     <link href="/css/carousel.css" rel="stylesheet">
     <link href="/css/custom.css" rel="stylesheet">
     <link href="/css/header.css" rel="stylesheet">
+    <link href="/css/about.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/waves.css">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Page-scoped about styles */
+      .about-visual { height: 320px; }
+      .about-modern .lead { font-size: 1.05rem; }
+      .stat-num { color: #e6f7ff; }
+      .stat-label { color: rgba(230,247,255,0.6); }
+      .about-modern .btn-outline-light { border-color: rgba(199, 199, 199, 0.14); color: #e6f7ff; }
+      @media (max-width: 767px) { .about-visual { height: 200px; } }
+    </style>
   </head>
 
   <body>
@@ -31,17 +40,191 @@
     <div id="header"></div>
     <script src="/js/header.js"></script>
 
-    <!-- Om Oss Seksjon -->
-    <div class="callout">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <h1 class="text-5xl font-bold">Om <span class="text-blue-600">UiASub</span></h1>
-                    <hr class="my-4 border-t-2 border-gray-300">
-                    <p class="text-lg text-white">UiASub dedikerer seg til å fremme undervannsteknologi og innovasjon. Teamet vårt jobber utrettelig for å designe, utvikle og implementere banebrytende løsninger for undervannsutforskning og forskning.</p>
-                </div>
+    <!-- Om Oss Seksjon (modernized) -->
+    <section class="callout about-modern py-5">
+      <div class="container">
+        <div class="row g-4 align-items-center">
+          <div class="col-md-6 text-start">
+            <div class="about-visual rounded shadow-sm overflow-hidden">
+              <img src="/images/uiasub/Onwall.jpg" alt="UiASub team" class="img-fluid" style="width:100%;height:100%;object-fit:cover;">
             </div>
+          </div>
+          <div class="col-md-6">
+            <h1 class="h1 mb-3">Om <span class="text-blue-600">UiASub</span></h1>
+            <p class="lead text-light">UiASub er en studentdrevet teknologigruppe ved Universitetet i Agder. Vi bygger autonome og fjernstyrte undervannssystemer, lærer gjennom praktiske prosjekter og samarbeider tett med næringslivet.</p>
+            <ul class="text-light">
+              <li>Organisasjonens formål er å tilby studenter arbeidsrelaterte prosjekter med fokus på å bygge fjernstyrt og autonomt undervannsutstyr, som ROV-er og AUV-er.
+                Organisasjonen drives som et selskap og gir studentene praktisk erfaring som er verdifull for deres fremtidige karrierer. Vi trenger ingeniører, HR- og ledelsesstudenter, samt studenter innen markedsføring og multimedia. Å være en del av UiASub øker din attraktivitet for arbeidsgivere og gir tilgang til et omfattende profesjonelt nettverk.
+                Vi deltar i 1–2 konkurranser hvert år, der vi konkurrerer mot ulike lag om å være raskest til å utføre oppgaver på havbunnen.
+              </li>
+            </ul>
+
+            <div class="row mt-3">
+              <div class="col-4">
+                <div class="stat text-center">
+                  <div class="stat-num h3">~30</div>
+                  <div class="stat-label small text-white">aktive medlemmer</div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="stat text-center">
+                  <div class="stat-num h3">8</div>
+                  <div class="stat-label small text-white">thrusters (K2)</div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="stat text-center">
+                  <div class="stat-num h3">+3</div>
+                  <div class="stat-label small text-white">partnere</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <a href="/pages/join.html" class="btn btn-primary me-2">Bli med oss</a>
+              <a href="/pages/rov.html" class="btn btn-outline-light">Se prosjektet vårt</a>
+            </div>
+          </div>
         </div>
+      </div>
+    </section>
+      <div class="mt-4 text-center">
+        <button id="members-toggle" class="learn-more" type="button" aria-expanded="false" aria-controls="members-collapse">
+          <span class="circle" aria-hidden="true">
+            <span class="icon arrow"></span>
+          </span>
+          <!--Button from here: https://uiverse.io/cssbuttons-io/massive-mayfly-74-->
+          <span class="button-text">Medlemmer</span>
+        </button>
+      </div>
+      <div class="collapse mt-3" id="members-collapse">
+      <div class="container mx-auto mt-4">
+        <div class="row justify-content-center gx-4 gy-4">
+          <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+        <img src="https://i.imgur.com/ZTkt4I5.jpg" loading="lazy" decoding="async" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        </div>
+          </div>    
+             <div class="col-md-4">
+      <div class="card" style="width: 18rem;">
+        <img src="https://i.imgur.com/ZTkt4I5.jpg" loading="lazy" decoding="async" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        </div>
+          </div>    
+                <div class="col-md-4">
+      <div class="card" style="width: 18rem;">
+        <img src="https://i.imgur.com/ZTkt4I5.jpg" loading="lazy" decoding="async" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        </div>
+        </div>
+
+          <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+        <img src="https://i.imgur.com/ZTkt4I5.jpg" loading="lazy" decoding="async" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        </div>
+          </div>    
+             <div class="col-md-4">
+      <div class="card" style="width: 18rem;">
+        <img src="https://i.imgur.com/ZTkt4I5.jpg" loading="lazy" decoding="async" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        </div>
+          </div>    
+                <div class="col-md-4">
+      <div class="card" style="width: 18rem;">
+        <img src="https://i.imgur.com/ZTkt4I5.jpg" loading="lazy" decoding="async" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        </div>
+        </div>
+
+          <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+        <img src="https://i.imgur.com/ZTkt4I5.jpg" loading="lazy" decoding="async" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        </div>
+          </div>    
+             <div class="col-md-4">
+      <div class="card" style="width: 18rem;">
+        <img src="https://i.imgur.com/ZTkt4I5.jpg" loading="lazy" decoding="async" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        </div>
+          </div>    
+                <div class="col-md-4">
+      <div class="card" style="width: 18rem;">
+        <img src="https://i.imgur.com/ZTkt4I5.jpg" loading="lazy" decoding="async" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        </div>
+        </div>
+
+          <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+        <img src="https://i.imgur.com/ZTkt4I5.jpg" loading="lazy" decoding="async" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        </div>
+          </div>    
+             <div class="col-md-4">
+      <div class="card" style="width: 18rem;">
+        <img src="https://i.imgur.com/ZTkt4I5.jpg" loading="lazy" decoding="async" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        </div>
+          </div>    
+                <div class="col-md-4">
+      <div class="card" style="width: 18rem;">
+        <img src="https://i.imgur.com/ZTkt4I5.jpg" loading="lazy" decoding="async" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        </div>
+        </div>
+      </div>
+      </div>
     </div>
     <!-- Waves -->
     <div class="wrapper">
@@ -78,5 +261,23 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script>
+    // Use Bootstrap's Collapse API to toggle members reliably
+    (function(){
+      var btn = document.getElementById('members-toggle');
+      var collapseEl = document.getElementById('members-collapse');
+      if(!btn || !collapseEl || !bootstrap) return;
+      var bsCollapse = new bootstrap.Collapse(collapseEl, { toggle: false });
+      btn.addEventListener('click', function(){
+        if (collapseEl.classList.contains('show')) {
+          bsCollapse.hide();
+          btn.setAttribute('aria-expanded','false');
+        } else {
+          bsCollapse.show();
+          btn.setAttribute('aria-expanded','true');
+        }
+      });
+    })();
+  </script>
   </body>
 </html>

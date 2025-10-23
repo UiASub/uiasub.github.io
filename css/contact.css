@@ -1,11 +1,3 @@
-/* Removed external Google Fonts import to avoid loading custom fonts on this page */
-body, html{
-	/* removed height:100% to avoid forcing full-viewport height on this page
-	   which, combined with shared waves rules, caused large gaps/overlap */
-	padding: 0;
-	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-}
 h1{
 	font-weight: normal;
 	font-size: 4em;

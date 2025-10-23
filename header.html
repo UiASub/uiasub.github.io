@@ -1,15 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UiASub</title>
-    <link rel="stylesheet" href="/css/header.css">
-    <link href="/css/custom.css" rel="stylesheet">
-  <link rel="manifest" href="/manifest.webmanifest">
-  <meta name="theme-color" content="#003f7f">
-</head>
-<body>
     <div class="masthead">
       <div class="masthead-top">
         <div class="logo">
@@ -42,24 +30,11 @@
       </div>
       <div class="navigation">
         <a href="/pages/about.html">Om oss</a>
-        <a href="/pages/contact.html">Kontakt oss</a>
         <a href="/pages/sponsors.html">Sponsorer</a>
+        <a href="/pages/news.html">Nyheter</a>
+        <a href="/pages/contact.html">Kontakt oss</a>
         <a href="/pages/login.html" id="loginLink"> Log Inn</a>
       </div>
     </div>
     <div class="masthead-border"></div>
-    <script>
-      // Register service worker 
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-          navigator.serviceWorker.register('/service-worker.js').then(function(reg) {
-            // registration successful
-            console.log('ServiceWorker registration successful with scope: ', reg.scope);
-          }).catch(function(err) {
-            console.warn('ServiceWorker registration failed: ', err);
-          });
-        });
-      }
-    </script>
-</body>
-</html>
+    
