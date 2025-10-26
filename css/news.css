@@ -1,102 +1,105 @@
-.card {
-  width: 300px;
-  height: 325px;
-  background: #e8e8e8;
-  border-radius: 15px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.card-hover {
+  transition: transform .22s ease, box-shadow .22s ease;
+  will-change: transform;
+}
+
+.card-hover.hovered {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+}
+
+.cover-image {
   position: relative;
-  color: #212121;
-  border: 2px solid #ab4b38;
-  transition: all .5s ease;
+  overflow: hidden;
 }
 
-.icons {
-  display: flex;
-  flex-direction: row;
-  gap: 5px;
-  position: absolute;
-  right: 15px;
-  top: 15px;
-  transition: opacity 0.5s ease;
-  opacity: 0;
+.cover-image img {
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  display:block;
+  transition: transform .6s ease;
 }
 
-.image {
-  width: 300px;
-  height: 148px;
-  background: rgb(223,235,56);
-  background: rgb(56,235,226);
-  background: linear-gradient(163deg, rgba(56,235,226,1) 0%, rgba(134,221,245,1) 50%);
+.card-hover:hover .cover-image img {
+  transform: scale(1.06);
 }
 
-.save {
-  background: #eb4b38;
-  color: white;
-  border: none;
-  border-radius: 5px;
+/* make card 'plates' slightly off-white -> dark tint so they aren't pure white */
+
+.card-news {
+  background: transparent;
 }
 
-.see-more {
-  background: #ab4b38;
-  border: none;
-  border-radius: 5px;
-  color: white;
+/* darker card plate for stronger contrast */
+
+.card-news .card-body {
+  background: rgba(2,10,18,0.78) !important; border-radius:0 0 .375rem .375rem;
 }
 
-.save, .see-more {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 5px;
-  padding: 5px;
+/* ensure readable light text on the darker card plates */
+
+.card-news .card-title {
+  color: #ffffff !important;
 }
 
-.save__icon, .see-more__icon {
-  width: 15px;
-  fill: white;
+.card-news .card-body, .card-news .card-text {
+  color: #e6f7ff !important;
 }
 
-.card__info {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  justify-content: center;
-  padding: 15px;
-  gap: 3px;
+.card-news .card-text {
+  opacity: 0.98;
 }
 
-.page {
-  font-size: 13px;
-  font-weight: 100;
+.card-news .meta {
+  color: rgba(230,247,255,0.85) !important;
 }
 
-.title {
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 17px;
-  color: black;
+.card-news .btn-primary {
+  box-shadow: none;
 }
 
-.content {
-  font-size: 14px;
+.badge-custom {
+  background: rgba(255,255,255,0.06);
+  color: #e6f7ff;
+  padding: .25rem .5rem;
+  border-radius: .35rem;
+  font-weight:600;
+  display:inline-flex;
+  align-items:center;
+  gap:.35rem;
 }
 
-.card:hover {
-  box-shadow: 5px 5px 10px 0px #ab4b3866;
+.badge-custom.info {
+  background: rgba(68,184,255,0.10);
+  color:#002b3a;
 }
 
-.card:hover .icons {
-  z-index: 1;
-  opacity: 1;
+.badge-custom.muted {
+  background: rgba(244, 244, 244, 0.035);
+  color:#242424;
+} /* Media og Forskning badge*/
+
+.badge-custom.warn {
+  background: rgba(255,210,95,0.12);
+  color:#3b2b00;
 }
 
-.card:hover .image {
-  filter: brightness(.8);
+@media (max-width: 576px){
+ .cover-image img { height:160px; } 
 }
 
-.card:hover .title {
-  color: #ab4b38;
+/* News callout (match contact/sponsors layout conventions) */
+.news-callout {
+  position: relative;
+  padding: 80px 0 40px 0;
+  overflow: hidden;
 }
+.news-callout::before { content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+.news-callout .callout-content { position: relative; z-index: 1; }
+.news-callout .callout-content h1 { font-weight: 700; margin-bottom: 1rem; }
+.news-callout .callout-content p,
+.news-callout .callout-content .lead { color: #e6f7ff; font-size: 1.05rem; line-height: 1.6; }
+.news-callout hr { border-color: rgba(255,255,255,0.12); margin: 1rem 0 1.25rem; opacity: 0.9; }
+.news-callout .callout-content a { color: #44B8FF; transition: all 0.3s ease; }
+.news-callout .callout-content a:hover { transform: translateY(-2px); text-decoration: none; }

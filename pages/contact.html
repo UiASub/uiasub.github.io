@@ -17,7 +17,7 @@
     <link href="/css/custom.css" rel="stylesheet">
     <link href="/css/header.css" rel="stylesheet">
     <link href="/css/contact.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/waves.css">
+    <link href="/css/waves.css" rel="stylesheet">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -30,25 +30,25 @@
     <script src="/js/header.js"></script>
 
     <!-- Contact Section -->
-    <div class="callout">
+    <section class="callout contact-callout py-5" aria-label="Contact Information" role="region">
       <div class="container">
         <div class="row">
-          <div class="col-xs-12">
-            <h1 class="text-5xl font-bold">Kontakt <span class="text-blue-600">UiASub</span></h1>
+          <div class="col-12">
+            <div class="callout-content">
+            <h1 class="display-5 fw-bold mb-4">Kontakt <span class="text-primary">UiASub</span></h1>
             <hr class="my-4 border-t-2 border-gray-300">
             <p class="text-lg text-white">Vi vil gjerne høre fra deg! Ta kontakt via e-post på
               <a href="mailto:uia.submerged@gmail.com" class="text-blue-500 hover:underline">uia.submerged@gmail.com</a>
               eller følg oss på sosiale medier:</p>
             <ul class="list-inline">
-              <li class="list-inline-item mr-3">
-                <a href="https://www.instagram.com/uia.sub/" target="_blank">Instagram</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="https://no.linkedin.com/company/uiasub" target="_blank">LinkedIn</a>
-              </li>
+              <div class="mt-4 d-flex flex-column flex-sm-row justify-content-center gap-3">
+                <a href="https://www.instagram.com/uia.sub/" class="btn-contact-cta" aria-label="Contact Instagram">Instagram</a>
+                <a href="https://no.linkedin.com/company/uiasub" class="btn-contact-cta" aria-label="Contact Linkedin">LinkedIn</a>
+              </div>
             </ul>
+            </div>
           </div>
-        </div>
+    </section>
 
         <!--Dette er fra: https://codepen.io/geertjanhendriks/pen/ZEWrmd -->
 

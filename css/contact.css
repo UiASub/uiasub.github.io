@@ -5,7 +5,7 @@ h1{
 	margin: 30px auto 0;
 	max-width: 100%;
 	width: auto;
-	color: #F90;
+	color: rgb(255, 255, 255);
 	text-align: center;
 
 }
@@ -27,7 +27,7 @@ h1{
 }
 
 .fish{
-	background-image: url('http://www.geertjanhendriks.nl/codepen/form/fish.png');
+	background-image: '/images/uiasub/fish.png';
 	width: 235px;
 	height: 104px;
 	margin-left: -235px;
@@ -172,4 +172,83 @@ input:-webkit-autofill, textarea:-webkit-autofill {
 	-webkit-box-shadow: 0 0 0px 1000px white inset !important;
 	box-shadow: 0 0 0px 1000px white inset !important;
 	-webkit-text-fill-color: #222222 !important;
+}
+/* Sponsors callout (preserved from previous design) */
+.contact-callout {
+  position: relative;
+  padding: 120px 0 80px 0; /* desktop spacing */
+  overflow: hidden;
+}
+.contact-callout::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.contact-callout .callout-content {
+  position: relative;
+  z-index: 1;
+}
+.contact-callout .callout-content h1 {
+  font-weight: 700; /* stronger heading for hierarchy */
+  margin-bottom: 1rem;
+}
+.contact-callout .callout-content p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #e6f7ff;
+}
+/* keep Bootstrap's .lead behavior while providing tuned sizing */
+.contact-callout .callout-content .lead {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: #e6f7ff;
+}
+.contact-callout hr {
+  border-color: rgba(255,255,255,0.12);
+  margin: 1rem 0 1.25rem;
+  opacity: 0.8;
+}
+/* More specific link selectors so these override generic .callout a */
+.contact-callout .callout-content a {
+  color: #44B8FF;
+  transition: all 0.3s ease;
+}
+.contact-callout .callout-content a:hover {
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+.contact-callout .callout-content a.btn-sponsor-cta {
+  color: #44B8FF;
+}
+
+/* Bring sponsor CTA visual style into contact page as .btn-contact-cta
+	 to keep a consistent look for contact CTAs while scoping styles to this page. */
+.btn-contact-cta {
+	display: inline-block;
+	padding: 14px 32px;
+	border-radius: 12px;
+	background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+	border: 1px solid rgba(68,184,255,0.12);
+	color: #44B8FF;
+	font-weight: 600;
+	font-size: 16px;
+	text-decoration: none;
+	transition: all 0.3s cubic-bezier(0.65, 0, 0.076, 1);
+	box-shadow: 0 6px 18px rgba(0,0,0,0.24);
+}
+.btn-contact-cta:hover {
+	background: rgba(68,184,255,0.10);
+	border-color: #44B8FF;
+	color: #ffffff;
+	transform: translateY(-3px);
+	box-shadow: 0 12px 32px rgba(68,184,255,0.14);
+}
+.btn-contact-cta:active { transform: translateY(0); }
+
+@media (max-width: 768px) {
+	.btn-contact-cta { padding: 12px 24px; font-size: 15px; }
 }

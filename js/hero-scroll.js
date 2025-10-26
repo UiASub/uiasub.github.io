@@ -38,8 +38,8 @@
 // Mobile video source swap: switch to a mobile-optimized video when viewport is small
 (() => {
   const MOBILE_QUERY = '(max-width: 767px)';
-  const mobileSrc = 'videos/2Maybe.mp4';
-  const desktopSrc = 'videos/UseThis.mp4';
+  const mobileSrc = '/videos/2Maybe.mp4';
+  const desktopSrc = '/videos/UseThis.mp4';
   const video = document.getElementById('use-this-hero-video');
   if (!video) return;
 

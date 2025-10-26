@@ -3,13 +3,18 @@
 html {
   background: #000000;
 }
+/* shared site colors */
+:root {
+  --sea-top: #002f47;
+  --sea-deep: #00101a;
+}
 a {
   color: #44B8FF;
 }
 
 /* Sea-like background for the whole site */
 body {
-  background: linear-gradient(180deg, #002f47 0%, #00101a 60%);
+  background: linear-gradient(180deg, var(--sea-top) 0%, var(--sea-deep) 60%);
   color: #e6f7ff; /* light sea-foam text for contrast */
 }
 
@@ -85,8 +90,9 @@ color: #989da4;
   z-index: -1;
 }
 
+.callout .col-12,
 .callout .col-xs-12 {
-padding: 0 16%;
+  padding: 0 16%;
 }
 
 .callout h1 {
@@ -190,35 +196,7 @@ margin-bottom: 0;
 margin-top: 30px;
 }
 
-.footer {
-background-color: #2e3136;
-border-top: 1px solid #989da4;
-color: #cccccc;
-padding: 40px 0;
-}
-
-.footer a {
-color: #ccc;
-}
-
-.footer a:hover {
-text-decoration: underline;
-}
-
-.footer a:visited {
-color: #ccc;
-}
-
-.footer ul {
-list-style: none;
-padding: 0;
-font-size: 12px;
-font-weight: 200;
-}
-
-.footer-sub {
-margin-bottom: 0;
-}
+/* Footer styles are consolidated into css/footer.css to avoid duplication and conflicts. */
 
 .home-copyright img {
 float: right;
@@ -237,4 +215,26 @@ text-align:right;
 font-size: 10px;
 text-align:right;
 padding-top: 40px;
+}
+
+/* Responsive container for embedded Google Form */
+.form-embed {
+  width: 100%;
+  /* Use viewport-based height so the form fills the screen on phones */
+  height: 80vh;
+  min-height: 480px;
+  max-height: 1200px;
+  overflow: hidden;
+}
+
+/* On small screens use nearly full viewport height so the form is usable without excessive scrolling */
+@media (max-width: 600px) {
+  .form-embed {
+    height: calc(100vh - 120px); /* leave room for header/footer */
+    min-height: 420px;
+  }
+}
+
+.form-embed iframe { 
+  border: 0; width: 100%; height: 100%; 
 }

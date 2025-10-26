@@ -7,8 +7,8 @@
     <meta name="description" content="Next generation ROV engineering">
     <meta name="title" content="UiASub">
     <meta name="theme-color" content="#003f7f">
-    <link href="images/uiasub/Icon1.png" rel="shortcut icon">
-    <link href="manifest.webmanifest" rel="manifest">
+    <link href="/images/uiasub/Icon1.png" rel="shortcut icon">
+    <link href="/manifest.webmanifest" rel="manifest">
 
     <title>UiASub ROV Engineering</title>
 
@@ -31,11 +31,40 @@
     <script src="/js/header.js"></script>
 
     <!-- HERO: carousel-style video hero -->
-    <section class="video-hero" aria-label="Hero">
+  <section class="video-hero" aria-label="Hero" data-overlay-enabled="true">
       <video id="use-this-hero-video" class="hero-video" autoplay loop muted playsinline preload="metadata">
         <source src="videos/UseThis.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
+
+      <video id="overlay-hero-video" class="hero-video-overlay" autoplay loop muted playsinline preload="metadata" aria-hidden="true">
+        <source src="videos/DarkAbstractWaves.mp4" type="video/mp4">
+        <!-- Decorative overlay video -->
+      </video>
+      <script>
+        (function(){
+          const container = document.querySelector('.video-hero[data-overlay-enabled]');
+          const overlay = document.getElementById('overlay-hero-video');
+          if (!overlay || !container) return;
+          function updateOverlayPlayback(){
+            try{
+              const style = window.getComputedStyle(overlay);
+              if (style && style.display === 'none'){
+                overlay.pause();
+              } else if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                overlay.pause();
+              } else {
+                overlay.play().catch(()=>{});
+              }
+            }catch(e){}
+          }
+          updateOverlayPlayback();
+          window.addEventListener('resize', updateOverlayPlayback);
+          var mql = window.matchMedia('(prefers-reduced-motion: reduce)');
+          if (mql.addEventListener) mql.addEventListener('change', updateOverlayPlayback);
+          else if (mql.addListener) mql.addListener(updateOverlayPlayback);
+        })();
+      </script>
 
       <div class="hero-overlay">
         <div class="hero-content">
@@ -98,7 +127,7 @@
                 <li><strong>FFU:</strong> Spesialiserer seg på avansert undervannsteknologi og løsninger for marin forskning og utforskning.</li>
               </ul>
               <div class="border-top border-light my-3" style="width:70px;"></div>
-              <a href="pages/sponsors.html" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Se mer</a>
+              <a href="pages/sponsors.html" rel="noopener noreferrer" class="btn btn-primary">Se mer</a>
             </div>
           </div>
 
@@ -129,7 +158,7 @@
               <h2 class="h3"><a class="nostyle" name="common-runtime">Nyheter</a></h2>
               <h3 class="h5 text-primary">Se hva som skjer i UiASub</h3>
               <div class="border-top border-light my-3" style="width:70px;"></div>
-              <a href="pages/news.html" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Trykk her</a>
+              <a href="pages/news.html" rel="noopener noreferrer" class="btn btn-primary">Trykk her</a>
             </div>
           </div>
 
@@ -157,7 +186,7 @@
     <!-- FOOTER -->
     <div id="footer"></div>
     <script>
-      fetch('footer.html')
+      fetch('/footer.html')
         .then(response => response.text())
         .then(data => { document.getElementById('footer').innerHTML = data; });
     </script>

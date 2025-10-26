@@ -10,7 +10,7 @@
   position: relative;
   width: 100%;
   overflow: hidden;
-  background: #002436;
+  background: transparent;
   height: 85vh;
   min-height: 420px;
   display: block;
@@ -21,7 +21,7 @@
   position: static;
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
   /* apply only scale so video doesn't shift horizontally */
   transform-origin: center center;
@@ -30,6 +30,31 @@
   transition: transform 160ms linear;
   z-index: 1;
 }
+/* Overlay video sits above the base video but below the content overlay */
+.hero-video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform-origin: center center;
+  transform: scale(var(--hero-scale));
+  will-change: transform;
+  transition: transform 160ms linear;
+  z-index: 2; /* sits above base video (1) */
+  opacity: 0.4; /* subtle overlay by default */
+  pointer-events: none; /* don't block clicks */
+}
+
+/* Optional blend mode variant you can toggle by adding .blend-screen */
+.hero-video-overlay.blend-screen {
+  mix-blend-mode: screen;
+  opacity: 0.5;
+}
 .hero-overlay {
   position: absolute;
   inset: 0;
@@ -37,7 +62,7 @@
   align-items: center;
   justify-content: center;
   pointer-events: none;
-  z-index: 2;
+  z-index: 3; /* moved above overlay video */
 }
 .video-hero .hero-content { width: 40%; }
 .hero-content {
@@ -69,10 +94,25 @@
 @media (max-width: 767px) {
   /* Mobile: reduce hero height so it doesn't push content off-screen */
   .video-hero { height: 55vh; min-height: 320px; }
-  .hero-video { width: 100%; height: 100%; max-height: none; object-fit: cover; }
+  .hero-video { max-height: none; }
   .hero-overlay { align-items: center; }
   .hero-content { padding: 1rem; text-align: center; width: 100%; }
   .hero-content h1 { font-size: 1.6rem; }
+}
+
+/* Reduce overlay intensity on small screens for performance */
+@media (max-width: 767px) {
+  .hero-video-overlay { opacity: 0.25; }
+}
+
+/* Hide overlay on small screens to avoid double decoding and performance issues */
+@media (max-width: 767px) {
+  .hero-video-overlay { display: none !important; }
+}
+
+/* Respect users who prefer reduced motion: disable overlay video */
+@media (prefers-reduced-motion: reduce) {
+  .hero-video-overlay { display: none !important; }
 }
 @keyframes underwater {
     0% { background-position: 40% 40%; }

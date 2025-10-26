@@ -1,279 +1,129 @@
-:root {
-  --electric-border-color: #000000;
-  --electric-light-color: oklch(from var(--electric-border-color) l c h);
-  --gradient-color: oklch(
-    from var(--electric-border-color) 0.3 calc(c / 2) h / 0.4
-  );
-  --color-neutral-900: oklch(0.185 0 0);
+/* Scope box-sizing to the sponsors showcase only to avoid overriding Bootstrap or global styles */
+.sponsors-showcase * { box-sizing: border-box; }
+
+/* Sponsors callout (preserved from previous design) */
+.sponsors-callout {
+  position: relative;
+  padding: 120px 0 80px 0; /* desktop spacing */
+  overflow: hidden;
+}
+.sponsors-callout::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.sponsors-callout .callout-content {
+  position: relative;
+  z-index: 1;
+}
+.sponsors-callout .callout-content h1 {
+  font-weight: 700; /* stronger heading for hierarchy */
+  margin-bottom: 1rem;
+}
+.sponsors-callout .callout-content p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #e6f7ff;
+}
+/* keep Bootstrap's .lead behavior while providing tuned sizing */
+.sponsors-callout .callout-content .lead {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: #e6f7ff;
+}
+.sponsors-callout hr {
+  border-color: rgba(255,255,255,0.12);
+  margin: 1rem 0 1.25rem;
+  opacity: 0.8;
+}
+/* More specific link selectors so these override generic .callout a */
+.sponsors-callout .callout-content a {
+  color: #44B8FF;
+  transition: all 0.3s ease;
+}
+.sponsors-callout .callout-content a:hover {
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+.sponsors-callout .callout-content a.btn-sponsor-cta {
+  color: #44B8FF;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Sponsor CTA button (glassmorphism-inspired) */
+.btn-sponsor-cta {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  border: 1px solid rgba(68,184,255,0.12);
+  color: #44B8FF;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.65, 0, 0.076, 1);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.24);
+}
+.btn-sponsor-cta:hover {
+  background: rgba(68,184,255,0.10);
+  border-color: #44B8FF;
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(68,184,255,0.14);
+}
+.btn-sponsor-cta:active { transform: translateY(0); }
+
+@media (max-width: 992px) {
+  .sponsors-callout { padding: 100px 0 60px 0; }
 }
 
-.main-container {
+@media (max-width: 768px) {
+  .sponsors-callout { padding: 80px 0 60px 0; }
+  .sponsors-callout .col-12, .sponsors-callout .col-xs-12 { padding: 0 8%; }
+  .btn-sponsor-cta { padding: 12px 24px; font-size: 15px; }
+  .sponsors-callout .callout-content h1 { font-size: 2rem; }
+}
+
+/* === Modern, simplified sponsors showcase styles === */
+.sponsors-showcase { padding: 60px 0; }
+.sponsors-showcase h2 { color: #e6f7ff; font-weight: 600; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 1px; font-size: 1.75rem; }
+
+.sponsor-logo-card {
+  background: rgba(255,255,255,0.03);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255,255,255,0.08);
+  min-height: 280px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* Keep the centered appearance on small viewports but allow scrolling on long pages */
-  min-height: 100vh;
+}
+.sponsor-logo-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(68,184,255,0.3);
 }
 
-.card-container {
-  padding: 2px;
-  border-radius: 24px;
-  position: relative;
-  background: linear-gradient(
-      -30deg,
-      var(--gradient-color),
-      transparent,
-      var(--gradient-color)
-    ),
-    linear-gradient(
-      to bottom,
-      var(--color-neutral-900),
-      var(--color-neutral-900)
-    );
-  /* make the card have an intrinsic size so absolutely positioned children don't collapse layout
-     responsive: allow columns to size it but cap to a reasonable visual width */
-  width: 100%;
-  max-width: 420px;
-  /* ensure the card keeps a visible box even when inner children are absolutely positioned */
-  min-height: 480px; /* fallback size similar to the canvas default */
-  box-sizing: border-box;
-  overflow: visible;
+.sponsor-logo { max-width: 220px; height: auto; transition: transform 0.3s ease, filter 0.3s ease; filter: brightness(0.9); }
+.sponsor-logo-card:hover .sponsor-logo { transform: scale(1.05); filter: brightness(1.1); }
+
+.sponsor-description { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.5; max-width: 280px; margin: 0 auto; }
+
+@media (max-width: 768px) {
+  .sponsors-showcase { padding: 40px 0; }
+  .sponsor-logo-card { padding: 1.5rem; min-height: 240px; }
+  .sponsor-logo { max-width: 180px; }
+  .sponsor-description { font-size: 13px; }
+  .sponsors-showcase h2 { font-size: 1.5rem; }
 }
 
-.inner-container {
-  /* keep inner content in normal flow; canvas will be absolutely positioned inside it */
-  position: relative;
-  border-radius: inherit;
-  overflow: hidden;
-  min-height: 100%;
-}
-
-.canvas-container {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.electric-border-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  transform: none;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.content-container {
-  position: relative;
-  z-index: 1;
-}
-
-/* Glow effects */
-.glow-layer-1 {
-  border: 2px solid rgba(221, 132, 72, 0.6);
-  border-radius: 24px;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  filter: blur(1px);
-}
-
-.glow-layer-2 {
-  border: 2px solid var(--electric-light-color);
-  border-radius: 24px;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  filter: blur(4px);
-}
-
-/* Overlay effects */
-.overlay-1 {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 24px;
-  opacity: 1;
-  mix-blend-mode: overlay;
-  transform: scale(1.1);
-  filter: blur(16px);
-  background: linear-gradient(
-    -30deg,
-    white,
-    transparent 30%,
-    transparent 70%,
-    white
-  );
-}
-
-.overlay-2 {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 24px;
-  opacity: 0.5;
-  mix-blend-mode: overlay;
-  transform: scale(1.1);
-  filter: blur(16px);
-  background: linear-gradient(
-    -30deg,
-    white,
-    transparent 30%,
-    transparent 70%,
-    white
-  );
-}
-
-.background-glow {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 24px;
-  filter: blur(32px);
-  transform: scale(1.1);
-  opacity: 0.3;
-  z-index: -1;
-  background: linear-gradient(
-    -30deg,
-    var(--electric-light-color),
-    transparent,
-    var(--electric-border-color)
-  );
-}
-
-.content-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Content sections */
-.content-top {
-  display: flex;
-  flex-direction: column;
-  padding: 48px;
-  padding-bottom: 16px;
-  height: 100%;
-}
-
-.content-bottom {
-  display: flex;
-  flex-direction: column;
-  padding: 48px;
-  padding-top: 16px;
-}
-
-.button-glass {
-  background: radial-gradient(
-      47.2% 50% at 50.39% 88.37%,
-      rgba(255, 255, 255, 0.12) 0%,
-      rgba(255, 255, 255, 0) 100%
-    ),
-    rgba(255, 255, 255, 0.04);
-  position: relative;
-  transition: background 0.3s ease;
-  border-radius: 14px;
-  width: fit-content;
-  height: fit-content;
-  padding: 8px 16px;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.button-glass:hover {
-  background: radial-gradient(
-      47.2% 50% at 50.39% 88.37%,
-      rgba(255, 255, 255, 0.12) 0%,
-      rgba(255, 255, 255, 0) 100%
-    ),
-    rgba(255, 255, 255, 0.08);
-}
-
-.button-glass::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 1px;
-  background: linear-gradient(
-    150deg,
-    rgba(255, 255, 255, 0.48) 16.73%,
-    rgba(255, 255, 255, 0.08) 30.2%,
-    rgba(255, 255, 255, 0.08) 68.2%,
-    rgba(255, 255, 255, 0.6) 81.89%
-  );
-  border-radius: inherit;
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask-composite: xor;
-  -webkit-mask-composite: xor;
-  pointer-events: none;
-}
-
-.title {
-  font-size: 36px;
-  font-weight: 500;
-  margin-top: auto;
-}
-
-.description {
-  opacity: 0.5;
-}
-
-.divider {
-  margin-top: auto;
-  border: none;
-  height: 1px;
-  background-color: currentColor;
-  opacity: 0.1;
-  mask-image: linear-gradient(to right, transparent, black, transparent);
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent,
-    black,
-    transparent
-  );
+@media (max-width: 576px) {
+  .sponsor-logo-card:hover { transform: translateY(-4px); }
+  .sponsor-logo { max-width: 160px; }
 }

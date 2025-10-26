@@ -21,6 +21,8 @@
     <!-- Custom styles for this template -->
     <link href="/css/carousel.css" rel="stylesheet">
     <link href="/css/custom.css" rel="stylesheet">
+  <link href="/css/header.css" rel="stylesheet">
+  <link href="/css/contact.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/waves.css">
 
     <!-- Tailwind CSS -->
@@ -29,11 +31,9 @@
 
   <body>
 
-    <!--HEADER-->
-
-    <!--HEADER-->
-    <div id="header-eng"></div>
-    <script src="/js/header.js"></script>
+  <!--HEADER-->
+  <div id="header"></div>
+  <script src="/js/header.js"></script>
 
     <!-- Contact Section -->
     <div class="callout">
@@ -42,7 +42,7 @@
           <div class="col-xs-12">
             <h1 class="text-5xl font-bold">Contact <span class="text-blue-600">UiASub</span></h1>
             <hr class="my-4 border-t-2 border-gray-300">
-            <p class="text-lg text-gray-500">We would love to hear from you! Please contact us via email at 
+            <p class="text-lg text-white">We would love to hear from you! Please contact us via email at 
               <a href="mailto:uia.submerged@gmail.com" class="text-blue-500 hover:underline">uia.submerged@gmail.com</a> 
               or follow us on social media:</p>
             <ul class="list-inline">
@@ -55,6 +55,33 @@
             </ul>
           </div>
         </div>
+      </div>
+
+        <!-- Contact waterform (same behavior as Norwegian contact page) -->
+        <div id="form">
+          <div class="fish" id="fish"></div>
+          <div class="fish" id="fish2"></div>
+
+          <form id="waterform" method="post">
+            <div class="formgroup" id="name-form">
+              <label for="name">Your name*</label>
+              <input type="text" id="name" name="name" />
+            </div>
+
+            <div class="formgroup" id="email-form">
+              <label for="email">Your e-mail*</label>
+              <input type="email" id="email" name="email" />
+            </div>
+
+            <div class="formgroup" id="message-form">
+              <label for="message">Your message</label>
+              <textarea id="message" name="message"></textarea>
+            </div>
+
+            <input type="submit" value="Send your message!" />
+          </form>
+        </div>
+
       </div>
     </div>
 
@@ -75,14 +102,14 @@
     <!-- FOOTER -->
     <div id="footer"></div>
     <script>
-      fetch('../footer.html')
+      fetch('/en/footer.html')
         .then(response => response.text())
         .then(data => { document.getElementById('footer').innerHTML = data; });
     </script>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="" crossorigin="anonymous"></script>
+    <!-- Page scripts -->
+    <script src="/js/contact.js" defer></script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="" crossorigin="anonymous"></script>
   </body>
 </html>

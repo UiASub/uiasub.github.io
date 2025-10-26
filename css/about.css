@@ -154,3 +154,25 @@ button:hover .button-text {
   visibility: visible !important;
   opacity: 1 !important;
 }
+
+.about-visual {
+  height: 320px; 
+}
+.about-modern .lead {
+  font-size: 1.05rem;
+}
+.stat-num {
+  color: #e6f7ff;
+}
+.stat-label {
+  color: rgba(230, 247, 255, 0.6);
+}
+.about-modern .btn-outline-light {
+  border-color: rgba(199, 199, 199, 0.14);
+  color: #e6f7ff;
+}
+@media (max-width: 767px) {
+  .about-visual {
+    height: 200px;
+  }
+}

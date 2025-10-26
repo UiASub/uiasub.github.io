@@ -1,23 +1,25 @@
 // Header initialization and functionality
 function initializeHeader() {
-  // Check which header element exists to determine language
-  const norwegianHeader = document.getElementById('header');
-  const englishHeader = document.getElementById('header-eng');
-  
-  let targetElement, headerPath, isEnglish;
-  
-  if (englishHeader) {
-    targetElement = englishHeader;
-    headerPath = '/en/header.html';
-    isEnglish = true;
-  } else if (norwegianHeader) {
-    targetElement = norwegianHeader;
-    headerPath = '/header.html';
-    isEnglish = false;
-  } else {
+  // Prefer a single container id '#header' and detect locale by path.
+  // Fallback: if '#header' is missing but legacy '#header-eng' exists, use it.
+  const headerContainer = document.getElementById('header');
+  const legacyEnglishHeader = document.getElementById('header-eng');
+
+  let targetElement = headerContainer || legacyEnglishHeader;
+  if (!targetElement) {
     console.error('No header element found');
     return;
   }
+
+  // Determine locale: prefer pathname-based detection so English pages load /en/header.html
+  let isEnglish = false;
+  try {
+    isEnglish = location && location.pathname && location.pathname.startsWith('/en');
+  } catch (e) {
+    isEnglish = !!legacyEnglishHeader; // fallback to legacy element presence
+  }
+
+  const headerPath = isEnglish ? '/en/header.html' : '/header.html';
   
   const cacheKey = isEnglish ? 'header-eng-html' : 'header-nb-html';
   const cached = sessionStorage.getItem(cacheKey);
@@ -236,11 +238,12 @@ async function checkLoginStatus(isEnglish) {
   const EDGE_FUNCTION_URL = "https://iiauxyfisphubpsaffag.supabase.co/functions/v1/discord-role-sync";
   const token = window.localStorage.getItem('access_token');
   if (!loginLink) return;
-  const pagesPrefix = isEnglish ? '/en' : '';
+  // Always point to the canonical login/equipment pages under /pages/ (no locale prefix).
+  // The link text is localized, but the routes are centralized.
   if (!token) {
     // Not logged in
     loginLink.textContent = isEnglish ? ' Log In' : ' Logg Inn';
-    loginLink.href = `${pagesPrefix}/pages/login.html`;
+    loginLink.href = `/pages/login.html`;
     loginLink.style.color = '';
     return;
   }
@@ -254,18 +257,18 @@ async function checkLoginStatus(isEnglish) {
       body: JSON.stringify({ check: true })
     });
     const payload = await res.json().catch(() => null);
-    if (res.status === 200 && payload && payload.ok === true) {
+      if (res.status === 200 && payload && payload.ok === true) {
       loginLink.textContent = isEnglish ? ' Logged In' : ' Logget Inn';
-      loginLink.href = `${pagesPrefix}/pages/equipment.html`;
+      loginLink.href = `/pages/equipment.html`;
       loginLink.style.color = '#3ba55d';
     } else {
       loginLink.textContent = isEnglish ? ' Log In' : ' Logg Inn';
-      loginLink.href = `${pagesPrefix}/pages/login.html`;
+      loginLink.href = `/pages/login.html`;
       loginLink.style.color = '';
     }
   } catch (e) {
     loginLink.textContent = isEnglish ? ' Log In' : ' Logg Inn';
-    loginLink.href = `${pagesPrefix}/pages/login.html`;
+    loginLink.href = `/pages/login.html`;
     loginLink.style.color = '';
   }
 }

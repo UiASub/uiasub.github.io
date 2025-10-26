@@ -1,0 +1,234 @@
+:root{
+  --rov-accent:#44B8FF;
+  --rov-accent-hover:#5ac8ff;
+  --rov-card-bg:rgba(255,255,255,0.03);
+  --rov-card-border:rgba(255,255,255,0.08);
+  --rov-transition:all 0.3s cubic-bezier(0.65,0,0.076,1);
+}
+
+/* Global ROV page tweaks */
+html{scroll-behavior:smooth}
+
+/* Headings & leads */
+.fs-3.fw-bold{color:#e6f7ff;text-shadow:0 2px 8px rgba(0,0,0,0.3);}
+.lead{color:rgba(230,247,255,0.85);font-size:1.1rem;line-height:1.7;max-width:800px;margin:0 auto}
+
+/* Focus states for specific interactive elements (accessibility) */
+/* Removed global :focus rules which conflicted with browser/Bootstrap defaults.
+   Apply focused styles only to interactive elements and prefer :focus-visible so
+   keyboard users get clear indicators while mouse users are not shown persistent rings. */
+
+/* Links (keyboard focus) */
+/* Fallback for older browsers: use :focus when :focus-visible unavailable */
+a:focus,
+a:focus-visible {
+  outline: 2px solid var(--rov-accent);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* Form controls */
+/* Fallback for older browsers: use :focus when :focus-visible unavailable */
+input:focus,
+textarea:focus,
+select:focus,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--rov-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Clickable cards used across the ROV sections */
+.sponsor-logo-card:focus,
+.sponsor-logo-card:focus-visible {
+  outline: 2px solid var(--rov-accent);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
+/* Buttons: remove default outline and use a Bootstrap-like box-shadow focus ring */
+.btn:focus,
+.btn-primary:focus,
+.btn-outline-light:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(68, 184, 255, 0.25);
+}
+
+.btn:focus-visible,
+.btn-primary:focus-visible,
+.btn-outline-light:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 0.25rem rgba(68, 184, 255, 0.35);
+}
+
+/* Specific collapse toggle (specs) */
+.learn-more:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 0.25rem rgba(68, 184, 255, 0.35);
+}
+
+/* Modal navigation buttons */
+#uiModal .btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(68, 184, 255, 0.4);
+}
+
+/* Hover-scale utility used by documentation cards */
+.hover-scale{transition:var(--rov-transition);will-change:transform}
+.hover-scale:hover{transform:scale(1.03)}
+
+/* Callout / Hero overrides */
+.callout.about-modern{
+  background:linear-gradient(135deg,rgba(0,47,71,0.4) 0%, rgba(0,16,26,0.6) 100%);
+  padding:80px 0 60px 0;
+}
+@media (max-width:768px){.callout.about-modern{padding:60px 0 40px 0}}
+
+.about-visual{background:linear-gradient(90deg, rgba(0,47,71,0.6) 0%, rgba(0,16,26,0.5) 50%, rgba(0,47,71,0.6) 100%);border-radius:12px;overflow:hidden}
+.about-visual::after{content:"";display:block;width:100%;height:100%;background:linear-gradient(120deg,rgba(68,184,255,0.02) 0%, transparent 40%);mix-blend-mode:overlay}
+
+.stat .stat-num{transition:var(--rov-transition)}
+.stat:hover .stat-num{transform:scale(1.06)}
+
+.btn-primary, .btn-outline-light{transition:var(--rov-transition);}
+.btn-primary:hover{transform:scale(1.05);box-shadow:0 8px 24px rgba(68,184,255,0.16)}
+.btn-outline-light:hover{transform:scale(1.02);box-shadow:0 8px 24px rgba(0,0,0,0.25)}
+
+/* Hero (callout) button overrides to enforce sea-blue theme */
+.callout.about-modern .btn{transition:var(--rov-transition)}
+.callout.about-modern .btn-primary{background:var(--rov-accent) !important;border-color:var(--rov-accent) !important;color:#00101a !important;box-shadow:0 8px 24px rgba(68,184,255,0.15) !important}
+.callout.about-modern .btn-primary:hover{background:var(--rov-accent-hover) !important;border-color:var(--rov-accent-hover) !important}
+.callout.about-modern .btn-outline-light{color:rgba(230,247,255,0.95) !important;background:transparent !important;border:1px solid rgba(68,184,255,0.12) !important}
+.callout.about-modern .btn-outline-light:hover{background:rgba(68,184,255,0.04) !important}
+
+/* Override global gradient-text rules (about.css) which apply -webkit-text-fill-color: transparent;
+   Ensure buttons inside the hero show their color immediately (not only on :hover). */
+.callout.about-modern .btn {
+  -webkit-text-fill-color: currentColor !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+}
+
+/* Specific override: ensure callout (hero) CTA anchors use the ROV focus styles (avoid other global focus rings)
+   This ensures "Se tekniske spesifikasjoner" and similar hero CTAs show the intended blue focus ring instead of a red outline. */
+.callout.about-modern a.btn:focus,
+.callout.about-modern a.btn:focus-visible {
+  outline: none !important;
+  box-shadow: 0 0 0 0.25rem rgba(68, 184, 255, 0.35) !important;
+  border-color: var(--rov-accent) !important;
+}
+
+/* Model viewer section */
+section[aria-label="3D Model Viewer"]{background:rgba(0,47,71,0.05);padding:60px 0;border-top:1px solid rgba(68,184,255,0.06);border-bottom:1px solid rgba(68,184,255,0.04)}
+model-viewer{border-radius:16px;box-shadow:0 12px 48px rgba(0,0,0,0.45);display:block;margin:0 auto}
+@media (min-width:992px){model-viewer{height:60vh;min-height:420px}}
+@media (max-width:991px){model-viewer{height:50vh;min-height:320px}}
+@media (max-width:576px){model-viewer{height:40vh;min-height:220px}}
+
+section[aria-label="3D Model Viewer"] p.small{color:rgba(230,247,255,0.7);font-size:14px}
+
+/* Technical specs cards */
+#technical-specs .card{background:var(--rov-card-bg);border:1px solid rgba(68,184,255,0.12);border-radius:12px;transition:var(--rov-transition);}
+#technical-specs .card:hover{transform:translateY(-4px);box-shadow:0 8px 32px rgba(0,0,0,0.32)}
+#technical-specs .card .card-title{color:var(--rov-accent);font-weight:600;font-size:1.1rem}
+
+#specs-collapse{position:relative;z-index:10}
+.collapsing{transition:height .35s ease, opacity .25s ease}
+
+#technical-specs ul li{padding:.35rem 0}
+#technical-specs ul::marker{color:var(--rov-accent)}
+
+.border-start.border-primary{box-shadow:-2px 0 8px rgba(68,184,255,0.08)}
+
+/* GitHub projects */
+#github-projects-container{margin-top:2rem}
+#github-loading-spinner{animation:pulse 1.5s ease-in-out infinite}
+/* Scope sponsor-logo-card styles to specific ROV sections to avoid global overrides */
+#github-projects-container .sponsor-logo-card,
+#ui-mockups .sponsor-logo-card,
+#timeline .sponsor-logo-card,
+#documentation .sponsor-logo-card{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border:1px solid var(--rov-card-border);
+  backdrop-filter:blur(4px);
+  transition:var(--rov-transition);
+}
+#github-projects-container .sponsor-logo-card:hover,
+#ui-mockups .sponsor-logo-card:hover,
+#documentation .sponsor-logo-card:hover,
+#timeline .sponsor-logo-card:hover{
+  transform:translateY(-8px) scale(1.02);
+  border-left:3px solid var(--rov-accent);
+}
+#github-projects-container .sponsor-logo-card{min-height:280px}
+.repo-meta{font-size:.875rem;color:rgba(230,247,255,0.6)}
+.lang-badge{border-radius:12px;padding:.25rem .75rem;font-size:.75rem;font-weight:600}
+
+/* Loading skeleton / shimmer (used by JS) */
+.skeleton-card{background:linear-gradient(90deg, rgba(255,255,255,0.02) 25%, rgba(255,255,255,0.04) 50%, rgba(255,255,255,0.02) 75%);background-size:1000px 100%;animation:shimmer 1.4s linear infinite}
+
+/* UI Mockups gallery */
+#ui-mockups .sponsor-logo-card{cursor:pointer}
+#ui-mockups .sponsor-logo-card{transition:var(--rov-transition)}
+#ui-mockups .sponsor-logo-card:hover{transform:translateY(-6px) scale(1.03)}
+#ui-mockups .sponsor-logo-card:focus-visible{outline:2px solid var(--rov-accent);outline-offset:4px}
+#ui-mockups .rounded{transition:filter .3s ease}
+#ui-mockups .rounded:hover{filter:brightness(1.06)}
+#ui-mockups .rounded span{filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3))}
+.badge.bg-primary{font-size:.75rem;padding:.35rem .75rem}
+
+/* Modal overrides for dark theme */
+#uiModal .modal-content{background:#1a1a2e !important;border:1px solid rgba(68,184,255,0.2);border-radius:16px}
+#uiModal .modal-header{background:rgba(0,47,71,0.6);border-bottom:1px solid rgba(68,184,255,0.2);padding:1.25rem}
+#uiModal .modal-body{padding:2rem;background:rgba(0,16,26,0.35)}
+#uiModalImage{box-shadow:0 8px 32px rgba(0,0,0,0.5);border-radius:8px;transition:opacity .3s ease}
+#uiModal .modal-footer{padding:1rem}
+#uiModal .btn-outline-light:disabled{opacity:.5;cursor:not-allowed}
+@media (max-width:576px){#uiModal .modal-dialog{max-width:95%}#uiModal .modal-body{padding:1rem}}
+
+/* Timeline */
+#timeline{padding:80px 0;position:relative}
+#timeline .timeline-spine{box-shadow:0 0 20px rgba(68,184,255,0.18)}
+.timeline-dot{width:20px;height:20px;background:var(--rov-accent);border:4px solid var(--sea-top);border-radius:50%;z-index:2}
+.timeline-dot:hover{animation:pulse-dot 2s infinite}
+#timeline .sponsor-logo-card{transition:var(--rov-transition)}
+#timeline .sponsor-logo-card:hover{transform:translateY(-4px)}
+#timeline .left .sponsor-logo-card{border-left:4px solid var(--rov-accent)}
+#timeline .right .sponsor-logo-card{border-right:4px solid var(--rov-accent)}
+#timeline ul{list-style:none;padding-left:1.25rem}
+#timeline ul li{position:relative;padding-left:1rem}
+#timeline ul li::before{content:"✓";position:absolute;left:-1.25rem;color:var(--rov-accent)}
+
+@media (max-width:768px){
+  #timeline{padding:40px 0}
+  #timeline .position-absolute.start-50{display:none}
+  #timeline .col-md-5{padding:0}
+  #timeline .sponsor-logo-card{margin-bottom:1rem}
+}
+
+/* Documentation cards */
+#documentation .card{background:var(--rov-card-bg);border-top:3px solid var(--rov-accent);transition:var(--rov-transition);}
+#documentation .card:hover{transform:translateY(-6px);background:linear-gradient(135deg, rgba(68,184,255,0.03) 0%, rgba(0,47,71,0.06) 100%)}
+#documentation .card .card-title{color:#e6f7ff;font-weight:600;font-size:1.15rem;margin-bottom:1rem}
+#documentation .card .card-text{color:rgba(230,247,255,0.8);line-height:1.6}
+#documentation .card .text-primary{color:var(--rov-accent)}
+#documentation .text-primary{color:var(--rov-accent)}
+
+/* Buttons and interactive elements */
+.btn{transition:var(--rov-transition)}
+
+/* Keyframes */
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+@keyframes shimmer{0%{background-position:-1000px 0}100%{background-position:1000px 0}}
+@keyframes pulse-dot{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.2);opacity:.8}}
+@keyframes fadeIn{0%{opacity:0;transform:translateY(20px)}100%{opacity:1;transform:translateY(0)}}
+
+/* prefers-reduced-motion support */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.01ms !important;transition-duration:0.01ms !important;scroll-behavior:auto}
+}
+
+/* Print */
+@media print{.btn,.badge,.hover-scale{display:none}}
