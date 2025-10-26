@@ -1,34 +1,44 @@
 // Header initialization and functionality
 function initializeHeader() {
-  // Check which header element exists to determine language
-  const norwegianHeader = document.getElementById('header');
-  const englishHeader = document.getElementById('header-eng');
-  
-  let targetElement, headerPath, isEnglish;
-  
-  if (englishHeader) {
-    targetElement = englishHeader;
-    headerPath = '/en/header.html';
-    isEnglish = true;
-  } else if (norwegianHeader) {
-    targetElement = norwegianHeader;
-    headerPath = '/header.html';
-    isEnglish = false;
-  } else {
+  // Prefer a single container id '#header' and detect locale by path.
+  // Fallback: if '#header' is missing but legacy '#header-eng' exists, use it.
+  const headerContainer = document.getElementById('header');
+  const legacyEnglishHeader = document.getElementById('header-eng');
+
+  let targetElement = headerContainer || legacyEnglishHeader;
+  if (!targetElement) {
     console.error('No header element found');
     return;
   }
+
+  // Determine locale: prefer pathname-based detection so English pages load /en/header.html
+  let isEnglish = false;
+  try {
+    isEnglish = location && location.pathname && location.pathname.startsWith('/en');
+  } catch (e) {
+    isEnglish = !!legacyEnglishHeader; // fallback to legacy element presence
+  }
+
+  const headerPath = isEnglish ? '/en/header.html' : '/header.html';
   
-  fetch(headerPath)
-    .then(response => response.text())
-    .then(data => { 
-      targetElement.innerHTML = data;
-      
-      // Fade in header to prevent FOUC
-      requestAnimationFrame(() => {
-        targetElement.style.opacity = '1';
-        targetElement.style.transition = 'opacity 0.2s ease-in';
-      });
+  const cacheKey = isEnglish ? 'header-eng-html' : 'header-nb-html';
+  const cached = sessionStorage.getItem(cacheKey);
+  // If header was injected and contains a masthead, mark the document and set masthead height
+  const markFixedHeader = () => {
+    const mast = targetElement ? targetElement.querySelector('.masthead') : null;
+    if (mast) {
+      document.documentElement.classList.add('has-fixed-header');
+      const h = mast.offsetHeight || 56;
+      document.documentElement.style.setProperty('--masthead-height', h + 'px');
+    }
+  };
+  const applyHeader = (data) => {
+    targetElement.innerHTML = data;
+    // Fade in header to prevent FOUC
+    requestAnimationFrame(() => {
+      targetElement.style.opacity = '1';
+      targetElement.style.transition = 'opacity 0.2s ease-in';
+    });
       
       // Initialize scroll functionality after header is loaded
       // Logo sizing is controlled by CSS to preserve original layout and dropdown behavior.
@@ -39,8 +49,8 @@ function initializeHeader() {
         // No inline style changes here to let CSS determine dimensions.
       }
 
-      // Initialize dropdown functionality
-      initializeDropdown();
+    // Initialize dropdown functionality
+    initializeDropdown();
 
       // Initialize theme toggle if present
       try {
@@ -74,35 +84,60 @@ function initializeHeader() {
         console.warn('Could not add manifest/meta to head:', e);
       }
 
-      // Register service worker from header code to ensure registration on pages using header injection.
-      // Register as early as possible and request root scope so the SW can control top-level pages.
-      if ('serviceWorker' in navigator) {
-        const registerSW = () => {
-          navigator.serviceWorker.register('/service-worker.js', { scope: '/' })
-            .then(function(reg) {
-              console.log('ServiceWorker registered from header.js with scope:', reg.scope);
-              // Check whether the service worker is controlling the page
-              if (navigator.serviceWorker.controller) {
-                console.log('ServiceWorker is controlling the page.');
-              } else {
-                // Wait until ready and then report
-                navigator.serviceWorker.ready.then(() => {
-                  console.log('ServiceWorker ready. Controller:', navigator.serviceWorker.controller);
-                });
-              }
-            }).catch(function(err) {
-              console.warn('ServiceWorker registration from header.js failed:', err);
-            });
-        };
-
-        if (document.readyState === 'complete' || document.readyState === 'interactive') {
-          // register immediately if DOM is already interactive
-          registerSW();
-        } else {
-          window.addEventListener('load', registerSW);
+    // Register service worker from header code to ensure registration on pages using header injection.
+    // Register as early as possible and request root scope so the SW can control top-level pages.
+    if ('serviceWorker' in navigator) {
+      const registerSW = () => {
+        // If a service worker is already controlling the page, skip re-registration
+        if (navigator.serviceWorker.controller) {
+          console.log('ServiceWorker controller already present; skipping registration.');
+          return;
         }
+        navigator.serviceWorker.register('/service-worker.js', { scope: '/' })
+          .then(function(reg) {
+            console.log('ServiceWorker registered from header.js with scope:', reg.scope);
+          }).catch(function(err) {
+            console.warn('ServiceWorker registration from header.js failed:', err);
+          });
+      };
+      if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        registerSW();
+      } else {
+        window.addEventListener('load', registerSW);
       }
-  });
+    }
+
+    
+  };
+
+  if (cached) {
+    try {
+      applyHeader(cached);
+      markFixedHeader();
+      // run checkLoginStatus after a short timeout to ensure the DOM is ready
+      setTimeout(() => checkLoginStatus(isEnglish), 0);
+      return;
+    } catch (e) {
+      // if cached content fails for any reason fall through to fetch
+      console.warn('Using cached header failed, refetching:', e);
+    }
+  }
+
+  fetch(headerPath)
+    .then(response => response.text())
+    .then(data => {
+      try {
+        sessionStorage.setItem(cacheKey, data);
+      } catch (e) {
+        // ignore storage quota errors
+      }
+      applyHeader(data);
+      markFixedHeader();
+      // Post-insert login check
+      setTimeout(() => checkLoginStatus(isEnglish), 0);
+    }).catch(err => {
+      console.warn('Failed to fetch header:', err);
+    });
 }
 
 function initializeDropdown() {
@@ -203,11 +238,12 @@ async function checkLoginStatus(isEnglish) {
   const EDGE_FUNCTION_URL = "https://iiauxyfisphubpsaffag.supabase.co/functions/v1/discord-role-sync";
   const token = window.localStorage.getItem('access_token');
   if (!loginLink) return;
-  const pagesPrefix = isEnglish ? '/en' : '';
+  // Always point to the canonical login/equipment pages under /pages/ (no locale prefix).
+  // The link text is localized, but the routes are centralized.
   if (!token) {
     // Not logged in
     loginLink.textContent = isEnglish ? ' Log In' : ' Logg Inn';
-    loginLink.href = `${pagesPrefix}/pages/login.html`;
+    loginLink.href = `/pages/login.html`;
     loginLink.style.color = '';
     return;
   }
@@ -221,18 +257,18 @@ async function checkLoginStatus(isEnglish) {
       body: JSON.stringify({ check: true })
     });
     const payload = await res.json().catch(() => null);
-    if (res.status === 200 && payload && payload.ok === true) {
+      if (res.status === 200 && payload && payload.ok === true) {
       loginLink.textContent = isEnglish ? ' Logged In' : ' Logget Inn';
-      loginLink.href = `${pagesPrefix}/pages/equipment.html`;
+      loginLink.href = `/pages/equipment.html`;
       loginLink.style.color = '#3ba55d';
     } else {
       loginLink.textContent = isEnglish ? ' Log In' : ' Logg Inn';
-      loginLink.href = `${pagesPrefix}/pages/login.html`;
+      loginLink.href = `/pages/login.html`;
       loginLink.style.color = '';
     }
   } catch (e) {
     loginLink.textContent = isEnglish ? ' Log In' : ' Logg Inn';
-    loginLink.href = `${pagesPrefix}/pages/login.html`;
+    loginLink.href = `/pages/login.html`;
     loginLink.style.color = '';
   }
 }

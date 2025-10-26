@@ -1,7 +1,21 @@
 /* GLOBAL STYLES
 -------------------------------------------------- */
+html {
+  background: #000000;
+}
+/* shared site colors */
+:root {
+  --sea-top: #002f47;
+  --sea-deep: #00101a;
+}
 a {
   color: #44B8FF;
+}
+
+/* Sea-like background for the whole site */
+body {
+  background: linear-gradient(180deg, var(--sea-top) 0%, var(--sea-deep) 60%);
+  color: #e6f7ff; /* light sea-foam text for contrast */
 }
 
 a.nostyle {
@@ -10,14 +24,7 @@ a.nostyle {
  cursor: auto;
  }
 
-.masthead {
-  margin-top: 0;
-  margin-bottom: 32px;
-  background-color: #000000;
-  -webkit-box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
-  box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
-  line-height: 99px;
-}
+/* masthead styles are centralized in css/header.css to avoid duplication and conflicts */
 
 .masthead-border {
   border-bottom: 1px solid #989da4;
@@ -83,8 +90,9 @@ color: #989da4;
   z-index: -1;
 }
 
+.callout .col-12,
 .callout .col-xs-12 {
-padding: 0 16%;
+  padding: 0 16%;
 }
 
 .callout h1 {
@@ -94,35 +102,6 @@ font-weight: 200;
 .callout p {
 font-weight: 200;
 font-size: 14px;
-}
-
-.carousel-caption h2 {
-font-weight:200;
-font-size: 28px;
-margin: 0;
-}
-
-.carousel-caption h3 {
-font-weight:200;
-color: #10a3dd;
-font-size: 22px;
-margin: 0;
-}
-
-.carousel-caption hr {
-margin: 13px 0;
-}
-
-.carousel-caption a {
-color: #44B8FF;
-}
-
-.carousel-caption a:hover {
-text-decoration: underline;
-}
-
-.carousel-caption a:visited {
-color: #44B8FF;
 }
 
 .callout a {
@@ -137,42 +116,6 @@ text-decoration: underline;
 .callout a:visited {
 color: #fff;
 font-weight: bold;
-}
-
-/* Restore sea-like theme and improve carousel contrast after Bootstrap update */
-body {
-  /* subtle deep-sea gradient */
-  background: linear-gradient(180deg, #012033 0%, #00111a 100%);
-  color: #e6f7ff;
-}
-
-/* Make carousel foreground overlay darker and more sea-like so text stands out */
-.carousel-item .foreground {
-  background: linear-gradient(180deg, rgba(0,50,80,0.65) 0%, rgba(0,15,30,0.45) 100%);
-}
-
-/* Ensure captions stay readable on top of background images */
-.carousel-caption h2,
-.carousel-caption h3,
-.carousel-caption p,
-.carousel-caption a {
-  color: #ffffff;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
-}
-
-/* Indicators: subtle translucent dots that fit the dark theme */
-.carousel-indicators [data-bs-target] {
-  background-color: rgba(255,255,255,0.45);
-  border-color: rgba(255,255,255,0.2);
-}
-.carousel-indicators .active {
-  background-color: #ffffff;
-}
-
-/* Prev/Next controls: lighten the default icons for visibility */
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.6)) brightness(1.05);
 }
 
 .marketing {
@@ -253,35 +196,7 @@ margin-bottom: 0;
 margin-top: 30px;
 }
 
-.footer {
-background-color: #2e3136;
-border-top: 1px solid #989da4;
-color: #cccccc;
-padding: 40px 0;
-}
-
-.footer a {
-color: #ccc;
-}
-
-.footer a:hover {
-text-decoration: underline;
-}
-
-.footer a:visited {
-color: #ccc;
-}
-
-.footer ul {
-list-style: none;
-padding: 0;
-font-size: 12px;
-font-weight: 200;
-}
-
-.footer-sub {
-margin-bottom: 0;
-}
+/* Footer styles are consolidated into css/footer.css to avoid duplication and conflicts. */
 
 .home-copyright img {
 float: right;
@@ -302,98 +217,24 @@ text-align:right;
 padding-top: 40px;
 }
 
-/* RESPONSIVE STYLES
--------------------------------------------------- */
+/* Responsive container for embedded Google Form */
+.form-embed {
+  width: 100%;
+  /* Use viewport-based height so the form fills the screen on phones */
+  height: 80vh;
+  min-height: 480px;
+  max-height: 1200px;
+  overflow: hidden;
+}
 
-@media (max-width: 993px) {
-  .carousel {
-    height: 633px;
-    background: #060607;
-  }
-
-  .carousel .item {
-    height: 633px;
-    background-color: #060607;
+/* On small screens use nearly full viewport height so the form is usable without excessive scrolling */
+@media (max-width: 600px) {
+  .form-embed {
+    height: calc(100vh - 120px); /* leave room for header/footer */
+    min-height: 420px;
   }
 }
 
-@media (max-width: 767px) {
-  .carousel-caption p {
-    margin-bottom: 20px;
-    font-weight: 200;
-    line-height: 1.4;
-    margin-bottom: 10px;
-  }
-
-  .carousel-caption h2 {
-    margin: 0;
-  }
-
-  .carousel-caption hr {
-    margin: 6px 0;
-  }
-
-  .callout .col-xs-12 {
-    padding: 0 23px;
-  }
-
-  .carousel-image img {
-    max-width: 100%;
-    min-width: 100%;
-  }
-
- .featurette-image {
-    margin-bottom: 15px;
-  }
-
-  .powered-logo {
-    margin-bottom: 15px;
-  }
-
-  .carousel {
-    height: 703px;
-    background: #060607;
-  }
-
-  .carousel .item {
-    height: 703px;
-    background-color: #060607;
-  }
-
-  .carousel-caption .col-md-8, .carousel-caption .col-md-4 {
-    padding-right: 0px;
-  }
-
-  .copyright {
-    padding-top: 0px;
-  }
-
-  .featurette img {
-    min-width: 100%;
-  }
-
-  .marketing {
-    padding: 40px 20px 75px 20px;
-  }
-
-  .sidebar {
-    margin-top: 15px;
-  }
-}
-
-/* Apply gradient and animation to the first, second, and third slides */
-.carousel-inner .first-slide,
-.carousel-inner .second-slide,
-.carousel-inner .third-slide {
-  /* Layer gradient over the svg background so the SVG shows through */
-  background-image: linear-gradient(to bottom, rgba(0,47,75,0.6), rgba(0,83,119,0.6)), url('../images/infrastructure/layered-waves-haikei_1.svg');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  animation: underwater 6s infinite alternate;
-}
-
-@keyframes underwater {
-    0% { background-position: 40% 40%; }
-    100% { background-position: 80% 80%; }
+.form-embed iframe { 
+  border: 0; width: 100%; height: 100%; 
 }

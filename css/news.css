@@ -1,0 +1,105 @@
+.card-hover {
+  transition: transform .22s ease, box-shadow .22s ease;
+  will-change: transform;
+}
+
+.card-hover.hovered {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+}
+
+.cover-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.cover-image img {
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  display:block;
+  transition: transform .6s ease;
+}
+
+.card-hover:hover .cover-image img {
+  transform: scale(1.06);
+}
+
+/* make card 'plates' slightly off-white -> dark tint so they aren't pure white */
+
+.card-news {
+  background: transparent;
+}
+
+/* darker card plate for stronger contrast */
+
+.card-news .card-body {
+  background: rgba(2,10,18,0.78) !important; border-radius:0 0 .375rem .375rem;
+}
+
+/* ensure readable light text on the darker card plates */
+
+.card-news .card-title {
+  color: #ffffff !important;
+}
+
+.card-news .card-body, .card-news .card-text {
+  color: #e6f7ff !important;
+}
+
+.card-news .card-text {
+  opacity: 0.98;
+}
+
+.card-news .meta {
+  color: rgba(230,247,255,0.85) !important;
+}
+
+.card-news .btn-primary {
+  box-shadow: none;
+}
+
+.badge-custom {
+  background: rgba(255,255,255,0.06);
+  color: #e6f7ff;
+  padding: .25rem .5rem;
+  border-radius: .35rem;
+  font-weight:600;
+  display:inline-flex;
+  align-items:center;
+  gap:.35rem;
+}
+
+.badge-custom.info {
+  background: rgba(68,184,255,0.10);
+  color:#002b3a;
+}
+
+.badge-custom.muted {
+  background: rgba(244, 244, 244, 0.035);
+  color:#242424;
+} /* Media og Forskning badge*/
+
+.badge-custom.warn {
+  background: rgba(255,210,95,0.12);
+  color:#3b2b00;
+}
+
+@media (max-width: 576px){
+ .cover-image img { height:160px; } 
+}
+
+/* News callout (match contact/sponsors layout conventions) */
+.news-callout {
+  position: relative;
+  padding: 80px 0 40px 0;
+  overflow: hidden;
+}
+.news-callout::before { content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+.news-callout .callout-content { position: relative; z-index: 1; }
+.news-callout .callout-content h1 { font-weight: 700; margin-bottom: 1rem; }
+.news-callout .callout-content p,
+.news-callout .callout-content .lead { color: #e6f7ff; font-size: 1.05rem; line-height: 1.6; }
+.news-callout hr { border-color: rgba(255,255,255,0.12); margin: 1rem 0 1.25rem; opacity: 0.9; }
+.news-callout .callout-content a { color: #44B8FF; transition: all 0.3s ease; }
+.news-callout .callout-content a:hover { transform: translateY(-2px); text-decoration: none; }

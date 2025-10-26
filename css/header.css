@@ -19,15 +19,21 @@
 
 /* Responsive Header Styles */
 .masthead {
-  background-color: #000000;
+  background-color: rgba(0,0,0,0.85);
   padding: 5px 30px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-  position: relative;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  /* Make header sticky at the top of the viewport */
+  position: sticky;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(6px) saturate(110%);
+  -webkit-backdrop-filter: blur(6px) saturate(110%);
   display: flex;
   align-items: center;
   justify-content: space-between;
   min-height: 50px;
   margin: 0 !important;
+  z-index: 1100; /* stay above most page content */
 }
 
 .masthead .logo {

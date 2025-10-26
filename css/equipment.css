@@ -1,21 +1,6 @@
 /* Equipment Manager Styles */
 
-/* Reset header styling to match other pages */
-#header {
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-#header .masthead {
-  padding: 5px 30px !important;
-}
-
-#header .logo img,
-#header #logo {
-  margin: 0 !important;
-  padding: 0 !important;
-  display: block !important;
-}
+/* Header styles are managed centrally in css/header.css */
 
 /* Page background - Subsea/Ocean theme */
 body {

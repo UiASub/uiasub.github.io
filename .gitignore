@@ -1,7 +1,8 @@
+vendor
+.vscode
 .idea/*
 *.iml
 .DS_Store
-.vscode/*
 node_modules
 dist
 .env
