@@ -5,7 +5,6 @@
   const REPOS = ['K2-Zephyr', 'Topside', 'stm32-mbed', 'joystick-arduino', 'uiasub.github.io'];
   const API_BASE = 'https://api.github.com/repos/UiASub/';
   const CONTAINER_SELECTOR = '#github-projects-container';
-  // Caching configuration to avoid GitHub API request flooding
   const CACHE_KEY = 'github_repos_cache';
   const CACHE_TTL = 600000; // 10 minutes in milliseconds
   const LOCK_KEY = 'github_repos_lock';

@@ -24,70 +24,118 @@
   <!--HEADER-->
   <div id="header"></div>
   <script src="/js/header.js"></script>
-  <!--I WANT https://codepen.io/blahhhuuei/pen/KwpQVGW HERE!!! -->
 
-  <div class="equipment-container">
-    <div id="managerBox">
-      <!-- Admin Navigation -->
-      <div class="admin-nav">
-        <h2>Admin Panel</h2>
-        <div class="admin-nav-links">
-          <a href="/pages/equipment.html" class="admin-nav-link active">
-            <span class="nav-icon">📦</span>
-            <span>Equipment</span>
-          </a>
-          <a href="/pages/storage.html" class="admin-nav-link">
-            <span class="nav-icon">💾</span>
-            <span>File Storage</span>
-          </a>
-        </div>
-      </div>
+  <main class="container py-5">
+    <div id="managerBox" class="row g-4">
+      <!-- Sidebar / Admin Navigation -->
+      <aside class="col-12 col-md-4 col-lg-3">
+        <div class="card bg-dark border-0 h-100">
+          <div class="card-body">
+            <h2 class="h5 text-primary">Admin Panel</h2>
+            <nav class="nav flex-column mt-3" aria-label="Admin navigation">
+              <a class="nav-link active text-white d-flex align-items-center mb-2" href="/pages/equipment.html">
+                <span class="me-2">📦</span>
+                <span>Equipment</span>
+              </a>
+              <a class="nav-link text-white d-flex align-items-center" href="/pages/storage.html">
+                <span class="me-2">💾</span>
+                <span>File Storage</span>
+              </a>
+            </nav>
 
-      <h1>Equipment Loan Manager</h1>
-      <div id="userInfo"></div>
-      
-      <div class="add-equipment-form">
-        <h3 style="color: #f2f3f5; margin-bottom: 12px;">Add New Equipment</h3>
-        <div class="form-group">
-          <label class="label-white">Equipment Name</label>
-          <input type="text" id="newEquipmentName" placeholder="e.g., Raspberry Pi 4">
+            <div id="userInfo" class="mt-4 text-white-50"></div>
+          </div>
         </div>
-        <div class="form-group">
-          <label class="label-white">Description (optional)</label>
-          <input type="text" id="newEquipmentDesc" placeholder="e.g., 8GB RAM model">
-        </div>
-        <div class="form-group">
-          <label class="label-white">Number (optional)</label>
-          <input type="number" id="newEquipmentNumber" placeholder="e.g., 1">
-        </div>
-        <div class="form-group">
-          <label class="label-white">Where (optional)</label>
-          <input type="text" id="newEquipmentWhere" placeholder="e.g., Skap 2">
-        </div>
-        <div class="form-group">
-          <label class="label-white">Number in storage (optional)</label>
-          <input type="number" id="newEquipmentNumberInStorage" placeholder="e.g., 1">
-        </div>
-        <button id="addEquipmentBtn" class="btn-assign">Add Equipment</button>
-      </div>
+      </aside>
 
-      <div id="equipmentList" class="equipment-grid"></div>
-      
-      <button id="logout" style="margin-top: 24px;">Sign Out</button>
+      <!-- Main content -->
+      <section class="col-12 col-md-8 col-lg-9">
+        <div class="d-flex justify-content-between align-items-start mb-3">
+          <div>
+            <h1 class="h3 mb-1">Equipment Loan Manager</h1>
+            <p class="small text-white-50 mb-0">Manage equipment inventory and assignments.</p>
+          </div>
+          <div class="d-none d-sm-block">
+            <button id="logout" class="btn btn-outline-light">Sign Out</button>
+          </div>
+        </div>
+
+        <div class="row g-3">
+          <!-- Add Equipment form -->
+          <div class="col-12 col-lg-5">
+            <div class="card bg-dark border-0 h-100">
+              <div class="card-body">
+                <h3 class="h6 text-white mb-3">Add New Equipment</h3>
+                <form id="addEquipmentForm" class="mb-0" onsubmit="return false;">
+                  <div class="mb-3">
+                    <label for="newEquipmentName" class="form-label small text-white">Equipment Name</label>
+                    <input type="text" id="newEquipmentName" class="form-control" placeholder="e.g., Raspberry Pi 4">
+                  </div>
+                  <div class="mb-3">
+                    <label for="newEquipmentDesc" class="form-label small text-white">Description (optional)</label>
+                    <input type="text" id="newEquipmentDesc" class="form-control" placeholder="e.g., 8GB RAM model">
+                  </div>
+                  <div class="row g-2">
+                    <div class="col-6">
+                      <label for="newEquipmentNumber" class="form-label small text-white">Number</label>
+                      <input type="number" id="newEquipmentNumber" class="form-control" placeholder="1">
+                    </div>
+                    <div class="col-6">
+                      <label for="newEquipmentNumberInStorage" class="form-label small text-white">In Storage</label>
+                      <input type="number" id="newEquipmentNumberInStorage" class="form-control" placeholder="1">
+                    </div>
+                  </div>
+                  <div class="mb-3 mt-3">
+                    <label for="newEquipmentWhere" class="form-label small text-white">Where (optional)</label>
+                    <input type="text" id="newEquipmentWhere" class="form-control" placeholder="e.g., Skap 2">
+                  </div>
+                  <div class="d-grid">
+                    <button id="addEquipmentBtn" class="btn btn-primary">Add Equipment</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <!-- Equipment list -->
+          <div class="col-12 col-lg-7">
+            <div class="card bg-dark border-0 h-100">
+              <div class="card-body">
+                <h3 class="h6 text-white mb-3">Inventory</h3>
+                <div id="equipmentList" class="row row-cols-1 row-cols-md-2 g-3">
+                  <!-- equipment.js will populate cards here -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Small-screen logout (keeps parity with desktop action) -->
+        <div class="d-block d-sm-none mt-3">
+          <button id="logout-small" class="btn btn-outline-light w-100">Sign Out</button>
+        </div>
+      </section>
     </div>
-  </div>
+  </main>
 
-  <!-- Assign Modal -->
-  <div id="assignModal" class="modal">
-    <div class="modal-content">
-      <h2 class="modal-title">Assign Equipment</h2>
-      <div class="form-group">
-        <label>Assign to User</label>
-        <input type="text" id="assignUserName" placeholder="Enter Name">
-      </div>
-      <div class="modal-actions">
-        <button id="cancelAssign" class="btn-cancel btn-small">Cancel</button>
-        <button id="confirmAssign" class="btn-assign btn-small">Assign</button>
+  <!-- Assign Modal (Bootstrap markup; keep the same ids used by JS) -->
+  <div class="modal fade" id="assignModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content bg-dark text-white">
+        <div class="modal-header">
+          <h5 class="modal-title">Assign Equipment</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="assignUserName" class="form-label small">Assign to User</label>
+            <input type="text" id="assignUserName" class="form-control" placeholder="Enter Name">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="cancelAssign" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" id="confirmAssign" class="btn btn-primary">Assign</button>
+        </div>
       </div>
     </div>
   </div>
