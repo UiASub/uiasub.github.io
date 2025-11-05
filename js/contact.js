@@ -1,4 +1,3 @@
-// Vanilla replacement for legacy jQuery contact script
 document.addEventListener('DOMContentLoaded', function () {
 	var fields = Array.prototype.slice.call(document.querySelectorAll('input[type="text"], input[type="email"], textarea'));
 
@@ -22,7 +21,6 @@ document.addEventListener('DOMContentLoaded', function () {
 	function errorfield(selector) {
 		var el = document.querySelector(selector);
 		if (el) el.classList.add('formgroup-error');
-		console.log('error field:', selector);
 	}
 
 	var form = document.getElementById('waterform');
