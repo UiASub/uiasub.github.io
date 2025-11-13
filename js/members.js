@@ -49,9 +49,8 @@
   }
 
   function init() {
-    // Provide sensible defaults for members labels; they will only be used if button has .button-text
-    var docLang = (document.documentElement && document.documentElement.lang) || '';
-    var isEnglish = /^en($|-)/i.test(docLang) || (location.pathname && location.pathname.startsWith('/en'));
+    // Locale detection: check path prefix (English pages are under /en/)
+    var isEnglish = location.pathname && location.pathname.startsWith('/en');
     var LABELS = isEnglish ? { collapsed: 'Members', expanded: 'Hide Members' } : { collapsed: 'Medlemmer', expanded: 'Skjul' };
 
     setupCollapseToggle({ btnId: 'members-toggle', collapseId: 'members-collapse', labels: LABELS });

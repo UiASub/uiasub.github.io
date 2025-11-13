@@ -183,7 +183,7 @@
                         <li>UDP packet: <code>uint32_t sequence</code>, <code>uint64_t payload</code>, <code>uint32_t crc32</code> (CRC32 validation)</li>
                         <li>Payload (64-bit) bitplan (high-level): Surge, Sway, Heave, Roll, Pitch, Yaw, Light, Manipulator (8 bits each)</li>
                         <li>Protocol: Custom binary over UDP with CRC32 check</li>
-                        <li>Topside: Electron app, cross-platform</li>
+                        <li>Topside: Python app, cross-platform</li>
                         <li>Video: H.264, low latency (&lt;100ms)</li>
                         <li>Logging: CSV/binary with synchronized timestamps</li>
                         <li>Repos: <a href="https://github.com/UiASub/K2-Zephyr" target="_blank" rel="noopener noreferrer">K2-Zephyr</a>, Topside</li>
@@ -225,8 +225,8 @@
           <!-- Thumbnail cards: data-ui-index corresponds to js mockup array index -->
           <div class="col-12 col-sm-6 col-lg-4">
             <div class="sponsor-logo-card h-100" role="button" tabindex="0" aria-label="Main Control Panel mockup" data-ui-index="0" data-bs-toggle="modal" data-bs-target="#uiModal" style="cursor:pointer;">
-              <div class="rounded overflow-hidden mb-3" style="background: linear-gradient(135deg, var(--sea-top) 0%, var(--sea-deep) 100%); height:200px; display:flex; align-items:center; justify-content:center;">
-                <div class="text-center text-white"><span style="font-size:2.25rem;">🖥️</span></div>
+              <div class="rounded overflow-hidden mb-3" style="height:200px;">
+                <img src="/images/project/dashboard.png" alt="Main Control Panel" class="w-100 h-100" style="object-fit:cover;">
               </div>
               <h5 class="mb-1">Main Control Panel</h5>
               <p class="text-white-50 small mb-2">Joystick input, thruster allocation and real-time status</p>
@@ -236,8 +236,8 @@
 
           <div class="col-12 col-sm-6 col-lg-4">
             <div class="sponsor-logo-card h-100" role="button" tabindex="0" aria-label="Sensor Dashboard mockup" data-ui-index="1" data-bs-toggle="modal" data-bs-target="#uiModal" style="cursor:pointer;">
-              <div class="rounded overflow-hidden mb-3" style="background: linear-gradient(135deg, var(--sea-top) 0%, #003f5c 100%); height:200px; display:flex; align-items:center; justify-content:center;">
-                <div class="text-center text-white"><span style="font-size:2.25rem;">📊</span></div>
+              <div class="rounded overflow-hidden mb-3" style="height:200px;">
+                <img src="/images/project/sensor.png" alt="Sensor Dashboard" class="w-100 h-100" style="object-fit:cover;">
               </div>
               <h5 class="mb-1">Sensor Dashboard</h5>
               <p class="text-white-50 small mb-2">Real-time display of depth, temperature and orientation</p>
@@ -247,8 +247,8 @@
 
           <div class="col-12 col-sm-6 col-lg-4">
             <div class="sponsor-logo-card h-100" role="button" tabindex="0" aria-label="Video Feed Interface mockup" data-ui-index="2" data-bs-toggle="modal" data-bs-target="#uiModal" style="cursor:pointer;">
-              <div class="rounded overflow-hidden mb-3" style="background: linear-gradient(135deg, #003f5c 0%, var(--sea-deep) 100%); height:200px; display:flex; align-items:center; justify-content:center;">
-                <div class="text-center text-white"><span style="font-size:2.25rem;">🎥</span></div>
+              <div class="rounded overflow-hidden mb-3" style="height:200px;">
+                <img src="/images/project/dashboard.png" alt="Video Feed Interface" class="w-100 h-100" style="object-fit:cover;">
               </div>
               <h5 class="mb-1">Video Feed Interface</h5>
               <p class="text-white-50 small mb-2">Primary and secondary camera with overlay information</p>
@@ -258,8 +258,8 @@
 
           <div class="col-12 col-sm-6 col-lg-4">
             <div class="sponsor-logo-card h-100" role="button" tabindex="0" aria-label="Thruster Control mockup" data-ui-index="3" data-bs-toggle="modal" data-bs-target="#uiModal" style="cursor:pointer;">
-              <div class="rounded overflow-hidden mb-3" style="background: linear-gradient(135deg, #005f8a 0%, var(--sea-deep) 100%); height:200px; display:flex; align-items:center; justify-content:center;">
-                <div class="text-center text-white"><span style="font-size:2.25rem;">🧭</span></div>
+              <div class="rounded overflow-hidden mb-3" style="height:200px;">
+                <img src="/images/project/sensor.png" alt="Thruster Control" class="w-100 h-100" style="object-fit:cover;">
               </div>
               <h5 class="mb-1">Thruster Control</h5>
               <p class="text-white-50 small mb-2">Individual thruster status and force distribution</p>
@@ -269,8 +269,8 @@
 
           <div class="col-12 col-sm-6 col-lg-4">
             <div class="sponsor-logo-card h-100" role="button" tabindex="0" aria-label="Telemetry Display mockup" data-ui-index="4" data-bs-toggle="modal" data-bs-target="#uiModal" style="cursor:pointer;">
-              <div class="rounded overflow-hidden mb-3" style="background: linear-gradient(135deg, #0077a3 0%, var(--sea-deep) 100%); height:200px; display:flex; align-items:center; justify-content:center;">
-                <div class="text-center text-white"><span style="font-size:2.25rem;">📡</span></div>
+              <div class="rounded overflow-hidden mb-3" style="height:200px;">
+                <img src="/images/project/dashboard.png" alt="Telemetry Display" class="w-100 h-100" style="object-fit:cover;">
               </div>
               <h5 class="mb-1">Telemetry Display</h5>
               <p class="text-white-50 small mb-2">Graphical telemetry and historical measurements</p>
@@ -280,8 +280,8 @@
 
           <div class="col-12 col-sm-6 col-lg-4">
             <div class="sponsor-logo-card h-100" role="button" tabindex="0" aria-label="System Status mockup" data-ui-index="5" data-bs-toggle="modal" data-bs-target="#uiModal" style="cursor:pointer;">
-              <div class="rounded overflow-hidden mb-3" style="background: linear-gradient(135deg, #0099cc 0%, var(--sea-deep) 100%); height:200px; display:flex; align-items:center; justify-content:center;">
-                <div class="text-center text-white"><span style="font-size:2.25rem;">🔋</span></div>
+              <div class="rounded overflow-hidden mb-3" style="height:200px;">
+                <img src="/images/project/sensor.png" alt="System Status" class="w-100 h-100" style="object-fit:cover;">
               </div>
               <h5 class="mb-1">System Status</h5>
               <p class="text-white-50 small mb-2">Comprehensive status for power, temperature and error alerts</p>
@@ -323,12 +323,12 @@
         <!-- Vertical spine (hidden on small screens) -->
         <div class="position-absolute top-0 start-50 translate-middle-x d-none d-md-block" style="width:2px; height:100%; background: linear-gradient(180deg, rgba(68,184,255,0.2) 0%, rgba(68,184,255,0.8) 50%, rgba(68,184,255,0.2) 100%);"></div>
 
-        <!-- Milestone 1 - 2023 (left) -->
+        <!-- Milestone 1 - 2024 (left) -->
         <div class="row mb-5 position-relative align-items-center left">
           <div class="timeline-dot position-absolute top-50 start-50 translate-middle"></div>
           <div class="col-12 col-md-5 text-md-end">
             <div class="sponsor-logo-card h-100 p-3">
-              <h4 class="h5 text-primary mb-2">2023 - Establishment</h4>
+              <h4 class="h5 text-primary mb-2">2024 - Establishment</h4>
               <h5 class="h6 text-white mb-3">UiASub is Born</h5>
               <p class="text-white mb-2">The student group UiASub was founded at the University of Agder with the goal of building autonomous underwater vehicles.</p>
               <ul class="text-white-50 small">
@@ -349,14 +349,14 @@
           <div class="col-12 col-md-5 d-none d-md-block"></div>
           <div class="col-12 col-md-5 offset-md-2 text-md-start">
             <div class="sponsor-logo-card h-100 p-3">
-              <h4 class="h5 text-primary mb-2">2024 - First Competition</h4>
-              <h5 class="h6 text-white mb-3">TAC Challenge Participation</h5>
-              <p class="text-white mb-2">Participated in the TAC Challenge, an international ROV competition for students. Valuable experience with practical testing and the competitive environment.</p>
+              <h4 class="h5 text-primary mb-2">2024 - First ROV Built</h4>
+              <h5 class="h6 text-white mb-3">Before K2 was Skagerrak</h5>
+              <p class="text-white mb-2">Three canisters were used in the first iteration of the ROV.</p>
               <ul class="text-white-50 small">
-                <li>Built and tested the first ROV prototype</li>
-                <li>Competed in the TAC Challenge</li>
-                <li>Learned from experienced teams around the world</li>
-                <li>Identified improvement areas for K2</li>
+                <li>Built and tested first ROV prototype</li>
+                <li>Implemented improvements based on feedback</li>
+                <li>Learned from mistakes and adjusted the design</li>
+                <li>Identified improvement areas for the new ROV K2</li>
               </ul>
               <span class="badge bg-success mt-2">Completed</span>
             </div>
@@ -370,12 +370,12 @@
             <div class="sponsor-logo-card h-100 p-3">
               <h4 class="h5 text-primary mb-2">2025 - K2 Development</h4>
               <h5 class="h6 text-white mb-3">Next Generation ROV</h5>
-              <p class="text-white mb-2">Started development of the K2 ROV with 8 vectorized thrusters, 6 DOF, and modular design. Focus on field operations and competition performance.</p>
+              <p class="text-white mb-2">Started development of the K2 ROV with one canister.</p>
               <ul class="text-white-50 small">
-                <li>Designed a new aluminum frame structure</li>
+                <li>Designed new aluminum frame structure</li>
                 <li>Implemented Zephyr RTOS firmware</li>
-                <li>Developed an Electron-based topside app</li>
-                <li>Integrated an advanced sensor package</li>
+                <li>Developed Python-based topside app</li>
+                <li>Integrated advanced sensor package</li>
               </ul>
               <span class="badge bg-warning text-dark mt-2">Ongoing</span>
             </div>
@@ -416,10 +416,10 @@
           <div class="col">
             <div class="card h-100 hover-scale" style="border-top:3px solid #44B8FF; transition:all .3s ease;">
               <div class="card-body">
-                <div class="text-center mb-3"><span class="text-primary" style="font-size:2.25rem;">📚</span></div>
-                <h5 class="card-title">GitHub Wiki</h5>
-                <p class="card-text text-white small">Comprehensive guides for setup, development and deployment of the ROV system. Includes hardware documentation and troubleshooting.</p>
-                <div class="small text-white-50 mt-2">🔗 UiASub/uiasub.github.io/wiki • 📝 Continuously updated</div>
+                <div class="text-center mb-3"><span class="badge bg-primary" style="font-size:1.25rem; padding:0.75rem 1.5rem;">WIKI</span></div>
+                <h5 class="card-title">Webpage Wiki</h5>
+                <p class="card-text text-white small">Guide for setup, development and deployment of the ROV system. Includes troubleshooting.</p>
+                <div class="small text-white-50 mt-2">UiASub/uiasub.github.io/wiki • Continuously updated</div>
                 <a href="https://github.com/UiASub/uiasub.github.io/wiki" class="stretched-link" target="_blank" rel="noopener noreferrer" aria-label="Open GitHub Wiki">Open Wiki</a>
               </div>
             </div>
@@ -429,10 +429,10 @@
           <div class="col">
             <div class="card h-100 hover-scale" style="border-top:3px solid #44B8FF; transition:all .3s ease;">
               <div class="card-body">
-                <div class="text-center mb-3"><span class="text-primary" style="font-size:2.25rem;">⚙️</span></div>
+                <div class="text-center mb-3"><span class="badge bg-primary" style="font-size:1.25rem; padding:0.75rem 1.5rem;">FW</span></div>
                 <h5 class="card-title">K2-Zephyr Firmware</h5>
                 <p class="card-text text-white small">Embedded firmware based on Zephyr RTOS. Handles motor control, sensors, PID controllers and UDP communication with topside.</p>
-                <div class="small text-white-50 mt-2">💻 C/C++ • Zephyr • STM32F767ZI</div>
+                <div class="small text-white-50 mt-2">C/C++ • Zephyr • STM32F767ZI</div>
                 <a href="https://github.com/UiASub/K2-Zephyr" class="stretched-link" target="_blank" rel="noopener noreferrer" aria-label="Open K2-Zephyr">Open</a>
               </div>
             </div>
@@ -442,50 +442,11 @@
           <div class="col">
             <div class="card h-100 hover-scale" style="border-top:3px solid #44B8FF; transition:all .3s ease;">
               <div class="card-body">
-                <div class="text-center mb-3"><span class="text-primary" style="font-size:2.25rem;">🖥️</span></div>
+                <div class="text-center mb-3"><span class="badge bg-primary" style="font-size:1.25rem; padding:0.75rem 1.5rem;">APP</span></div>
                 <h5 class="card-title">Topside App</h5>
-                <p class="card-text text-white small">Cross-platform operator application built with Electron. Real-time video, telemetry, joystick input and data logging.</p>
-                <div class="small text-white-50 mt-2">⚡ Electron • JavaScript • 🎮 Joystick</div>
+                <p class="card-text text-white small">Cross-platform operator application built with Python. Real-time video, telemetry, joystick input and data logging.</p>
+                <div class="small text-white-50 mt-2">Python • Flask • Joystick</div>
                 <a href="https://github.com/UiASub/Topside" class="stretched-link" target="_blank" rel="noopener noreferrer" aria-label="Open Topside repo">Open</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 4: Hardware Docs -->
-          <div class="col">
-            <div class="card h-100 hover-scale" style="border-top:3px solid #44B8FF; transition:all .3s ease;">
-              <div class="card-body">
-                <div class="text-center mb-3"><span class="text-primary" style="font-size:2.25rem;">🔧</span></div>
-                <h5 class="card-title">Hardware Docs</h5>
-                <p class="card-text text-white small">PCB schematics, mechanical drawings, BOM lists and assembly instructions for K2 ROV hardware.</p>
-                <div class="small text-white-50 mt-2">📐 CAD • 🔌 Electrical schematics</div>
-                <a href="https://github.com/UiASub/uiasub.github.io/wiki/Hardware" class="stretched-link" target="_blank" rel="noopener noreferrer" aria-label="Open Hardware docs">Open</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 5: API Documentation -->
-          <div class="col">
-            <div class="card h-100 hover-scale" style="border-top:3px solid #44B8FF; transition:all .3s ease;">
-              <div class="card-body">
-                <div class="text-center mb-3"><span class="text-primary" style="font-size:2.25rem;">📡</span></div>
-                <h5 class="card-title">API Documentation</h5>
-                <p class="card-text text-white small">Detailed description of UDP protocol, payload structure, CRC32 validation and communication sequences.</p>
-                <div class="small text-white-50 mt-2">📦 Binary • ✅ CRC32</div>
-                <a href="https://github.com/UiASub/K2-Zephyr" class="stretched-link" target="_blank" rel="noopener noreferrer" aria-label="Open API documentation">Open</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 6: Getting Started -->
-          <div class="col">
-            <div class="card h-100 hover-scale" style="border-top:3px solid #44B8FF; transition:all .3s ease;">
-              <div class="card-body">
-                <div class="text-center mb-3"><span class="text-primary" style="font-size:2.25rem;">🚀</span></div>
-                <h5 class="card-title">Getting Started</h5>
-                <p class="card-text text-white small">Step-by-step guide for new developers. From environment setup to first test of the ROV system.</p>
-                <div class="small text-white-50 mt-2">👥 For new members • ⏱️ ~30 min</div>
-                <a href="https://github.com/UiASub/uiasub.github.io/wiki/Getting-Started" class="stretched-link" target="_blank" rel="noopener noreferrer" aria-label="Open Getting Started">Open</a>
               </div>
             </div>
           </div>

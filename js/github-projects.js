@@ -87,8 +87,8 @@
       return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c];
     });
   }
-  // Locale detection (documentElement.lang preferred, fallback to path)
-  const lang = (document.documentElement && document.documentElement.lang) || (location.pathname && location.pathname.startsWith('/en') ? 'en' : 'no');
+  // Locale detection: check path prefix (English pages are under /en/)
+  const lang = location.pathname && location.pathname.startsWith('/en') ? 'en' : 'no';
 
   const STRINGS = {
     en: {

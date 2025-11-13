@@ -61,9 +61,8 @@
 
   // Init function with safe DOMContentLoaded guard
   function init() {
-    // locale detection: prefer <html lang="...">, fallback to path prefix
-    var docLang = (document.documentElement && document.documentElement.lang) || '';
-    var isEnglish = /^en($|-)/i.test(docLang) || (location.pathname && location.pathname.startsWith('/en'));
+    // locale detection: check path prefix (English pages are under /en/)
+    var isEnglish = location.pathname && location.pathname.startsWith('/en');
     var LABELS = isEnglish ? { collapsed: 'Detailed Specifications', expanded: 'Hide Details' } : { collapsed: 'Spesifikasjoner', expanded: 'Skjul Detaljer' };
 
     setupCollapseToggle({ btnId: 'specs-toggle', collapseId: 'specs-collapse', labels: LABELS });

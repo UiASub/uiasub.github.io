@@ -9,8 +9,6 @@
 
     <title>UiASub — About</title>
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="" crossorigin="anonymous">
 
@@ -18,16 +16,12 @@
     <link href="/css/carousel.css" rel="stylesheet">
     <link href="/css/custom.css" rel="stylesheet">
     <link href="/css/header.css" rel="stylesheet">
+    <link href="/css/waves.css" rel="stylesheet">
+    <link href="/css/rov.css" rel="stylesheet">
     <link href="/css/about.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/waves.css">
-    <style>
-      /* Small page-scoped tweaks for English about */
-      .about-visual { height: 320px; }
-      .about-modern .lead { font-size: 1.05rem; }
-      .stat-num { color: #e6f7ff; }
-      .stat-label { color: rgba(230,247,255,0.6); }
-      @media (max-width: 767px) { .about-visual { height: 200px; } }
-    </style>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
 
   <body>
@@ -36,78 +30,101 @@
   <div id="header"></div>
   <script src="/js/header.js"></script>
 
-    <!-- About Section (English) -->
-    <section class="callout about-modern py-5">
+    <!-- About Section -->
+    <section class="callout about-modern py-5" aria-label="About UiASub">
       <div class="container">
         <div class="row g-4 align-items-center">
           <div class="col-md-6 text-start">
-            <div class="about-visual rounded shadow-sm overflow-hidden">
-              <img src="/images/uiasub/Onwall.jpg" alt="UiASub team" class="img-fluid" style="width:100%;height:100%;object-fit:cover;">
+            <div class="about-visual rounded shadow-sm overflow-hidden" style="min-height:260px;">
+              <img src="/images/uiasub/Onwall.jpg" alt="UiASub team" class="img-fluid w-100 h-100" style="object-fit:cover;">
             </div>
           </div>
           <div class="col-md-6">
-            <h1 class="h1 mb-3">About <span class="text-blue-600">UiASub</span></h1>
-            <p class="lead text-light">UiASub is a student-run technology group at the University of Agder. We design, build and operate remotely operated and autonomous underwater systems, offering students hands-on project experience and close industry collaboration.</p>
-            <ul class="text-light">
-              <li>We provide project-based learning focused on ROVs and AUVs, building practical skills relevant to engineering careers.</li>
-            </ul>
+            <h1 class="display-5 fw-bold mb-4">About <span class="text-primary">UiASub</span></h1>
+            <p class="lead text-light">UiASub is a student-driven technology group at the University of Agder. We build autonomous and remotely operated underwater systems, learn through hands-on projects, and collaborate closely with the industry.</p>
+            <p class="text-light">The organization's purpose is to offer students work-related projects focused on building remotely operated and autonomous underwater equipment, such as ROVs and AUVs. The organization operates like a company and provides students with practical experience that is valuable for their future careers.</p>
+            <p class="text-light">We need engineers, HR and management students, as well as students in marketing and multimedia. Being part of UiASub increases your attractiveness to employers and provides access to an extensive professional network. We participate in 1-2 competitions each year, where we compete against different teams to be the fastest at completing tasks on the seabed.</p>
 
             <div class="row mt-3">
               <div class="col-4">
                 <div class="stat text-center">
                   <div class="stat-num h3">~30</div>
-                  <div class="stat-label small text-white">active members</div>
+                  <div class="stat-label small text-white">Active Members</div>
                 </div>
               </div>
               <div class="col-4">
                 <div class="stat text-center">
-                  <div class="stat-num h3">8</div>
-                  <div class="stat-label small text-white">thrusters (K2)</div>
+                  <div class="stat-num h3">2</div>
+                  <div class="stat-label small text-white">ROVs</div>
                 </div>
               </div>
               <div class="col-4">
                 <div class="stat text-center">
                   <div class="stat-num h3">+3</div>
-                  <div class="stat-label small text-white">partners</div>
+                  <div class="stat-label small text-white">Partners</div>
                 </div>
               </div>
             </div>
 
             <div class="mt-4">
-              <a href="/en/pages/join.html" class="btn btn-primary me-2">Join us</a>
-              <a href="/en/pages/rov.html" class="btn btn-outline-light">See our project</a>
+              <a href="/en/pages/rov.html" class="btn btn-outline-light me-2">See ROV Project</a>
+              <a href="/en/pages/join.html" class="btn btn-outline-light">Join Us</a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <div class="mt-4 text-center">
-      <button id="members-toggle" class="learn-more" type="button" aria-expanded="false" aria-controls="members-collapse">
-        <span class="circle" aria-hidden="true">
-          <span class="icon arrow"></span>
-        </span>
-        <span class="button-text">Members</span>
-      </button>
-    </div>
-    <div class="collapse mt-3" id="members-collapse">
-      <div class="container mx-auto mt-4">
-        <div class="row justify-content-center gx-4 gy-4">
-          <!-- Placeholder member cards -->
-          <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-              <img src="https://i.imgur.com/ZTkt4I5.jpg" loading="lazy" decoding="async" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Member</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Role</h6>
-                <p class="card-text">Short bio or role description.</p>
+    <!-- Members Section -->
+    <section class="py-5" aria-label="Members">
+      <div class="container">
+        <h2 class="fs-3 fw-bold text-center mb-3">Our Members</h2>
+        <p class="text-center text-white mb-4">Meet the team behind UiASub</p>
+        
+        <div class="mt-4 text-center">
+          <button id="members-toggle" class="btn btn-outline-light" type="button" aria-expanded="false" aria-controls="members-collapse" data-bs-toggle="collapse" data-bs-target="#members-collapse">
+            <span class="button-text">Show Members</span>
+          </button>
+        </div>
+        
+        <div class="collapse mt-4" id="members-collapse">
+          <div class="container">
+            <div class="row justify-content-center g-4">
+              <div class="col-md-4">
+                <div class="card h-100">
+                  <img src="https://i.imgur.com/ZTkt4I5.jpg" loading="lazy" decoding="async" class="card-img-top" alt="Member">
+                  <div class="card-body">
+                    <h5 class="card-title text-white">Card title</h5>
+                    <h6 class="card-subtitle mb-2 text-white-50">Card subtitle</h6>
+                    <p class="card-text text-white">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card h-100">
+                  <img src="https://i.imgur.com/ZTkt4I5.jpg" loading="lazy" decoding="async" class="card-img-top" alt="Member">
+                  <div class="card-body">
+                    <h5 class="card-title text-white">Card title</h5>
+                    <h6 class="card-subtitle mb-2 text-white-50">Card subtitle</h6>
+                    <p class="card-text text-white">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card h-100">
+                  <img src="https://i.imgur.com/ZTkt4I5.jpg" loading="lazy" decoding="async" class="card-img-top" alt="Member">
+                  <div class="card-body">
+                    <h5 class="card-title text-white">Card title</h5>
+                    <h6 class="card-subtitle mb-2 text-white-50">Card subtitle</h6>
+                    <p class="card-text text-white">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <!-- Repeat or generate cards as needed -->
         </div>
       </div>
-    </div>
+    </section>
 
     <!-- Waves -->
     <div class="wrapper">
@@ -142,23 +159,7 @@
     </script>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="" crossorigin="anonymous"></script>
-    <script>
-      (function(){
-        var btn = document.getElementById('members-toggle');
-        var collapseEl = document.getElementById('members-collapse');
-        if(!btn || !collapseEl || typeof bootstrap === 'undefined') return;
-        var bsCollapse = new bootstrap.Collapse(collapseEl, { toggle: false });
-        btn.addEventListener('click', function(){
-          if (collapseEl.classList.contains('show')) {
-            bsCollapse.hide();
-            btn.setAttribute('aria-expanded','false');
-          } else {
-            bsCollapse.show();
-            btn.setAttribute('aria-expanded','true');
-          }
-        });
-      })();
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="/js/members.js"></script>
   </body>
 </html>
