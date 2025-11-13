@@ -106,7 +106,7 @@
     const fileListDiv = document.getElementById('file-list')
     const fileStats = document.getElementById('file-stats')
     if (showLoading) {
-      fileListDiv.innerHTML = '<p style="color: #b5bac1; text-align: center;">Loading files...</p>'
+      fileListDiv.innerHTML = '<p class="text-center text-white-50 py-4">Loading files...</p>'
     }
     try {
         // Use Edge Function to list files (server-side auth)
@@ -129,21 +129,23 @@
       }
       console.debug('parsed allFiles', allFiles);
       if (!allFiles || allFiles.length === 0) {
-        fileListDiv.innerHTML = '<p style="color: #b5bac1; text-align: center;">No files uploaded yet.</p>'
+        fileListDiv.innerHTML = '<p class="text-center text-white-50 py-4">No files uploaded yet.</p>'
         fileStats.innerHTML = ''
         return
       }
       applyFiltersAndSort()
       const totalSize = allFiles.reduce((sum, f) => sum + (f.metadata?.size || 0), 0)
       fileStats.innerHTML = `
-        <div style="color: #b5bac1; font-size: 14px; margin-bottom: 16px;">
-          <strong>${allFiles.length}</strong> files • 
-          <strong>${(totalSize / 1024 / 1024).toFixed(2)} MB</strong> total
+        <div class="alert alert-info alert-sm mb-0 py-2">
+          <small>
+            <strong>${allFiles.length}</strong> files • 
+            <strong>${(totalSize / 1024 / 1024).toFixed(2)} MB</strong> total
+          </small>
         </div>
       `
       await displayCurrentPage()
     } catch (error) {
-      fileListDiv.innerHTML = `<p style="color: #f23f43; text-align: center;">Error loading files: ${error.message}</p>`
+      fileListDiv.innerHTML = `<p class="text-center text-danger py-4">Error loading files: ${error.message}</p>`
       fileStats.innerHTML = ''
     }
   }
@@ -172,7 +174,7 @@
     const endIndex = startIndex + filesPerPage
     const pageFiles = filteredFiles.slice(startIndex, endIndex)
     if (pageFiles.length === 0) {
-      fileListDiv.innerHTML = '<p style="color: #b5bac1; text-align: center;">No files match your search.</p>'
+      fileListDiv.innerHTML = '<p class="text-center text-white-50 py-4">No files match your search.</p>'
       updatePagination()
       return
     }
@@ -201,26 +203,62 @@
         return null;
       }
     }))
-    fileListDiv.innerHTML = filesWithUrls.map(fileWithUrl => {
-      if (!fileWithUrl) return ''
-      const file = fileWithUrl
-      const fileSize = file.metadata?.size ? `${(file.metadata.size / 1024 / 1024).toFixed(2)} MB` : 'Unknown'
-      const createdDate = new Date(file.created_at).toLocaleDateString()
-      return `
-        <div class="file-item">
-          <div class="file-info">
-            <div class="file-name">${escapeHtml(file.name)}</div>
-            <div class="file-meta">${fileSize} • ${createdDate}</div>
-          </div>
-          <div class="file-actions">
-            <button onclick="downloadFile('${escapeHtml(file.name)}')" class="btn-small btn-primary">Download</button>
-            <button onclick="openShareModal('${escapeHtml(file.name)}')" class="btn-small btn-secondary">Share</button>
-            <button onclick="deleteFile('${escapeHtml(file.name)}')" class="btn-small btn-danger">Delete</button>
-          </div>
-        </div>
-      `
-    }).join('')
-    updatePagination()
+    
+    // Render as Bootstrap table
+    let html = '<table class="table table-sm table-dark table-hover mb-0">';
+    html += '<thead class="table-secondary"><tr>';
+    html += '<th class="small">File Name</th>';
+    html += '<th class="small text-center d-none d-md-table-cell" style="width:120px;">Size</th>';
+    html += '<th class="small text-center d-none d-lg-table-cell" style="width:140px;">Uploaded</th>';
+    html += '<th class="small text-end" style="width:220px;">Actions</th>';
+    html += '</tr></thead><tbody>';
+    
+    filesWithUrls.forEach(fileWithUrl => {
+      if (!fileWithUrl) return;
+      const file = fileWithUrl;
+      const fileSize = file.metadata?.size ? `${(file.metadata.size / 1024 / 1024).toFixed(2)} MB` : 'Unknown';
+      const createdDate = new Date(file.created_at).toLocaleDateString();
+      const fileExt = file.name.split('.').pop().toLowerCase();
+      const fileType = getFileType(fileExt);
+      
+      html += '<tr>';
+      html += '<td class="align-middle">';
+      html += `<div class="d-flex align-items-center gap-2">`;
+      html += `<span class="badge bg-secondary" style="width:45px;font-size:10px;">${fileType}</span>`;
+      html += `<div>`;
+      html += `<div class="fw-semibold text-white text-break">${escapeHtml(file.name)}</div>`;
+      html += `<small class="text-white-50 d-md-none">${fileSize} • ${createdDate}</small>`;
+      html += `</div></div></td>`;
+      html += `<td class="align-middle text-center small text-white-50 d-none d-md-table-cell">${fileSize}</td>`;
+      html += `<td class="align-middle text-center small text-white-50 d-none d-lg-table-cell">${createdDate}</td>`;
+      html += '<td class="align-middle text-end">';
+      html += '<div class="btn-group btn-group-sm" role="group">';
+      html += `<button onclick="downloadFile('${escapeHtml(file.name)}')" class="btn btn-primary btn-sm" title="Download">Download</button>`;
+      html += `<button onclick="openShareModal('${escapeHtml(file.name)}')" class="btn btn-info btn-sm" title="Share">Share</button>`;
+      html += `<button onclick="deleteFile('${escapeHtml(file.name)}')" class="btn btn-danger btn-sm" title="Delete">Delete</button>`;
+      html += '</div></td>';
+      html += '</tr>';
+    });
+    
+    html += '</tbody></table>';
+    fileListDiv.innerHTML = html;
+    updatePagination();
+  }
+  
+  // Helper function to get file type badge text based on extension
+  function getFileType(ext) {
+    const types = {
+      pdf: 'PDF', doc: 'DOC', docx: 'DOC', txt: 'TXT',
+      jpg: 'IMG', jpeg: 'IMG', png: 'IMG', gif: 'IMG', svg: 'IMG', webp: 'IMG',
+      mp4: 'VID', mov: 'VID', avi: 'VID', webm: 'VID',
+      mp3: 'AUD', wav: 'AUD', ogg: 'AUD',
+      zip: 'ZIP', rar: 'ZIP', '7z': 'ZIP', tar: 'ZIP', gz: 'ZIP',
+      xls: 'XLS', xlsx: 'XLS', csv: 'CSV',
+      ppt: 'PPT', pptx: 'PPT',
+      html: 'HTML', css: 'CSS', js: 'JS', json: 'JSON', xml: 'XML',
+      py: 'PY', java: 'JAVA', cpp: 'C++', c: 'C', sh: 'SH'
+    };
+    return types[ext] || 'FILE';
   }
 
   function updatePagination() {
@@ -230,24 +268,40 @@
       paginationDiv.innerHTML = ''
       return
     }
-    let paginationHTML = '<div class="pagination-controls">'
-    paginationHTML += `<button onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>← Prev</button>`
-    const startPage = Math.max(1, currentPage - 2)
-    const endPage = Math.min(totalPages, currentPage + 2)
+    
+    // Bootstrap pagination
+    let html = '<nav aria-label="File pagination"><ul class="pagination pagination-sm justify-content-center mb-0">';
+    
+    // Previous button
+    html += `<li class="page-item ${currentPage === 1 ? 'disabled' : ''}">`;
+    html += `<a class="page-link" href="#" onclick="changePage(${currentPage - 1}); return false;" aria-label="Previous">`;
+    html += '<span aria-hidden="true">&laquo;</span></a></li>';
+    
+    const startPage = Math.max(1, currentPage - 2);
+    const endPage = Math.min(totalPages, currentPage + 2);
+    
     if (startPage > 1) {
-      paginationHTML += `<button onclick="changePage(1)">1</button>`
-      if (startPage > 2) paginationHTML += '<span>...</span>'
+      html += `<li class="page-item"><a class="page-link" href="#" onclick="changePage(1); return false;">1</a></li>`;
+      if (startPage > 2) html += '<li class="page-item disabled"><span class="page-link">...</span></li>';
     }
+    
     for (let i = startPage; i <= endPage; i++) {
-      paginationHTML += `<button onclick="changePage(${i})" ${i === currentPage ? 'class="active"' : ''}>${i}</button>`
+      html += `<li class="page-item ${i === currentPage ? 'active' : ''}">`;
+      html += `<a class="page-link" href="#" onclick="changePage(${i}); return false;">${i}</a></li>`;
     }
+    
     if (endPage < totalPages) {
-      if (endPage < totalPages - 1) paginationHTML += '<span>...</span>'
-      paginationHTML += `<button onclick="changePage(${totalPages})">${totalPages}</button>`
+      if (endPage < totalPages - 1) html += '<li class="page-item disabled"><span class="page-link">...</span></li>';
+      html += `<li class="page-item"><a class="page-link" href="#" onclick="changePage(${totalPages}); return false;">${totalPages}</a></li>`;
     }
-    paginationHTML += `<button onclick="changePage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>Next →</button>`
-    paginationHTML += '</div>'
-    paginationDiv.innerHTML = paginationHTML
+    
+    // Next button
+    html += `<li class="page-item ${currentPage === totalPages ? 'disabled' : ''}">`;
+    html += `<a class="page-link" href="#" onclick="changePage(${currentPage + 1}); return false;" aria-label="Next">`;
+    html += '<span aria-hidden="true">&raquo;</span></a></li>';
+    
+    html += '</ul></nav>';
+    paginationDiv.innerHTML = html;
   }
 
   window.changePage = async (page) => {
@@ -286,11 +340,12 @@
   }
 
   window.openShareModal = (fileName) => {
-    const modal = document.getElementById('shareModal')
     document.getElementById('shareFileName').textContent = fileName
     document.getElementById('shareFileName').dataset.filename = fileName
     document.getElementById('shareResult').innerHTML = ''
-    modal.classList.add('active')
+    const modalEl = document.getElementById('shareModal')
+    const modal = new bootstrap.Modal(modalEl)
+    modal.show()
   }
 
   window.generateShareLink = async () => {
@@ -310,25 +365,27 @@
         ? `${expiresIn / 86400} day${expiresIn > 86400 ? 's' : ''}`
         : `${expiresIn / 3600} hour${expiresIn > 3600 ? 's' : ''}`
       document.getElementById('shareResult').innerHTML = `
-        <div style="background: rgba(29, 209, 161, 0.15); border: 2px solid #1dd1a1; border-radius: 8px; padding: 16px; margin-top: 16px; color: #1dd1a1;">
+        <div class="alert alert-success alert-sm mb-0 mt-2">
           <strong>✓ Link copied to clipboard!</strong>
-          <p style="margin: 8px 0 0 0; font-size: 14px; color: #b5bac1;">Expires in ${expiryText}</p>
-          <div style="margin-top: 12px; padding: 8px; background: rgba(0, 0, 0, 0.3); border-radius: 4px; word-break: break-all; font-size: 12px; font-family: monospace;">
-            ${data.signedUrl}
+          <div class="small text-white-50 mt-1">Expires in ${expiryText}</div>
+          <div class="mt-2 p-2 bg-black bg-opacity-25 rounded text-break small font-monospace">
+            ${escapeHtml(signed)}
           </div>
         </div>
       `
     } catch (error) {
       document.getElementById('shareResult').innerHTML = `
-        <div style="background: rgba(242, 63, 67, 0.15); border: 2px solid #f23f43; border-radius: 8px; padding: 16px; margin-top: 16px; color: #f23f43;">
-          <strong>Error:</strong> ${error.message}
+        <div class="alert alert-danger alert-sm mb-0 mt-2">
+          <strong>Error:</strong> ${escapeHtml(error.message)}
         </div>
       `
     }
   }
 
   window.closeShareModal = () => {
-    document.getElementById('shareModal').classList.remove('active')
+    const modalEl = document.getElementById('shareModal')
+    const modal = bootstrap.Modal.getInstance(modalEl)
+    if (modal) modal.hide()
   }
 
   window.deleteFile = async (fileName) => {
@@ -348,12 +405,11 @@
     const dragDropArea = document.getElementById('drag-drop-area')
     if (!isAuthenticated) {
       authBanner.innerHTML = `
-        <div class="auth-warning">
-          <strong>Not Signed In</strong>
-          <p>You must sign in with Discord to upload files. <a href="/pages/login.html">Sign in here</a></p>
+        <div class="alert alert-warning alert-sm mb-0 py-2">
+          <small><strong>Not Signed In</strong></small>
+          <div class="small">You must sign in with Discord. <a href="/pages/login.html" class="alert-link">Sign in</a></div>
         </div>
       `
-      authBanner.className = 'auth-banner warning'
       authBanner.style.display = 'block'
       if (dragDropArea) {
         dragDropArea.style.opacity = '0.5'
@@ -361,12 +417,11 @@
       }
     } else {
       authBanner.innerHTML = `
-        <div class="auth-success">
-          <strong>✓ Signed In</strong>
-          ${username ? `<span style="font-size:14px;color:#b5bac1;">${escapeHtml(username)}</span>` : ''}
+        <div class="alert alert-success alert-sm mb-0 py-2">
+          <small><strong>Signed In</strong></small>
+          ${username ? `<div class="small text-truncate">${escapeHtml(username)}</div>` : ''}
         </div>
       `
-      authBanner.className = 'auth-banner success'
       authBanner.style.display = 'block'
       if (dragDropArea) {
         dragDropArea.style.opacity = '1'

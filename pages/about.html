@@ -16,8 +16,9 @@
     <link href="/css/carousel.css" rel="stylesheet">
     <link href="/css/custom.css" rel="stylesheet">
     <link href="/css/header.css" rel="stylesheet">
-    <link href="/css/about.css" rel="stylesheet">
     <link href="/css/waves.css" rel="stylesheet">
+    <link href="/css/rov.css" rel="stylesheet">
+    <link href="/css/about.css" rel="stylesheet">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -30,29 +31,25 @@
     <script src="/js/header.js"></script>
 
     <!-- Om Oss Seksjon  -->
-    <section class="callout about-modern py-5">
+    <section class="callout about-modern py-5" aria-label="Om UiASub">
       <div class="container">
         <div class="row g-4 align-items-center">
           <div class="col-md-6 text-start">
-            <div class="about-visual rounded shadow-sm overflow-hidden">
-              <img src="/images/uiasub/Onwall.jpg" alt="UiASub team" class="img-fluid" style="width:100%;height:100%;object-fit:cover;">
+            <div class="about-visual rounded shadow-sm overflow-hidden" style="min-height:260px;">
+              <img src="/images/uiasub/Onwall.jpg" alt="UiASub team" class="img-fluid w-100 h-100" style="object-fit:cover;">
             </div>
           </div>
           <div class="col-md-6">
             <h1 class="display-5 fw-bold mb-4">Om <span class="text-primary">UiASub</span></h1>
             <p class="lead text-light">UiASub er en studentdrevet teknologigruppe ved Universitetet i Agder. Vi bygger autonome og fjernstyrte undervannssystemer, lærer gjennom praktiske prosjekter og samarbeider tett med næringslivet.</p>
-            <ul class="text-light">
-              <li>Organisasjonens formål er å tilby studenter arbeidsrelaterte prosjekter med fokus på å bygge fjernstyrt og autonomt undervannsutstyr, som ROV-er og AUV-er.
-                Organisasjonen drives som et selskap og gir studentene praktisk erfaring som er verdifull for deres fremtidige karrierer. Vi trenger ingeniører, HR- og ledelsesstudenter, samt studenter innen markedsføring og multimedia. Å være en del av UiASub øker din attraktivitet for arbeidsgivere og gir tilgang til et omfattende profesjonelt nettverk.
-                Vi deltar i 1-2 konkurranser hvert år, der vi konkurrerer mot ulike lag om å være raskest til å utføre oppgaver på havbunnen.
-              </li>
-            </ul>
+            <p class="text-light">Organisasjonens formål er å tilby studenter arbeidsrelaterte prosjekter med fokus på å bygge fjernstyrt og autonomt undervannsutstyr, som ROV-er og AUV-er. Organisasjonen drives som et selskap og gir studentene praktisk erfaring som er verdifull for deres fremtidige karrierer.</p>
+            <p class="text-light">Vi trenger ingeniører, HR- og ledelsesstudenter, samt studenter innen markedsføring og multimedia. Å være en del av UiASub øker din attraktivitet for arbeidsgivere og gir tilgang til et omfattende profesjonelt nettverk. Vi deltar i 1-2 konkurranser hvert år, der vi konkurrerer mot ulike lag om å være raskest til å utføre oppgaver på havbunnen.</p>
 
             <div class="row mt-3">
               <div class="col-4">
                 <div class="stat text-center">
                   <div class="stat-num h3">~30</div>
-                  <div class="stat-label small text-white">aktive medlemmer</div>
+                  <div class="stat-label small text-white">Aktive medlemmer</div>
                 </div>
               </div>
               <div class="col-4">
@@ -64,157 +61,71 @@
               <div class="col-4">
                 <div class="stat text-center">
                   <div class="stat-num h3">+3</div>
-                  <div class="stat-label small text-white">partnere</div>
+                  <div class="stat-label small text-white">Partnere</div>
                 </div>
               </div>
             </div>
 
             <div class="mt-4">
-              <a href="/pages/join.html" class="btn btn-primary me-2">Bli med oss</a>
-              <a href="/pages/rov.html" class="btn btn-outline-light">Se prosjektet vårt</a>
+              <a href="/pages/rov.html" class="btn btn-outline-light me-2">Se ROV Prosjektet</a>
+              <a href="/pages/join.html" class="btn btn-outline-light">Bli med oss</a>
             </div>
           </div>
         </div>
       </div>
     </section>
-      <div class="mt-4 text-center">
-        <button id="members-toggle" class="learn-more" type="button" aria-expanded="false" aria-controls="members-collapse">
-          <span class="circle" aria-hidden="true">
-            <span class="icon arrow"></span>
-          </span>
-          <!--Button from here: https://uiverse.io/cssbuttons-io/massive-mayfly-74-->
-          <span class="button-text">Medlemmer</span>
-        </button>
-      </div>
-      <div class="collapse mt-3" id="members-collapse">
-      <div class="container mx-auto mt-4">
-        <div class="row justify-content-center gx-4 gy-4">
-          <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-        <img src="https://i.imgur.com/ZTkt4I5.jpg" loading="lazy" decoding="async" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-        </div>
-          </div>    
-             <div class="col-md-4">
-      <div class="card" style="width: 18rem;">
-        <img src="https://i.imgur.com/ZTkt4I5.jpg" loading="lazy" decoding="async" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-        </div>
-          </div>    
-                <div class="col-md-4">
-      <div class="card" style="width: 18rem;">
-        <img src="https://i.imgur.com/ZTkt4I5.jpg" loading="lazy" decoding="async" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-        </div>
-        </div>
 
-          <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-        <img src="https://i.imgur.com/ZTkt4I5.jpg" loading="lazy" decoding="async" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <!-- Medlemmer Section -->
+    <section class="py-5" aria-label="Medlemmer">
+      <div class="container">
+        <h2 class="fs-3 fw-bold text-center mb-3">Våre Medlemmer</h2>
+        <p class="text-center text-white mb-4">Møt teamet bak UiASub</p>
+        
+        <div class="mt-4 text-center">
+          <button id="members-toggle" class="btn btn-outline-light" type="button" aria-expanded="false" aria-controls="members-collapse" data-bs-toggle="collapse" data-bs-target="#members-collapse">
+            <span class="button-text">Vis Medlemmer</span>
+          </button>
         </div>
-        </div>
-          </div>    
-             <div class="col-md-4">
-      <div class="card" style="width: 18rem;">
-        <img src="https://i.imgur.com/ZTkt4I5.jpg" loading="lazy" decoding="async" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-        </div>
-          </div>    
-                <div class="col-md-4">
-      <div class="card" style="width: 18rem;">
-        <img src="https://i.imgur.com/ZTkt4I5.jpg" loading="lazy" decoding="async" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-        </div>
-        </div>
-
-          <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-        <img src="https://i.imgur.com/ZTkt4I5.jpg" loading="lazy" decoding="async" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-        </div>
-          </div>    
-             <div class="col-md-4">
-      <div class="card" style="width: 18rem;">
-        <img src="https://i.imgur.com/ZTkt4I5.jpg" loading="lazy" decoding="async" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-        </div>
-          </div>    
-                <div class="col-md-4">
-      <div class="card" style="width: 18rem;">
-        <img src="https://i.imgur.com/ZTkt4I5.jpg" loading="lazy" decoding="async" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-        </div>
-        </div>
-
-          <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-        <img src="https://i.imgur.com/ZTkt4I5.jpg" loading="lazy" decoding="async" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-        </div>
-          </div>    
-             <div class="col-md-4">
-      <div class="card" style="width: 18rem;">
-        <img src="https://i.imgur.com/ZTkt4I5.jpg" loading="lazy" decoding="async" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-        </div>
-          </div>    
-                <div class="col-md-4">
-      <div class="card" style="width: 18rem;">
-        <img src="https://i.imgur.com/ZTkt4I5.jpg" loading="lazy" decoding="async" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-        </div>
+        
+        <div class="collapse mt-4" id="members-collapse">
+          <div class="container">
+            <div class="row justify-content-center g-4">
+              <div class="col-md-4">
+                <div class="card h-100">
+                  <img src="https://i.imgur.com/ZTkt4I5.jpg" loading="lazy" decoding="async" class="card-img-top" alt="Member">
+                  <div class="card-body">
+                    <h5 class="card-title text-white">Card title</h5>
+                    <h6 class="card-subtitle mb-2 text-white-50">Card subtitle</h6>
+                    <p class="card-text text-white">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card h-100">
+                  <img src="https://i.imgur.com/ZTkt4I5.jpg" loading="lazy" decoding="async" class="card-img-top" alt="Member">
+                  <div class="card-body">
+                    <h5 class="card-title text-white">Card title</h5>
+                    <h6 class="card-subtitle mb-2 text-white-50">Card subtitle</h6>
+                    <p class="card-text text-white">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card h-100">
+                  <img src="https://i.imgur.com/ZTkt4I5.jpg" loading="lazy" decoding="async" class="card-img-top" alt="Member">
+                  <div class="card-body">
+                    <h5 class="card-title text-white">Card title</h5>
+                    <h6 class="card-subtitle mb-2 text-white-50">Card subtitle</h6>
+                    <p class="card-text text-white">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      </div>
-    </div>
+    </section>
+
     <!-- Waves -->
     <div class="wrapper">
       <svg class="wavesContainer flipped" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">

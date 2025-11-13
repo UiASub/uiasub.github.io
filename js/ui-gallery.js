@@ -10,37 +10,37 @@
     {
       title: 'Hovedkontrollpanel',
       description: 'Joystick input, thruster allocation, og sanntidsstatus',
-      imagePath: '/images/ui-mockups/control-panel.png',
+      imagePath: '/images/project/dashboard.png',
       category: 'Control'
     },
     {
       title: 'Sensor Dashboard',
       description: 'Sanntidsvisning av dybde, temperatur, orientering og andre sensorer',
-      imagePath: '/images/ui-mockups/sensor-dashboard.png',
+      imagePath: '/images/project/sensor.png',
       category: 'Monitoring'
     },
     {
       title: 'Video Feed Interface',
       description: 'Primær og sekundær kamera med overlay-informasjon',
-      imagePath: '/images/ui-mockups/video-feed.png',
+      imagePath: '/images/project/dashboard.png',
       category: 'Video'
     },
     {
       title: 'Thruster Kontroll',
       description: 'Individuell thruster-status og vektorisert kraftfordeling',
-      imagePath: '/images/ui-mockups/thruster-control.png',
+      imagePath: '/images/project/sensor.png',
       category: 'Control'
     },
     {
       title: 'Telemetri Visning',
       description: 'Grafisk telemetri, historiske plots og alarmer',
-      imagePath: '/images/ui-mockups/telemetry.png',
+      imagePath: '/images/project/dashboard.png',
       category: 'Monitoring'
     },
     {
       title: 'Systemstatus',
       description: 'Oversikt over batteri, temperatur og feillogger',
-      imagePath: '/images/ui-mockups/system-status.png',
+      imagePath: '/images/project/sensor.png',
       category: 'Status'
     }
   ];
@@ -49,42 +49,43 @@
     {
       title: 'Main Control Panel',
       description: 'Joystick input, thruster allocation and real-time status',
-      imagePath: '/images/ui-mockups/control-panel.png',
+      imagePath: '/images/project/dashboard.png',
       category: 'Control'
     },
     {
       title: 'Sensor Dashboard',
       description: 'Real-time display of depth, temperature and orientation',
-      imagePath: '/images/ui-mockups/sensor-dashboard.png',
+      imagePath: '/images/project/sensor.png',
       category: 'Monitoring'
     },
     {
       title: 'Video Feed Interface',
       description: 'Primary and secondary camera with overlay information',
-      imagePath: '/images/ui-mockups/video-feed.png',
+      imagePath: '/images/project/dashboard.png',
       category: 'Video'
     },
     {
       title: 'Thruster Control',
       description: 'Individual thruster status and force distribution',
-      imagePath: '/images/ui-mockups/thruster-control.png',
+      imagePath: '/images/project/sensor.png',
       category: 'Control'
     },
     {
       title: 'Telemetry Display',
       description: 'Graphical telemetry, historical plots and alerts',
-      imagePath: '/images/ui-mockups/telemetry.png',
+      imagePath: '/images/project/dashboard.png',
       category: 'Monitoring'
     },
     {
       title: 'System Status',
       description: 'Overview of battery, temperature and error logs',
-      imagePath: '/images/ui-mockups/system-status.png',
+      imagePath: '/images/project/sensor.png',
       category: 'Status'
     }
   ];
 
-  const isEnglish = (document.documentElement && document.documentElement.lang === 'en') || (location.pathname && location.pathname.startsWith('/en'));
+  // Locale detection: check path prefix (English pages are under /en/)
+  const isEnglish = location.pathname && location.pathname.startsWith('/en');
   const mockupsData = isEnglish ? mockupsData_en : mockupsData_no;
 
   const placeholderBase = 'https://via.placeholder.com/1200x800/002f47/ffffff?text=';

@@ -5,49 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="UiASub">
-    <meta name="title" content="UiASub Ocineering">
-    <link rel="shortcut icon" href="/images/uiasub/Icon1.png">
+    <meta name="title" content="UiASub Sponsors">
+    <meta name="theme-color" content="#003f7f">
+    <link href="/images/uiasub/Icon1.png" rel="shortcut icon">
+    <link href="/manifest.webmanifest" rel="manifest">
 
     <title>UiASub Sponsors</title>
 
     <!-- Bootstrap core CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="" crossorigin="anonymous">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <!-- Custom styles for this template -->
+    <link href="/css/custom.css" rel="stylesheet">
+    <link href="/css/header.css" rel="stylesheet">
+    <link href="/css/waves.css" rel="stylesheet">
+    <link href="/css/sponsors.css" rel="stylesheet">
 
-  <!-- Custom styles for this template -->
-  <link href="/css/carousel.css" rel="stylesheet">
-  <link href="/css/custom.css" rel="stylesheet">
-  <link href="/css/header.css" rel="stylesheet">
-  <link href="/css/sponsors.css" rel="stylesheet">
-  <link rel="stylesheet" href="/css/waves.css">
-
-  <!-- Tailwind removed to avoid preflight conflicts with Bootstrap -->
   </head>
-
   <body>
-
   <!--HEADER-->
   <div id="header"></div>
   <script src="/js/header.js"></script>
-
-    <!--Sponsorships (card layout, parity with Norwegian sponsors page) -->
-    <div class="callout row">
+    
+    <!--Sponsors-->
+    <section class="callout sponsors-callout py-5" aria-label="Sponsor Information" role="region">
       <div class="container">
+        <div class="row">
           <div class="col-12">
-            <h1 class="display-5 fw-bold">Companies supporting <span class="text-primary">UiASub</span></h1>
-            <hr class="my-4">
-            <p class="fs-5 text-white">Would you like your company logo displayed here?</p>
-            <p class="fs-5 text-white">Contact us at: <a href="mailto:bedrift@uiasub.no" class="text-primary">bedrift@uiasub.no</a></p>
+            <div class="callout-content">
+              <h1 class="display-5 fw-bold mb-4">Companies supporting <span class="text-primary">UiASub</span></h1>
+              <hr class="my-4">
+              <p class="fs-5 text-white mb-4">Would you like your company logo displayed here?</p>
+              <p class="lead text-white mb-0">Send us an email:</p>
+              <div class="mt-4 d-flex justify-content-center">
+                <a href="mailto:bedrift@uiasub.no" class="btn-sponsor-cta" aria-label="Contact email for sponsorship inquiries">Contact us</a>
+              </div>
+            </div>
           </div>
+        </div>
       </div>
-    </div>
-    <main class="main-container">
-      <div class="row gx-4 gy-4 justify-content-center w-100" style="padding: 2rem;">
+    </section>
+    <main>
+      <section class="sponsors-showcase py-5" aria-label="Sponsor Showcase">
+      <section class="sponsors-showcase py-5" aria-label="Sponsor Showcase">
+      <div class="container">
+      <div class="row gx-4 gy-4 justify-content-center">
 
 
         <!-- Sponsor Card 1 -->
@@ -138,6 +140,8 @@
         </div>
 
       </div>
+      </div>
+    </section>
     </main>
     <div class="wrapper">
       <svg class="wavesContainer flipped" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">

@@ -48,23 +48,40 @@ function updatePagination() {
     container.innerHTML = '';
     return;
   }
-  let html = '<div class="pagination-controls" style="display:flex;gap:8px;justify-content:center;align-items:center;margin-top:12px;">';
-  html += `<button onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>← Prev</button>`;
+  
+  // Bootstrap pagination
+  let html = '<nav aria-label="Equipment pagination"><ul class="pagination pagination-sm justify-content-center mb-0">';
+  
+  // Previous button
+  html += `<li class="page-item ${currentPage === 1 ? 'disabled' : ''}">`;
+  html += `<a class="page-link" href="#" onclick="changePage(${currentPage - 1}); return false;" aria-label="Previous">`;
+  html += '<span aria-hidden="true">&laquo;</span></a></li>';
+  
+  // Page numbers
   const startPage = Math.max(1, currentPage - 2);
   const endPage = Math.min(totalPages, currentPage + 2);
+  
   if (startPage > 1) {
-    html += `<button onclick="changePage(1)">1</button>`;
-    if (startPage > 2) html += '<span style="padding:0 6px;color:#b5bac1;">…</span>';
+    html += `<li class="page-item"><a class="page-link" href="#" onclick="changePage(1); return false;">1</a></li>`;
+    if (startPage > 2) html += '<li class="page-item disabled"><span class="page-link">...</span></li>';
   }
+  
   for (let i = startPage; i <= endPage; i++) {
-    html += `<button onclick="changePage(${i})" ${i === currentPage ? 'class="active"' : ''}>${i}</button>`;
+    html += `<li class="page-item ${i === currentPage ? 'active' : ''}">`;
+    html += `<a class="page-link" href="#" onclick="changePage(${i}); return false;">${i}</a></li>`;
   }
+  
   if (endPage < totalPages) {
-    if (endPage < totalPages - 1) html += '<span style="padding:0 6px;color:#b5bac1;">…</span>';
-    html += `<button onclick="changePage(${totalPages})">${totalPages}</button>`;
+    if (endPage < totalPages - 1) html += '<li class="page-item disabled"><span class="page-link">...</span></li>';
+    html += `<li class="page-item"><a class="page-link" href="#" onclick="changePage(${totalPages}); return false;">${totalPages}</a></li>`;
   }
-  html += `<button onclick="changePage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>Next →</button>`;
-  html += '</div>';
+  
+  // Next button
+  html += `<li class="page-item ${currentPage === totalPages ? 'disabled' : ''}">`;
+  html += `<a class="page-link" href="#" onclick="changePage(${currentPage + 1}); return false;" aria-label="Next">`;
+  html += '<span aria-hidden="true">&raquo;</span></a></li>';
+  
+  html += '</ul></nav>';
   container.innerHTML = html;
 }
 
@@ -169,22 +186,20 @@ function showAuthStatus(isAuthenticated, username = '') {
   if (!authBanner) return;
   if (!isAuthenticated) {
     authBanner.innerHTML = `
-      <div class="auth-warning">
-        <strong>Not Signed In</strong>
-        <p>You must sign in with Discord to manage equipment. <a href="/pages/login.html">Sign in here</a></p>
+      <div class="alert alert-warning alert-sm mb-0 py-2">
+        <small><strong>Not Signed In</strong></small>
+        <div class="small">You must sign in with Discord. <a href="/pages/login.html" class="alert-link">Sign in</a></div>
       </div>
     `;
-    authBanner.className = 'auth-banner warning';
     authBanner.style.display = 'block';
     return;
   }
   authBanner.innerHTML = `
-    <div class="auth-success">
-      <strong>✓ Signed In</strong>
-      ${username ? `<div style="font-size:14px;color:#b5bac1;">${escapeHtml(username)}</div>` : ''}
+    <div class="alert alert-success alert-sm mb-0 py-2">
+      <small><strong>Signed In</strong></small>
+      ${username ? `<div class="small text-truncate">${escapeHtml(username)}</div>` : ''}
     </div>
   `;
-  authBanner.className = 'auth-banner success';
   authBanner.style.display = 'block';
 }
 
@@ -198,71 +213,79 @@ function escapeHtml(text) {
 // Display equipment: if rows include expanded schema render a table, otherwise show cards
 function displayEquipment(equipment) {
   if (!equipment || equipment.length === 0) {
-    return '<div style="color:#b5bac1;text-align:center;padding:32px;">No equipment yet.</div>';
+    return '<div class="text-center text-white-50 py-4">No equipment yet.</div>';
   }
 
   const esc = s => escapeHtml(s === null || s === undefined ? '' : String(s));
 
-  // Detect expanded Supabase rows (objects with these keys)
-  const expandedKeys = ['name','number','where','number_in_storage','loaned_to','description','loaned_at','created_at'];
-  const isExpanded = equipment.every(it => it && typeof it === 'object' && expandedKeys.every(k => k in it || k === 'created_at'));
+  // Always render as compact Bootstrap table
+  let html = '<table class="table table-sm table-dark table-hover mb-0">';
+  html += '<thead class="table-secondary"><tr>';
+  html += '<th class="small">Name</th>';
+  html += '<th class="small d-none d-md-table-cell">Description</th>';
+  html += '<th class="small text-center" style="width:80px;">Total</th>';
+  html += '<th class="small text-center" style="width:80px;">In Stock</th>';
+  html += '<th class="small d-none d-lg-table-cell">Location</th>';
+  html += '<th class="small">Status</th>';
+  html += '<th class="small text-end" style="width:140px;">Actions</th>';
+  html += '</tr></thead><tbody>';
 
-  if (isExpanded) {
-    // render table with columns matching schema
-    let html = '<table style="width:100%;border-collapse:collapse;color:#e6eaee;">';
-    html += '<thead><tr>';
-    const headers = ['name','number','where','number_in_storage','loaned_to','description','loaned_at','created_at'];
-    headers.forEach(h => {
-      html += `<th style="text-align:left;padding:6px 8px;border-bottom:1px solid rgba(255,255,255,0.06);">${esc(h)}</th>`;
-    });
-    html += '<th style="text-align:left;padding:6px 8px;border-bottom:1px solid rgba(255,255,255,0.06);">Actions</th>';
-    html += '</tr></thead><tbody>';
-
-    equipment.forEach(row => {
-      html += '<tr>';
-      const fmtDate = v => {
-        if (!v) return '';
-        const d = new Date(v);
-        return isNaN(d.getTime()) ? esc(v) : esc(d.toLocaleString());
-      };
-      html += `<td style="padding:6px 8px;border-bottom:1px solid rgba(255,255,255,0.03);">${esc(row.name)}</td>`;
-      html += `<td style="padding:6px 8px;border-bottom:1px solid rgba(255,255,255,0.03);">${esc(row.number)}</td>`;
-      html += `<td style="padding:6px 8px;border-bottom:1px solid rgba(255,255,255,0.03);">${esc(row.where)}</td>`;
-      html += `<td style="padding:6px 8px;border-bottom:1px solid rgba(255,255,255,0.03);">${esc(row.number_in_storage)}</td>`;
-      html += `<td style="padding:6px 8px;border-bottom:1px solid rgba(255,255,255,0.03);">${esc(row.loaned_to)}</td>`;
-      html += `<td style="padding:6px 8px;border-bottom:1px solid rgba(255,255,255,0.03);">${esc(row.description)}</td>`;
-      html += `<td style="padding:6px 8px;border-bottom:1px solid rgba(255,255,255,0.03);">${fmtDate(row.loaned_at)}</td>`;
-      html += `<td style="padding:6px 8px;border-bottom:1px solid rgba(255,255,255,0.03);">${fmtDate(row.created_at)}</td>`;
-      // actions
-      const id = row.id ?? '';
-      const isLoaned = row.loaned_to && String(row.loaned_to).trim() !== '';
-      let actions = '';
-      if (id) {
-        actions += isLoaned ? `<button class='btn-small btn-return' onclick='returnEquipment("${esc(id)}")'>Return</button> ` : `<button class='btn-small btn-assign' onclick='openAssignModal("${esc(id)}")'>Assign</button> `;
-        actions += `<button class='btn-small btn-delete' onclick='deleteEquipment("${esc(id)}","${esc(row.name)}")'>Delete</button>`;
+  equipment.forEach(row => {
+    const isLoaned = row.loaned_to && String(row.loaned_to).trim() !== '';
+    const statusClass = isLoaned ? 'text-danger' : 'text-success';
+    const statusBadge = isLoaned 
+      ? '<span class="badge bg-danger">Loaned</span>' 
+      : '<span class="badge bg-success">Available</span>';
+    
+    html += '<tr>';
+    
+    // Name (with description on mobile as subtitle)
+    html += '<td class="align-middle">';
+    html += `<div class="fw-semibold text-white">${esc(row.name)}</div>`;
+    if (row.description) {
+      html += `<small class="text-white-50 d-md-none">${esc(row.description)}</small>`;
+    }
+    if (isLoaned) {
+      html += `<small class="text-white-50 d-block">Loaned to: ${esc(row.loaned_to)}</small>`;
+    }
+    html += '</td>';
+    
+    // Description (desktop only)
+    html += `<td class="align-middle small text-white-50 d-none d-md-table-cell">${esc(row.description)}</td>`;
+    
+    // Total quantity
+    html += `<td class="align-middle text-center">${esc(row.number ?? '-')}</td>`;
+    
+    // In storage (with color coding)
+    const inStock = Number(row.number_in_storage ?? 0);
+    const stockClass = inStock === 0 ? 'text-danger' : inStock <= 2 ? 'text-warning' : 'text-success';
+    html += `<td class="align-middle text-center ${stockClass} fw-bold">${esc(row.number_in_storage ?? '-')}</td>`;
+    
+    // Location (desktop only)
+    html += `<td class="align-middle small text-white-50 d-none d-lg-table-cell">${esc(row.where ?? '-')}</td>`;
+    
+    // Status
+    html += `<td class="align-middle">${statusBadge}</td>`;
+    
+    // Actions
+    const id = row.id ?? '';
+    html += '<td class="align-middle text-end">';
+    html += '<div class="btn-group btn-group-sm" role="group">';
+    if (id) {
+      if (isLoaned) {
+        html += `<button class="btn btn-success btn-sm" onclick='returnEquipment("${esc(id)}")' title="Return">Return</button>`;
+      } else {
+        html += `<button class="btn btn-primary btn-sm" onclick='openAssignModal("${esc(id)}")' title="Assign">Assign</button>`;
       }
-      html += `<td style="padding:6px 8px;border-bottom:1px solid rgba(255,255,255,0.03);">${actions}</td>`;
-      html += '</tr>';
-    });
+      html += `<button class="btn btn-danger btn-sm" onclick='deleteEquipment("${esc(id)}","${esc(row.name)}")' title="Delete">Delete</button>`;
+    }
+    html += '</div></td>';
+    
+    html += '</tr>';
+  });
 
-    html += '</tbody></table>';
-    return html;
-  }
-
-  // fallback: original card rendering, return HTML string
-  return equipment.map(item => {
-    const isLoaned = item.loaned_to && item.loaned_to.trim() !== '';
-    return `<div class="equipment-card ${isLoaned ? 'loaned':'available'}">
-      <div class="equipment-name">${esc(item.name)}</div>
-      ${item.description ? `<div style='color:#b5bac1;font-size:14px;'>${esc(item.description)}</div>` : ''}
-      <div class="equipment-status">${isLoaned ? '🔴 Loaned Out':'🟢 Available'}</div>
-      ${isLoaned ? `<div class='loaned-to'>👤 ${esc(item.loaned_to)}${item.loaned_at ? `<div style='font-size:12px;color:#949ba4;'>Since: ${esc(new Date(item.loaned_at).toLocaleDateString())}</div>` : ''}</div>` : ''}
-      <div class="equipment-actions">
-        ${isLoaned ? `<button class='btn-small btn-return' onclick='returnEquipment("${esc(item.id)}")'>Return</button>` : `<button class='btn-small btn-assign' onclick='openAssignModal("${esc(item.id)}")'>Assign</button>`}
-        <button class='btn-small btn-delete' onclick='deleteEquipment("${esc(item.id)}","${esc(item.name)}")'>Delete</button>
-      </div>
-    </div>`;
-  }).join('');
+  html += '</tbody></table>';
+  return html;
 }
 
 // Add new equipment
@@ -297,12 +320,17 @@ addEquipmentBtn.onclick = async () => {
 window.openAssignModal = equipmentId => {
   currentEquipmentId = equipmentId;
   assignUserName.value = '';
-  assignModal.classList.add('active');
+  // Use Bootstrap 5 modal API
+  const modalEl = document.getElementById('assignModal');
+  const modal = new bootstrap.Modal(modalEl);
+  modal.show();
 };
 
 // Close modal
 cancelAssign.onclick = () => {
-  assignModal.classList.remove('active');
+  const modalEl = document.getElementById('assignModal');
+  const modal = bootstrap.Modal.getInstance(modalEl);
+  if (modal) modal.hide();
   currentEquipmentId = null;
 };
 
@@ -318,7 +346,9 @@ confirmAssign.onclick = async () => {
   } catch (e) {
     alert(e.message);
   }
-  assignModal.classList.remove('active');
+  const modalEl = document.getElementById('assignModal');
+  const modal = bootstrap.Modal.getInstance(modalEl);
+  if (modal) modal.hide();
   currentEquipmentId = null;
   loadEquipment();
 };
