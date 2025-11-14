@@ -246,14 +246,12 @@ function initializeHamburgerMenu() {
     });
   }
 }
-
 // Check if user is logged in and update header link
 async function checkLoginStatus(isEnglish) {
   const loginLink = document.getElementById('loginLink');
   const EDGE_FUNCTION_URL = "https://iiauxyfisphubpsaffag.supabase.co/functions/v1/discord-role-sync";
   const token = window.localStorage.getItem('access_token');
   if (!loginLink) return;
-  
   // Always point to the canonical login/equipment pages under /pages/ (no locale prefix).
   // The link text is localized, but the routes are centralized.
   if (!token) {
@@ -263,36 +261,6 @@ async function checkLoginStatus(isEnglish) {
     loginLink.style.color = '';
     return;
   }
-  
-  // Check cache with TTL (5 minutes)
-  const CACHE_TTL = 5 * 60 * 1000; // 5 minutes
-  const cacheKey = 'login_status_cache';
-  const cached = sessionStorage.getItem(cacheKey);
-  if (cached) {
-    try {
-      const { timestamp, isLoggedIn } = JSON.parse(cached);
-      if (Date.now() - timestamp < CACHE_TTL) {
-        // Use cached value
-        if (isLoggedIn) {
-          loginLink.textContent = isEnglish ? ' Logged In' : ' Logget Inn';
-          loginLink.href = `/pages/equipment.html`;
-          loginLink.style.color = '#3ba55d';
-        } else {
-          loginLink.textContent = isEnglish ? ' Log In' : ' Logg Inn';
-          loginLink.href = `/pages/login.html`;
-          loginLink.style.color = '';
-        }
-        return;
-      }
-    } catch (e) {
-      // Invalid cache, continue to fetch
-    }
-  }
-  
-  // Create AbortController with timeout
-  const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
-  
   try {
     const res = await fetch(EDGE_FUNCTION_URL, {
       method: 'POST',
@@ -300,25 +268,10 @@ async function checkLoginStatus(isEnglish) {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`
       },
-      body: JSON.stringify({ check: true }),
-      signal: controller.signal
+      body: JSON.stringify({ check: true })
     });
-    clearTimeout(timeoutId);
-    
     const payload = await res.json().catch(() => null);
-    const isLoggedIn = res.status === 200 && payload && payload.ok === true;
-    
-    // Cache the result
-    try {
-      sessionStorage.setItem(cacheKey, JSON.stringify({
-        timestamp: Date.now(),
-        isLoggedIn: isLoggedIn
-      }));
-    } catch (e) {
-      // Ignore storage errors
-    }
-    
-    if (isLoggedIn) {
+      if (res.status === 200 && payload && payload.ok === true) {
       loginLink.textContent = isEnglish ? ' Logged In' : ' Logget Inn';
       loginLink.href = `/pages/equipment.html`;
       loginLink.style.color = '#3ba55d';
@@ -328,8 +281,6 @@ async function checkLoginStatus(isEnglish) {
       loginLink.style.color = '';
     }
   } catch (e) {
-    clearTimeout(timeoutId);
-    // On error (timeout or network), default to logged out state
     loginLink.textContent = isEnglish ? ' Log In' : ' Logg Inn';
     loginLink.href = `/pages/login.html`;
     loginLink.style.color = '';
