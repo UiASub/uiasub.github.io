@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="UiASub">
     <meta name="title" content="UiASub Sponsors">
     <meta name="theme-color" content="#003f7f">
@@ -14,6 +13,10 @@
 
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 
     <!-- Custom styles for this template -->
     <link href="/css/custom.css" rel="stylesheet">
@@ -33,13 +36,8 @@
         <div class="row">
           <div class="col-12">
             <div class="callout-content">
-              <h1 class="display-5 fw-bold mb-4">Companies supporting <span class="text-primary">UiASub</span></h1>
-              <hr class="my-4">
-              <p class="fs-5 text-white mb-4">Would you like your company logo displayed here?</p>
-              <p class="lead text-white mb-0">Send us an email:</p>
-              <div class="mt-4 d-flex justify-content-center">
-                <a href="mailto:bedrift@uiasub.no" class="btn-sponsor-cta" aria-label="Contact email for sponsorship inquiries">Contact us</a>
-              </div>
+              <h1 class="display-5 fw-bold mb-3">Companies supporting <span class="text-primary">UiASub</span></h1>
+              <p class="lead text-white mb-0">We would like to thank our sponsors for their support</p>
             </div>
           </div>
         </div>
@@ -47,102 +45,38 @@
     </section>
     <main>
       <section class="sponsors-showcase py-5" aria-label="Sponsor Showcase">
-      <section class="sponsors-showcase py-5" aria-label="Sponsor Showcase">
-      <div class="container">
-      <div class="row gx-4 gy-4 justify-content-center">
-
-
-        <!-- Sponsor Card 1 -->
-        <div class="col-12 col-sm-6 col-md-4 d-flex justify-content-center">
-          <div class="card-container sponsor-card">
-            <div class="inner-container">
-              <div class="canvas-container">
-                <canvas id="electric-border-canvas-2" class="electric-border-canvas" width="360" height="480"></canvas>
-              </div>
-              <div class="glow-layer-1"></div>
-              <div class="glow-layer-2"></div>
+        <div class="container">
+          <div class="owl-carousel sponsor-carousel">
+            <div class="sponsor-item">
+              <img src="/images/sponsors/IXYS-logo.webp" alt="IXYS Logo">
+              <h3>IXYS Norge</h3>
+              <p>IXYS Norge AS delivers components for power electronics and high voltage.</p>
+              <a href="https://ixys.no" target="_blank" rel="noopener noreferrer" class="btn btn-primary mt-3">Visit Website</a>
             </div>
-            <div class="overlay-1"></div>
-            <div class="overlay-2"></div>
-            <div class="background-glow"></div>
-            <div class="content-container">
-              <div class="content-top">
-                <div class="button-glass">Gold</div>
-                <p class="title">IXYS</p>
-                <p class="description">Provides advanced control systems and components for subsea, surface, aerial and space applications.</p>
-              </div>
-              <hr class="divider" />
-              <div class="content-bottom d-flex justify-content-center align-items-end">
-                <a href="https://www.ixys.no/" target="_blank" rel="noopener noreferrer">
-                  <img class="powered-logo img-fluid" src="/images/sponsors/IXYS-logo.webp" alt="IXYS Logo" style="max-width:220px; height:auto; display:block;"/>
-                </a>
-              </div>
+            <div class="sponsor-item">
+              <img src="/images/sponsors/Wurth-Elektronik-RGB_neg-1.png" alt="Würth Elektronik Logo">
+              <h3>Würth Elektronik</h3>
+              <p>Würth Elektronik offers a wide range of electronic components.</p>
+              <a href="https://www.we-online.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary mt-3">Visit Website</a>
+            </div>
+            <div class="sponsor-item">
+              <img src="/images/sponsors/ffu-logo.png" alt="FFU Logo">
+              <h3>FFU</h3>
+              <p>FFU supports student organizations at UiA.</p>
+              <a href="https://ffu.no" target="_blank" rel="noopener noreferrer" class="btn btn-primary mt-3">Visit Website</a>
             </div>
           </div>
-        </div>
-
-        <!-- Sponsor Card 2 -->
-        <div class="col-12 col-sm-6 col-md-4 d-flex justify-content-center">
-          <div class="card-container sponsor-card">
-            <div class="inner-container">
-              <div class="canvas-container">
-                <canvas id="electric-border-canvas-1" class="electric-border-canvas" width="360" height="480"></canvas>
-              </div>
-              <div class="glow-layer-1"></div>
-              <div class="glow-layer-2"></div>
-            </div>
-            <div class="overlay-1"></div>
-            <div class="overlay-2"></div>
-            <div class="background-glow"></div>
-            <div class="content-container">
-              <div class="content-top">
-                <div class="button-glass">Silver</div>
-                <p class="title">Würth Elektronik</p>
-                <p class="description">Offers a wide range of electronic components and solutions for multiple industries.</p>
-              </div>
-              <hr class="divider" />
-              <div class="content-bottom d-flex justify-content-center align-items-end">
-                <a href="https://www.we-online.com/en/" target="_blank" rel="noopener noreferrer">
-                  <img class="powered-logo img-fluid" src="/images/sponsors/Wuerth_Elektronik-Gruppe.jpg" alt="Wurth Elektronik Logo" style="max-width:240px; height:auto; display:block;"/>
-                </a>
-              </div>
-            </div>
+          
+          <div class="text-center mt-5">
+            <p class="fs-5 text-white mb-2">Want your company logo here?</p>
+            <p class="lead text-white mb-3">Send us an email:</p>
+            <a href="mailto:bedrift@uiasub.no" class="btn-sponsor-cta" aria-label="Contact email for sponsorship inquiries">Contact us</a>
           </div>
         </div>
-
-        <!-- Sponsor Card 3 -->
-        <div class="col-12 col-sm-6 col-md-4 d-flex justify-content-center">
-          <div class="card-container sponsor-card">
-            <div class="inner-container">
-              <div class="canvas-container">
-                <canvas id="electric-border-canvas-3" class="electric-border-canvas" width="360" height="480"></canvas>
-              </div>
-              <div class="glow-layer-1"></div>
-              <div class="glow-layer-2"></div>
-            </div>
-            <div class="overlay-1"></div>
-            <div class="overlay-2"></div>
-            <div class="background-glow"></div>
-            <div class="content-container">
-              <div class="content-top">
-                <div class="button-glass">Bronze</div>
-                <p class="title">FFU</p>
-                <p class="description">Specializes in advanced subsea technology and solutions for marine research and exploration.</p>
-              </div>
-              <hr class="divider" />
-              <div class="content-bottom d-flex justify-content-center align-items-end">
-                <a href="http://www.ffu.no/" target="_blank" rel="noopener noreferrer">
-                  <img class="powered-logo img-fluid" src="/images/sponsors/ffu-logo.png" alt="FFU Logo" style="max-width:220px; height:auto; display:block;"/>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-      </div>
-    </section>
+      </section>
     </main>
+
+    <!-- Waves -->
     <div class="wrapper">
       <svg class="wavesContainer flipped" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
         <defs>
@@ -156,18 +90,17 @@
         </g>
       </svg>
     </div>
-    <!-- FOOTER -->
-     <div id="footer"></div>
-      <script>
-        fetch('/en/footer.html')
-          .then(response => response.text())
-          .then(data => { document.getElementById('footer').innerHTML = data; });
-      </script>
+
+  <!-- FOOTER -->
+  <div id="footer"></div>
+  <script src="/js/footer.js"></script>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="" crossorigin="anonymous"></script>
-  <script src="/js/waves.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script src="/js/sponsors.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   </body>
 </html>

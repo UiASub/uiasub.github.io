@@ -48,23 +48,9 @@
         </g>
       </svg>
     </div>
-    <script src="/js/waves.js"></script>
-    <script>
-      window.addEventListener('DOMContentLoaded', function() {
-        const wavesContainer = document.querySelector('.wavesContainer');
-        if (wavesContainer) {
-          wavesContainer.classList.add('flipped'); // Ensure the flipped class is applied
-          console.log('Wave animation initialized and flipped');
-        }
-      });
-    </script>
     <!-- FOOTER -->
     <div id="footer"></div>
-    <script>
-      fetch('/footer.html')
-        .then(response => response.text())
-        .then(data => { document.getElementById('footer').innerHTML = data; });
-    </script>
+    <script src="/js/footer.js"></script>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

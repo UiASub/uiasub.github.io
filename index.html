@@ -1,19 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nb">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 2 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="Next generation ROV engineering">
     <meta name="title" content="UiASub">
-    <meta name="theme-color" content="#003f7f">
-    <link href="/images/uiasub/Icon1.png" rel="shortcut icon">
-    <link href="/manifest.webmanifest" rel="manifest">
+    <meta name="theme-color" content="#00101a">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; script-src 'self' https://cdn.jsdelivr.net https://ajax.googleapis.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; connect-src 'self' https://iiauxyfisphubpsaffag.supabase.co; frame-src https://docs.google.com; object-src 'none'; base-uri 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; script-src 'self' https://cdn.jsdelivr.net https://ajax.googleapis.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; connect-src 'self' https://iiauxyfisphubpsaffag.supabase.co; frame-src https://docs.google.com; object-src 'none'; base-uri 'self';">
+    <link href="images/uiasub/Icon1.png" rel="shortcut icon">
+    <link href="manifest.webmanifest" rel="manifest">
 
     <title>UiASub ROV Engineering</title>
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Preload header and footer to mitigate FOUC and improve LCP -->
+    <link rel="preload" as="fetch" href="/header.html" crossorigin>
+    <link rel="preload" as="fetch" href="/footer.html" crossorigin>
+    <!-- Preload hero poster for faster LCP -->
+    <link rel="preload" as="image" href="images/uiasub/hero-poster.jpg">
 
     <!-- Bootstrap core CSS (v5) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -26,138 +30,121 @@
   </head>
 
   <body>
+    <a href="#main" class="visually-hidden-focusable">Hopp til hovedinnhold</a>
     <!--HEADER-->
     <div id="header"></div>
     <script src="/js/header.js"></script>
 
     <!-- HERO: carousel-style video hero -->
   <section class="video-hero" aria-label="Hero" data-overlay-enabled="true">
-      <video id="use-this-hero-video" class="hero-video" autoplay loop muted playsinline preload="metadata">
+      <video id="use-this-hero-video" class="hero-video" autoplay loop muted playsinline preload="none" poster="images/uiasub/hero-poster.jpg">
         <source src="videos/UseThis.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
 
-      <video id="overlay-hero-video" class="hero-video-overlay" autoplay loop muted playsinline preload="metadata" aria-hidden="true">
+      <video id="overlay-hero-video" class="hero-video-overlay" autoplay loop muted playsinline preload="none" aria-hidden="true">
         <source src="videos/DarkAbstractWaves.mp4" type="video/mp4">
         <!-- Decorative overlay video -->
       </video>
-      <script>
-        (function(){
-          const container = document.querySelector('.video-hero[data-overlay-enabled]');
-          const overlay = document.getElementById('overlay-hero-video');
-          if (!overlay || !container) return;
-          function updateOverlayPlayback(){
-            try{
-              const style = window.getComputedStyle(overlay);
-              if (style && style.display === 'none'){
-                overlay.pause();
-              } else if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                overlay.pause();
-              } else {
-                overlay.play().catch(()=>{});
-              }
-            }catch(e){}
-          }
-          updateOverlayPlayback();
-          window.addEventListener('resize', updateOverlayPlayback);
-          var mql = window.matchMedia('(prefers-reduced-motion: reduce)');
-          if (mql.addEventListener) mql.addEventListener('change', updateOverlayPlayback);
-          else if (mql.addListener) mql.addListener(updateOverlayPlayback);
-        })();
-      </script>
+      <script src="js/front-page-video.js"></script>
 
       <div class="hero-overlay">
         <div class="hero-content">
-            <div class="deepshadow"><h1>ROV Engineering</h1></div>
-          <p class="lead">Exploring the depths, engineering the future.</p>
+            <div class="deepshadow"><h1 lang="en">ROV Engineering</h1></div>
+          <p class="lead" lang="en">Exploring the depths, engineering the future.</p>
           <p class="mt-3">
-            <a href="/pages/join.html" class="btn btn-lg btn-primary hero-cta" role="button">Bli medlem</a>
+            <a href="pages/join.html" class="btn btn-lg btn-primary hero-cta">Bli medlem</a>
           </p>
+          <button id="video-play-pause" class="video-control-btn" aria-label="Pause bakgrunnsvideo" aria-pressed="false" type="button">
+            <span class="pause-icon" aria-hidden="true">⏸</span>
+            <span class="play-icon" aria-hidden="true" style="display:none;">▶</span>
+          </button>
         </div>
       </div>
     </section>
     <!-- Featurettes (Bootstrap grid version) -->
+    <main id="main">
     <div class="container py-5">
       <div class="row">
         <div class="col-12">
           <hr class="my-5">
 
-          <div class="row align-items-center mb-5">
+          <div class="row align-items-center mb-5" id="k2-rov">
             <div class="col-md-4 text-center mb-3 mb-md-0">
-              <img src="images/front-icons/491440310_17895485013198102_8891979541426359705_n.jpg" alt="K2 ROV" class="img-fluid rounded shadow">
+              <img src="images/front-icons/491440310_17895485013198102_8891979541426359705_n.jpg" alt="K2 ROV-render med 8 vektoriserte thrustere og avansert undervannssystem" class="img-fluid rounded shadow" loading="lazy" width="400" height="300">
             </div>
             <div class="col-md-8 text-white">
-              <h2 class="h3"><a class="nostyle" name="build-and-delivery-tools">K2 ROV</a></h2>
-              <h3 class="h5 text-primary">Vår nye ROV</h3>
+              <h2 class="h3">K2 ROV</h2>
+              <p class="h5 text-primary">Vår nye ROV</p>
               <p>Dette er vår nye og forbedrede ROV K2. 8 vektoriserte thrustere gjør at ROV-en kan bevege seg med 6 frihetsgrader. Vår Power Unit gjør ROV-en perfekt for lengre undervannsoppdrag, samtidig som den fortsatt kan levere maksimal kraft.</p>
               <p class="text-info">Forventes å være produsert innen 2026</p>
-              <div class="border-top border-light my-3" style="width:70px;"></div>
+              <div class="border-top border-light my-3 section-divider"></div>
               <a href="pages/rov.html" class="btn btn-primary">Se den her</a>
             </div>
           </div>
 
           <hr class="my-5">
 
-          <div class="row align-items-center mb-5">
+          <div class="row align-items-center mb-5" id="bli-med">
             <div class="col-md-4 text-center mb-3 mb-md-0">
-              <img src="images/carousel/legg-ut-6-scaled.jpg" alt="Placeholder bilde" class="img-fluid rounded shadow">
+              <img src="images/carousel/legg-ut-6-scaled.jpg" alt="UiASub-teammedlemmer som utplasserer ROV ved kai" class="img-fluid rounded shadow" loading="lazy" width="400" height="300">
             </div>
             <div class="col-md-8 text-white">
-              <h2 class="h3"><a class="nostyle" name="big-data">Bli med oss!</a></h2>
-              <h3 class="h5 text-primary">Exploring the depths, engineering the future</h3>
+              <h2 class="h3">Bli med oss!</h2>
+              <p class="h5 text-primary" lang="en">Exploring the depths, engineering the future</p>
               <p>UiASub er en studentdrevet organisasjon dedikert til å fremme undervannsteknologi og utforskning. Vår misjon er å stimulere til innovasjon, samarbeid og utdanning innen marinteknologi og autonome systemer.</p>
               <p>Organisasjonen drives som et selskap og gir verdifull praktisk erfaring for din fremtidige karriere. Vi søker ingeniører, HR- og ledelsestalenter, markedsførings- og mediestudenter med flere.</p>
-              <div class="border-top border-light my-3" style="width:70px;"></div>
-              <a href="/pages/join.html" rel="noopener noreferrer" class="btn btn-primary">Søk her</a>
+              <div class="border-top border-light my-3 section-divider"></div>
+              <a href="pages/join.html" class="btn btn-primary">Søk her</a>
             </div>
           </div>
 
           <hr class="my-5">
 
-          <div class="row align-items-center mb-5">
+          <div class="row align-items-center mb-5" id="partnere">
             <div class="col-md-4 text-center mb-3 mb-md-0">
-              <img src="images/front-icons/blob-scene-haikei.png" alt="Partnere" class="img-fluid rounded shadow">
+              <img src="images/front-icons/blob-scene-haikei.png" alt="Abstrakt illustrasjon som representerer UiASub partnere og sponsorer" class="img-fluid rounded shadow" loading="lazy" width="400" height="300">
             </div>
             <div class="col-md-8 text-white">
-              <h2 class="h3"><a class="nostyle" name="data-persistence">Partnere</a></h2>
-              <h3 class="h5 text-primary">UiASub kan fortsette på grunn av hjelpen deres.</h3>
+              <h2 class="h3">Partnere</h2>
+              <p class="h5 text-primary">UiASub kan fortsette på grunn av hjelpen deres.</p>
               <ul>
                 <li><strong>IXYS:</strong> Leverer avanserte kontrollsystemer og komponenter for undervanns-, overflate-, luft- og romapplikasjoner.</li>
                 <li><strong>Würth Elektronik:</strong> Tilbyr et bredt spekter av elektroniske komponenter og løsninger for ulike industrier.</li>
                 <li><strong>FFU:</strong> Spesialiserer seg på avansert undervannsteknologi og løsninger for marin forskning og utforskning.</li>
               </ul>
-              <div class="border-top border-light my-3" style="width:70px;"></div>
+              <div class="border-top border-light my-3 section-divider"></div>
               <a href="pages/sponsors.html" rel="noopener noreferrer" class="btn btn-primary">Se mer</a>
             </div>
           </div>
 
           <hr class="my-5">
 
-          <div class="row align-items-center mb-5">
+          <div class="row align-items-center mb-5" id="tac-challenge">
             <div class="col-md-4 text-center mb-3 mb-md-0">
-              <img src="images/front-icons/cropped-TAC-Challenge-test-crop-2.png" alt="TAC Challenge" class="img-fluid rounded shadow">
+              <img src="images/front-icons/cropped-TAC-Challenge-test-crop-2.png" alt="TAC Challenge-logo for internasjonal ROV-konkurranse" class="img-fluid rounded shadow" loading="lazy" width="400" height="300">
             </div>
             <div class="col-md-8 text-white">
-              <h2 class="h3"><a class="nostyle" name="common-runtime">TAC Challenge</a></h2>
-              <h3 class="h5 text-primary">Where concepts meets reality</h3>
+              <h2 class="h3">TAC Challenge</h2>
+              <p class="h5 text-primary" lang="en">Where concepts meets reality</p>
               <p>Hva er «TAC Challenge»?</p>
               <p>En AUV / ROV-konkurranse for studenter fra hele verden.</p>
               <p>Konkurransen fokuserer på å utvikle innovative løsninger for undervannsoperasjoner, og gir deltakerne muligheten til å teste sine ferdigheter i en realistisk setting.</p>
-              <div class="border-top border-light my-3" style="width:70px;"></div>
+              <div class="border-top border-light my-3 section-divider"></div>
               <a href="https://tacchallenge.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Les mer</a>
             </div>
           </div>
 
           <hr class="my-5">
 
-          <div class="row align-items-center mb-5">
+          <div class="row align-items-center mb-5" id="nyheter">
             <div class="col-md-4 text-center mb-3 mb-md-0">
-              <img src="images/uiasub/Onwall.jpg" alt="UiASub Nytheter" class="img-fluid rounded shadow">
+              <img src="images/uiasub/Onwall.jpg" alt="UiASub-logo på vegg med nyhetskunngjøringer" class="img-fluid rounded shadow" loading="lazy" width="400" height="300">
             </div>
             <div class="col-md-8 text-white">
-              <h2 class="h3"><a class="nostyle" name="common-runtime">Nyheter</a></h2>
-              <h3 class="h5 text-primary">Se hva som skjer i UiASub</h3>
-              <div class="border-top border-light my-3" style="width:70px;"></div>
+              <h2 class="h3">Nyheter</h2>
+              <p class="h5 text-primary">Se hva som skjer i UiASub</p>
+              <div class="border-top border-light my-3 section-divider"></div>
               <a href="pages/news.html" rel="noopener noreferrer" class="btn btn-primary">Trykk her</a>
             </div>
           </div>
@@ -167,6 +154,7 @@
         </div> <!-- end .col-12 -->
       </div> <!-- end .row -->
     </div> <!-- end .container -->
+    </main>
 
     <!-- WAVES -->
     <div class="wrapper">
@@ -185,18 +173,12 @@
 
     <!-- FOOTER -->
     <div id="footer"></div>
-    <script>
-      fetch('/footer.html')
-        .then(response => response.text())
-        .then(data => { document.getElementById('footer').innerHTML = data; });
-    </script>
+    <script src="/js/footer.js"></script>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
+    <!-- Bootstrap core JavaScript -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="" crossorigin="anonymous"></script>
-    <script src="js/carousel.js"></script>
-    <script src="js/waves.js"></script>
-    <script src="js/hero-scroll.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="/js/hero-scroll.js"></script>
+    <script src="/js/service-worker-register.js"></script>
   </body>
 </html>

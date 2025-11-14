@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="UiASub Equipment Manager">
   <meta name="title" content="Loan manager">
@@ -148,11 +147,7 @@
 
   <!-- FOOTER -->
   <div id="footer"></div>
-  <script>
-    fetch('/footer.html')
-      .then(response => response.text())
-      .then(data => { document.getElementById('footer').innerHTML = data; });
-  </script>
+  <script src="/js/footer.js"></script>
 
   <!-- Bootstrap core JavaScript (bundle) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="" crossorigin="anonymous"></script>

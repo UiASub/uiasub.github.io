@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="UiASub">
     <meta name="title" content="UiASub Ocineering">
     <link rel="shortcut icon" href="/images/uiasub/Icon1.png">
@@ -39,10 +38,6 @@
 
   <!-- FOOTER -->
   <div id="footer"></div>
-  <script>
-    fetch('/footer.html')
-      .then(response => response.text())
-      .then(data => { document.getElementById('footer').innerHTML = data; });
-  </script>
+  <script src="/js/footer.js"></script>
 </body>
 </html>

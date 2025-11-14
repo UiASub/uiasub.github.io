@@ -1,3 +1,89 @@
+// Reduced-motion and video control handling
+(() => {
+  const baseVideo = document.getElementById('use-this-hero-video');
+  const overlayVideo = document.getElementById('overlay-hero-video');
+  const controlBtn = document.getElementById('video-play-pause');
+  
+  if (!baseVideo) return;
+
+  let isPlaying = true;
+
+  function updateVideoPlayback() {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    if (prefersReduced) {
+      baseVideo.pause();
+      if (overlayVideo) overlayVideo.pause();
+      isPlaying = false;
+      updateControlButton();
+    } else if (isPlaying) {
+      baseVideo.play().catch(() => {});
+      if (overlayVideo) overlayVideo.play().catch(() => {});
+    }
+  }
+
+  function updateControlButton() {
+    if (!controlBtn) return;
+    const pauseIcon = controlBtn.querySelector('.pause-icon');
+    const playIcon = controlBtn.querySelector('.play-icon');
+    
+    // Localize labels based on document language
+    const lang = document.documentElement.lang || 'nb';
+    const labels = {
+      'nb': { pause: 'Pause bakgrunnsvideo', play: 'Spill av bakgrunnsvideo' },
+      'en': { pause: 'Pause background video', play: 'Play background video' }
+    };
+    const currentLabels = labels[lang] || labels['nb'];
+    
+    if (isPlaying) {
+      controlBtn.setAttribute('aria-label', currentLabels.pause);
+      controlBtn.setAttribute('aria-pressed', 'true');
+      if (pauseIcon) pauseIcon.style.display = '';
+      if (playIcon) playIcon.style.display = 'none';
+    } else {
+      controlBtn.setAttribute('aria-label', currentLabels.play);
+      controlBtn.setAttribute('aria-pressed', 'false');
+      if (pauseIcon) pauseIcon.style.display = 'none';
+      if (playIcon) playIcon.style.display = '';
+    }
+  }
+
+  function togglePlayback() {
+    isPlaying = !isPlaying;
+    if (isPlaying) {
+      baseVideo.play().catch(() => {});
+      if (overlayVideo) overlayVideo.play().catch(() => {});
+    } else {
+      baseVideo.pause();
+      if (overlayVideo) overlayVideo.pause();
+    }
+    updateControlButton();
+  }
+
+  // Control button click and keyboard support
+  if (controlBtn) {
+    controlBtn.addEventListener('click', togglePlayback);
+    controlBtn.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        togglePlayback();
+      }
+    });
+  }
+
+  // Listen for reduced-motion changes
+  const mql = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (mql.addEventListener) {
+    mql.addEventListener('change', updateVideoPlayback);
+  } else if (mql.addListener) {
+    mql.addListener(updateVideoPlayback);
+  }
+
+  // Initial check
+  updateVideoPlayback();
+  updateControlButton();
+})();
+
 // Scroll-driven hero scaling
 (() => {
   const videoHero = document.querySelector('.video-hero');

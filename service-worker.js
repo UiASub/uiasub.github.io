@@ -1,15 +1,16 @@
-const CACHE_NAME = 'uiasub-static-v2';
+const CACHE_NAME = 'uiasub-static-v7';
 const PRECACHE_URLS = [
-  '/',
-  '/index.html',
-  '/manifest.webmanifest',
-  '/header.html',
-  '/footer.html',
-  '/css/contact.css',
-  '/css/custom.css',
-  '/offline.html',
-  '/images/uiasub/Icon.png',
-  '/images/uiasub/Icon2x.png'
+  './',
+  './index.html',
+  './manifest.webmanifest',
+  './header.html',
+  './footer.html',
+  './css/contact.css',
+  './css/custom.css',
+  './offline.html',
+  './images/uiasub/Icon.png',
+  './images/uiasub/Icon2x.png',
+  './images/uiasub/Icon1.png'
 ];
 
 self.addEventListener('install', (event) => {
@@ -37,7 +38,7 @@ self.addEventListener('fetch', (event) => {
           const copy = res.clone();
           caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
           return res;
-        }).catch(() => caches.match(request).then((r) => r || caches.match('/offline.html')))
+        }).catch(() => caches.match(request).then((r) => r || caches.match(new URL('./offline.html', self.registration.scope))))
     );
     return;
   }

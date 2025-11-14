@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="UiASub K2 ROV Project">
     <meta name="title" content="UiASub Ocineering">
     <link href="/images/uiasub/Icon1.png" rel="shortcut icon">
@@ -174,21 +173,23 @@
                 <h3 class="h5">Programvare og Integrasjon</h3>
                 <div class="row">
                   <div class="col-12 col-md-6">
-                    <p class="text-white">Vi følger en åpen kildekodefilosofi: firmware, topside-apper og verktøy er tilgjengelige i våre GitHub-repositorier for samarbeid og videreutvikling.</p>
+                    <p class="text-white">Vi følger en åpen kildekodefilosofi: firmware, topside-apper og verktøy er tilgjengelige i våre GitHub-repositorier.</p>
+                    <p class="text-white small"><em>Teknisk dokumentasjon</em></p>
                   </div>
                   <div class="col-12 col-md-6">
                     <div class="bg-dark bg-opacity-25 rounded p-3 border-start border-primary border-3 ps-3">
                       <ul class="text-white mb-0">
-                        <li>Firmware: Zephyr RTOS på NUCLEO-F767ZI (C/C++), Zephyr v4.2</li>
+                        <li>Brett: STM32 Nucleo F767ZI</li>
+                        <li>Firmware: Zephyr RTOS v4.2 (C/C++)</li>
                         <li>Network: Statisk IP 192.168.1.100, Subnet 255.255.255.0, UDP-port 12345</li>
-                        <li>Tråder (eksempel): Main, UDP, Control (PID), CANbus</li>
-                        <li>UDP-pakke: <code>uint32_t sequence</code>, <code>uint64_t payload</code>, <code>uint32_t crc32</code> (CRC32 validering)</li>
-                        <li>Payload (64-bit) bitplan (høy-nivå): Surge, Sway, Heave, Roll, Pitch, Yaw, Light, Manipulator (8-biter hver)</li>
-                        <li>Protokoll: Custom binary over UDP med CRC32-sjekk</li>
+                        <li>Tråder: Main (initialisering), UDP (mottar packets), Control System (PID-utregninger 6DOF), CANbus (sender/mottar CAN-data)</li>
+                        <li>UDP-pakke struktur: <code>uint32_t sequence</code> (sekvensnummer), <code>uint64_t payload</code> (6DOF + aux), <code>uint32_t crc32</code> (CRC32 validering)</li>
+                        <li>Payload (64-bit bitmasking): Bits 0-7 Surge, 8-15 Sway, 16-23 Heave, 24-31 Roll, 32-39 Pitch, 40-47 Yaw, 48-55 Light (0-255), 56-63 Manipulator (0-255)</li>
+                        <li>Protokoll: Custom binary over UDP med CRC32-sjekk for integritet</li>
                         <li>Topside: Python app, cross-platform</li>
                         <li>Video: H.264, lav latens (&lt;100ms)</li>
                         <li>Logging: CSV/binary med synkroniserte tidsstempler</li>
-                        <li>Repoer: <a href="https://github.com/UiASub/K2-Zephyr" target="_blank" rel="noopener noreferrer">K2-Zephyr</a>, Topside</li>
+                        <li>Repoer: <a href="https://github.com/UiASub/K2-Zephyr" target="_blank" rel="noopener noreferrer" class="text-primary">K2-Zephyr</a>, Topside</li>
                       </ul>
                     </div>
                   </div>
@@ -490,10 +491,6 @@
 
   <!-- FOOTER -->
   <div id="footer"></div>
-  <script>
-    fetch('/footer.html')
-      .then(response => response.text())
-      .then(data => { document.getElementById('footer').innerHTML = data; });
-  </script>
+  <script src="/js/footer.js"></script>
 </body>
 </html>
