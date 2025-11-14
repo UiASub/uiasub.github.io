@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="UiASub">
     <meta name="title" content="UiASub Sponsorer">
     <meta name="theme-color" content="#003f7f">
@@ -15,14 +14,17 @@
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="" crossorigin="anonymous">
 
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
     <!-- Custom styles for this template -->
     <link href="/css/custom.css" rel="stylesheet">
     <link href="/css/header.css" rel="stylesheet">
     <link href="/css/waves.css" rel="stylesheet">
     <link href="/css/sponsors.css" rel="stylesheet">
 
-    <!-- Based on https://codepen.io/BalintFerenczy/pen/yyYErXa-->
-
+    <!-- Based on https://codepen.io/abuzarmustansar/pen/KKZGzzb -->
   </head>
   <body>
   <!--HEADER-->
@@ -35,13 +37,8 @@
         <div class="row">
           <div class="col-12">
             <div class="callout-content">
-              <h1 class="display-5 fw-bold mb-4">Selskap som støtter <span class="text-primary">UiASub</span></h1>
-              <hr class="my-4">
-              <p class="fs-5 text-white mb-4">Ønsker din bedrift logo her?</p>
-              <p class="lead text-white mb-0">Send oss en mail:</p>
-              <div class="mt-4 d-flex justify-content-center">
-                <a href="mailto:bedrift@uiasub.no" class="btn-sponsor-cta" aria-label="Contact email for sponsorship inquiries">Kontakt oss</a>
-              </div>
+              <h1 class="display-5 fw-bold mb-3">Selskap som støtter <span class="text-primary">UiASub</span></h1>
+              <p class="lead text-white mb-0">Vi vil gjerne takke våre sponsorer for deres støtte</p>
             </div>
           </div>
         </div>
@@ -50,50 +47,36 @@
     <main>
       <section class="sponsors-showcase py-5" aria-label="Sponsor Showcase">
         <div class="container">
-          <!-- Gold Sponsors -->
-          <h2 class="fs-3 fw-bold mb-4 text-center">Ixys</h2>
-          <div class="row justify-content-center align-items-center g-4 mb-5">
-            <div class="col-12 col-md-6 col-lg-4">
-              <div class="sponsor-logo-card">
-                <a href="https://www.ixys.no/" target="_blank" rel="noopener noreferrer">
-                  <img src="/images/sponsors/IXYS-logo.webp" alt="IXYS - Gold Sponsor" class="img-fluid sponsor-logo">
-                </a>
-                <p class="sponsor-description text-center mt-2">Leverer avanserte kontrollsystemer og komponenter for undervanns-, overflate-, luft- og romapplikasjoner</p>
-              </div>
+          <div class="owl-carousel sponsor-carousel">
+            <div class="sponsor-item">
+              <img src="/images/sponsors/IXYS-logo.webp" alt="IXYS Logo">
+              <h3>IXYS Norge</h3>
+              <p>IXYS Norge AS leverer komponenter til kraftelektronikk og høyspent.</p>
+              <a href="https://ixys.no" target="_blank" rel="noopener noreferrer" class="btn btn-primary mt-3">Besøk Nettside</a>
+            </div>
+            <div class="sponsor-item">
+              <img src="/images/sponsors/Wurth-Elektronik-RGB_neg-1.png" alt="Würth Elektronik Logo">
+              <h3>Würth Elektronik</h3>
+              <p>Würth Elektronik tilbyr et bredt utvalg av elektroniske komponenter.</p>
+              <a href="https://www.we-online.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary mt-3">Besøk Nettside</a>
+            </div>
+            <div class="sponsor-item">
+              <img src="/images/sponsors/ffu-logo.png" alt="FFU Logo">
+              <h3>FFU</h3>
+              <p>FFU støtter studentorganisasjoner ved UiA.</p>
+              <a href="https://ffu.no" target="_blank" rel="noopener noreferrer" class="btn btn-primary mt-3">Besøk Nettside</a>
             </div>
           </div>
-
-          <!-- Silver Sponsors -->
-          <h2 class="fs-3 fw-bold mb-4 text-center">Wurth Elektronik</h2>
-          <div class="row justify-content-center align-items-center g-4 mb-5">
-            <div class="col-12 col-md-6 col-lg-4">
-              <div class="sponsor-logo-card">
-                <a href="https://www.we-online.com/en/" target="_blank" rel="noopener noreferrer">
-                  <img src="/images/sponsors/Wuerth_Elektronik-Gruppe.jpg" alt="Würth Elektronik - Silver Sponsor" class="img-fluid sponsor-logo">
-                </a>
-                <p class="sponsor-description text-center mt-2">Tilbyr et bredt spekter av elektroniske komponenter og løsninger for ulike industrier.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Bronze Sponsors -->
-          <h2 class="fs-3 fw-bold mb-4 text-center">FFU</h2>
-          <div class="row justify-content-center align-items-center g-4 mb-5">
-            <div class="col-12 col-md-6 col-lg-4">
-              <div class="sponsor-logo-card">
-                <a href="http://www.ffu.no/" target="_blank" rel="noopener noreferrer">
-                  <img src="/images/sponsors/ffu-logo.png" alt="FFU - Bronze Sponsor" class="img-fluid sponsor-logo">
-                </a>
-                <p class="sponsor-description text-center mt-2">Spesialiserer seg på avansert undervannsteknologi og løsninger for marin forskning og utforskning.</p>
-              </div>
-            </div>
+          
+          <div class="text-center mt-5">
+            <p class="fs-5 text-white mb-2">Ønsker din bedrift logo her?</p>
+            <p class="lead text-white mb-3">Send oss en mail:</p>
+            <a href="mailto:bedrift@uiasub.no" class="btn-sponsor-cta" aria-label="Contact email for sponsorship inquiries">Kontakt oss</a>
           </div>
         </div>
       </section>
     </main>
 
-    <!-- /.container powered-container -->
-    <script src="/js/waves.js"></script>
     <!-- Waves -->
     <div class="wrapper">
       <svg class="wavesContainer flipped" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
@@ -108,25 +91,16 @@
         </g>
       </svg>
     </div>
-  <script>
-    window.addEventListener('DOMContentLoaded', function() {
-      const wavesContainer = document.querySelector('.wavesContainer');
-      if (wavesContainer) {
-        wavesContainer.classList.add('flipped'); // Ensure the flipped class is applied
-        console.log('Wave animation initialized and flipped');
-      }
-    });
-  </script>
+
   <!-- FOOTER -->
   <div id="footer"></div>
-  <script>
-    fetch('/footer.html')
-      .then(response => response.text())
-      .then(data => { document.getElementById('footer').innerHTML = data; });
-  </script>
+  <script src="/js/footer.js"></script>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script src="/js/sponsors.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   </body>
 </html>

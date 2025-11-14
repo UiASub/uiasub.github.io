@@ -91,13 +91,54 @@
 .hero-content h2 { font-size: 1.25rem; margin: 0 0 1rem 0; color: #10a3dd; }
 .hero-content .lead { font-size: 1rem; color: rgba(230,247,255,0.95); }
 
+/* Video control button */
+.video-control-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #ffffff;
+  font-size: 1.2rem;
+  padding: 0;
+  z-index: 10;
+}
+
+.video-control-btn:hover,
+.video-control-btn:focus {
+  background: rgba(0, 0, 0, 0.8);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: scale(1.1);
+  outline: none;
+}
+
+.video-control-btn:focus-visible {
+  outline: 2px solid #44B8FF;
+  outline-offset: 2px;
+}
+
 @media (max-width: 767px) {
   /* Mobile: reduce hero height so it doesn't push content off-screen */
   .video-hero { height: 55vh; min-height: 320px; }
   .hero-video { max-height: none; }
-  .hero-overlay { align-items: center; }
-  .hero-content { padding: 1rem; text-align: center; width: 100%; }
+  .hero-overlay { align-items: center; justify-content: center; }
+  .hero-content { 
+    padding: 1rem; 
+    text-align: center; 
+    width: 100%; 
+    max-width: 100%;
+    margin: 0 auto;
+  }
   .hero-content h1 { font-size: 1.6rem; }
+  .video-hero .hero-content { width: 100%; }
 }
 
 /* Reduce overlay intensity on small screens for performance */
@@ -105,9 +146,18 @@
   .hero-video-overlay { opacity: 0.25; }
 }
 
-/* Hide overlay on small screens to avoid double decoding and performance issues */
+/* Hide overlay video on mobile but add dark overlay for readability */
 @media (max-width: 767px) {
   .hero-video-overlay { display: none !important; }
+  
+  /* Add dark overlay to maintain readability on mobile */
+  .hero-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 16, 26, 0.6);
+    z-index: -1;
+  }
 }
 
 /* Respect users who prefer reduced motion: disable overlay video */

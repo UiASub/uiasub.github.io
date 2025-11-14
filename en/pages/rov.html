@@ -3,12 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <meta name="description" content="UiASub K2 ROV Project - Underwater Vehicle Development and Open Source Projects">
-    <meta name="title" content="UiASub K2 ROV Project">
-    <link rel="shortcut icon" href="/images/uiasub/Icon1.png">
+    <meta name="description" content="UiASub K2 ROV Project">
+    <meta name="title" content="UiASub Ocineering">
+    <link href="/images/uiasub/Icon1.png" rel="shortcut icon">
 
-    <title>UiASub K2 ROV Project</title>
+    <title>UiASub ROV</title>
 
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="" crossorigin="anonymous">
@@ -28,6 +27,7 @@
   <div id="header"></div>
   <script src="/js/header.js"></script>
 
+<!-- Use model-viewer for a GLB model (convert your OBJ to .glb and place at /images/uiasub/K2-Rov.glb) -->
     <!-- Hero / Project Intro -->
     <section class="callout about-modern py-5" aria-label="K2 ROV Project Introduction">
       <div class="container">
@@ -39,20 +39,20 @@
           </div>
           <div class="col-md-6">
             <h1 class="display-5 fw-bold mb-4">K2 <span class="text-primary">ROV Project</span></h1>
-            <p class="lead text-light">We build next-generation underwater vehicles for exploration and competitions. K2 is modular, powerful, and designed for robust field use.</p>
-            <p class="text-light">Our ROV development focuses on practical engineering, industry collaboration, and open-source tools for control and data collection.</p>
+            <p class="lead text-light">We build next-generation underwater vehicles for exploration and competitions. K2 is modular, powerful and designed for robust field use.</p>
+            <p class="text-light">Our ROV development focuses on practical engineering work, industry collaboration and open-source tools for control and data collection.</p>
 
             <div class="row mt-3">
               <div class="col-4">
                 <div class="stat text-center">
-                  <div class="stat-num h3">3+</div>
+                  <div class="stat-num h3">2+</div>
                   <div class="stat-label small text-white">Years development</div>
                 </div>
               </div>
               <div class="col-4">
                 <div class="stat text-center">
                   <div class="stat-num h3">2</div>
-                  <div class="stat-label small text-white">Competitions</div>
+                  <div class="stat-label small text-white">ROVs</div>
                 </div>
               </div>
               <div class="col-4">
@@ -64,9 +64,10 @@
             </div>
 
             <div class="mt-4">
-              <a href="#technical-specs" class="btn btn-outline-light">View Technical Specifications</a>
-              <a href="#github-projects" class="btn btn-outline-light">GitHub Projects</a>
-            </div>
+                  <a href="#technical-specs" class="btn btn-outline-light">Specifications</a>
+                  </a>
+                  <a href="#github-projects" class="btn btn-outline-light">GitHub Projects</a>
+                </div>
           </div>
         </div>
       </div>
@@ -172,21 +173,23 @@
                 <h3 class="h5">Software and Integration</h3>
                 <div class="row">
                   <div class="col-12 col-md-6">
-                    <p class="text-white">We follow an open-source philosophy: firmware, topside apps and tools are available in our GitHub repositories for collaboration and further development.</p>
+                    <p class="text-white">We follow an open-source philosophy: firmware, topside apps and tools are available in our GitHub repositories.</p>
+                    <p class="text-white small"><em>Technical documentation</em></p>
                   </div>
                   <div class="col-12 col-md-6">
                     <div class="bg-dark bg-opacity-25 rounded p-3 border-start border-primary border-3 ps-3">
                       <ul class="text-white mb-0">
-                        <li>Firmware: Zephyr RTOS on NUCLEO-F767ZI (C/C++), Zephyr v4.2</li>
+                        <li>Board: STM32 Nucleo F767ZI</li>
+                        <li>Firmware: Zephyr RTOS v4.2 (C/C++)</li>
                         <li>Network: Static IP 192.168.1.100, Subnet 255.255.255.0, UDP port 12345</li>
-                        <li>Threads (example): Main, UDP, Control (PID), CANbus</li>
-                        <li>UDP packet: <code>uint32_t sequence</code>, <code>uint64_t payload</code>, <code>uint32_t crc32</code> (CRC32 validation)</li>
-                        <li>Payload (64-bit) bitplan (high-level): Surge, Sway, Heave, Roll, Pitch, Yaw, Light, Manipulator (8 bits each)</li>
-                        <li>Protocol: Custom binary over UDP with CRC32 check</li>
+                        <li>Threads: Main (initialization), UDP (receives packets), Control System (PID calculations 6DOF), CANbus (sends/receives CAN data)</li>
+                        <li>UDP packet structure: <code>uint32_t sequence</code> (sequence number), <code>uint64_t payload</code> (6DOF + aux), <code>uint32_t crc32</code> (CRC32 validation)</li>
+                        <li>Payload (64-bit bitmasking): Bits 0-7 Surge, 8-15 Sway, 16-23 Heave, 24-31 Roll, 32-39 Pitch, 40-47 Yaw, 48-55 Light (0-255), 56-63 Manipulator (0-255)</li>
+                        <li>Protocol: Custom binary over UDP with CRC32 check for integrity</li>
                         <li>Topside: Python app, cross-platform</li>
                         <li>Video: H.264, low latency (&lt;100ms)</li>
                         <li>Logging: CSV/binary with synchronized timestamps</li>
-                        <li>Repos: <a href="https://github.com/UiASub/K2-Zephyr" target="_blank" rel="noopener noreferrer">K2-Zephyr</a>, Topside</li>
+                        <li>Repos: <a href="https://github.com/UiASub/K2-Zephyr" target="_blank" rel="noopener noreferrer" class="text-primary">K2-Zephyr</a>, Topside</li>
                       </ul>
                     </div>
                   </div>
@@ -215,7 +218,7 @@
       </div>
     </section>
 
-    <!-- UI Mockups Gallery -->
+    <!-- UI Gallery change in ui-gallery.js -->
     <section id="ui-mockups" class="py-5" aria-label="UI Mockups">
       <div class="container">
         <h2 class="fs-3 fw-bold text-center mb-3">Control System UI</h2>
@@ -299,7 +302,7 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body text-center">
-                <img id="uiModalImage" class="img-fluid rounded" alt="UI Mockup" src="https://via.placeholder.com/1200x800/002f47/ffffff?text=UI+Mockup" style="max-height:70vh; width:auto;" />
+                <img id="uiModalImage" class="img-fluid rounded" alt="UI Mockup" src="https://placehold.co/1200x800/002f47/ffffff?text=UI+Mockup" style="max-height:70vh; width:auto;" />
                 <p id="uiModalDescription" class="mt-3 text-white"></p>
                 <p class="small text-white-50">This is a conceptual mockup. The actual implementation may vary.</p>
               </div>
@@ -323,7 +326,7 @@
         <!-- Vertical spine (hidden on small screens) -->
         <div class="position-absolute top-0 start-50 translate-middle-x d-none d-md-block" style="width:2px; height:100%; background: linear-gradient(180deg, rgba(68,184,255,0.2) 0%, rgba(68,184,255,0.8) 50%, rgba(68,184,255,0.2) 100%);"></div>
 
-        <!-- Milestone 1 - 2024 (left) -->
+        <!-- Milestone 1 - 2023 (left) -->
         <div class="row mb-5 position-relative align-items-center left">
           <div class="timeline-dot position-absolute top-50 start-50 translate-middle"></div>
           <div class="col-12 col-md-5 text-md-end">
@@ -412,13 +415,13 @@
         <p class="text-center text-white-50 mb-4">Explore our technical documentation organized by category</p>
 
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-          <!-- Card 1: GitHub Wiki -->
+          <!-- Card 1: GitHub Nettside Wiki -->
           <div class="col">
             <div class="card h-100 hover-scale" style="border-top:3px solid #44B8FF; transition:all .3s ease;">
               <div class="card-body">
                 <div class="text-center mb-3"><span class="badge bg-primary" style="font-size:1.25rem; padding:0.75rem 1.5rem;">WIKI</span></div>
-                <h5 class="card-title">Webpage Wiki</h5>
-                <p class="card-text text-white small">Guide for setup, development and deployment of the ROV system. Includes troubleshooting.</p>
+                <h5 class="card-title">GitHub Website Wiki</h5>
+                <p class="card-text text-white small">Guide for setup, development and deployment of the website. Includes troubleshooting.</p>
                 <div class="small text-white-50 mt-2">UiASub/uiasub.github.io/wiki • Continuously updated</div>
                 <a href="https://github.com/UiASub/uiasub.github.io/wiki" class="stretched-link" target="_blank" rel="noopener noreferrer" aria-label="Open GitHub Wiki">Open Wiki</a>
               </div>
@@ -431,8 +434,8 @@
               <div class="card-body">
                 <div class="text-center mb-3"><span class="badge bg-primary" style="font-size:1.25rem; padding:0.75rem 1.5rem;">FW</span></div>
                 <h5 class="card-title">K2-Zephyr Firmware</h5>
-                <p class="card-text text-white small">Embedded firmware based on Zephyr RTOS. Handles motor control, sensors, PID controllers and UDP communication with topside.</p>
-                <div class="small text-white-50 mt-2">C/C++ • Zephyr • STM32F767ZI</div>
+                <p class="card-text text-white small">Repository for STM32 Nucleo control system for ROV K2. Handles motor control, sensors, PID controllers and UDP communication with topside.</p>
+                <div class="small text-white-50 mt-2">C/C++ • Zephyr • NUCLEO-F767ZI</div>
                 <a href="https://github.com/UiASub/K2-Zephyr" class="stretched-link" target="_blank" rel="noopener noreferrer" aria-label="Open K2-Zephyr">Open</a>
               </div>
             </div>
@@ -454,9 +457,10 @@
       </div>
     </section>
 
+    <script src="/js/waves.js"></script>
     <!-- Waves -->
-    <div class="wave-container">
-      <svg class="waves flipped" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+    <div class="wrapper">
+      <svg class="wavesContainer flipped" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
         <defs>
           <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
         </defs>
@@ -468,20 +472,25 @@
         </g>
       </svg>
     </div>
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      const wavesContainer = document.querySelector('.wavesContainer');
+      if (wavesContainer) {
+        wavesContainer.classList.add('flipped'); // Ensure the flipped class is applied
+        console.log('Wave animation initialized and flipped');
+      }
+    });
+  </script>
+
 
   <!-- Bootstrap core JavaScript -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-  <script src="/js/waves.js"></script>
   <script src="/js/specs-collapse.js"></script>
   <script src="/js/github-projects.js"></script>
   <script src="/js/ui-gallery.js"></script>
 
   <!-- FOOTER -->
   <div id="footer"></div>
-  <script>
-    fetch('/en/footer.html')
-      .then(response => response.text())
-      .then(data => { document.getElementById('footer').innerHTML = data; });
-  </script>
+  <script src="/js/footer.js"></script>
 </body>
 </html>

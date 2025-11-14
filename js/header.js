@@ -74,7 +74,7 @@ function initializeHeader() {
           m.href = '/manifest.webmanifest';
           document.head.appendChild(m);
         }
-        if (!document.querySelector('meta[name="theme-color"]')) {
+        if (!document.querySelector('meta[name=\"theme-color\"]')) {
           const meta = document.createElement('meta');
           meta.name = 'theme-color';
           meta.content = '#003f7f';
@@ -83,29 +83,6 @@ function initializeHeader() {
       } catch (e) {
         console.warn('Could not add manifest/meta to head:', e);
       }
-
-    // Register service worker from header code to ensure registration on pages using header injection.
-    // Register as early as possible and request root scope so the SW can control top-level pages.
-    if ('serviceWorker' in navigator) {
-      const registerSW = () => {
-        // If a service worker is already controlling the page, skip re-registration
-        if (navigator.serviceWorker.controller) {
-          console.log('ServiceWorker controller already present; skipping registration.');
-          return;
-        }
-        navigator.serviceWorker.register('/service-worker.js', { scope: '/' })
-          .then(function(reg) {
-            console.log('ServiceWorker registered from header.js with scope:', reg.scope);
-          }).catch(function(err) {
-            console.warn('ServiceWorker registration from header.js failed:', err);
-          });
-      };
-      if (document.readyState === 'complete' || document.readyState === 'interactive') {
-        registerSW();
-      } else {
-        window.addEventListener('load', registerSW);
-      }
-    }
 
     
   };
@@ -150,6 +127,7 @@ function initializeDropdown() {
     const originalNext = menu.nextSibling;
 
     let isOpen = false;
+    let lastFocusedElement = null;
 
     function openMenu() {
       // move menu to body and position it fixed so it floats above all content
@@ -169,6 +147,13 @@ function initializeDropdown() {
       menu.style.zIndex = 2000;
       isOpen = true;
       toggle.setAttribute('aria-expanded', 'true');
+      
+      // Store the last focused element and move focus to first menu link
+      lastFocusedElement = document.activeElement;
+      const firstLink = menu.querySelector('a');
+      if (firstLink) {
+        setTimeout(() => firstLink.focus(), 0);
+      }
     }
 
     function closeMenu() {
@@ -187,6 +172,11 @@ function initializeDropdown() {
       menu.style.zIndex = '';
       isOpen = false;
       toggle.setAttribute('aria-expanded', 'false');
+      
+      // Return focus to toggle button
+      if (lastFocusedElement && lastFocusedElement === toggle) {
+        toggle.focus();
+      }
     }
 
     toggle.addEventListener('click', (e) => {
@@ -202,14 +192,39 @@ function initializeDropdown() {
       }
     });
 
+    // Keyboard navigation
+    menu.addEventListener('keydown', (e) => {
+      const menuLinks = Array.from(menu.querySelectorAll('a'));
+      const currentIndex = menuLinks.indexOf(document.activeElement);
+      
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        const nextIndex = (currentIndex + 1) % menuLinks.length;
+        menuLinks[nextIndex].focus();
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        const prevIndex = currentIndex <= 0 ? menuLinks.length - 1 : currentIndex - 1;
+        menuLinks[prevIndex].focus();
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        menuLinks[0].focus();
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        menuLinks[menuLinks.length - 1].focus();
+      }
+    });
+
     // Close on ESC
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' || e.key === 'Esc') {
-        if (isOpen) closeMenu();
+        if (isOpen) {
+          closeMenu();
+          toggle.focus();
+        }
       }
     });
   }
-  }
+}
 
 function initializeHamburgerMenu() {
   const hamburger = document.querySelector('.hamburger-menu');
@@ -238,6 +253,7 @@ async function checkLoginStatus(isEnglish) {
   const EDGE_FUNCTION_URL = "https://iiauxyfisphubpsaffag.supabase.co/functions/v1/discord-role-sync";
   const token = window.localStorage.getItem('access_token');
   if (!loginLink) return;
+  
   // Always point to the canonical login/equipment pages under /pages/ (no locale prefix).
   // The link text is localized, but the routes are centralized.
   if (!token) {
@@ -247,6 +263,36 @@ async function checkLoginStatus(isEnglish) {
     loginLink.style.color = '';
     return;
   }
+  
+  // Check cache with TTL (5 minutes)
+  const CACHE_TTL = 5 * 60 * 1000; // 5 minutes
+  const cacheKey = 'login_status_cache';
+  const cached = sessionStorage.getItem(cacheKey);
+  if (cached) {
+    try {
+      const { timestamp, isLoggedIn } = JSON.parse(cached);
+      if (Date.now() - timestamp < CACHE_TTL) {
+        // Use cached value
+        if (isLoggedIn) {
+          loginLink.textContent = isEnglish ? ' Logged In' : ' Logget Inn';
+          loginLink.href = `/pages/equipment.html`;
+          loginLink.style.color = '#3ba55d';
+        } else {
+          loginLink.textContent = isEnglish ? ' Log In' : ' Logg Inn';
+          loginLink.href = `/pages/login.html`;
+          loginLink.style.color = '';
+        }
+        return;
+      }
+    } catch (e) {
+      // Invalid cache, continue to fetch
+    }
+  }
+  
+  // Create AbortController with timeout
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
+  
   try {
     const res = await fetch(EDGE_FUNCTION_URL, {
       method: 'POST',
@@ -254,10 +300,25 @@ async function checkLoginStatus(isEnglish) {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`
       },
-      body: JSON.stringify({ check: true })
+      body: JSON.stringify({ check: true }),
+      signal: controller.signal
     });
+    clearTimeout(timeoutId);
+    
     const payload = await res.json().catch(() => null);
-      if (res.status === 200 && payload && payload.ok === true) {
+    const isLoggedIn = res.status === 200 && payload && payload.ok === true;
+    
+    // Cache the result
+    try {
+      sessionStorage.setItem(cacheKey, JSON.stringify({
+        timestamp: Date.now(),
+        isLoggedIn: isLoggedIn
+      }));
+    } catch (e) {
+      // Ignore storage errors
+    }
+    
+    if (isLoggedIn) {
       loginLink.textContent = isEnglish ? ' Logged In' : ' Logget Inn';
       loginLink.href = `/pages/equipment.html`;
       loginLink.style.color = '#3ba55d';
@@ -267,6 +328,8 @@ async function checkLoginStatus(isEnglish) {
       loginLink.style.color = '';
     }
   } catch (e) {
+    clearTimeout(timeoutId);
+    // On error (timeout or network), default to logged out state
     loginLink.textContent = isEnglish ? ' Log In' : ' Logg Inn';
     loginLink.href = `/pages/login.html`;
     loginLink.style.color = '';
