@@ -1,180 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Next generation ROV engineering">
-    <meta name="title" content="UiASub">
-    <meta name="theme-color" content="#00101a">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; script-src 'self' https://cdn.jsdelivr.net https://ajax.googleapis.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; connect-src 'self' https://iiauxyfisphubpsaffag.supabase.co; frame-src https://docs.google.com; object-src 'none'; base-uri 'self';">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; script-src 'self' https://cdn.jsdelivr.net https://ajax.googleapis.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; connect-src 'self' https://iiauxyfisphubpsaffag.supabase.co; frame-src https://docs.google.com; object-src 'none'; base-uri 'self';">
-    <link href="images/uiasub/Icon1.png" rel="shortcut icon">
-    <link href="manifest.webmanifest" rel="manifest">
 
-    <title>UiASub ROV Engineering</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Next generation ROV engineering">
+  <meta name="title" content="UiASub">
+  <meta name="theme-color" content="#00101a">
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; img-src 'self' https: data:; script-src 'self' https://cdn.jsdelivr.net https://ajax.googleapis.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; connect-src 'self' https://iiauxyfisphubpsaffag.supabase.co; frame-src https://docs.google.com; object-src 'none'; base-uri 'self';">
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; img-src 'self' https: data:; script-src 'self' https://cdn.jsdelivr.net https://ajax.googleapis.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; connect-src 'self' https://iiauxyfisphubpsaffag.supabase.co; frame-src https://docs.google.com; object-src 'none'; base-uri 'self';">
+  <link href="images/uiasub/Icon1.png" rel="shortcut icon">
+  <link href="manifest.webmanifest" rel="manifest">
 
-    <!-- Preload header and footer to mitigate FOUC and improve LCP -->
-    <link rel="preload" as="fetch" href="header.html" crossorigin>
-    <link rel="preload" as="fetch" href="footer.html" crossorigin>
-    <!-- Preload hero poster for faster LCP -->
-    <link rel="preload" as="image" href="/images/uiasub/hero-poster.jpg">
+  <title>UiASub ROV Engineering</title>
 
-    <!-- Bootstrap core CSS (v5) -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <!-- Preload header and footer to mitigate FOUC and improve LCP -->
+  <link rel="preload" as="fetch" href="header.html" crossorigin>
+  <link rel="preload" as="fetch" href="footer.html" crossorigin>
+  <!-- Preload hero poster for faster LCP -->
+  <link rel="preload" as="image" href="/images/uiasub/hero-poster.jpg">
 
-    <!-- Custom styles for this template -->
-    <link href="/css/carousel.css" rel="stylesheet">
-    <link href="/css/header.css" rel="stylesheet">
-    <link href="/css/custom.css" rel="stylesheet">
-    <link href="/css/waves.css" rel="stylesheet">
-  </head>
+  <!-- Bootstrap core CSS (v5) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
-  <body>
-    <!--HEADER-->
-    <div id="header"></div>
-    <script src="/js/header.js"></script>
+  <!-- Custom styles for this template -->
+  <link href="/css/carousel.css" rel="stylesheet">
+  <link href="/css/header.css" rel="stylesheet">
+  <link href="/css/custom.css" rel="stylesheet">
+  <link href="/css/waves.css" rel="stylesheet">
+</head>
 
-    <!-- HERO: video hero (English) -->
-    <section class="video-hero" aria-label="Hero" data-overlay-enabled="true">
-      <video id="use-this-hero-video" class="hero-video" autoplay loop muted playsinline preload="metadata">
-        <source src="/videos/UseThis.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+<body>
+  <!--HEADER-->
+  <div id="header"></div>
+  <script src="/js/header.js"></script>
 
-      <video id="overlay-hero-video" class="hero-video-overlay" autoplay loop muted playsinline preload="metadata" aria-hidden="true">
-        <source src="/videos/DarkAbstractWaves.mp4" type="video/mp4">
-        <!-- Decorative overlay video -->
-      </video>
-      <script src="/js/front-page-video.js"></script>
+  <!-- HERO: video hero (English) -->
+  <section class="video-hero" aria-label="Hero" data-overlay-enabled="true">
+    <video id="use-this-hero-video" class="hero-video" autoplay loop muted playsinline preload="metadata">
+      <source src="/videos/UseThis.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
 
-      <div class="hero-overlay">
-        <div class="hero-content">
-          <div class="deepshadow"><h1>ROV Engineering</h1></div>
-          <p class="lead">Exploring the depths, engineering the future.</p>
-          <p class="mt-3">
-            <a href="/en/pages/join.html" class="btn btn-lg btn-primary hero-cta" role="button">Join us</a>
-          </p>
-          <button id="video-play-pause" class="video-control-btn" aria-label="Pause bakgrunnsvideo" aria-pressed="false" type="button">
-            <span class="pause-icon" aria-hidden="true">⏸</span>
-            <span class="play-icon" aria-hidden="true" style="display:none;">▶</span>
-          </button>
+    <video id="overlay-hero-video" class="hero-video-overlay" autoplay loop muted playsinline preload="metadata"
+      aria-hidden="true">
+      <source src="/videos/DarkAbstractWaves.mp4" type="video/mp4">
+      <!-- Decorative overlay video -->
+    </video>
+    <script src="/js/front-page-video.js"></script>
+
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <div class="deepshadow">
+          <h1>ROV Engineering</h1>
         </div>
+        <p class="lead">Exploring the depths, engineering the future.</p>
+        <p class="mt-3">
+          <a href="/en/pages/join.html" class="btn btn-lg btn-primary hero-cta" role="button">Join us</a>
+        </p>
+        <button id="video-play-pause" class="video-control-btn" aria-label="Pause bakgrunnsvideo" aria-pressed="false"
+          type="button">
+          <span class="pause-icon" aria-hidden="true">⏸</span>
+          <span class="play-icon" aria-hidden="true" style="display:none;">▶</span>
+        </button>
       </div>
-    </section>
-    <!-- Featurettes (Bootstrap grid version) -->
-    <div class="container py-5">
-      <div class="row">
-        <div class="col-12">
-          <hr class="my-5">
-
-          <div class="row align-items-center mb-5">
-            <div class="col-md-4 text-center mb-3 mb-md-0">
-              <img src="/images/front-icons/491440310_17895485013198102_8891979541426359705_n.jpg" alt="K2 ROV" class="img-fluid rounded shadow">
-            </div>
-            <div class="col-md-8 text-white">
-              <h2 class="h3"><a class="nostyle" name="build-and-delivery-tools">K2 ROV</a></h2>
-              <h3 class="h5 text-primary">Our new ROV</h3>
-              <p>This is our new and improved K2 ROV. Eight vectored thrusters enable six degrees of freedom. Our power unit makes the ROV suitable for longer subsea missions while still delivering peak performance.</p>
-              <p class="text-info">Expected production completed by 2026</p>
-              <div class="border-top border-light my-3" style="width:70px;"></div>
-              <a href="/en/pages/rov.html" class="btn btn-primary">See it here</a>
-            </div>
-          </div>
-
-          <hr class="my-5">
-
-          <div class="row align-items-center mb-5">
-            <div class="col-md-4 text-center mb-3 mb-md-0">
-              <img src="/images/carousel/legg-ut-6-scaled.jpg" alt="Placeholder image" class="img-fluid rounded shadow">
-            </div>
-            <div class="col-md-8 text-white">
-              <h2 class="h3"><a class="nostyle" name="big-data">Join us!</a></h2>
-              <h3 class="h5 text-primary">Exploring the depths, engineering the future</h3>
-              <p>UiASub is a student-run organization dedicated to advancing subsea technology and exploration. Our mission is to encourage innovation, collaboration and education in marine technology and autonomous systems.</p>
-              <p>The organization runs like a company and provides valuable hands-on experience for your future career. We're looking for engineers, HR and management talent, marketing and media students, and more.</p>
-              <div class="border-top border-light my-3" style="width:70px;"></div>
-              <a href="/en/pages/join.html" rel="noopener noreferrer" class="btn btn-primary">Join us</a>
-            </div>
-          </div>
-
-          <hr class="my-5">
-
-          <div class="row align-items-center mb-5">
-            <div class="col-md-4 text-center mb-3 mb-md-0">
-              <img src="/images/front-icons/blob-scene-haikei.png" alt="Partners" class="img-fluid rounded shadow">
-            </div>
-            <div class="col-md-8 text-white">
-              <h2 class="h3"><a class="nostyle" name="data-persistence">Partners</a></h2>
-              <h3 class="h5 text-primary">UiASub continues thanks to their support.</h3>
-              <ul>
-                <li><strong>IXYS:</strong> Provides advanced control systems and components for subsea, surface, aerial and space applications.</li>
-                <li><strong>Würth Elektronik:</strong> Offers a wide range of electronic components and solutions for multiple industries.</li>
-                <li><strong>FFU:</strong> Specializes in advanced subsea technology and solutions for marine research and exploration.</li>
-              </ul>
-              <div class="border-top border-light my-3" style="width:70px;"></div>
-              <a href="/en/pages/sponsors.html" rel="noopener noreferrer" class="btn btn-primary">See more</a>
-            </div>
-          </div>
-
-          <hr class="my-5">
-
-          <div class="row align-items-center mb-5">
-            <div class="col-md-4 text-center mb-3 mb-md-0">
-              <img src="/images/front-icons/cropped-TAC-Challenge-test-crop-2.png" alt="TAC Challenge" class="img-fluid rounded shadow">
-            </div>
-            <div class="col-md-8 text-white">
-              <h2 class="h3"><a class="nostyle" name="common-runtime">TAC Challenge</a></h2>
-              <h3 class="h5 text-primary">Where concepts meet reality</h3>
-              <p>What is the TAC Challenge?</p>
-              <p>An AUV / ROV competition for students from around the world.</p>
-              <p>The competition focuses on developing innovative solutions for subsea operations, and gives participants the opportunity to test their skills in a realistic environment.</p>
-              <div class="border-top border-light my-3" style="width:70px;"></div>
-              <a href="https://tacchallenge.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Learn more</a>
-            </div>
-          </div>
-
-          <hr class="my-5">
-
-          <div class="row align-items-center mb-5">
-            <div class="col-md-4 text-center mb-3 mb-md-0">
-              <img src="/images/uiasub/Onwall.jpg" alt="UiASub News" class="img-fluid rounded shadow">
-            </div>
-            <div class="col-md-8 text-white">
-              <h2 class="h3"><a class="nostyle" name="news">News</a></h2>
-              <h3 class="h5 text-primary">See what's happening at UiASub</h3>
-              <div class="border-top border-light my-3" style="width:70px;"></div>
-              <a href="/en/pages/news.html" rel="noopener noreferrer" class="btn btn-primary">Open</a>
-            </div>
-          </div>
-
-          <hr class="my-5">
-
-        </div> <!-- end .col-12 -->
-      </div> <!-- end .row -->
-    </div> <!-- end .container -->
-
-    <!-- WAVES -->
-    <div class="wrapper">
-      <svg class="wavesContainer flipped" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-        <defs>
-          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
-        </defs>
-        <g class="parallax">
-          <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(0,95,153,0.8)"></use>
-          <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(0,95,153,0.6)"></use>
-          <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(0,95,153,0.4)"></use>
-          <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(0,95,153,0.2)"></use>
-        </g>
-      </svg>
     </div>
-    <!-- FOOTER -->
-    <div id="footer"></div>
-    <script src="/js/footer.js"></script>
+  </section>
+  <!-- Featurettes (Bootstrap grid version) -->
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-12">
+        <hr class="my-5">
 
-    <!-- Bootstrap core JavaScript  -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="" crossorigin="anonymous"></script>
-    <script src="/js/hero-scroll.js"></script>
-    <script src="/js/service-worker-register.js"></script>
-  </body>
+        <div class="row align-items-center mb-5">
+          <div class="col-md-4 text-center mb-3 mb-md-0">
+            <img src="/images/front-icons/491440310_17895485013198102_8891979541426359705_n.jpg" alt="K2 ROV"
+              class="img-fluid rounded shadow">
+          </div>
+          <div class="col-md-8 text-white">
+            <h2 class="h3"><a class="nostyle" name="build-and-delivery-tools">K2 ROV</a></h2>
+            <h3 class="h5 text-primary">Our new ROV</h3>
+            <p>This is our new and improved K2 ROV. Eight vectored thrusters enable six degrees of freedom. Our power
+              unit makes the ROV suitable for longer subsea missions while still delivering peak performance.</p>
+            <p class="text-info">Expected production completed by 2026</p>
+            <div class="border-top border-light my-3" style="width:70px;"></div>
+            <a href="/en/pages/rov.html" class="btn btn-primary">See it here</a>
+          </div>
+        </div>
+
+        <hr class="my-5">
+
+        <div class="row align-items-center mb-5">
+          <div class="col-md-4 text-center mb-3 mb-md-0">
+            <img src="/images/carousel/legg-ut-6-scaled.jpg" alt="Placeholder image" class="img-fluid rounded shadow">
+          </div>
+          <div class="col-md-8 text-white">
+            <h2 class="h3"><a class="nostyle" name="big-data">Join us!</a></h2>
+            <h3 class="h5 text-primary">Exploring the depths, engineering the future</h3>
+            <p>UiASub is a student-run organization dedicated to advancing subsea technology and exploration. Our
+              mission is to encourage innovation, collaboration and education in marine technology and autonomous
+              systems.</p>
+            <p>The organization runs like a company and provides valuable hands-on experience for your future career.
+              We're looking for engineers, HR and management talent, marketing and media students, and more.</p>
+            <div class="border-top border-light my-3" style="width:70px;"></div>
+            <a href="/en/pages/join.html" rel="noopener noreferrer" class="btn btn-primary">Join us</a>
+          </div>
+        </div>
+
+        <hr class="my-5">
+
+        <div class="row align-items-center mb-5">
+          <div class="col-md-4 text-center mb-3 mb-md-0">
+            <img src="/images/front-icons/blob-scene-haikei.png" alt="Partners" class="img-fluid rounded shadow">
+          </div>
+          <div class="col-md-8 text-white">
+            <h2 class="h3"><a class="nostyle" name="data-persistence">Partners</a></h2>
+            <h3 class="h5 text-primary">UiASub continues thanks to their support.</h3>
+            <ul>
+              <li><strong>IXYS:</strong> Provides advanced control systems and components for subsea, surface, aerial
+                and space applications.</li>
+              <li><strong>Würth Elektronik:</strong> Offers a wide range of electronic components and solutions for
+                multiple industries.</li>
+              <li><strong>FFU:</strong> Specializes in advanced subsea technology and solutions for marine research and
+                exploration.</li>
+            </ul>
+            <div class="border-top border-light my-3" style="width:70px;"></div>
+            <a href="/en/pages/sponsors.html" rel="noopener noreferrer" class="btn btn-primary">See more</a>
+          </div>
+        </div>
+
+        <hr class="my-5">
+
+        <div class="row align-items-center mb-5">
+          <div class="col-md-4 text-center mb-3 mb-md-0">
+            <img src="/images/tac-challange/IMG_0277.jpg" alt="TAC Challenge - International ROV/AUV Competition"
+              class="img-fluid rounded shadow" loading="lazy" width="400" height="300"
+              style="object-fit: cover; height: 300px;">
+          </div>
+          <div class="col-md-8 text-white">
+            <h2 class="h3"><a class="nostyle" name="common-runtime">TAC Challenge</a></h2>
+            <h3 class="h5 text-primary" style="font-style: italic; letter-spacing: 0.03em;">Where concept meets reality
+            </h3>
+            <p>An international ROV/AUV competition for students from around the world. The competition focuses on
+              developing innovative solutions for subsea operations and gives participants the opportunity to test their
+              skills in realistic scenarios.</p>
+
+            <p class="mb-2"><strong>2024 Missions:</strong></p>
+            <ul class="small text-white-50 mb-3">
+              <li>Subsea Docking - Autonomous docking with power transfer</li>
+              <li>Pipeline Inspection - ArUco marker identification</li>
+              <li>Visual Inspection - Underwater structure inspection</li>
+              <li>Valve Intervention - Valve operation on the seabed</li>
+            </ul>
+
+            <div class="border-top border-light my-3" style="width:70px;"></div>
+            <a href="/en/pages/tac-challenge.html" class="btn btn-primary">Learn more about the missions</a>
+          </div>
+        </div>
+
+        <hr class="my-5">
+
+        <div class="row align-items-center mb-5">
+          <div class="col-md-4 text-center mb-3 mb-md-0">
+            <img src="/images/uiasub/Onwall.jpg" alt="UiASub News" class="img-fluid rounded shadow" loading="lazy"
+              width="400" height="300" style="object-fit: cover; height: 300px;">
+          </div>
+          <div class="col-md-8 text-white">
+            <h2 class="h3"><a class="nostyle" name="news">News</a></h2>
+            <h3 class="h5 text-primary">See what's happening at UiASub</h3>
+            <p>Stay updated on the latest news from UiASub. Read about our projects, competitions, technical
+              breakthroughs, and the team's progress.</p>
+            <div class="border-top border-light my-3" style="width:70px;"></div>
+            <a href="/en/pages/news.html" class="btn btn-primary">Read news</a>
+          </div>
+        </div>
+
+        <hr class="my-5">
+
+      </div> <!-- end .col-12 -->
+    </div> <!-- end .row -->
+  </div> <!-- end .container -->
+
+  <!-- WAVES -->
+  <div class="wrapper">
+    <svg class="wavesContainer flipped" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(0,95,153,0.8)"></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(0,95,153,0.6)"></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(0,95,153,0.4)"></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(0,95,153,0.2)"></use>
+      </g>
+    </svg>
+  </div>
+  <!-- FOOTER -->
+  <div id="footer"></div>
+  <script src="/js/footer.js"></script>
+
+  <!-- Bootstrap core JavaScript  -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity=""
+    crossorigin="anonymous"></script>
+  <script src="/js/hero-scroll.js"></script>
+  <script src="/js/service-worker-register.js"></script>
+</body>
+
 </html>

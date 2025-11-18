@@ -1,0 +1,117 @@
+/* TAC Challenge Page Styles */
+
+/* Typography matching ROV page style with engineering touches */
+.fs-3.fw-bold {
+  color: #e6f7ff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.lead {
+  color: #44B8FF !important;
+  font-size: 1.35rem;
+  line-height: 1.6;
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+
+.text-light {
+  color: rgba(230, 247, 255, 0.9) !important;
+  line-height: 1.7;
+}
+
+/* Hero section styling */
+.callout.about-modern {
+  background: linear-gradient(135deg, rgba(0, 47, 71, 0.4) 0%, rgba(0, 16, 26, 0.6) 100%);
+  padding: 80px 0 60px 0;
+}
+
+@media (max-width: 768px) {
+  .callout.about-modern {
+    padding: 60px 0 40px 0;
+  }
+}
+
+.about-visual {
+  background: linear-gradient(90deg, rgba(0, 47, 71, 0.6) 0%, rgba(0, 16, 26, 0.5) 50%, rgba(0, 47, 71, 0.6) 100%);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Card styling with ocean theme */
+.card {
+  background: linear-gradient(135deg, rgba(0, 47, 71, 0.8) 0%, rgba(0, 95, 153, 0.6) 100%);
+  border: 1px solid rgba(68, 184, 255, 0.3);
+  color: #e6f7ff;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  border-color: rgba(68, 184, 255, 0.6);
+  box-shadow: 0 4px 20px rgba(68, 184, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.card-title {
+  color: #44B8FF;
+}
+
+.card-text {
+  color: rgba(230, 247, 255, 0.9);
+}
+
+/* SVG icons in cards */
+.card svg {
+  color: #44B8FF;
+}
+
+/* Sponsor/info cards */
+.sponsor-logo-card {
+  background: rgba(0, 47, 71, 0.6);
+  border: 1px solid rgba(68, 184, 255, 0.2);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.sponsor-logo-card:hover {
+  background: rgba(0, 47, 71, 0.8);
+  border-color: rgba(68, 184, 255, 0.4);
+}
+
+/* Badge styling */
+.badge {
+  font-weight: 500;
+  padding: 0.5em 0.8em;
+}
+
+.badge.bg-success {
+  background-color: rgba(0, 153, 102, 0.8) !important;
+}
+
+.badge.bg-warning {
+  background-color: rgba(255, 193, 7, 0.9) !important;
+}
+
+/* Section backgrounds */
+section.bg-dark.bg-opacity-25 {
+  background: rgba(0, 16, 26, 0.4) !important;
+}
+
+/* Ensure proper text contrast */
+.text-white-50 {
+  color: rgba(230, 247, 255, 0.6) !important;
+}
+
+/* Button styling */
+.btn-outline-primary {
+  border-color: #44B8FF;
+  color: #44B8FF;
+}
+
+.btn-outline-primary:hover {
+  background-color: #44B8FF;
+  color: #002f47;
+}
