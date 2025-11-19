@@ -1,479 +1,521 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="UiASub K2 ROV Project">
-    <meta name="title" content="UiASub Ocineering">
-    <link href="/images/uiasub/Icon1.png" rel="shortcut icon">
 
-    <title>UiASub ROV</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="UiASub K2 ROV Project">
+  <meta name="title" content="UiASub Ocineering">
+  <link href="/images/uiasub/Icon1.png" rel="shortcut icon">
 
-    <!-- Bootstrap core CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="" crossorigin="anonymous">
+  <title>UiASub | ROV</title>
 
-    <!-- Custom styles for this template -->
-    <link href="/css/carousel.css" rel="stylesheet">
-    <link href="/css/custom.css" rel="stylesheet">
-    <link href="/css/header.css" rel="stylesheet">
-    <link href="/css/waves.css" rel="stylesheet">
-    <link href="/css/rov.css" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity=""
+    crossorigin="anonymous">
+
+  <!-- Custom styles for this template -->
+  <link href="/css/carousel.css" rel="stylesheet">
+  <link href="/css/custom.css" rel="stylesheet">
+  <link href="/css/header.css" rel="stylesheet">
+  <link href="/css/waves.css" rel="stylesheet">
+  <link href="/css/rov.css" rel="stylesheet">
 
   <!-- model-viewer (Web Component for glTF/GLB) -->
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
-  </head>
+</head>
+
 <body>
   <!--HEADER-->
   <div id="header"></div>
   <script src="/js/header.js"></script>
 
-<!-- Use model-viewer for a GLB model (convert your OBJ to .glb and place at /images/uiasub/K2-Rov.glb) -->
-    <!-- Hero / Project Intro -->
-    <section class="callout about-modern py-5" aria-label="K2 ROV Project Introduction">
-      <div class="container">
-        <div class="row g-4 align-items-center">
-          <div class="col-md-6 text-start">
-            <div class="about-visual" style="min-height:260px;">
-              <img src="/images/carousel/Elektronikk.png" class="rounded shadow-sm w-100 h-100" style="width:100%; height:100%; object-fit:cover; display:block;" alt="ROV K2">
+  <!-- Use model-viewer for a GLB model (convert your OBJ to .glb and place at /images/uiasub/K2-Rov.glb) -->
+  <!-- Hero / Project Intro -->
+  <section class="callout about-modern py-5" aria-label="K2 ROV Project Introduction">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-md-6 text-start">
+          <div class="about-visual" style="min-height:260px;">
+            <img src="/images/carousel/Elektronikk.png" class="rounded shadow-sm w-100 h-100"
+              style="width:100%; height:100%; object-fit:cover; display:block;" alt="ROV K2">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <h1 class="display-5 fw-bold mb-4">K2 <span class="text-primary">ROV Project</span></h1>
+          <p class="lead text-light">We build next-generation underwater vehicles for exploration and competitions. K2
+            is modular, powerful and designed for robust field use.</p>
+          <p class="text-light">Our ROV development focuses on practical engineering work, industry collaboration and
+            open-source tools for control and data collection.</p>
+
+          <div class="row mt-3">
+            <div class="col-4">
+              <div class="stat text-center">
+                <div class="stat-num h3">2+</div>
+                <div class="stat-label small text-white">Years development</div>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="stat text-center">
+                <div class="stat-num h3">2</div>
+                <div class="stat-label small text-white">ROVs</div>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="stat text-center">
+                <div class="stat-num h3">~30</div>
+                <div class="stat-label small text-white">Team size</div>
+              </div>
             </div>
           </div>
-          <div class="col-md-6">
-            <h1 class="display-5 fw-bold mb-4">K2 <span class="text-primary">ROV Project</span></h1>
-            <p class="lead text-light">We build next-generation underwater vehicles for exploration and competitions. K2 is modular, powerful and designed for robust field use.</p>
-            <p class="text-light">Our ROV development focuses on practical engineering work, industry collaboration and open-source tools for control and data collection.</p>
 
-            <div class="row mt-3">
-              <div class="col-4">
-                <div class="stat text-center">
-                  <div class="stat-num h3">2+</div>
-                  <div class="stat-label small text-white">Years development</div>
-                </div>
-              </div>
-              <div class="col-4">
-                <div class="stat text-center">
-                  <div class="stat-num h3">2</div>
-                  <div class="stat-label small text-white">ROVs</div>
-                </div>
-              </div>
-              <div class="col-4">
-                <div class="stat text-center">
-                  <div class="stat-num h3">~30</div>
-                  <div class="stat-label small text-white">Team size</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="mt-4">
-                  <a href="#technical-specs" class="btn btn-outline-light">Specifications</a>
-                  </a>
-                  <a href="#github-projects" class="btn btn-outline-light">GitHub Projects</a>
-                </div>
+          <div class="mt-4">
+            <a href="#technical-specs" class="btn btn-outline-light">Specifications</a>
+            </a>
+            <a href="#github-projects" class="btn btn-outline-light">GitHub Projects</a>
           </div>
         </div>
       </div>
-    </section>
-
-    <!-- 3D Model Viewer Section -->
-    <section class="py-5" aria-label="3D Model Viewer">
-      <div class="container text-center">
-        <h2 class="fs-3 fw-bold mb-3">Explore K2 ROV in 3D</h2>
-
-        <model-viewer
-          src="/images/uiasub/K2-Rov.glb"
-          alt="K2 ROV 3D model"
-          style="width:100%; max-width:980px; margin:0 auto; display:block;"
-          camera-controls
-          auto-rotate
-          exposure="1"
-          shadow-intensity="1"
-          ar
-          poster="/images/uiasub/K2-Rov.webp"
-          environment-image="neutral">
-        </model-viewer>
-
-        <p class="small text-white mt-2">Technical highlights: 8 vectorized thrusters • 6 DOF • Modular battery and control system</p>
-      </div>
-    </section>
-
-    <!-- Technical Specifications (expanded with collapsible details) -->
-    <section id="technical-specs" class="py-5" aria-label="Technical Specifications">
-      <div class="container">
-        <h2 class="fs-3 fw-bold text-center mb-4">Technical Specifications</h2>
-        <p class="lead text-center text-white mb-4">K2 represents next-generation ROV technology with a modular design focused on field operations and competitions.</p>
-
-        <!-- Basic overview cards (always visible) -->
-        <div class="row g-4 mb-3">
-          <div class="col-md-4">
-            <div class="card h-100">
-              <div class="card-body">
-                <h5 class="card-title">8 Vectorized Thrusters</h5>
-                <p class="card-text text-white">Precise vector control provides fine maneuvering in all axes for inspection and station-keeping.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card h-100">
-              <div class="card-body">
-                <h5 class="card-title">6 Degrees of Freedom (6 DOF)</h5>
-                <p class="card-text text-white">Full freedom of movement for complex tasks, including pitch, yaw and roll.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card h-100">
-              <div class="card-body">
-                <h5 class="card-title">Modular Power System</h5>
-                <p class="card-text text-white">Quick battery pack replacement and modular connectors for field maintenance.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <p class="text-center text-white">Below you'll find detailed specifications divided into hardware, sensor suite, control & capabilities, and software integration.</p>
-
-        <!-- Toggle button for detailed specs -->
-        <div class="mt-4 text-center">
-          <button class= "btn btn-primary me-2" id="specs-toggle" class="learn-more" type="button" aria-expanded="false" aria-controls="specs-collapse">
-            <span class="circle" aria-hidden="true">
-              <span class="icon arrow"></span>
-            </span>
-            <span class="button-text">Specifications</span>
-          </button>
-        </div>
-
-        <!-- Collapsible detailed specs -->
-        <div class="collapse mt-4" id="specs-collapse">
-          <div>
-            <div class="row">
-              <!-- Hardware Specifications -->
-              <div class="col-12 mb-4">
-                <h3 class="h5">Hardware Specifications</h3>
-                <div class="row">
-                  <div class="col-12 col-md-6">
-                    <p class="text-white">The K2 frame is built from corrosion-resistant aluminum alloy with a vectorized thruster layout for maximum maneuverability. Electronics are housed in watertight enclosures with quick service connectors.</p>
-                    <p class="text-white">The thruster configuration uses commercially available, field-tested motors with vectorized brackets.</p>
-                  </div>
-                  <div class="col-12 col-md-6">
-                    <div class="bg-dark bg-opacity-25 rounded p-3 border-start border-primary border-3 ps-3">
-                      <ul class="text-white mb-0">
-                        <li>Frame: 6061-T6 aluminum, anodized</li>
-                        <li>Dimensions (L×W×H): 800mm × 600mm × 400mm</li>
-                        <li>Weight in air: ~25kg; weight in water: ~2kg (slightly positive buoyancy)</li>
-                        <li>Thrusters: 8 × Blue Robotics T200, max thrust 5.25 kgf</li>
-                        <li>Electronics: Custom PCB, NUCLEO-F767ZI (STM32F767)</li>
-                        <li>Depth rating: 100m operational, 150m max</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Software and Integration -->
-              <div class="col-12 mb-4">
-                <h3 class="h5">Software and Integration</h3>
-                <div class="row">
-                  <div class="col-12 col-md-6">
-                    <p class="text-white">We follow an open-source philosophy: firmware, topside apps and tools are available in our GitHub repositories.</p>
-                    <p class="text-white small"><em>Technical documentation</em></p>
-                  </div>
-                  <div class="col-12 col-md-6">
-                    <div class="bg-dark bg-opacity-25 rounded p-3 border-start border-primary border-3 ps-3">
-                      <ul class="text-white mb-0">
-                        <li>Board: STM32 Nucleo F767ZI</li>
-                        <li>Firmware: Zephyr RTOS v4.2 (C/C++)</li>
-                        <li>Network: Static IP 192.168.1.100, Subnet 255.255.255.0, UDP port 12345</li>
-                        <li>Threads: Main (initialization), UDP (receives packets), Control System (PID calculations 6DOF), CANbus (sends/receives CAN data)</li>
-                        <li>UDP packet structure: <code>uint32_t sequence</code> (sequence number), <code>uint64_t payload</code> (6DOF + aux), <code>uint32_t crc32</code> (CRC32 validation)</li>
-                        <li>Payload (64-bit bitmasking): Bits 0-7 Surge, 8-15 Sway, 16-23 Heave, 24-31 Roll, 32-39 Pitch, 40-47 Yaw, 48-55 Light (0-255), 56-63 Manipulator (0-255)</li>
-                        <li>Protocol: Custom binary over UDP with CRC32 check for integrity</li>
-                        <li>Topside: Python app, cross-platform</li>
-                        <li>Video: H.264, low latency (&lt;100ms)</li>
-                        <li>Logging: CSV/binary with synchronized timestamps</li>
-                        <li>Repos: <a href="https://github.com/UiASub/K2-Zephyr" target="_blank" rel="noopener noreferrer" class="text-primary">K2-Zephyr</a>, Topside</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- GitHub Projects Placeholder -->
-    <section id="github-projects" class="py-5" aria-label="GitHub Projects">
-      <div class="container">
-        <h2 class="fs-3 fw-bold text-center mb-3">GitHub Projects</h2>
-        <p class="text-center text-white mb-4">Our open-source contributions to underwater technology</p>
-        <div class="text-center my-4" id="github-loading-spinner">
-          <div class="spinner-border text-primary" role="status" aria-hidden="true"><span class="visually-hidden">Loading...</span></div>
-        </div>
-
-        <div id="github-projects-container" class="row justify-content-center g-4" aria-live="polite" aria-busy="true">
-          <noscript>
-            <div class="col-12 text-center text-white">Please enable JavaScript to view our GitHub projects.</div>
-          </noscript>
-        </div>
-      </div>
-    </section>
-
-    <!-- UI Gallery change in ui-gallery.js -->
-    <section id="ui-mockups" class="py-5" aria-label="UI Mockups">
-      <div class="container">
-        <h2 class="fs-3 fw-bold text-center mb-3">Control System UI</h2>
-        <p class="text-center text-white mb-4">Mockups for operator interface and instrument panel</p>
-
-        <div class="row g-4 justify-content-center">
-          <!-- Thumbnail cards: data-ui-index corresponds to js mockup array index -->
-          <div class="col-12 col-sm-6 col-lg-4">
-            <div class="sponsor-logo-card h-100" role="button" tabindex="0" aria-label="Main Control Panel mockup" data-ui-index="0" data-bs-toggle="modal" data-bs-target="#uiModal" style="cursor:pointer;">
-              <div class="rounded overflow-hidden mb-3" style="height:200px;">
-                <img src="/images/project/dashboard.png" alt="Main Control Panel" class="w-100 h-100" style="object-fit:cover;">
-              </div>
-              <h5 class="mb-1">Main Control Panel</h5>
-              <p class="text-white-50 small mb-2">Joystick input, thruster allocation and real-time status</p>
-              <span class="badge bg-primary">Mockup</span>
-            </div>
-          </div>
-
-          <div class="col-12 col-sm-6 col-lg-4">
-            <div class="sponsor-logo-card h-100" role="button" tabindex="0" aria-label="Sensor Dashboard mockup" data-ui-index="1" data-bs-toggle="modal" data-bs-target="#uiModal" style="cursor:pointer;">
-              <div class="rounded overflow-hidden mb-3" style="height:200px;">
-                <img src="/images/project/sensor.png" alt="Sensor Dashboard" class="w-100 h-100" style="object-fit:cover;">
-              </div>
-              <h5 class="mb-1">Sensor Dashboard</h5>
-              <p class="text-white-50 small mb-2">Real-time display of depth, temperature and orientation</p>
-              <span class="badge bg-primary">Mockup</span>
-            </div>
-          </div>
-
-          <div class="col-12 col-sm-6 col-lg-4">
-            <div class="sponsor-logo-card h-100" role="button" tabindex="0" aria-label="Video Feed Interface mockup" data-ui-index="2" data-bs-toggle="modal" data-bs-target="#uiModal" style="cursor:pointer;">
-              <div class="rounded overflow-hidden mb-3" style="height:200px;">
-                <img src="/images/project/dashboard.png" alt="Video Feed Interface" class="w-100 h-100" style="object-fit:cover;">
-              </div>
-              <h5 class="mb-1">Video Feed Interface</h5>
-              <p class="text-white-50 small mb-2">Primary and secondary camera with overlay information</p>
-              <span class="badge bg-primary">Mockup</span>
-            </div>
-          </div>
-
-          <div class="col-12 col-sm-6 col-lg-4">
-            <div class="sponsor-logo-card h-100" role="button" tabindex="0" aria-label="Thruster Control mockup" data-ui-index="3" data-bs-toggle="modal" data-bs-target="#uiModal" style="cursor:pointer;">
-              <div class="rounded overflow-hidden mb-3" style="height:200px;">
-                <img src="/images/project/sensor.png" alt="Thruster Control" class="w-100 h-100" style="object-fit:cover;">
-              </div>
-              <h5 class="mb-1">Thruster Control</h5>
-              <p class="text-white-50 small mb-2">Individual thruster status and force distribution</p>
-              <span class="badge bg-primary">Mockup</span>
-            </div>
-          </div>
-
-          <div class="col-12 col-sm-6 col-lg-4">
-            <div class="sponsor-logo-card h-100" role="button" tabindex="0" aria-label="Telemetry Display mockup" data-ui-index="4" data-bs-toggle="modal" data-bs-target="#uiModal" style="cursor:pointer;">
-              <div class="rounded overflow-hidden mb-3" style="height:200px;">
-                <img src="/images/project/dashboard.png" alt="Telemetry Display" class="w-100 h-100" style="object-fit:cover;">
-              </div>
-              <h5 class="mb-1">Telemetry Display</h5>
-              <p class="text-white-50 small mb-2">Graphical telemetry and historical measurements</p>
-              <span class="badge bg-primary">Mockup</span>
-            </div>
-          </div>
-
-          <div class="col-12 col-sm-6 col-lg-4">
-            <div class="sponsor-logo-card h-100" role="button" tabindex="0" aria-label="System Status mockup" data-ui-index="5" data-bs-toggle="modal" data-bs-target="#uiModal" style="cursor:pointer;">
-              <div class="rounded overflow-hidden mb-3" style="height:200px;">
-                <img src="/images/project/sensor.png" alt="System Status" class="w-100 h-100" style="object-fit:cover;">
-              </div>
-              <h5 class="mb-1">System Status</h5>
-              <p class="text-white-50 small mb-2">Comprehensive status for power, temperature and error alerts</p>
-              <span class="badge bg-primary">Mockup</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Modal lightbox for UI mockups -->
-        <div class="modal fade" id="uiModal" tabindex="-1" aria-labelledby="uiModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-xl">
-            <div class="modal-content bg-dark">
-              <div class="modal-header">
-                <h5 class="modal-title text-white" id="uiModalLabel">UI Mockup</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body text-center">
-                <img id="uiModalImage" class="img-fluid rounded" alt="UI Mockup" src="https://placehold.co/1200x800/002f47/ffffff?text=UI+Mockup" style="max-height:70vh; width:auto;" />
-                <p id="uiModalDescription" class="mt-3 text-white"></p>
-                <p class="small text-white-50">This is a conceptual mockup. The actual implementation may vary.</p>
-              </div>
-              <div class="modal-footer">
-                <button id="prevMockup" type="button" class="btn btn-outline-light">← Previous</button>
-                <button id="nextMockup" type="button" class="btn btn-outline-light">Next →</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Timeline -->
-    <section id="timeline" class="py-5" aria-label="Project Timeline">
-      <div class="container position-relative">
-        <h2 class="fs-3 fw-bold text-center mb-3">Project Timeline</h2>
-        <p class="text-center text-white mb-4">From idea to reality - our journey with underwater technology</p>
-
-        <!-- Vertical spine (hidden on small screens) -->
-        <div class="position-absolute top-0 start-50 translate-middle-x d-none d-md-block" style="width:2px; height:100%; background: linear-gradient(180deg, rgba(68,184,255,0.2) 0%, rgba(68,184,255,0.8) 50%, rgba(68,184,255,0.2) 100%);"></div>
-
-        <!-- Milestone 1 - 2023 (left) -->
-        <div class="row mb-5 position-relative align-items-center left">
-          <div class="timeline-dot position-absolute top-50 start-50 translate-middle"></div>
-          <div class="col-12 col-md-5 text-md-end">
-            <div class="sponsor-logo-card h-100 p-3">
-              <h4 class="h5 text-primary mb-2">2024 - Establishment</h4>
-              <h5 class="h6 text-white mb-3">UiASub is Born</h5>
-              <p class="text-white mb-2">The student group UiASub was founded at the University of Agder with the goal of building autonomous underwater vehicles.</p>
-              <ul class="text-white-50 small">
-                <li>First team members recruited</li>
-                <li>Established collaboration with UiA</li>
-                <li>Started planning the first ROV</li>
-                <li>Applied for sponsor support</li>
-              </ul>
-              <span class="badge bg-success mt-2">Completed</span>
-            </div>
-          </div>
-          <div class="col-12 col-md-5 offset-md-2 d-none d-md-block"></div>
-        </div>
-
-        <!-- Milestone 2 - 2024 (right) -->
-        <div class="row mb-5 position-relative align-items-center right">
-          <div class="timeline-dot position-absolute top-50 start-50 translate-middle"></div>
-          <div class="col-12 col-md-5 d-none d-md-block"></div>
-          <div class="col-12 col-md-5 offset-md-2 text-md-start">
-            <div class="sponsor-logo-card h-100 p-3">
-              <h4 class="h5 text-primary mb-2">2024 - First ROV Built</h4>
-              <h5 class="h6 text-white mb-3">Before K2 was Skagerrak</h5>
-              <p class="text-white mb-2">Three canisters were used in the first iteration of the ROV.</p>
-              <ul class="text-white-50 small">
-                <li>Built and tested first ROV prototype</li>
-                <li>Implemented improvements based on feedback</li>
-                <li>Learned from mistakes and adjusted the design</li>
-                <li>Identified improvement areas for the new ROV K2</li>
-              </ul>
-              <span class="badge bg-success mt-2">Completed</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Milestone 3 - 2025 (left, in-progress) -->
-        <div class="row mb-5 position-relative align-items-center left">
-          <div class="timeline-dot position-absolute top-50 start-50 translate-middle" style="background:#FFA500"></div>
-          <div class="col-12 col-md-5 text-md-end">
-            <div class="sponsor-logo-card h-100 p-3">
-              <h4 class="h5 text-primary mb-2">2025 - K2 Development</h4>
-              <h5 class="h6 text-white mb-3">Next Generation ROV</h5>
-              <p class="text-white mb-2">Started development of the K2 ROV with one canister.</p>
-              <ul class="text-white-50 small">
-                <li>Designed new aluminum frame structure</li>
-                <li>Implemented Zephyr RTOS firmware</li>
-                <li>Developed Python-based topside app</li>
-                <li>Integrated advanced sensor package</li>
-              </ul>
-              <span class="badge bg-warning text-dark mt-2">Ongoing</span>
-            </div>
-          </div>
-          <div class="col-12 col-md-5 offset-md-2 d-none d-md-block"></div>
-        </div>
-
-        <!-- Milestone 4 - 2026 (right, planned) -->
-        <div class="row mb-0 position-relative align-items-center right">
-          <div class="timeline-dot position-absolute top-50 start-50 translate-middle" style="background:rgba(68,184,255,0.3)"></div>
-          <div class="col-12 col-md-5 d-none d-md-block"></div>
-          <div class="col-12 col-md-5 offset-md-2 text-md-start">
-            <div class="sponsor-logo-card h-100 p-3">
-              <h4 class="h5 text-primary mb-2">2026 - Completion</h4>
-              <h5 class="h6 text-white mb-3">K2 ROV Ready for Action</h5>
-              <p class="text-white mb-2">Expected completion of the K2 ROV with full testing and validation. Ready for competitions and field missions.</p>
-              <ul class="text-white-50 small">
-                <li>Complete system integration and testing</li>
-                <li>Deep-water testing up to 100m</li>
-                <li>Participation in international competitions</li>
-                <li>Documentation and open-source publication</li>
-              </ul>
-              <span class="badge bg-info mt-2">Planned</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Documentation Links (enhanced) -->
-    <section id="documentation" class="py-5" aria-label="Documentation Links">
-      <div class="container">
-        <h2 class="fs-3 fw-bold text-center mb-3">Technical Documentation</h2>
-        <p class="text-center text-white-50 mb-4">Explore our technical documentation organized by category</p>
-
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-          <!-- Card 1: GitHub Nettside Wiki -->
-          <div class="col">
-            <div class="card h-100 hover-scale" style="border-top:3px solid #44B8FF; transition:all .3s ease;">
-              <div class="card-body">
-                <div class="text-center mb-3"><span class="badge bg-primary" style="font-size:1.25rem; padding:0.75rem 1.5rem;">WIKI</span></div>
-                <h5 class="card-title">GitHub Website Wiki</h5>
-                <p class="card-text text-white small">Guide for setup, development and deployment of the website. Includes troubleshooting.</p>
-                <div class="small text-white-50 mt-2">UiASub/uiasub.github.io/wiki • Continuously updated</div>
-                <a href="https://github.com/UiASub/uiasub.github.io/wiki" class="stretched-link" target="_blank" rel="noopener noreferrer" aria-label="Open GitHub Wiki">Open Wiki</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 2: K2-Zephyr Firmware -->
-          <div class="col">
-            <div class="card h-100 hover-scale" style="border-top:3px solid #44B8FF; transition:all .3s ease;">
-              <div class="card-body">
-                <div class="text-center mb-3"><span class="badge bg-primary" style="font-size:1.25rem; padding:0.75rem 1.5rem;">FW</span></div>
-                <h5 class="card-title">K2-Zephyr Firmware</h5>
-                <p class="card-text text-white small">Repository for STM32 Nucleo control system for ROV K2. Handles motor control, sensors, PID controllers and UDP communication with topside.</p>
-                <div class="small text-white-50 mt-2">C/C++ • Zephyr • NUCLEO-F767ZI</div>
-                <a href="https://github.com/UiASub/K2-Zephyr" class="stretched-link" target="_blank" rel="noopener noreferrer" aria-label="Open K2-Zephyr">Open</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 3: Topside App -->
-          <div class="col">
-            <div class="card h-100 hover-scale" style="border-top:3px solid #44B8FF; transition:all .3s ease;">
-              <div class="card-body">
-                <div class="text-center mb-3"><span class="badge bg-primary" style="font-size:1.25rem; padding:0.75rem 1.5rem;">APP</span></div>
-                <h5 class="card-title">Topside App</h5>
-                <p class="card-text text-white small">Cross-platform operator application built with Python. Real-time video, telemetry, joystick input and data logging.</p>
-                <div class="small text-white-50 mt-2">Python • Flask • Joystick</div>
-                <a href="https://github.com/UiASub/Topside" class="stretched-link" target="_blank" rel="noopener noreferrer" aria-label="Open Topside repo">Open</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <script src="/js/waves.js"></script>
-    <!-- Waves -->
-    <div class="wrapper">
-      <svg class="wavesContainer flipped" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-        <defs>
-          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
-        </defs>
-        <g class="parallax">
-          <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(0,95,153,0.8)"></use>
-          <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(0,95,153,0.6)"></use>
-          <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(0,95,153,0.4)"></use>
-          <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(0,95,153,0.2)"></use>
-        </g>
-      </svg>
     </div>
+  </section>
+
+  <!-- 3D Model Viewer Section -->
+  <section class="py-5" aria-label="3D Model Viewer">
+    <div class="container text-center">
+      <h2 class="fs-3 fw-bold mb-3">Explore K2 ROV in 3D</h2>
+
+      <model-viewer src="/images/uiasub/K2-Rov.glb" alt="K2 ROV 3D model"
+        style="width:100%; max-width:980px; margin:0 auto; display:block;" camera-controls auto-rotate exposure="1"
+        shadow-intensity="1" ar poster="/images/uiasub/K2-Rov.webp" environment-image="neutral">
+      </model-viewer>
+
+      <p class="small text-white mt-2">Technical highlights: 8 vectorized thrusters • 6 DOF • Modular battery and
+        control system</p>
+    </div>
+  </section>
+
+  <!-- Technical Specifications (expanded with collapsible details) -->
+  <section id="technical-specs" class="py-5" aria-label="Technical Specifications">
+    <div class="container">
+      <h2 class="fs-3 fw-bold text-center mb-4">Technical Specifications</h2>
+      <p class="lead text-center text-white mb-4">K2 represents next-generation ROV technology with a modular design
+        focused on field operations and competitions.</p>
+
+      <!-- Basic overview cards (always visible) -->
+      <div class="row g-4 mb-3">
+        <div class="col-md-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">8 Vectorized Thrusters</h5>
+              <p class="card-text text-white">Precise vector control provides fine maneuvering in all axes for
+                inspection and station-keeping.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">6 Degrees of Freedom (6 DOF)</h5>
+              <p class="card-text text-white">Full freedom of movement for complex tasks, including pitch, yaw and roll.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Modular Power System</h5>
+              <p class="card-text text-white">Quick battery pack replacement and modular connectors for field
+                maintenance.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-center text-white">Below you'll find detailed specifications divided into hardware, sensor suite,
+        control & capabilities, and software integration.</p>
+
+      <!-- Toggle button for detailed specs -->
+      <div class="mt-4 text-center">
+        <button class="btn btn-primary me-2" id="specs-toggle" class="learn-more" type="button" aria-expanded="false"
+          aria-controls="specs-collapse">
+          <span class="circle" aria-hidden="true">
+            <span class="icon arrow"></span>
+          </span>
+          <span class="button-text">Specifications</span>
+        </button>
+      </div>
+
+      <!-- Collapsible detailed specs -->
+      <div class="collapse mt-4" id="specs-collapse">
+        <div>
+          <div class="row">
+            <!-- Hardware Specifications -->
+            <div class="col-12 mb-4">
+              <h3 class="h5">Hardware Specifications</h3>
+              <div class="row">
+                <div class="col-12 col-md-6">
+                  <p class="text-white">The K2 frame is built from corrosion-resistant aluminum alloy with a vectorized
+                    thruster layout for maximum maneuverability. Electronics are housed in watertight enclosures with
+                    quick service connectors.</p>
+                  <p class="text-white">The thruster configuration uses commercially available, field-tested motors with
+                    vectorized brackets.</p>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="bg-dark bg-opacity-25 rounded p-3 border-start border-primary border-3 ps-3">
+                    <ul class="text-white mb-0">
+                      <li>Frame: 6061-T6 aluminum, anodized</li>
+                      <li>Dimensions (L×W×H): 800mm × 600mm × 400mm</li>
+                      <li>Weight in air: ~25kg; weight in water: ~2kg (slightly positive buoyancy)</li>
+                      <li>Thrusters: 8 × Blue Robotics T200, max thrust 5.25 kgf</li>
+                      <li>Electronics: Custom PCB, NUCLEO-F767ZI (STM32F767)</li>
+                      <li>Depth rating: 100m operational, 150m max</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Software and Integration -->
+            <div class="col-12 mb-4">
+              <h3 class="h5">Software and Integration</h3>
+              <div class="row">
+                <div class="col-12 col-md-6">
+                  <p class="text-white">We follow an open-source philosophy: firmware, topside apps and tools are
+                    available in our GitHub repositories.</p>
+                  <p class="text-white small"><em>Technical documentation</em></p>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="bg-dark bg-opacity-25 rounded p-3 border-start border-primary border-3 ps-3">
+                    <ul class="text-white mb-0">
+                      <li>Board: STM32 Nucleo F767ZI</li>
+                      <li>Firmware: Zephyr RTOS v4.2 (C/C++)</li>
+                      <li>Network: Static IP 192.168.1.100, Subnet 255.255.255.0, UDP port 12345</li>
+                      <li>Threads: Main (initialization), UDP (receives packets), Control System (PID calculations
+                        6DOF), CANbus (sends/receives CAN data)</li>
+                      <li>UDP packet structure: <code>uint32_t sequence</code> (sequence number),
+                        <code>uint64_t payload</code> (6DOF + aux), <code>uint32_t crc32</code> (CRC32 validation)</li>
+                      <li>Payload (64-bit bitmasking): Bits 0-7 Surge, 8-15 Sway, 16-23 Heave, 24-31 Roll, 32-39 Pitch,
+                        40-47 Yaw, 48-55 Light (0-255), 56-63 Manipulator (0-255)</li>
+                      <li>Protocol: Custom binary over UDP with CRC32 check for integrity</li>
+                      <li>Topside: Python app, cross-platform</li>
+                      <li>Video: H.264, low latency (&lt;100ms)</li>
+                      <li>Logging: CSV/binary with synchronized timestamps</li>
+                      <li>Repos: <a href="https://github.com/UiASub/K2-Zephyr" target="_blank" rel="noopener noreferrer"
+                          class="text-primary">K2-Zephyr</a>, Topside</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GitHub Projects Placeholder -->
+  <section id="github-projects" class="py-5" aria-label="GitHub Projects">
+    <div class="container">
+      <h2 class="fs-3 fw-bold text-center mb-3">GitHub Projects</h2>
+      <p class="text-center text-white mb-4">Our open-source contributions to underwater technology</p>
+      <div class="text-center my-4" id="github-loading-spinner">
+        <div class="spinner-border text-primary" role="status" aria-hidden="true"><span
+            class="visually-hidden">Loading...</span></div>
+      </div>
+
+      <div id="github-projects-container" class="row justify-content-center g-4" aria-live="polite" aria-busy="true">
+        <noscript>
+          <div class="col-12 text-center text-white">Please enable JavaScript to view our GitHub projects.</div>
+        </noscript>
+      </div>
+    </div>
+  </section>
+
+  <!-- UI Gallery change in ui-gallery.js -->
+  <section id="ui-mockups" class="py-5" aria-label="UI Mockups">
+    <div class="container">
+      <h2 class="fs-3 fw-bold text-center mb-3">Control System UI</h2>
+      <p class="text-center text-white mb-4">Mockups for operator interface and instrument panel</p>
+
+      <div class="row g-4 justify-content-center">
+        <!-- Thumbnail cards: data-ui-index corresponds to js mockup array index -->
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="sponsor-logo-card h-100" role="button" tabindex="0" aria-label="Main Control Panel mockup"
+            data-ui-index="0" data-bs-toggle="modal" data-bs-target="#uiModal" style="cursor:pointer;">
+            <div class="rounded overflow-hidden mb-3" style="height:200px;">
+              <img src="/images/project/dashboard.png" alt="Main Control Panel" class="w-100 h-100"
+                style="object-fit:cover;">
+            </div>
+            <h5 class="mb-1">Main Control Panel</h5>
+            <p class="text-white-50 small mb-2">Joystick input, thruster allocation and real-time status</p>
+            <span class="badge bg-primary">Mockup</span>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="sponsor-logo-card h-100" role="button" tabindex="0" aria-label="Sensor Dashboard mockup"
+            data-ui-index="1" data-bs-toggle="modal" data-bs-target="#uiModal" style="cursor:pointer;">
+            <div class="rounded overflow-hidden mb-3" style="height:200px;">
+              <img src="/images/project/sensor.png" alt="Sensor Dashboard" class="w-100 h-100"
+                style="object-fit:cover;">
+            </div>
+            <h5 class="mb-1">Sensor Dashboard</h5>
+            <p class="text-white-50 small mb-2">Real-time display of depth, temperature and orientation</p>
+            <span class="badge bg-primary">Mockup</span>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="sponsor-logo-card h-100" role="button" tabindex="0" aria-label="Video Feed Interface mockup"
+            data-ui-index="2" data-bs-toggle="modal" data-bs-target="#uiModal" style="cursor:pointer;">
+            <div class="rounded overflow-hidden mb-3" style="height:200px;">
+              <img src="/images/project/dashboard.png" alt="Video Feed Interface" class="w-100 h-100"
+                style="object-fit:cover;">
+            </div>
+            <h5 class="mb-1">Video Feed Interface</h5>
+            <p class="text-white-50 small mb-2">Primary and secondary camera with overlay information</p>
+            <span class="badge bg-primary">Mockup</span>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="sponsor-logo-card h-100" role="button" tabindex="0" aria-label="Thruster Control mockup"
+            data-ui-index="3" data-bs-toggle="modal" data-bs-target="#uiModal" style="cursor:pointer;">
+            <div class="rounded overflow-hidden mb-3" style="height:200px;">
+              <img src="/images/project/sensor.png" alt="Thruster Control" class="w-100 h-100"
+                style="object-fit:cover;">
+            </div>
+            <h5 class="mb-1">Thruster Control</h5>
+            <p class="text-white-50 small mb-2">Individual thruster status and force distribution</p>
+            <span class="badge bg-primary">Mockup</span>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="sponsor-logo-card h-100" role="button" tabindex="0" aria-label="Telemetry Display mockup"
+            data-ui-index="4" data-bs-toggle="modal" data-bs-target="#uiModal" style="cursor:pointer;">
+            <div class="rounded overflow-hidden mb-3" style="height:200px;">
+              <img src="/images/project/dashboard.png" alt="Telemetry Display" class="w-100 h-100"
+                style="object-fit:cover;">
+            </div>
+            <h5 class="mb-1">Telemetry Display</h5>
+            <p class="text-white-50 small mb-2">Graphical telemetry and historical measurements</p>
+            <span class="badge bg-primary">Mockup</span>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="sponsor-logo-card h-100" role="button" tabindex="0" aria-label="System Status mockup"
+            data-ui-index="5" data-bs-toggle="modal" data-bs-target="#uiModal" style="cursor:pointer;">
+            <div class="rounded overflow-hidden mb-3" style="height:200px;">
+              <img src="/images/project/sensor.png" alt="System Status" class="w-100 h-100" style="object-fit:cover;">
+            </div>
+            <h5 class="mb-1">System Status</h5>
+            <p class="text-white-50 small mb-2">Comprehensive status for power, temperature and error alerts</p>
+            <span class="badge bg-primary">Mockup</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal lightbox for UI mockups -->
+      <div class="modal fade" id="uiModal" tabindex="-1" aria-labelledby="uiModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+          <div class="modal-content bg-dark">
+            <div class="modal-header">
+              <h5 class="modal-title text-white" id="uiModalLabel">UI Mockup</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+              <img id="uiModalImage" class="img-fluid rounded" alt="UI Mockup"
+                src="https://placehold.co/1200x800/002f47/ffffff?text=UI+Mockup" style="max-height:70vh; width:auto;" />
+              <p id="uiModalDescription" class="mt-3 text-white"></p>
+              <p class="small text-white-50">This is a conceptual mockup. The actual implementation may vary.</p>
+            </div>
+            <div class="modal-footer">
+              <button id="prevMockup" type="button" class="btn btn-outline-light">← Previous</button>
+              <button id="nextMockup" type="button" class="btn btn-outline-light">Next →</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section id="timeline" class="py-5" aria-label="Project Timeline">
+    <div class="container position-relative">
+      <h2 class="fs-3 fw-bold text-center mb-3">Project Timeline</h2>
+      <p class="text-center text-white mb-4">From idea to reality - our journey with underwater technology</p>
+
+      <!-- Vertical spine (hidden on small screens) -->
+      <div class="position-absolute top-0 start-50 translate-middle-x d-none d-md-block"
+        style="width:2px; height:100%; background: linear-gradient(180deg, rgba(68,184,255,0.2) 0%, rgba(68,184,255,0.8) 50%, rgba(68,184,255,0.2) 100%);">
+      </div>
+
+      <!-- Milestone 1 - 2023 (left) -->
+      <div class="row mb-5 position-relative align-items-center left">
+        <div class="timeline-dot position-absolute top-50 start-50 translate-middle"></div>
+        <div class="col-12 col-md-5 text-md-end">
+          <div class="sponsor-logo-card h-100 p-3">
+            <h4 class="h5 text-primary mb-2">2024 - Establishment</h4>
+            <h5 class="h6 text-white mb-3">UiASub is Born</h5>
+            <p class="text-white mb-2">The student group UiASub was founded at the University of Agder with the goal of
+              building autonomous underwater vehicles.</p>
+            <ul class="text-white-50 small">
+              <li>First team members recruited</li>
+              <li>Established collaboration with UiA</li>
+              <li>Started planning the first ROV</li>
+              <li>Applied for sponsor support</li>
+            </ul>
+            <span class="badge bg-success mt-2">Completed</span>
+          </div>
+        </div>
+        <div class="col-12 col-md-5 offset-md-2 d-none d-md-block"></div>
+      </div>
+
+      <!-- Milestone 2 - 2024 (right) -->
+      <div class="row mb-5 position-relative align-items-center right">
+        <div class="timeline-dot position-absolute top-50 start-50 translate-middle"></div>
+        <div class="col-12 col-md-5 d-none d-md-block"></div>
+        <div class="col-12 col-md-5 offset-md-2 text-md-start">
+          <div class="sponsor-logo-card h-100 p-3">
+            <h4 class="h5 text-primary mb-2">2024 - First ROV Built</h4>
+            <h5 class="h6 text-white mb-3">Before K2 was Skagerrak</h5>
+            <p class="text-white mb-2">Three canisters were used in the first iteration of the ROV.</p>
+            <ul class="text-white-50 small">
+              <li>Built and tested first ROV prototype</li>
+              <li>Implemented improvements based on feedback</li>
+              <li>Learned from mistakes and adjusted the design</li>
+              <li>Identified improvement areas for the new ROV K2</li>
+            </ul>
+            <span class="badge bg-success mt-2">Completed</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Milestone 3 - 2025 (left, in-progress) -->
+      <div class="row mb-5 position-relative align-items-center left">
+        <div class="timeline-dot position-absolute top-50 start-50 translate-middle" style="background:#FFA500"></div>
+        <div class="col-12 col-md-5 text-md-end">
+          <div class="sponsor-logo-card h-100 p-3">
+            <h4 class="h5 text-primary mb-2">2025 - K2 Development</h4>
+            <h5 class="h6 text-white mb-3">Next Generation ROV</h5>
+            <p class="text-white mb-2">Started development of the K2 ROV with one canister.</p>
+            <ul class="text-white-50 small">
+              <li>Designed new aluminum frame structure</li>
+              <li>Implemented Zephyr RTOS firmware</li>
+              <li>Developed Python-based topside app</li>
+              <li>Integrated advanced sensor package</li>
+            </ul>
+            <span class="badge bg-warning text-dark mt-2">Ongoing</span>
+          </div>
+        </div>
+        <div class="col-12 col-md-5 offset-md-2 d-none d-md-block"></div>
+      </div>
+
+      <!-- Milestone 4 - 2026 (right, planned) -->
+      <div class="row mb-0 position-relative align-items-center right">
+        <div class="timeline-dot position-absolute top-50 start-50 translate-middle"
+          style="background:rgba(68,184,255,0.3)"></div>
+        <div class="col-12 col-md-5 d-none d-md-block"></div>
+        <div class="col-12 col-md-5 offset-md-2 text-md-start">
+          <div class="sponsor-logo-card h-100 p-3">
+            <h4 class="h5 text-primary mb-2">2026 - Completion</h4>
+            <h5 class="h6 text-white mb-3">K2 ROV Ready for Action</h5>
+            <p class="text-white mb-2">Expected completion of the K2 ROV with full testing and validation. Ready for
+              competitions and field missions.</p>
+            <ul class="text-white-50 small">
+              <li>Complete system integration and testing</li>
+              <li>Deep-water testing up to 100m</li>
+              <li>Participation in international competitions</li>
+              <li>Documentation and open-source publication</li>
+            </ul>
+            <span class="badge bg-info mt-2">Planned</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Documentation Links (enhanced) -->
+  <section id="documentation" class="py-5" aria-label="Documentation Links">
+    <div class="container">
+      <h2 class="fs-3 fw-bold text-center mb-3">Technical Documentation</h2>
+      <p class="text-center text-white-50 mb-4">Explore our technical documentation organized by category</p>
+
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <!-- Card 1: GitHub Nettside Wiki -->
+        <div class="col">
+          <div class="card h-100 hover-scale" style="border-top:3px solid #44B8FF; transition:all .3s ease;">
+            <div class="card-body">
+              <div class="text-center mb-3"><span class="badge bg-primary"
+                  style="font-size:1.25rem; padding:0.75rem 1.5rem;">WIKI</span></div>
+              <h5 class="card-title">GitHub Website Wiki</h5>
+              <p class="card-text text-white small">Guide for setup, development and deployment of the website. Includes
+                troubleshooting.</p>
+              <div class="small text-white-50 mt-2">UiASub/uiasub.github.io/wiki • Continuously updated</div>
+              <a href="https://github.com/UiASub/uiasub.github.io/wiki" class="stretched-link" target="_blank"
+                rel="noopener noreferrer" aria-label="Open GitHub Wiki">Open Wiki</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: K2-Zephyr Firmware -->
+        <div class="col">
+          <div class="card h-100 hover-scale" style="border-top:3px solid #44B8FF; transition:all .3s ease;">
+            <div class="card-body">
+              <div class="text-center mb-3"><span class="badge bg-primary"
+                  style="font-size:1.25rem; padding:0.75rem 1.5rem;">FW</span></div>
+              <h5 class="card-title">K2-Zephyr Firmware</h5>
+              <p class="card-text text-white small">Repository for STM32 Nucleo control system for ROV K2. Handles motor
+                control, sensors, PID controllers and UDP communication with topside.</p>
+              <div class="small text-white-50 mt-2">C/C++ • Zephyr • NUCLEO-F767ZI</div>
+              <a href="https://github.com/UiASub/K2-Zephyr" class="stretched-link" target="_blank"
+                rel="noopener noreferrer" aria-label="Open K2-Zephyr">Open</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Topside App -->
+        <div class="col">
+          <div class="card h-100 hover-scale" style="border-top:3px solid #44B8FF; transition:all .3s ease;">
+            <div class="card-body">
+              <div class="text-center mb-3"><span class="badge bg-primary"
+                  style="font-size:1.25rem; padding:0.75rem 1.5rem;">APP</span></div>
+              <h5 class="card-title">Topside App</h5>
+              <p class="card-text text-white small">Cross-platform operator application built with Python. Real-time
+                video, telemetry, joystick input and data logging.</p>
+              <div class="small text-white-50 mt-2">Python • Flask • Joystick</div>
+              <a href="https://github.com/UiASub/Topside" class="stretched-link" target="_blank"
+                rel="noopener noreferrer" aria-label="Open Topside repo">Open</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="/js/waves.js"></script>
+  <!-- Waves -->
+  <div class="wrapper">
+    <svg class="wavesContainer flipped" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(0,95,153,0.8)"></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(0,95,153,0.6)"></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(0,95,153,0.4)"></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(0,95,153,0.2)"></use>
+      </g>
+    </svg>
+  </div>
   <script>
-    window.addEventListener('DOMContentLoaded', function() {
+    window.addEventListener('DOMContentLoaded', function () {
       const wavesContainer = document.querySelector('.wavesContainer');
       if (wavesContainer) {
         wavesContainer.classList.add('flipped'); // Ensure the flipped class is applied
@@ -484,7 +526,9 @@
 
 
   <!-- Bootstrap core JavaScript -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
   <script src="/js/specs-collapse.js"></script>
   <script src="/js/github-projects.js"></script>
   <script src="/js/ui-gallery.js"></script>
@@ -493,4 +537,5 @@
   <div id="footer"></div>
   <script src="/js/footer.js"></script>
 </body>
+
 </html>
