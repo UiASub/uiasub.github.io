@@ -215,5 +215,29 @@
         "role_no": "UiASub",
         "role_en": "UiASub",
         "group": "members"
+    },
+    {
+        "id": 28,
+        "image": "IMG_0475.jpg",
+        "name": "Jonathan Fedje",
+        "role_no": "Data",
+        "role_en": "Data",
+        "group": "data"
+    },
+    {
+        "id": 29,
+        "image": "IMG_0.jpg",
+        "name": "Mads Westbø Hansen",
+        "role_no": "Mekanisk",
+        "role_en": "Mechanical",
+        "group": "mechanical"
+    },
+    {
+        "id": 30,
+        "image": "IMG_0.jpg",
+        "name": "Håkon Holgernes",
+        "role_no": "Nestleder",
+        "role_en": "Assistant leader",
+        "group": "leadership"
     }
 ]
