@@ -1,64 +1,62 @@
-// Use Bootstrap's Collapse API to toggle members reliably
-(function(){
-  'use strict';
+document.addEventListener('DOMContentLoaded', function () {
+  const membersContainer = document.getElementById('members-container');
+  if (!membersContainer) return;
 
-  function setupCollapseToggle(opts) {
-    var btn = document.getElementById(opts.btnId);
-    var collapseEl = document.getElementById(opts.collapseId);
-    if (!btn || !collapseEl) return;
-    if (!window.bootstrap || !bootstrap.Collapse) {
-      console.warn('Bootstrap Collapse API not available for', opts.collapseId);
-      return;
-    }
+  // Determine language
+  const isEnglish = document.documentElement.lang === 'en' || window.location.pathname.includes('/en/');
 
-    try {
-      var bsCollapse = new bootstrap.Collapse(collapseEl, { toggle: false });
+  // Define group order and titles
+  const groups = [
+    { id: 'leadership', title_no: 'Ledelse', title_en: 'Leadership' },
+    { id: 'data', title_no: 'Data', title_en: 'Data' },
+    { id: 'electronics', title_no: 'Elektronikk', title_en: 'Electronics' },
+    { id: 'mechanical', title_no: 'Mekanisk', title_en: 'Mechanical' },
+    { id: 'marketing', title_no: 'Markedsføring', title_en: 'Marketing' },
+    { id: 'members', title_no: 'Medlemmer', title_en: 'Members' }
+  ];
 
-      function syncState(isShown) {
-        btn.setAttribute('aria-expanded', isShown ? 'true' : 'false');
-        var textEl = btn.querySelector('.button-text');
-        if (textEl && opts.labels) textEl.textContent = isShown ? opts.labels.expanded : opts.labels.collapsed;
-      }
+  fetch('/data/members.json')
+    .then(response => response.json())
+    .then(members => {
+      groups.forEach(group => {
+        // Filter members for this group
+        const groupMembers = members.filter(m => m.group === group.id);
 
-      // Initialize based on DOM
-      syncState(collapseEl.classList.contains('show'));
+        if (groupMembers.length > 0) {
+          // Create section header
+          const sectionTitle = isEnglish ? group.title_en : group.title_no;
+          const sectionHeader = document.createElement('div');
+          sectionHeader.className = 'col-12 mt-5 mb-3';
+          sectionHeader.innerHTML = `<h3 class="text-white text-center border-bottom pb-2" style="border-color: rgba(255,255,255,0.1) !important;">${sectionTitle}</h3>`;
+          membersContainer.appendChild(sectionHeader);
 
-      btn.addEventListener('click', function (e) {
-        e && e.preventDefault();
-        var isShown = collapseEl.classList.contains('show');
-        if (isShown) {
-          bsCollapse.hide();
-          syncState(false);
-        } else {
-          bsCollapse.show();
-          // respect reduced-motion when scrolling into view
-          try {
-            var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            if (prefersReduced) collapseEl.scrollIntoView({ behavior: 'auto', block: 'start' });
-            else collapseEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          } catch (err) {}
-          syncState(true);
+          // Render members
+          groupMembers.forEach(member => {
+            // Select role based on language
+            const role = isEnglish ? (member.role_en || member.role_no) : member.role_no;
+
+            // Handle placeholder name translation
+            let name = member.name;
+            if (isEnglish && name === 'Medlem') {
+              name = 'Member';
+            }
+
+            const memberCard = document.createElement('div');
+            memberCard.className = 'col-md-4';
+            memberCard.setAttribute('data-id', member.id);
+            memberCard.innerHTML = `
+              <div class="card h-100">
+                <img src="/images/profie_shared/${member.image}" loading="lazy" decoding="async" class="card-img-top" alt="${name}">
+                <div class="card-body">
+                  <h5 class="card-title text-white">${name}</h5>
+                  <h6 class="card-subtitle mb-2 text-white-50">${role}</h6>
+                </div>
+              </div>
+            `;
+            membersContainer.appendChild(memberCard);
+          });
         }
       });
-
-      collapseEl.addEventListener('shown.bs.collapse', function () { syncState(true); });
-      collapseEl.addEventListener('hidden.bs.collapse', function () { syncState(false); });
-    } catch (err) {
-      console.error('Failed to initialize collapse toggle for', opts.collapseId, err);
-    }
-  }
-
-  function init() {
-    // Locale detection: check path prefix (English pages are under /en/)
-    var isEnglish = location.pathname && location.pathname.startsWith('/en');
-    var LABELS = isEnglish ? { collapsed: 'Members', expanded: 'Hide Members' } : { collapsed: 'Medlemmer', expanded: 'Skjul' };
-
-    setupCollapseToggle({ btnId: 'members-toggle', collapseId: 'members-collapse', labels: LABELS });
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function onReady() { init(); }, { once: true });
-  } else {
-    init();
-  }
-})();
+    })
+    .catch(error => console.error('Error loading members:', error));
+});

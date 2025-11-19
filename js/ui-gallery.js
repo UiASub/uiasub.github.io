@@ -1,4 +1,4 @@
-(function(){
+(function () {
   'use strict';
 
   /**
@@ -116,13 +116,13 @@
 
     if (!titleEl || !imgEl || !descEl) return;
 
-  // Use dataset-driven content where available (cards in HTML may contain localized text),
-  // but fall back to our localized mockupsData object.
-  titleEl.textContent = data.title;
-  descEl.textContent = data.description || '';
+    // Use dataset-driven content where available (cards in HTML may contain localized text),
+    // but fall back to our localized mockupsData object.
+    titleEl.textContent = data.title;
+    descEl.textContent = data.description || '';
 
     // Lazy load image: set src only when modal is shown/updated
-  const imgUrl = data.imagePath || (placeholderBase + encodeURIComponent(data.title));
+    const imgUrl = data.imagePath || (placeholderBase + encodeURIComponent(data.title));
     // Use a cache-busting-free approach: let the browser handle caching; on error we'll fallback
     imgEl.src = imgUrl;
 
@@ -159,6 +159,13 @@
     if (currentMockupIndex > 0) {
       updateModalContent(currentMockupIndex - 1);
     }
+  }
+
+  /**
+   * Handle image load errors by replacing with a placeholder.
+   */
+  function handleImageError(ev) {
+    ev.target.src = placeholderBase + 'Image+Not+Found';
   }
 
 

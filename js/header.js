@@ -20,7 +20,7 @@ function initializeHeader() {
   }
 
   const headerPath = isEnglish ? '/en/header.html' : '/header.html';
-  
+
   const cacheKey = isEnglish ? 'header-eng-html' : 'header-nb-html';
   const cached = sessionStorage.getItem(cacheKey);
   // If header was injected and contains a masthead, mark the document and set masthead height
@@ -39,52 +39,52 @@ function initializeHeader() {
       targetElement.style.opacity = '1';
       targetElement.style.transition = 'opacity 0.2s ease-in';
     });
-      
-      // Initialize scroll functionality after header is loaded
-      // Logo sizing is controlled by CSS to preserve original layout and dropdown behavior.
-      // Leave JS out of sizing changes to avoid conflicts or unexpected height shifts.
-      const logo = document.getElementById('logo');
-      if (logo) {
-        // Optional: keep a class-based small-on-scroll behavior if desired later.
-        // No inline style changes here to let CSS determine dimensions.
-      }
+
+    // Initialize scroll functionality after header is loaded
+    // Logo sizing is controlled by CSS to preserve original layout and dropdown behavior.
+    // Leave JS out of sizing changes to avoid conflicts or unexpected height shifts.
+    const logo = document.getElementById('logo');
+    if (logo) {
+      // Optional: keep a class-based small-on-scroll behavior if desired later.
+      // No inline style changes here to let CSS determine dimensions.
+    }
 
     // Initialize dropdown functionality
     initializeDropdown();
 
-      // Initialize theme toggle if present
-      try {
-        initThemeToggle();
-      } catch (e) {
-        // ignore if toggle not present yet
+    // Initialize theme toggle if present
+    try {
+      initThemeToggle();
+    } catch (e) {
+      // ignore if toggle not present yet
+    }
+
+    // Initialize hamburger menu
+    initializeHamburgerMenu();
+
+    // Wait for DOM update, then check login status and update link
+    setTimeout(() => {
+      checkLoginStatus(isEnglish);
+    }, 0);
+    // Ensure manifest and theme-color meta exist in document head (useful when header.html is injected into body)
+    try {
+      if (!document.querySelector('link[rel="manifest"]')) {
+        const m = document.createElement('link');
+        m.rel = 'manifest';
+        m.href = '/manifest.webmanifest';
+        document.head.appendChild(m);
       }
-
-      // Initialize hamburger menu
-      initializeHamburgerMenu();
-
-      // Wait for DOM update, then check login status and update link
-      setTimeout(() => {
-        checkLoginStatus(isEnglish);
-      }, 0);
-      // Ensure manifest and theme-color meta exist in document head (useful when header.html is injected into body)
-      try {
-        if (!document.querySelector('link[rel="manifest"]')) {
-          const m = document.createElement('link');
-          m.rel = 'manifest';
-          m.href = '/manifest.webmanifest';
-          document.head.appendChild(m);
-        }
-        if (!document.querySelector('meta[name=\"theme-color\"]')) {
-          const meta = document.createElement('meta');
-          meta.name = 'theme-color';
-          meta.content = '#003f7f';
-          document.head.appendChild(meta);
-        }
-      } catch (e) {
-        console.warn('Could not add manifest/meta to head:', e);
+      if (!document.querySelector('meta[name=\"theme-color\"]')) {
+        const meta = document.createElement('meta');
+        meta.name = 'theme-color';
+        meta.content = '#003f7f';
+        document.head.appendChild(meta);
       }
+    } catch (e) {
+      console.warn('Could not add manifest/meta to head:', e);
+    }
 
-    
+
   };
 
   if (cached) {
@@ -147,7 +147,7 @@ function initializeDropdown() {
       menu.style.zIndex = 2000;
       isOpen = true;
       toggle.setAttribute('aria-expanded', 'true');
-      
+
       // Store the last focused element and move focus to first menu link
       lastFocusedElement = document.activeElement;
       const firstLink = menu.querySelector('a');
@@ -172,7 +172,7 @@ function initializeDropdown() {
       menu.style.zIndex = '';
       isOpen = false;
       toggle.setAttribute('aria-expanded', 'false');
-      
+
       // Return focus to toggle button
       if (lastFocusedElement && lastFocusedElement === toggle) {
         toggle.focus();
@@ -196,7 +196,7 @@ function initializeDropdown() {
     menu.addEventListener('keydown', (e) => {
       const menuLinks = Array.from(menu.querySelectorAll('a'));
       const currentIndex = menuLinks.indexOf(document.activeElement);
-      
+
       if (e.key === 'ArrowDown') {
         e.preventDefault();
         const nextIndex = (currentIndex + 1) % menuLinks.length;
@@ -229,13 +229,13 @@ function initializeDropdown() {
 function initializeHamburgerMenu() {
   const hamburger = document.querySelector('.hamburger-menu');
   const navigation = document.querySelector('.navigation');
-  
+
   if (hamburger && navigation) {
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('active');
       navigation.classList.toggle('active');
     });
-    
+
     // Close menu when clicking a navigation link
     const navLinks = navigation.querySelectorAll('a');
     navLinks.forEach(link => {
@@ -251,7 +251,11 @@ async function checkLoginStatus(isEnglish) {
   const loginLink = document.getElementById('loginLink');
   const EDGE_FUNCTION_URL = "https://iiauxyfisphubpsaffag.supabase.co/functions/v1/discord-role-sync";
   const token = window.localStorage.getItem('access_token');
+  const CACHE_KEY = 'loginStatusCache';
+  const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes in milliseconds
+
   if (!loginLink) return;
+
   // Always point to the canonical login/equipment pages under /pages/ (no locale prefix).
   // The link text is localized, but the routes are centralized.
   if (!token) {
@@ -259,8 +263,36 @@ async function checkLoginStatus(isEnglish) {
     loginLink.textContent = isEnglish ? ' Log In' : ' Logg Inn';
     loginLink.href = `/pages/login.html`;
     loginLink.style.color = '';
+    sessionStorage.removeItem(CACHE_KEY); // Clear cache if no token
     return;
   }
+
+  // Check cache first (DDOS protection lel)
+  try {
+    const cached = sessionStorage.getItem(CACHE_KEY);
+    if (cached) {
+      const { status, timestamp } = JSON.parse(cached);
+      const age = Date.now() - timestamp;
+
+      // Use cached status if less than 5 minutes old
+      if (age < CACHE_DURATION) {
+        if (status === 'logged_in') {
+          loginLink.textContent = isEnglish ? ' Logged In' : ' Logget Inn';
+          loginLink.href = `/pages/equipment.html`;
+          loginLink.style.color = '#3ba55d';
+        } else {
+          loginLink.textContent = isEnglish ? ' Log In' : ' Logg Inn';
+          loginLink.href = `/pages/login.html`;
+          loginLink.style.color = '';
+        }
+        return; // Use cached status, skip API call
+      }
+    }
+  } catch (e) {
+    // Invalid cache, continue to API call
+  }
+
+  // No valid cache, make API call
   try {
     const res = await fetch(EDGE_FUNCTION_URL, {
       method: 'POST',
@@ -271,19 +303,31 @@ async function checkLoginStatus(isEnglish) {
       body: JSON.stringify({ check: true })
     });
     const payload = await res.json().catch(() => null);
-      if (res.status === 200 && payload && payload.ok === true) {
+
+    if (res.status === 200 && payload && payload.ok === true) {
       loginLink.textContent = isEnglish ? ' Logged In' : ' Logget Inn';
       loginLink.href = `/pages/equipment.html`;
       loginLink.style.color = '#3ba55d';
+      // Cache the logged-in status
+      sessionStorage.setItem(CACHE_KEY, JSON.stringify({
+        status: 'logged_in',
+        timestamp: Date.now()
+      }));
     } else {
       loginLink.textContent = isEnglish ? ' Log In' : ' Logg Inn';
       loginLink.href = `/pages/login.html`;
       loginLink.style.color = '';
+      // Cache the logged-out status
+      sessionStorage.setItem(CACHE_KEY, JSON.stringify({
+        status: 'logged_out',
+        timestamp: Date.now()
+      }));
     }
   } catch (e) {
     loginLink.textContent = isEnglish ? ' Log In' : ' Logg Inn';
     loginLink.href = `/pages/login.html`;
     loginLink.style.color = '';
+    // Don't cache errors, allow retry on next page
   }
 }
 

@@ -25,9 +25,6 @@ Include the dynamic header placeholder and the shared header loader script:
     <link href="/css/custom.css" rel="stylesheet">
     <link href="/css/header.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/waves.css">
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
   </head>
 
   <body>
