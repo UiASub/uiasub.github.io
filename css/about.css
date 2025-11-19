@@ -1,104 +1,125 @@
-:root {
-  --gradient: linear-gradient(to left top, #DD2476 10%, #FF512F 90%) !important;
+/* TAC Challenge Page Styles */
+
+/* Typography matching ROV page style with engineering touches */
+.fs-3.fw-bold {
+  color: #e6f7ff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
+.lead {
+  color: #44B8FF !important;
+  font-size: 1.35rem;
+  line-height: 1.6;
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
 
+.text-light {
+  color: rgba(230, 247, 255, 0.9) !important;
+  line-height: 1.7;
+}
+
+/* Hero section styling */
+.callout.about-modern {
+  background: linear-gradient(135deg, rgba(0, 47, 71, 0.4) 0%, rgba(0, 16, 26, 0.6) 100%);
+  padding: 80px 0 60px 0;
+}
+
+@media (max-width: 768px) {
+  .callout.about-modern {
+    padding: 60px 0 40px 0;
+  }
+}
+
+.about-visual {
+  background: linear-gradient(90deg, rgba(0, 47, 71, 0.6) 0%, rgba(0, 16, 26, 0.5) 50%, rgba(0, 47, 71, 0.6) 100%);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Card styling with ocean theme */
 .card {
-  background: #222;
-  border: 1px solid #dd2476;
-  color: rgba(250, 250, 250, 0.8);
-  margin-bottom: 2rem;
-}
-button {
- position: relative;
- display: inline-block;
- cursor: pointer;
- outline: none;
- border: 0;
- vertical-align: middle;
- text-decoration: none;
- background: transparent;
- padding: 0;
- font-size: inherit;
- font-family: inherit;
+  background: linear-gradient(135deg, rgba(0, 47, 71, 0.8) 0%, rgba(0, 95, 153, 0.6) 100%);
+  border: 1px solid rgba(68, 184, 255, 0.3);
+  color: #e6f7ff;
+  transition: all 0.3s ease;
 }
 
-button.learn-more {
- width: 12rem;
- height: auto;
+.card:hover {
+  border-color: rgba(68, 184, 255, 0.6);
+  box-shadow: 0 4px 20px rgba(68, 184, 255, 0.2);
+  transform: translateY(-2px);
 }
 
-button.learn-more .circle {
- transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
- position: relative;
- display: block;
- margin: 0;
- width: 3rem;
- height: 3rem;
- background: #282936;
- border-radius: 1.625rem;
+.card-title {
+  color: #44B8FF;
 }
 
-button.learn-more .circle .icon {
- transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
- position: absolute;
- top: 0;
- bottom: 0;
- margin: auto;
- background: #fff;
+.card-text {
+  color: rgba(230, 247, 255, 0.9);
 }
 
-button.learn-more .circle .icon.arrow {
- transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
- left: 0.625rem;
- width: 1.125rem;
- height: 0.125rem;
- background: none;
+/* SVG icons in cards */
+.card svg {
+  color: #44B8FF;
 }
 
-button.learn-more .circle .icon.arrow::before {
- position: absolute;
- content: "";
- top: -0.29rem;
- right: 0.0625rem;
- width: 0.625rem;
- height: 0.625rem;
- border-top: 0.125rem solid #fff;
- border-right: 0.125rem solid #fff;
- transform: rotate(45deg);
+/* Sponsor/info cards */
+.sponsor-logo-card {
+  background: rgba(0, 47, 71, 0.6);
+  border: 1px solid rgba(68, 184, 255, 0.2);
+  border-radius: 8px;
+  transition: all 0.3s ease;
 }
 
-button.learn-more .button-text {
- transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
- position: absolute;
- top: 0;
- left: 0;
- right: 0;
- bottom: 0;
- padding: 0.75rem 0;
- margin: 0 0 0 1.85rem;
- color: #656565;
- font-weight: 700;
- line-height: 1.6;
- text-align: center;
- text-transform: uppercase;
+.sponsor-logo-card:hover {
+  background: rgba(0, 47, 71, 0.8);
+  border-color: rgba(68, 184, 255, 0.4);
 }
 
-button:hover .circle {
- width: 100%;
+/* Badge styling */
+.badge {
+  font-weight: 500;
+  padding: 0.5em 0.8em;
 }
 
-button:hover .circle .icon.arrow {
- background: #fff;
- transform: translate(1rem, 0);
+.badge.bg-success {
+  background-color: rgba(0, 153, 102, 0.8) !important;
 }
 
-button:hover .button-text {
- color: #fff;
+.badge.bg-warning {
+  background-color: rgba(255, 193, 7, 0.9) !important;
 }
 
-/* Ensure the members toggle and collapse content sit above decorative wave SVGs */
-.learn-more, #members-collapse, .learn-more + #members-collapse {
+/* Section backgrounds */
+section.bg-dark.bg-opacity-25 {
+  background: rgba(0, 16, 26, 0.4) !important;
+}
+
+/* Ensure proper text contrast */
+.text-white-50 {
+  color: rgba(230, 247, 255, 0.6) !important;
+}
+
+/* Button styling */
+.btn-outline-primary {
+  border-color: #44B8FF;
+  color: #44B8FF;
+}
+
+.btn-outline-primary:hover {
+  background-color: #44B8FF;
+  color: #002f47;
+}
+
+/* FIXES: Ensure the members toggle and collapse content sit above decorative wave SVGs */
+.learn-more,
+#members-collapse,
+.learn-more+#members-collapse {
   position: relative;
   z-index: 5;
 }
@@ -108,7 +129,8 @@ button:hover .button-text {
 #members-collapse.collapsing,
 #members-collapse.collapsing {
   position: relative !important;
-  z-index: 25 !important; /* higher during the transition */
+  z-index: 25 !important;
+  /* higher during the transition */
   pointer-events: auto !important;
 }
 
@@ -122,35 +144,46 @@ button:hover .button-text {
 #members-collapse {
   background: transparent !important;
 }
+
 #members-collapse .card {
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
-  transform: none !important;
   z-index: 30 !important;
 }
-#members-collapse .card { margin-left: auto; margin-right: auto; }
-#members-collapse .card .card-body, #members-collapse .card-img-top {
+
+#members-collapse .card {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#members-collapse .card .card-body,
+#members-collapse .card-img-top {
   visibility: visible !important;
   opacity: 1 !important;
 }
 
 .about-visual {
-  height: 320px; 
+  height: 320px;
 }
+
 .about-modern .lead {
   font-size: 1.05rem;
 }
+
 .stat-num {
   color: #e6f7ff;
 }
+
 .stat-label {
   color: rgba(230, 247, 255, 0.6);
 }
+
 .about-modern .btn-outline-light {
   border-color: rgba(199, 199, 199, 0.14);
   color: #e6f7ff;
 }
+
 @media (max-width: 767px) {
   .about-visual {
     height: 200px;

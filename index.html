@@ -8,9 +8,7 @@
   <meta name="title" content="UiASub">
   <meta name="theme-color" content="#00101a">
   <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self'; img-src 'self' https: data:; script-src 'self' https://cdn.jsdelivr.net https://ajax.googleapis.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; connect-src 'self' https://iiauxyfisphubpsaffag.supabase.co; frame-src https://docs.google.com; object-src 'none'; base-uri 'self';">
-  <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self'; img-src 'self' https: data:; script-src 'self' https://cdn.jsdelivr.net https://ajax.googleapis.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; connect-src 'self' https://iiauxyfisphubpsaffag.supabase.co; frame-src https://docs.google.com; object-src 'none'; base-uri 'self';">
+    content="default-src 'self'; img-src 'self' https: data:; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://ajax.googleapis.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; connect-src 'self' https://cdn.jsdelivr.net https://iiauxyfisphubpsaffag.supabase.co; frame-src https://docs.google.com; object-src 'none'; base-uri 'self';">
   <link href="images/uiasub/Icon1.png" rel="shortcut icon">
   <link href="manifest.webmanifest" rel="manifest">
 
@@ -19,8 +17,8 @@
   <!-- Preload header and footer to mitigate FOUC and improve LCP -->
   <link rel="preload" as="fetch" href="/header.html" crossorigin>
   <link rel="preload" as="fetch" href="/footer.html" crossorigin>
-  <!-- Preload hero poster for faster LCP -->
-  <link rel="preload" as="image" href="images/uiasub/hero-poster.jpg">
+  <!-- Preload critical assets -->
+  <link rel="preload" as="image" href="images/uiasub/K2Lights.png">
 
   <!-- Bootstrap core CSS (v5) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -42,7 +40,7 @@
   <!-- HERO: carousel-style video hero -->
   <section class="video-hero" aria-label="Hero" data-overlay-enabled="true">
     <video id="use-this-hero-video" class="hero-video" autoplay loop muted playsinline preload="none"
-      poster="images/uiasub/hero-poster.jpg">
+      poster="images/uiasub/K2Lights.png">
       <source src="videos/UseThis.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
@@ -98,6 +96,31 @@
               <p class="text-info">Forventes å være produsert innen 2026</p>
               <div class="border-top border-light my-3 section-divider"></div>
               <a href="pages/rov.html" class="btn btn-primary">Se den her</a>
+            </div>
+          </div>
+
+          <hr class="my-5">
+
+          <div class="row align-items-center mb-5" id="om-oss">
+            <div class="col-md-4 text-center mb-3 mb-md-0">
+              <img src="images/profie_shared/DSC01493.jpg" alt="UiASub team" class="img-fluid rounded shadow"
+                loading="lazy" width="400" height="300" style="object-fit: cover; height: 300px;">
+            </div>
+            <div class="col-md-8 text-white">
+              <h2 class="h3">Om UiASub</h2>
+              <p class="h5 text-primary">Studentdrevet undervannsteknologi</p>
+              <p>UiASub er en studentdrevet teknologigruppe ved Universitetet i Agder. Vi bygger autonome og fjernstyrte
+                undervannssystemer, lærer gjennom praktiske prosjekter og samarbeider tett med næringslivet.</p>
+
+              <p class="mb-2"><strong>TL;DR:</strong></p>
+              <ul class="small text-white-50 mb-3">
+                <li>~30 Aktive medlemmer</li>
+                <li>2 ROV-er</li>
+                <li>+3 Partnere</li>
+              </ul>
+
+              <div class="border-top border-light my-3 section-divider"></div>
+              <a href="pages/about.html" class="btn btn-primary">Les mer om oss</a>
             </div>
           </div>
 

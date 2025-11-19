@@ -1,4 +1,4 @@
-const CACHE_NAME = 'uiasub-static-v7';
+const CACHE_NAME = 'uiasub-static-v8';
 const PRECACHE_URLS = [
   './',
   './index.html',
@@ -34,11 +34,11 @@ self.addEventListener('fetch', (event) => {
   const request = event.request;
   if (request.mode === 'navigate' || (request.method === 'GET' && request.headers.get('accept')?.includes('text/html'))) {
     event.respondWith(
-        fetch(request).then((res) => {
-          const copy = res.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
-          return res;
-        }).catch(() => caches.match(request).then((r) => r || caches.match(new URL('./offline.html', self.registration.scope))))
+      fetch(request).then((res) => {
+        const copy = res.clone();
+        caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
+        return res;
+      }).catch(() => caches.match(request).then((r) => r || caches.match(new URL('./offline.html', self.registration.scope))))
     );
     return;
   }
