@@ -1,0 +1,219 @@
+[
+    {
+        "_comment": "See https://github.com/UiASub/uiasub.github.io/wiki/Quick%E2%80%90start#update-a-team-member for documentation.",
+        "id": 12,
+        "image": "IMG_0650.jpg",
+        "name": "Sverre Brattelid Stige",
+        "role_no": "Leder",
+        "role_en": "Leader",
+        "group": "leadership"
+    },
+    {
+        "id": 14,
+        "image": "IMG_0657.jpg",
+        "name": "Marius Ringsby",
+        "role_no": "Data leder",
+        "role_en": "Data Leader",
+        "group": "data"
+    },
+    {
+        "id": 3,
+        "image": "IMG_0611.jpg",
+        "name": "Storm Selvig",
+        "role_no": "Data",
+        "role_en": "Data",
+        "group": "data"
+    },
+    {
+        "id": 17,
+        "image": "IMG_0668.jpg",
+        "name": "Daniel Lindestad",
+        "role_no": "Data",
+        "role_en": "Data",
+        "group": "data"
+    },
+    {
+        "id": 4,
+        "image": "IMG_0613.jpg",
+        "name": "Simen Hanisch",
+        "role_no": "Elektronikk leder",
+        "role_en": "Electronics Leader",
+        "group": "electronics"
+    },
+    {
+        "id": 13,
+        "image": "IMG_0654.jpg",
+        "name": "Ryan Kevique Ngabo",
+        "role_no": "Elektronikk leder",
+        "role_en": "Electronics Leader",
+        "group": "electronics"
+    },
+    {
+        "id": 10,
+        "image": "IMG_0639.jpg",
+        "name": "Emil Soppeland",
+        "role_no": "Mekanisk",
+        "role_en": "Mechanical",
+        "group": "mechanical"
+    },
+    {
+        "id": 25,
+        "image": "IMG_0696.jpg",
+        "name": "Askil Erga Gaard",
+        "role_no": "Mekanisk",
+        "role_en": "Mechanical",
+        "group": "mechanical"
+    },
+    {
+        "id": 27,
+        "image": "IMG_0704.jpg",
+        "name": "Ella Bach",
+        "role_no": "Multimedia og design",
+        "role_en": "Multimedia and Design",
+        "group": "marketing"
+    },
+    {
+        "id": 1,
+        "image": "IMG_0598.jpg",
+        "name": "Medlem",
+        "role_no": "UiASub",
+        "role_en": "UiASub",
+        "group": "members"
+    },
+    {
+        "id": 2,
+        "image": "IMG_0606.jpg",
+        "name": "Medlem",
+        "role_no": "UiASub",
+        "role_en": "UiASub",
+        "group": "members"
+    },
+    {
+        "id": 5,
+        "image": "IMG_0619.jpg",
+        "name": "Medlem",
+        "role_no": "UiASub",
+        "role_en": "UiASub",
+        "group": "members"
+    },
+    {
+        "id": 6,
+        "image": "IMG_0624.jpg",
+        "name": "Medlem",
+        "role_no": "UiASub",
+        "role_en": "UiASub",
+        "group": "members"
+    },
+    {
+        "id": 7,
+        "image": "IMG_0628.jpg",
+        "name": "Medlem",
+        "role_no": "UiASub",
+        "role_en": "UiASub",
+        "group": "members"
+    },
+    {
+        "id": 8,
+        "image": "IMG_0632.jpg",
+        "name": "Medlem",
+        "role_no": "UiASub",
+        "role_en": "UiASub",
+        "group": "members"
+    },
+    {
+        "id": 9,
+        "image": "IMG_0636.jpg",
+        "name": "Medlem",
+        "role_no": "UiASub",
+        "role_en": "UiASub",
+        "group": "members"
+    },
+    {
+        "id": 11,
+        "image": "IMG_0646.jpg",
+        "name": "Medlem",
+        "role_no": "UiASub",
+        "role_en": "UiASub",
+        "group": "members"
+    },
+    {
+        "id": 15,
+        "image": "IMG_0660.jpg",
+        "name": "Medlem",
+        "role_no": "UiASub",
+        "role_en": "UiASub",
+        "group": "members"
+    },
+    {
+        "id": 16,
+        "image": "IMG_0663.jpg",
+        "name": "Medlem",
+        "role_no": "UiASub",
+        "role_en": "UiASub",
+        "group": "members"
+    },
+    {
+        "id": 18,
+        "image": "IMG_0671.jpg",
+        "name": "Medlem",
+        "role_no": "UiASub",
+        "role_en": "UiASub",
+        "group": "members"
+    },
+    {
+        "id": 19,
+        "image": "IMG_0674.jpg",
+        "name": "Medlem",
+        "role_no": "UiASub",
+        "role_en": "UiASub",
+        "group": "members"
+    },
+    {
+        "id": 20,
+        "image": "IMG_0679.jpg",
+        "name": "Medlem",
+        "role_no": "UiASub",
+        "role_en": "UiASub",
+        "group": "members"
+    },
+    {
+        "id": 21,
+        "image": "IMG_0682.jpg",
+        "name": "Medlem",
+        "role_no": "UiASub",
+        "role_en": "UiASub",
+        "group": "members"
+    },
+    {
+        "id": 22,
+        "image": "IMG_0685.jpg",
+        "name": "Medlem",
+        "role_no": "UiASub",
+        "role_en": "UiASub",
+        "group": "members"
+    },
+    {
+        "id": 23,
+        "image": "IMG_0691.jpg",
+        "name": "Medlem",
+        "role_no": "UiASub",
+        "role_en": "UiASub",
+        "group": "members"
+    },
+    {
+        "id": 24,
+        "image": "IMG_0694.jpg",
+        "name": "Medlem",
+        "role_no": "UiASub",
+        "role_en": "UiASub",
+        "group": "members"
+    },
+    {
+        "id": 26,
+        "image": "IMG_0700.jpg",
+        "name": "Medlem",
+        "role_no": "UiASub",
+        "role_en": "UiASub",
+        "group": "members"
+    }
+]
