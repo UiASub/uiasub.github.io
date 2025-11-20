@@ -1,0 +1,23 @@
+[
+    {
+        "name": "IXYS Norge",
+        "image": "/images/sponsors/IXYS-logo.webp",
+        "description": "IXYS Norge AS leverer komponenter til kraftelektronikk og høyspent.",
+        "description_en": "IXYS Norge AS delivers components for power electronics and high voltage.",
+        "link": "https://ixys.no"
+    },
+    {
+        "name": "Würth Elektronik",
+        "image": "/images/sponsors/Wurth-Elektronik-RGB_neg-1.png",
+        "description": "Würth Elektronik tilbyr et bredt utvalg av elektroniske komponenter.",
+        "description_en": "Würth Elektronik offers a wide range of electronic components.",
+        "link": "https://www.we-online.com"
+    },
+    {
+        "name": "FFU",
+        "image": "/images/sponsors/ffu-logo.png",
+        "description": "FFU støtter studentorganisasjoner ved UiA.",
+        "description_en": "FFU supports student organizations at UiA.",
+        "link": "https://ffu.no"
+    }
+]
