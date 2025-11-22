@@ -8,6 +8,7 @@ function sanitize(text) {
 }
 
 function showError(message) {
+  hideLoading(); // Hide loading when showing error
   if (!errorMessage) return;
   const safe = sanitize(message || "You don't have access to this site.");
   errorMessage.innerHTML = `
@@ -18,6 +19,28 @@ function showError(message) {
   `;
   errorMessage.style.display = 'block';
 }
+
+function showLoading() {
+  if (!errorMessage) return;
+  errorMessage.innerHTML = `
+    <div style="max-width:760px;margin:16px auto;padding:24px;border-radius:10px;background:linear-gradient(180deg, rgba(34,34,34,0.75), rgba(10,10,10,0.7));border:1px solid rgba(66,135,245,0.3);box-shadow:0 6px 20px rgba(0,0,0,0.5);color:#ffffff;text-align:center;">
+      <div style="display:inline-block;width:40px;height:40px;border:4px solid rgba(66,135,245,0.3);border-top-color:#4287f5;border-radius:50%;animation:spin 1s linear infinite;margin-bottom:12px;"></div>
+      <div style="font-size:16px;color:#e6eef6;">Authenticating with Discord...</div>
+    </div>
+    <style>
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+    </style>
+  `;
+  errorMessage.style.display = 'block';
+}
+
+function hideLoading() {
+  if (!errorMessage) return;
+  errorMessage.innerHTML = '';
+  errorMessage.style.display = 'none';
+}
 // Supabase Discord OAuth login
 
 // Process OAuth redirect - can be called even if not on login page
@@ -27,6 +50,7 @@ function processOAuthRedirect() {
     const params = new URLSearchParams(hash.slice(1));
     const accessToken = params.get('access_token');
     if (accessToken) {
+      showLoading(); // Show loading during authorization
       // 1) Role check
       fetch(EDGE_FUNCTION_URL, {
         method: 'POST',
@@ -103,6 +127,7 @@ if (!loginBtn) {
 
   // Discord OAuth login button
   loginBtn.onclick = () => {
+    showLoading(); // Show loading immediately
     const redirectTo = window.location.origin + '/pages/login.html';
     const oauthUrl = `https://iiauxyfisphubpsaffag.supabase.co/auth/v1/authorize?provider=discord&redirect_to=${encodeURIComponent(redirectTo)}`;
     console.log('OAuth Flow Starting:', {

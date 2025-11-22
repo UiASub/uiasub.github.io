@@ -43,8 +43,14 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // For other requests, try cache first
+  // For other requests, try cache first, silently fail if both cache and network unavailable
   event.respondWith(
-    caches.match(request).then((cached) => cached || fetch(request))
+    caches.match(request).then((cached) => {
+      if (cached) return cached;
+      return fetch(request).catch(() => {
+        // Silently fail for missing resources when offline
+        return new Response('', { status: 408, statusText: 'Request Timeout' });
+      });
+    })
   );
 });
