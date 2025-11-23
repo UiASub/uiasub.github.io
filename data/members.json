@@ -179,7 +179,7 @@
     {
         "id": 21,
         "image": "IMG_0682.jpg",
-        "name": "Medlem",
+        "name": "Eskil",
         "role_no": "UiASub",
         "role_en": "UiASub",
         "group": "members"
@@ -187,7 +187,7 @@
     {
         "id": 22,
         "image": "IMG_0685.jpg",
-        "name": "Medlem",
+        "name": "Maks",
         "role_no": "UiASub",
         "role_en": "UiASub",
         "group": "members"
@@ -195,7 +195,7 @@
     {
         "id": 23,
         "image": "IMG_0691.jpg",
-        "name": "Medlem",
+        "name": "Thomas",
         "role_no": "UiASub",
         "role_en": "UiASub",
         "group": "members"
@@ -203,7 +203,7 @@
     {
         "id": 24,
         "image": "IMG_0694.jpg",
-        "name": "Medlem",
+        "name": "Olav",
         "role_no": "UiASub",
         "role_en": "UiASub",
         "group": "members"
@@ -211,7 +211,7 @@
     {
         "id": 26,
         "image": "IMG_0700.jpg",
-        "name": "Medlem",
+        "name": "Murad",
         "role_no": "UiASub",
         "role_en": "UiASub",
         "group": "members"
