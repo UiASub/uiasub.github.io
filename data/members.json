@@ -75,71 +75,71 @@
     {
         "id": 1,
         "image": "IMG_0598.jpg",
-        "name": "Medlem",
-        "role_no": "UiASub",
-        "role_en": "UiASub",
-        "group": "members"
+        "name": "Astrid",
+        "role_no": "Mekanisk",
+        "role_en": "Mechanical",
+        "group": "mechanical"
     },
     {
         "id": 2,
         "image": "IMG_0606.jpg",
-        "name": "Medlem",
-        "role_no": "UiASub",
-        "role_en": "UiASub",
-        "group": "members"
+        "name": "Vetle Andreas Sand",
+        "role_no": "Mekanisk",
+        "role_en": "Mechanical",
+        "group": "mechanical"
     },
     {
         "id": 5,
         "image": "IMG_0619.jpg",
-        "name": "Medlem",
-        "role_no": "UiASub",
-        "role_en": "UiASub",
+        "name": "Jostein",
+        "role_no": "Bedriftsansvarlig",
+        "role_en": "Corporate Relations Manager",
         "group": "members"
     },
     {
         "id": 6,
         "image": "IMG_0624.jpg",
-        "name": "Medlem",
-        "role_no": "UiASub",
-        "role_en": "UiASub",
+        "name": "Eivind Jøsang",
+        "role_no": "Økonomiansvarlig",
+        "role_en": "Finance Manager",
         "group": "members"
     },
     {
         "id": 7,
         "image": "IMG_0628.jpg",
-        "name": "Medlem",
-        "role_no": "UiASub",
-        "role_en": "UiASub",
-        "group": "members"
+        "name": "Markus",
+        "role_no": "Elektronikk",
+        "role_en": "Electronics",
+        "group": "electronics"
     },
     {
         "id": 8,
         "image": "IMG_0632.jpg",
-        "name": "Medlem",
-        "role_no": "UiASub",
-        "role_en": "UiASub",
-        "group": "members"
+        "name": "Chris",
+        "role_no": "Elektronikk",
+        "role_en": "Electronics",
+        "group": "electronics"
     },
     {
         "id": 9,
         "image": "IMG_0636.jpg",
-        "name": "Medlem",
-        "role_no": "UiASub",
-        "role_en": "UiASub",
-        "group": "members"
+        "name": "Michael",
+        "role_no": "Data",
+        "role_en": "Data",
+        "group": "data"
     },
     {
         "id": 11,
         "image": "IMG_0646.jpg",
-        "name": "Medlem",
-        "role_no": "UiASub",
-        "role_en": "UiASub",
-        "group": "members"
+        "name": "Vilasini",
+        "role_no": "Data",
+        "role_en": "Data",
+        "group": "data"
     },
     {
         "id": 15,
         "image": "IMG_0660.jpg",
-        "name": "Medlem",
+        "name": "Elias",
         "role_no": "UiASub",
         "role_en": "UiASub",
         "group": "members"
@@ -147,7 +147,7 @@
     {
         "id": 16,
         "image": "IMG_0663.jpg",
-        "name": "Medlem",
+        "name": "Robert",
         "role_no": "UiASub",
         "role_en": "UiASub",
         "group": "members"
@@ -236,8 +236,8 @@
         "id": 30,
         "image": "IMG_0.jpg",
         "name": "Håkon Holgernes",
-        "role_no": "Nestleder",
-        "role_en": "Assistant leader",
-        "group": "leadership"
+        "role_no": "Mekanisk leder",
+        "role_en": "Mechanical Leader",
+        "group": "mechanical"
     }
 ]
