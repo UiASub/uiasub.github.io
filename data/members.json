@@ -140,25 +140,25 @@
         "id": 15,
         "image": "IMG_0660.jpg",
         "name": "Elias",
-        "role_no": "UiASub",
-        "role_en": "UiASub",
-        "group": "members"
+        "role_no": "Mekanisk",
+        "role_en": "Mechanical",
+        "group": "mechanical"
     },
     {
         "id": 16,
         "image": "IMG_0663.jpg",
         "name": "Robert",
-        "role_no": "UiASub",
-        "role_en": "UiASub",
-        "group": "members"
+        "role_no": "Data",
+        "role_en": "Data",
+        "group": "data"
     },
     {
         "id": 18,
         "image": "IMG_0671.jpg",
         "name": "Sarah",
-        "role_no": "UiASub",
-        "role_en": "UiASub",
-        "group": "members"
+        "role_no": "Elektronikk",
+        "role_en": "Electronics",
+        "group": "electronics"
     },
     {
         "id": 19,
@@ -172,49 +172,49 @@
         "id": 20,
         "image": "IMG_0679.jpg",
         "name": "Sondre",
-        "role_no": "UiASub",
-        "role_en": "UiASub",
-        "group": "members"
+        "role_no": "Mekanisk",
+        "role_en": "Mechanical",
+        "group": "mechanical"
     },
     {
         "id": 21,
         "image": "IMG_0682.jpg",
         "name": "Eskil",
-        "role_no": "UiASub",
-        "role_en": "UiASub",
-        "group": "members"
+        "role_no": "Mekanisk",
+        "role_en": "Mechanical",
+        "group": "mechanical"
     },
     {
         "id": 22,
         "image": "IMG_0685.jpg",
         "name": "Maks",
-        "role_no": "UiASub",
-        "role_en": "UiASub",
-        "group": "members"
+        "role_no": "Mekanisk",
+        "role_en": "Mechanical",
+        "group": "mechanical"
     },
     {
         "id": 23,
         "image": "IMG_0691.jpg",
         "name": "Thomas",
-        "role_no": "UiASub",
-        "role_en": "UiASub",
-        "group": "members"
+        "role_no": "Mekanisk",
+        "role_en": "Mechanical",
+        "group": "mechanical"
     },
     {
         "id": 24,
         "image": "IMG_0694.jpg",
         "name": "Olav",
-        "role_no": "UiASub",
-        "role_en": "UiASub",
-        "group": "members"
+        "role_no": "Mekanisk",
+        "role_en": "Mechanical",
+        "group": "mechanical"
     },
     {
         "id": 26,
         "image": "IMG_0700.jpg",
         "name": "Murad",
-        "role_no": "UiASub",
-        "role_en": "UiASub",
-        "group": "members"
+        "role_no": "Elektronikk",
+        "role_en": "Electronics",
+        "group": "electronics"
     },
     {
         "id": 28,
