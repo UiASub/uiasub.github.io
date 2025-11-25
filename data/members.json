@@ -9,6 +9,14 @@
         "group": "leadership"
     },
     {
+        "id": 30,
+        "image": "IMG_0.jpg",
+        "name": "Håkon Holgernes",
+        "role_no": "Mekanisk leder",
+        "role_en": "Mechanical Leader",
+        "group": "mechanical"
+    },
+    {
         "id": 14,
         "image": "IMG_0657.jpg",
         "name": "Marius Ringsby",
@@ -44,9 +52,9 @@
         "id": 13,
         "image": "IMG_0654.jpg",
         "name": "Ryan Kevique Ngabo",
-        "role_no": "Elektronikk leder",
-        "role_en": "Electronics Leader",
-        "group": "electronics"
+        "role_no": "Nestleder",
+        "role_en": "Assistant Leader",
+        "group": "leadership"
     },
     {
         "id": 10,
@@ -230,14 +238,6 @@
         "name": "Mads Westbø Hansen",
         "role_no": "Mekanisk",
         "role_en": "Mechanical",
-        "group": "mechanical"
-    },
-    {
-        "id": 30,
-        "image": "IMG_0.jpg",
-        "name": "Håkon Holgernes",
-        "role_no": "Mekanisk leder",
-        "role_en": "Mechanical Leader",
         "group": "mechanical"
     }
 ]

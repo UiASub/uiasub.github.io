@@ -32,6 +32,13 @@ self.addEventListener('activate', (event) => {
 // Simple fetch handler: navigation requests -> network-first, others -> cache-first
 self.addEventListener('fetch', (event) => {
   const request = event.request;
+  const url = new URL(request.url);
+
+  // Only handle same-origin requests - let external resources (analytics, CDNs, etc.) pass through
+  if (url.origin !== self.location.origin) {
+    return;
+  }
+
   if (request.mode === 'navigate' || (request.method === 'GET' && request.headers.get('accept')?.includes('text/html'))) {
     event.respondWith(
       fetch(request).then((res) => {
@@ -43,7 +50,7 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // For other requests, try cache first, silently fail if both cache and network unavailable
+  // For other same-origin requests, try cache first
   event.respondWith(
     caches.match(request).then((cached) => {
       if (cached) return cached;
