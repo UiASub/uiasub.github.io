@@ -59,7 +59,22 @@
         <p class="mt-3">
           <a href="/en/pages/join.html" class="btn btn-lg btn-primary hero-cta" role="button">Join us</a>
         </p>
-        <button id="video-play-pause" class="video-control-btn" aria-label="Pause background video" aria-pressed="false"
+        <!-- Video play/pause button i have used from FIREFOX (Line 464) here: view-source:https://www.firefox.com/en-GB/kit/ 
+                     _.-~-.
+                   7''  Q..\
+                _7         (_
+              _7  _/    _q.  /
+            _7 . ___  /VVvv-'_                                            .
+           7/ / /~- \_\\      '-._     .-'                      /       //
+          ./ ( /-~-/||'=.__  '::. '-~'' {             ___   /  //     ./{
+         V   V-~-~| ||   __''_   ':::.   ''~-~.___.-'' _/  // / {_   /  {  /
+          VV/-~-~-|/ \ .'__'. '.    '::                     _ _ _        ''.
+          / /~~~~||VVV/ /  \ )  \        _ __ ___   ___ ___(_) | | __ _   .::'
+         / (~-~-~\\.-' /    \'   \::::. | '_ ` _ \ / _ \_  / | | |/ _` | :::'
+        /..\    /..\__/      '     '::: | | | | | | (_) / /| | | | (_| | ::'
+        vVVv    vVVv                 ': |_| |_| |_|\___/___|_|_|_|\__,_| ''
+        --> 
+        <button id="video-play-pause" class="video-control-btn" aria-label="Pause bakgrunnsvideo" aria-pressed="false"
           type="button">
           <svg class="pause-icon c-animation-button-pause" width="24" height="24" viewBox="0 0 24 24" fill="none"
             xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -67,7 +82,11 @@
             <path d="M7.625 4.99988H9.375V18.9999H7.625V4.99988Z" fill="currentColor" />
             <path d="M14.625 4.99988H16.375V18.9999H14.625V4.99988Z" fill="currentColor" />
           </svg>
-          <span class="play-icon" aria-hidden="true" style="display:none;">▶</span>
+          <svg class="play-icon c-animation-button-play" width="24" height="24" viewBox="0 0 24 24" fill="none" 
+            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <title>Play animation</title>
+            <path d="M5 18.8569V5.14289C5 3.60689 6.659 2.64489 7.992 3.40689L19.992 10.2639C21.336 11.0319 21.336 12.9689 19.992 13.7369L7.992 20.5939C6.659 21.3559 5 20.3929 5 18.8569Z" fill="currentColor"/>
+          </svg>
         </button>
       </div>
     </div>
