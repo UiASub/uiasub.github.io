@@ -196,9 +196,9 @@
         "id": 22,
         "image": "IMG_0685.jpg",
         "name": "Maks",
-        "role_no": "Mekanisk",
-        "role_en": "Mechanical",
-        "group": "mechanical"
+        "role_no": "Data",
+        "role_en": "Data",
+        "group": "data"
     },
     {
         "id": 23,
