@@ -48,6 +48,9 @@ function initializeHeader() {
       // Optional: keep a class-based small-on-scroll behavior if desired later.
       // No inline style changes here to let CSS determine dimensions.
     }
+    
+    // Initialize scroll direction detection for header hide/show
+    initializeScrollDirection();
 
     // Initialize dropdown functionality
     initializeDropdown();
@@ -330,6 +333,65 @@ async function checkLoginStatus(isEnglish) {
     // Don't cache errors, allow retry on next page
   }
 }
+
+// Scroll direction detection for header hide/show
+function initializeScrollDirection() {
+  const masthead = document.querySelector('.masthead');
+  if (!masthead) return;
+
+  let lastScrollY = window.scrollY;
+  let ticking = false;
+  const scrollThreshold = 5; // minimum scroll distance to trigger hide/show
+  const topThreshold = 100; // pixels from top where header always shows
+
+  function updateHeaderVisibility() {
+    const currentScrollY = window.scrollY;
+    const scrollDifference = currentScrollY - lastScrollY;
+
+    // Add/remove scrolled class for background transitions
+    if (currentScrollY > 50) {
+      document.body.classList.add('scrolled');
+    } else {
+      document.body.classList.remove('scrolled');
+    }
+
+    // Always show header at the very top
+    if (currentScrollY < topThreshold) {
+      masthead.classList.remove('header-hidden');
+      masthead.classList.add('at-top');
+    } else {
+      masthead.classList.remove('at-top');
+      
+      // Hide when scrolling down, show when scrolling up
+      if (Math.abs(scrollDifference) > scrollThreshold) {
+        if (scrollDifference > 0) {
+          // Scrolling down - hide header
+          masthead.classList.add('header-hidden');
+        } else {
+          // Scrolling up - show header
+          masthead.classList.remove('header-hidden');
+        }
+      }
+    }
+
+    lastScrollY = currentScrollY;
+    ticking = false;
+  }
+
+  function requestTick() {
+    if (!ticking) {
+      window.requestAnimationFrame(updateHeaderVisibility);
+      ticking = true;
+    }
+  }
+
+  // Listen for scroll events
+  window.addEventListener('scroll', requestTick, { passive: true });
+  
+  // Initial check
+  updateHeaderVisibility();
+}
+
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', initializeHeader);

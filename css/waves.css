@@ -6,6 +6,9 @@
   overflow: hidden;
   /* Make wrapper background transparent so the page gradient from custom.css shows through */
   background: transparent;
+  margin-top: -50px;
+  position: relative;
+  z-index: 2;
 }
 
 .waves {

@@ -24,212 +24,157 @@
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
   <!-- Custom styles for this template -->
-  <link href="css/carousel.css" rel="stylesheet">
   <link href="css/header.css" rel="stylesheet">
   <link href="css/custom.css" rel="stylesheet">
+  <link href="css/kit-style.css" rel="stylesheet">
   <link href="css/waves.css" rel="stylesheet">
 </head>
 
 <body>
   <a href="#main" class="visually-hidden-focusable">Hopp til hovedinnhold</a>
+  
   <!--HEADER-->
   <div id="header"></div>
   <script src="/js/header.js"></script>
 
-  <!-- HERO: carousel-style video hero -->
-  <section class="video-hero" aria-label="Hero" data-overlay-enabled="true">
-    <video id="use-this-hero-video" class="hero-video" autoplay loop muted playsinline preload="none"
-      poster="images/uiasub/K2Lights.png">
-      <source src="videos/UseThis.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-
-    <video id="overlay-hero-video" class="hero-video-overlay" autoplay loop muted playsinline preload="none"
-      aria-hidden="true">
-      <source src="videos/DarkAbstractWaves.mp4" type="video/mp4">
-      <!-- Decorative overlay video -->
-    </video>
-    <script src="js/front-page-video.js"></script>
-
-    <div class="hero-overlay">
-      <div class="hero-content">
-        <div class="deepshadow">
-          <h1 lang="en">ROV Engineering</h1>
+  <!-- HERO BANNER -->
+  <div class="kit-banner-container">
+    <section class="kit-banner" aria-labelledby="kit-banner-heading">
+      <div class="kit-banner-content">
+        <h1 id="kit-banner-heading" class="heading heading-size-2" lang="en">
+          ROV Engineering
+        </h1>
+        <h2 class="kit-banner-subheading" lang="en">Exploring the depths, engineering the future</h2>
+        <div class="kit-banner-body subheading">
+          <p>UiASub er en studentdrevet teknologigruppe ved Universitetet i Agder. Vi bygger autonome og fjernstyrte undervannssystemer for fremtidens utfordringer.</p>
         </div>
-        <p class="lead" lang="en">Exploring the depths, engineering the future.</p>
         <p class="mt-3">
           <a href="pages/join.html" class="btn btn-lg btn-primary hero-cta">Bli medlem</a>
         </p>
-        <!-- Video play/pause button i have used from FIREFOX (Line 464) view-source:https://www.firefox.com/en-GB/kit/ 
-                     _.-~-.
-                   7''  Q..\
-                _7         (_
-              _7  _/    _q.  /
-            _7 . ___  /VVvv-'_                                            .
-           7/ / /~- \_\\      '-._     .-'                      /       //
-          ./ ( /-~-/||'=.__  '::. '-~'' {             ___   /  //     ./{
-         V   V-~-~| ||   __''_   ':::.   ''~-~.___.-'' _/  // / {_   /  {  /
-          VV/-~-~-|/ \ .'__'. '.    '::                     _ _ _        ''.
-          / /~~~~||VVV/ /  \ )  \        _ __ ___   ___ ___(_) | | __ _   .::'
-         / (~-~-~\\.-' /    \'   \::::. | '_ ` _ \ / _ \_  / | | |/ _` | :::'
-        /..\    /..\__/      '     '::: | | | | | | (_) / /| | | | (_| | ::'
-        vVVv    vVVv                 ': |_| |_| |_|\___/___|_|_|_|\__,_| ''
-        --> 
-        <button id="video-play-pause" class="video-control-btn" aria-label="Pause bakgrunnsvideo" aria-pressed="false"
-          type="button">
-          <svg class="pause-icon c-animation-button-pause" width="24" height="24" viewBox="0 0 24 24" fill="none"
-            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <title>Pause animation</title>
-            <path d="M7.625 4.99988H9.375V18.9999H7.625V4.99988Z" fill="currentColor" />
-            <path d="M14.625 4.99988H16.375V18.9999H14.625V4.99988Z" fill="currentColor" />
-          </svg>
-          <svg class="play-icon c-animation-button-play" width="24" height="24" viewBox="0 0 24 24" fill="none" 
-            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <title>Play animation</title>
-            <path d="M5 18.8569V5.14289C5 3.60689 6.659 2.64489 7.992 3.40689L19.992 10.2639C21.336 11.0319 21.336 12.9689 19.992 13.7369L7.992 20.5939C6.659 21.3559 5 20.3929 5 18.8569Z" fill="currentColor"/>
-          </svg>
-        </button>
       </div>
-    </div>
-  </section>
-  <!-- Featurettes (Bootstrap grid version) -->
+      <div class="kit-banner-brand">
+        <div class="kit-banner-media">
+          <button type="button" class="button c-animation-button" data-js-video-state="paused" aria-label="Pause bakgrunnsvideo">
+            <svg class="c-animation-button-play" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <title>Play animation</title>
+              <path d="M5 18.8569V5.14289C5 3.60689 6.659 2.64489 7.992 3.40689L19.992 10.2639C21.336 11.0319 21.336 12.9689 19.992 13.7369L7.992 20.5939C6.659 21.3559 5 20.3929 5 18.8569Z" fill="currentColor"/>
+            </svg>
+            <svg class="c-animation-button-pause" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <title>Pause animation</title>
+              <path d="M7.625 4.99988H9.375V18.9999H7.625V4.99988Z" fill="currentColor"/>
+              <path d="M14.625 4.99988H16.375V18.9999H14.625V4.99988Z" fill="currentColor"/>
+            </svg>
+          </button>
+          <video id="use-this-hero-video" aria-labelledby="kit-banner-heading" playsinline preload="auto" loop muted poster="images/uiasub/K2Lights.png">
+            <source src="videos/UseThis.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <img class="kit-banner-still" src="images/uiasub/K2Lights.png" height="" width="" hidden>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script src="js/front-page-video.js"></script>
+
+  <!-- CONTENT SECTIONS -->
   <main id="main">
-    <div class="container py-5">
-      <div class="row">
-        <div class="col-12">
-          <hr class="my-5">
-
-          <div class="row align-items-center mb-5" id="k2-rov">
-            <div class="col-md-4 text-center mb-3 mb-md-0">
-              <img src="images/front-icons/491440310_17895485013198102_8891979541426359705_n.jpg"
-                alt="K2 ROV-render med 8 vektoriserte thrustere og avansert undervannssystem"
-                class="img-fluid rounded shadow" loading="lazy" width="400" height="300">
-            </div>
-            <div class="col-md-8 text-white">
-              <h2 class="h3">K2 ROV</h2>
-              <p class="h5 text-primary">Vår nye ROV</p>
-              <p>Dette er vår nye og forbedrede ROV K2. 8 vektoriserte thrustere gjør at ROV-en kan bevege seg med 6
-                frihetsgrader. Vår Power Unit gjør ROV-en perfekt for lengre undervannsoppdrag, samtidig som den
-                fortsatt kan levere maksimal kraft.</p>
-              <p class="text-info">Forventes å være produsert innen 2026</p>
-              <div class="border-top border-light my-3 section-divider"></div>
-              <a href="pages/rov.html" class="btn btn-primary">Se den her</a>
-            </div>
+    <div class="c-card-gallery">
+      <!-- Om UiASub Section -->
+      <section aria-labelledby="heading-om-oss" class="c-gallery-card c-gallery-card-dark c-gallery-card-type-1" id="om-oss">
+        <div class="c-gallery-card-text-container">
+          <h2 id="heading-om-oss" class="c-gallery-card-heading">Om UiASub</h2>
+          <p class="c-gallery-card-subheading">Studentdrevet undervannsteknologi</p>
+          <p>UiASub er en studentdrevet teknologigruppe ved Universitetet i Agder. Vi bygger autonome og fjernstyrte undervannssystemer, lærer gjennom praktiske prosjekter og samarbeider tett med næringslivet.</p>
+          <div class="buttons">
+            <a href="pages/about.html" class="btn btn-primary">Les mer om oss</a>
           </div>
+        </div>
+        <div class="c-gallery-card-media-container">
+          <img loading="lazy" src="images/front-icons/DSC01493.jpg" alt="UiASub team" width="400" height="300" style="object-fit: cover; height: 300px;">
+        </div>
+      </section>
 
-          <hr class="my-5">
-
-          <div class="row align-items-center mb-5" id="om-oss">
-            <div class="col-md-4 text-center mb-3 mb-md-0">
-              <img src="images/front-icons/DSC01493.jpg" alt="UiASub team" class="img-fluid rounded shadow"
-                loading="lazy" width="400" height="300" style="object-fit: cover; height: 300px;">
-            </div>
-            <div class="col-md-8 text-white">
-              <h2 class="h3">Om UiASub</h2>
-              <p class="h5 text-primary">Studentdrevet undervannsteknologi</p>
-              <p>UiASub er en studentdrevet teknologigruppe ved Universitetet i Agder. Vi bygger autonome og fjernstyrte
-                undervannssystemer, lærer gjennom praktiske prosjekter og samarbeider tett med næringslivet.</p>
-              <div class="border-top border-light my-3 section-divider"></div>
-              <a href="pages/about.html" class="btn btn-primary">Les mer om oss</a>
-            </div>
+      <!-- K2 ROV Section -->
+      <section aria-labelledby="heading-k2-rov" class="c-gallery-card c-gallery-card-light c-gallery-card-type-1" id="k2-rov">
+        <div class="c-gallery-card-text-container">
+          <h2 id="heading-k2-rov" class="c-gallery-card-heading">K2 ROV</h2>
+          <p class="c-gallery-card-subheading">Vår nye og forbedrede ROV</p>
+          <p>Dette er vår nye ROV <b>K2</b>. 8 vektoriserte thrustere gjør at ROV-en kan bevege seg med 6 frihetsgrader. Vår Power Unit gjør ROV-en perfekt for lengre undervannsoppdrag, samtidig som den fortsatt kan levere maksimal kraft.</p>
+          <p class="text-info"><strong>Forventes å være produsert innen 2026</strong></p>
+          <div class="buttons">
+            <a href="pages/rov.html" class="btn btn-primary">Se den her</a>
           </div>
+        </div>
+        <div class="c-gallery-card-media-container">
+          <img loading="lazy" src="images/front-icons/491440310_17895485013198102_8891979541426359705_n.jpg" alt="K2 ROV-render med 8 vektoriserte thrustere og avansert undervannssystem" width="400" height="300">
+        </div>
+      </section>
 
-          <hr class="my-5">
-
-          <div class="row align-items-center mb-5" id="bli-med">
-            <div class="col-md-4 text-center mb-3 mb-md-0">
-              <img src="images/carousel/legg-ut-6-scaled.jpg" alt="UiASub-teammedlemmer som utplasserer ROV ved kai"
-                class="img-fluid rounded shadow" loading="lazy" width="400" height="300">
-            </div>
-            <div class="col-md-8 text-white">
-              <h2 class="h3">Bli med oss!</h2>
-              <p class="h5 text-primary" lang="en">Exploring the depths, engineering the future</p>
-              <p>UiASub er en studentdrevet organisasjon dedikert til å fremme undervannsteknologi og utforskning. Vår
-                misjon er å stimulere til innovasjon, samarbeid og utdanning innen marinteknologi og autonome systemer.
-              </p>
-              <p>Organisasjonen drives som et selskap og gir verdifull praktisk erfaring for din fremtidige karriere. Vi
-                søker ingeniører, HR- og ledelsestalenter, markedsførings- og mediestudenter med flere.</p>
-              <div class="border-top border-light my-3 section-divider"></div>
-              <a href="pages/join.html" class="btn btn-primary">Søk her</a>
-            </div>
+      <!-- Partnere Section -->
+      <section aria-labelledby="heading-partnere" class="c-gallery-card c-gallery-card-dark c-gallery-card-type-1" id="partnere">
+        <div class="c-gallery-card-text-container">
+          <h2 id="heading-partnere" class="c-gallery-card-heading">Partnere</h2>
+          <p class="c-gallery-card-subheading">UiASub kan fortsette på grunn av hjelpen deres</p>
+          <ul>
+            <li><strong>IXYS:</strong> Leverer avanserte kontrollsystemer og komponenter for undervanns-, overflate-, luft- og romapplikasjoner.</li>
+            <li><strong>Würth Elektronik:</strong> Tilbyr et bredt spekter av elektroniske komponenter og løsninger for ulike industrier.</li>
+            <li><strong>FFU:</strong> Spesialiserer seg på avansert undervannsteknologi og løsninger for marin forskning og utforskning.</li>
+          </ul>
+          <div class="buttons">
+            <a href="pages/sponsors.html" rel="noopener noreferrer" class="btn btn-primary">Se mer</a>
           </div>
+        </div>
+        <div class="c-gallery-card-media-container">
+          <img loading="lazy" src="images/front-icons/blob-scene-haikei.png" alt="Abstrakt illustrasjon som representerer UiASub partnere og sponsorer" width="400" height="300">
+        </div>
+      </section>
 
-          <hr class="my-5">
-
-          <div class="row align-items-center mb-5" id="partnere">
-            <div class="col-md-4 text-center mb-3 mb-md-0">
-              <img src="images/front-icons/blob-scene-haikei.png"
-                alt="Abstrakt illustrasjon som representerer UiASub partnere og sponsorer"
-                class="img-fluid rounded shadow" loading="lazy" width="400" height="300">
-            </div>
-            <div class="col-md-8 text-white">
-              <h2 class="h3">Partnere</h2>
-              <p class="h5 text-primary">UiASub kan fortsette på grunn av hjelpen deres.</p>
-              <ul>
-                <li><strong>IXYS:</strong> Leverer avanserte kontrollsystemer og komponenter for undervanns-,
-                  overflate-, luft- og romapplikasjoner.</li>
-                <li><strong>Würth Elektronik:</strong> Tilbyr et bredt spekter av elektroniske komponenter og løsninger
-                  for ulike industrier.</li>
-                <li><strong>FFU:</strong> Spesialiserer seg på avansert undervannsteknologi og løsninger for marin
-                  forskning og utforskning.</li>
-              </ul>
-              <div class="border-top border-light my-3 section-divider"></div>
-              <a href="pages/sponsors.html" rel="noopener noreferrer" class="btn btn-primary">Se mer</a>
-            </div>
+      <!-- Bli med Section -->
+      <section aria-labelledby="heading-bli-med" class="c-gallery-card c-gallery-card-light c-gallery-card-type-1" id="bli-med">
+        <div class="c-gallery-card-text-container">
+          <h2 id="heading-bli-med" class="c-gallery-card-heading">Bli med oss!</h2>
+          <p class="c-gallery-card-subheading" lang="en">Exploring the depths, engineering the future</p>
+          <p>UiASub drives som et selskap der du får praktisk erfaring, bygger nettverk og jobber i tverrfaglige team.</p>
+          <p>Vi søker ingeniører, ledelsestalenter, markedsførere og alle som vil være med på å skape noe unikt.</p>
+          <div class="buttons">
+            <a href="pages/join.html" class="btn btn-primary">Søk her</a>
           </div>
+        </div>
+        <div class="c-gallery-card-media-container">
+          <img loading="lazy" src="images/front-icons/PXL_20251030_163108976.jpg" alt="UiASub-teammedlemmer som utplasserer ROV ved kai" width="400" height="300">
+        </div>
+      </section>
 
-          <hr class="my-5">
-
-          <div class="row align-items-center mb-5" id="tac-challenge">
-            <div class="col-md-4 text-center mb-3 mb-md-0">
-              <img src="images/tac-challange/IMG_0277.jpg" alt="TAC Challenge - Internasjonal ROV/AUV-konkurranse"
-                class="img-fluid rounded shadow" loading="lazy" width="400" height="300"
-                style="object-fit: cover; height: 300px;">
-            </div>
-            <div class="col-md-8 text-white">
-              <h2 class="h3">TAC Challenge</h2>
-              <p class="h5 text-primary" lang="en" style="font-style: italic; letter-spacing: 0.03em;">Where concept
-                meets reality</p>
-              <p>En internasjonal ROV/AUV-konkurranse for studenter fra hele verden. Konkurransen fokuserer på å utvikle
-                innovative løsninger for undervannsoperasjoner og gir deltakerne muligheten til å teste sine ferdigheter
-                i realistiske scenarioer.</p>
-
-              <p class="mb-2"><strong>2024 Oppdrag:</strong></p>
-              <ul class="small text-white-50 mb-3">
-                <li>Subsea Docking - Autonom dokking med strømoverføring</li>
-                <li>Pipeline Inspection - ArUco-markør identifikasjon</li>
-                <li>Visual Inspection - Undervannstruktur inspeksjon</li>
-                <li>Valve Intervention - Ventiloperasjon på havbunnen</li>
-              </ul>
-
-              <div class="border-top border-light my-3 section-divider"></div>
-              <a href="pages/tac-challenge.html" class="btn btn-primary">Les mer om oppdragene</a>
-            </div>
+      <!-- Nyheter Section -->
+      <section aria-labelledby="heading-nyheter" class="c-gallery-card c-gallery-card-dark c-gallery-card-type-1" id="nyheter">
+        <div class="c-gallery-card-text-container">
+          <h2 id="heading-nyheter" class="c-gallery-card-heading">Nyheter</h2>
+          <p class="c-gallery-card-subheading">Se hva som skjer i UiASub</p>
+          <p>Hold deg oppdatert på de siste nyhetene fra UiASub. Les om våre prosjekter, konkurranser, tekniske gjennombrudd og teamets fremgang.</p>
+          <div class="buttons">
+            <a href="pages/news.html" class="btn btn-primary">Les nyheter</a>
           </div>
+        </div>
+        <div class="c-gallery-card-media-container">
+          <img loading="lazy" src="images/uiasub/Onwall.jpg" alt="UiASub-logo på vegg med nyhetskunngjøringer" width="400" height="300" style="object-fit: cover; height: 300px;">
+        </div>
+      </section>
 
-          <hr class="my-5">
-
-          <div class="row align-items-center mb-5" id="nyheter">
-            <div class="col-md-4 text-center mb-3 mb-md-0">
-              <img src="images/uiasub/Onwall.jpg" alt="UiASub-logo på vegg med nyhetskunngjøringer"
-                class="img-fluid rounded shadow" loading="lazy" width="400" height="300"
-                style="object-fit: cover; height: 300px;">
-            </div>
-            <div class="col-md-8 text-white">
-              <h2 class="h3">Nyheter</h2>
-              <p class="h5 text-primary">Se hva som skjer i UiASub</p>
-              <p>Hold deg oppdatert på de siste nyhetene fra UiASub. Les om våre prosjekter, konkurranser, tekniske
-                gjennombrudd og teamets fremgang.</p>
-              <div class="border-top border-light my-3 section-divider"></div>
-              <a href="pages/news.html" class="btn btn-primary">Les nyheter</a>
-            </div>
+      <!-- TAC Challenge Section -->
+      <section aria-labelledby="heading-tac-challenge" class="c-gallery-card c-gallery-card-light c-gallery-card-type-1" id="tac-challenge">
+        <div class="c-gallery-card-text-container">
+          <h2 id="heading-tac-challenge" class="c-gallery-card-heading">TAC Challenge</h2>
+          <p class="c-gallery-card-subheading" lang="en" style="font-style: italic; letter-spacing: 0.03em;">Where concept meets reality</p>
+          <p>En internasjonal ROV/AUV-konkurranse for studenter fra hele verden. Konkurransen fokuserer på å utvikle innovative løsninger for undervannsoperasjoner og gir deltakerne muligheten til å teste sine ferdigheter i realistiske scenarioer.</p>
+          <div class="buttons">
+            <a href="pages/tac-challenge.html" class="btn btn-primary">Les mer om oppdragene</a>
           </div>
-
-          <hr class="my-5">
-
-        </div> <!-- end .col-12 -->
-      </div> <!-- end .row -->
-    </div> <!-- end .container -->
+        </div>
+        <div class="c-gallery-card-media-container">
+          <img loading="lazy" src="images/tac-challange/IMG_0277.jpg" alt="TAC Challenge - Internasjonal ROV/AUV-konkurranse" width="400" height="300" style="object-fit: cover; height: 300px;">
+        </div>
+      </section>
+    </div>
   </main>
 
   <!-- WAVES -->

@@ -1,21 +1,7 @@
-/* TAC Challenge Page Styles */
-
 /* Typography matching ROV page style with engineering touches */
 .fs-3.fw-bold {
   color: #e6f7ff;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  font-weight: 600;
-  letter-spacing: -0.01em;
-}
-
-.lead {
-  color: #44B8FF !important;
-  font-size: 1.35rem;
-  line-height: 1.6;
-  font-weight: 300;
-  font-style: italic;
-  letter-spacing: 0.05em;
-  margin-bottom: 1.5rem;
 }
 
 .text-light {
@@ -23,18 +9,7 @@
   line-height: 1.7;
 }
 
-/* Hero section styling */
-.callout.about-modern {
-  background: linear-gradient(135deg, rgba(0, 47, 71, 0.4) 0%, rgba(0, 16, 26, 0.6) 100%);
-  padding: 80px 0 60px 0;
-}
-
-@media (max-width: 768px) {
-  .callout.about-modern {
-    padding: 60px 0 40px 0;
-  }
-}
-
+/* About content visual */
 .about-visual {
   background: linear-gradient(90deg, rgba(0, 47, 71, 0.6) 0%, rgba(0, 16, 26, 0.5) 50%, rgba(0, 47, 71, 0.6) 100%);
   border-radius: 12px;
@@ -165,10 +140,6 @@ section.bg-dark.bg-opacity-25 {
 
 .about-visual {
   height: 320px;
-}
-
-.about-modern .lead {
-  font-size: 1.05rem;
 }
 
 .stat-num {

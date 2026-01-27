@@ -8,6 +8,12 @@
 
 /* Global ROV page tweaks */
 html{scroll-behavior:smooth}
+body{padding-top:90px}
+body.scrolled{padding-top:70px}
+
+@media (max-width: 768px) {
+  body{padding-top:100px}
+}
 
 /* Headings & leads */
 .fs-3.fw-bold{color:#e6f7ff;text-shadow:0 2px 8px rgba(0,0,0,0.3);}
