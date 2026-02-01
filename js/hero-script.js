@@ -28,19 +28,19 @@ const showElements = () => {
   timeline
         .fromTo(btnCircle, { autoAlpha: 0 }, { autoAlpha: 1, duration: fourtyFrames, ease: customEaseIn}, 0)
         .fromTo(btnCircle, { scale: 0.417 }, { scale: 1, duration: fourtyFrames, ease: customEaseIn}, 0)
-        .fromTo(eve, {x: '18.75vw'}, { x: '0vw', duration: fiftyFrames, ease: customEaseIn}, 0)
-        .fromTo(book, {y: '3.47vw'}, {y: '0vw', duration: fourtyFrames, ease: customEaseIn}, twoFrames)
-        .fromTo(fo, {x: '14.58vw'}, { x: '0vw', duration: fiftyFrames, ease: customEaseIn}, twoFrames)
-        .fromTo(a, {x: '-8.33vw'}, { x: '0vw', duration: fiftyFrames, ease: customEaseIn}, twoFrames)
-        .fromTo(ory, {x: '-22.22vw'}, { x: '0vw', duration: fiftyFrames, ease: customEaseIn}, twoFrames)
-        .fromTo(open, {y: '2.08vw'}, {y: '0vw', duration: fourtyFrames, ease: customEaseIn}, fourFrames)
-        .fromTo(btnText, {y: '2.78vw'}, {y: '0vw', duration: fourtyFrames, ease: customEaseIn}, fourFrames)
-        .fromTo(ry, {x: '-13.89vw'}, { x: '0vw', duration: fiftyFrames, ease: customEaseIn}, fourFrames)
-        .fromTo(ssil, {x: '-21.53vw'}, { x: '0vw', duration: fiftyFrames, ease: customEaseIn}, fourFrames)
-        .fromTo(tells, {x: '29.86vw'}, { x: '0vw', duration: fiftyFrames, ease: customEaseIn}, fourFrames)
-        .fromTo(st, {x: '13.19vw'}, { x: '0vw', duration: fiftyFrames, ease: customEaseIn}, fourFrames)
-        .fromTo(copy, {y: '2.78vw'}, {y: '0vw', duration: fourtyFrames, ease: customEaseIn}, sixFrames)
-        .fromTo(scrollToRows, {y: '3.47vw'}, {y: '0vw', duration: fourtyFrames, ease: customEaseIn}, sixFrames);
+        .to(eve, { x: '0vw', duration: fiftyFrames, ease: customEaseIn}, 0)
+        .to(book, {y: '0vw', duration: fourtyFrames, ease: customEaseIn}, twoFrames)
+        .to(fo, { x: '0vw', duration: fiftyFrames, ease: customEaseIn}, twoFrames)
+        .to(a, { x: '0vw', duration: fiftyFrames, ease: customEaseIn}, twoFrames)
+        .to(ory, { x: '0vw', duration: fiftyFrames, ease: customEaseIn}, twoFrames)
+        .to(open, {y: '0vw', duration: fourtyFrames, ease: customEaseIn}, fourFrames)
+        .to(btnText, {y: '0vw', duration: fourtyFrames, ease: customEaseIn}, fourFrames)
+        .to(ry, { x: '0vw', duration: fiftyFrames, ease: customEaseIn}, fourFrames)
+        .to(ssil, { x: '0vw', duration: fiftyFrames, ease: customEaseIn}, fourFrames)
+        .to(tells, { x: '0vw', duration: fiftyFrames, ease: customEaseIn}, fourFrames)
+        .to(st, { x: '0vw', duration: fiftyFrames, ease: customEaseIn}, fourFrames)
+        .to(copy, {y: '0vw', duration: fourtyFrames, ease: customEaseIn}, sixFrames)
+        .to(scrollToRows, {y: '0vw', duration: fourtyFrames, ease: customEaseIn}, sixFrames);
   
   return timeline;
 }
