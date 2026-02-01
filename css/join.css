@@ -1,0 +1,11 @@
+/* Global ROV page tweaks */
+html{scroll-behavior:smooth}
+body{padding-top:90px}
+body.scrolled{padding-top:70px}
+body{
+  background: linear-gradient(135deg, var(--sea-top) 0%, var(--sea-deep) 100%);
+}
+
+@media (max-width: 768px) {
+  body{padding-top:100px}
+}

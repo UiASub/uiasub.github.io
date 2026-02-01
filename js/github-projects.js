@@ -2,7 +2,7 @@
   'use strict';
 
   // Configuration
-  const REPOS = ['K2-Zephyr', 'Topside', 'stm32-mbed', 'joystick-arduino', 'uiasub.github.io'];
+  const REPOS = ['Topside', 'K2-Zephyr', 'joystick-arduino', 'wiki.uiasub.no', 'uiasub.github.io'];
   const API_BASE = 'https://api.github.com/repos/UiASub/';
   const CONTAINER_SELECTOR = '#github-projects-container';
   const CACHE_KEY = 'github_repos_cache';

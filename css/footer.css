@@ -2,7 +2,8 @@
   background-color: var(--sea-deep, #00101a);
   color: var(--text-sea, #e6f7ff);
   padding: 20px 30px;
-  border-top: 1px solid rgba(255,255,255,0.06);
+  margin-top: -1px;
+  border-top: none;
   box-shadow: 0 -2px 12px rgba(0,0,0,0.25);
   backdrop-filter: blur(8px) saturate(110%);
   -webkit-backdrop-filter: blur(8px) saturate(110%);

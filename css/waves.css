@@ -6,6 +6,9 @@
   overflow: hidden;
   /* Make wrapper background transparent so the page gradient from custom.css shows through */
   background: transparent;
+  margin-top: -50px;
+  position: relative;
+  z-index: 2;
 }
 
 .waves {
@@ -40,7 +43,7 @@
 }
 
 .parallax > use:nth-child(4) {
-  fill: rgba(0, 95, 119, 0.25); /* muted teal highlight */
+  fill: #00101a; /* muted teal highlight */
   animation-delay: -5s;
   animation-duration: 20s;
 }

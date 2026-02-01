@@ -1,14 +1,4 @@
-h1{
-	font-weight: normal;
-	font-size: 4em;
-	/* center and be responsive: remove fixed width */
-	margin: 30px auto 0;
-	max-width: 100%;
-	width: auto;
-	color: rgb(255, 255, 255);
-	text-align: center;
-
-}
+/* Contact page specific styles */
 
 /* Animation webkit */
 @-webkit-keyframes myfirst
@@ -195,14 +185,12 @@ input:-webkit-autofill, textarea:-webkit-autofill {
   margin-bottom: 1rem;
 }
 .contact-callout .callout-content p {
-  font-size: 16px;
   font-weight: 400;
   line-height: 1.6;
   color: #e6f7ff;
 }
 /* keep Bootstrap's .lead behavior while providing tuned sizing */
 .contact-callout .callout-content .lead {
-  font-size: 18px;
   font-weight: 300;
   line-height: 1.6;
   color: #e6f7ff;

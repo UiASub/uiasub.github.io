@@ -8,6 +8,12 @@
 
 /* Global ROV page tweaks */
 html{scroll-behavior:smooth}
+body{padding-top:90px}
+body.scrolled{padding-top:70px}
+
+@media (max-width: 768px) {
+  body{padding-top:100px}
+}
 
 /* Headings & leads */
 .fs-3.fw-bold{color:#e6f7ff;text-shadow:0 2px 8px rgba(0,0,0,0.3);}
@@ -121,7 +127,7 @@ select:focus-visible {
 }
 
 /* Model viewer section */
-section[aria-label="3D Model Viewer"]{background:rgba(0,47,71,0.05);padding:60px 0;border-top:1px solid rgba(68,184,255,0.06);border-bottom:1px solid rgba(68,184,255,0.04)}
+section[aria-label="3D Model Viewer"]{background:rgba(0,47,71,0.05);padding:60px 0}
 model-viewer{border-radius:16px;box-shadow:0 12px 48px rgba(0,0,0,0.45);display:block;margin:0 auto}
 @media (min-width:992px){model-viewer{height:60vh;min-height:420px}}
 @media (max-width:991px){model-viewer{height:50vh;min-height:320px}}

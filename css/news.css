@@ -99,7 +99,7 @@
 .news-callout .callout-content { position: relative; z-index: 1; }
 .news-callout .callout-content h1 { font-weight: 700; margin-bottom: 1rem; }
 .news-callout .callout-content p,
-.news-callout .callout-content .lead { color: #e6f7ff; font-size: 1.05rem; line-height: 1.6; }
+.news-callout .callout-content .lead { color: #e6f7ff; line-height: 1.6; }
 .news-callout hr { border-color: rgba(255,255,255,0.12); margin: 1rem 0 1.25rem; opacity: 0.9; }
 .news-callout .callout-content a { color: #44B8FF; transition: all 0.3s ease; }
 .news-callout .callout-content a:hover { transform: translateY(-2px); text-decoration: none; }
