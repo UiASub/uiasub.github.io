@@ -1,3 +1,3 @@
-Hosting UiASub official website
+Hosting UiASub official static website
 
-Read [Wiki](https://wiki.uiasub.no/website/) for more information
+Read the [Wiki](https://wiki.uiasub.no/website/) for more information
