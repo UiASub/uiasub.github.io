@@ -12,8 +12,8 @@
 }
 
 .masthead .logo img {
-  max-width: 280px !important;
-  height: auto !important;
+  max-width: clamp(240px, 20vw, 380px);
+  height: auto;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   display: block;
 }
@@ -21,7 +21,7 @@
 /* Responsive Header Styles */
 .masthead {
   background: linear-gradient(180deg, rgba(0, 16, 26, 0.95) 0%, rgba(0, 16, 26, 0.85) 100%);
-  padding: 5px 30px;
+  padding: clamp(5px, 0.5vw, 12px) clamp(30px, 3vw, 80px);
   box-shadow: 0 2px 12px rgba(0,0,0,0.35);
   /* Make header fixed at the top of the viewport */
   position: fixed;
@@ -65,7 +65,7 @@ body:not(.scrolled) .masthead.at-top {
 }
 
 .masthead .logo img {
-  max-width: 280px;
+  max-width: clamp(240px, 20vw, 380px);
   height: auto;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   vertical-align: middle;
@@ -112,7 +112,7 @@ body:not(.scrolled) .masthead.at-top {
   text-align: center;
   padding: 12px 20px;
   text-decoration: none;
-  font-size: 18px;
+  font-size: clamp(16px, 1.2vw, 22px);
   font-weight: 500;
   line-height: 1.4;
   border-radius: 25px;

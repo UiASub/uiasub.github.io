@@ -10,8 +10,8 @@
 
 /* Hero section specific typography - using vw units directly instead of rem */
 .hero .title-h1 {
-  font-size: 9.79vw; /* 1.41 * 6.944 */
-  line-height: 8.75vw; /* 1.26 * 6.944 */
+  font-size: clamp(6rem, 9.79vw, 12rem);
+  line-height: clamp(5.5rem, 8.75vw, 11rem);
   font-weight: 700;
   color: var(--color-white);
   font-family: var(--main-font);
@@ -19,16 +19,16 @@
 }
 
 .hero .desc-1 {
-  font-size: 1.11vw; /* 0.16 * 6.944 */
-  line-height: 1.67vw; /* Increased to 1.5x font-size for proper descenders */
+  font-size: clamp(0.875rem, 1.11vw, 1.25rem);
+  line-height: clamp(1.3rem, 1.67vw, 1.875rem);
   font-weight: 500;
   color: var(--color-white);
   font-family: var(--sub-font);
 }
 
 .hero .desc-2 {
-  font-size: 1.11vw;
-  line-height: 1.11vw;
+  font-size: clamp(0.875rem, 1.11vw, 1.25rem);
+  line-height: clamp(0.875rem, 1.11vw, 1.25rem);
   font-weight: 600;
   color: var(--color-white);
   font-family: var(--sub-font);
@@ -43,16 +43,16 @@
 }
 
 .hero .btn-1 {
-  font-size: 1.25vw;
-  line-height: 1.25vw;
+  font-size: clamp(1rem, 1.25vw, 1.5rem);
+  line-height: clamp(1rem, 1.25vw, 1.5rem);
   font-weight: 500;
   color: var(--color-white);
   font-family: var(--sub-font);
 }
 
 .hero .btn-2 {
-  font-size: 1.25vw;
-  line-height: 1.25vw;
+  font-size: clamp(1rem, 1.25vw, 1.5rem);
+  line-height: clamp(1rem, 1.25vw, 1.5rem);
   font-weight: 600;
   color: var(--color-white);
   font-family: var(--sub-font);
@@ -143,9 +143,10 @@ input[type=number] {
 /* Only apply container styles within hero */
 .hero .container {
   width: 100%;
+  max-width: 1920px;
   height: 100%;
   margin: 0 auto;
-  padding: 0 2.22vw; /* 0.32rem equivalent */
+  padding: 0 clamp(1.5rem, 2.22vw, 3rem);
   display: flex;
   align-items: center;
 }
@@ -163,7 +164,7 @@ input[type=number] {
   z-index: 2;
 }
 .hero .title-block {
-  padding-left: 10.28vw; /* 1.48rem */
+  padding-left: clamp(2rem, 10.28vw, 10rem);
   position: relative;
 }
 .hero .title-block .title-h1 span {
@@ -196,8 +197,8 @@ input[type=number] {
 }
 .hero .title-block .first-desc {
   position: absolute;
-  top: -3.47vw; /* -0.5rem */
-  right: 25.69vw; /* 3.7rem */
+  top: clamp(-3rem, -3.47vw, -0.5rem);
+  right: clamp(3rem, 25.69vw, 20rem);
   display: flex;
 }
 .hero .title-block .second-desc {
@@ -221,17 +222,17 @@ input[type=number] {
 }
 .hero .book-btn {
   position: absolute;
-  bottom: 2.22vw;
-  right: 2.22vw;
-  width: 11.81vw; /* 1.7rem */
-  height: 11.81vw;
+  bottom: clamp(1.5rem, 2.22vw, 3rem);
+  right: clamp(1.5rem, 2.22vw, 3rem);
+  width: clamp(8rem, 11.81vw, 12rem);
+  height: clamp(8rem, 11.81vw, 12rem);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .hero .book-btn__circle {
-  width: 11.81vw;
-  height: 11.81vw;
+  width: clamp(8rem, 11.81vw, 12rem);
+  height: clamp(8rem, 11.81vw, 12rem);
   border: 1px solid var(--color-white);
   border-radius: 100%;
   position: absolute;
@@ -240,7 +241,7 @@ input[type=number] {
   transform: translate(-50%, -50%);
 }
 .hero .book-btn .btn-text {
-  width: 8.89vw; /* 1.28rem */
+  width: clamp(6rem, 8.89vw, 9rem);
   text-align: center;
   overflow: hidden;
   display: flex;
