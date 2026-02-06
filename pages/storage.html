@@ -18,7 +18,6 @@
     crossorigin="anonymous">
 
   <!-- Custom styles -->
-  <link href="/css/carousel.css" rel="stylesheet">
   <link href="/css/custom.css" rel="stylesheet">
   <link href="/css/header.css" rel="stylesheet">
   <link href="/css/page-header.css" rel="stylesheet">
@@ -30,13 +29,13 @@
   <div id="header"></div>
   <script src="/js/header.js"></script>
 
-  <div class="page-header-callout" aria-label="File Storage Manager">
+  <div class="page-header-callout" aria-label="File Storage Manager" role="region">
     <div class="row">
       <!-- Sidebar Navigation -->
       <div class="col-md-3 col-lg-2 mb-4">
         <div class="card bg-dark border-secondary">
           <div class="card-header bg-secondary text-white">
-            <h5 class="mb-0 small">Admin Panel</h5>
+            <h2 class="mb-0 small h5">Admin Panel</h2>
           </div>
           <div class="list-group list-group-flush">
             <a href="/pages/equipment.html" class="list-group-item list-group-item-action bg-dark text-white border-0">
@@ -68,7 +67,7 @@
         <!-- Upload Section (Compact) -->
         <div class="card bg-dark border-secondary mb-4">
           <div class="card-header bg-secondary d-flex justify-content-between align-items-center">
-            <h5 class="mb-0 small text-white">Upload Files</h5>
+            <h2 class="mb-0 small text-white h5">Upload Files</h2>
             <button class="btn btn-sm btn-outline-light" type="button" data-bs-toggle="collapse"
               data-bs-target="#uploadSection">
               <span class="d-none d-sm-inline">Toggle</span>
@@ -84,7 +83,7 @@
         <!-- File List Section -->
         <div class="card bg-dark border-secondary">
           <div class="card-header bg-secondary d-flex justify-content-between align-items-center flex-wrap gap-2">
-            <h5 class="mb-0 small text-white">Uploaded Files</h5>
+            <h2 class="mb-0 small text-white h5">Uploaded Files</h2>
             <div class="d-flex gap-2 flex-wrap">
               <input type="text" id="searchFiles" class="form-control form-control-sm" placeholder="Search files..."
                 style="width: auto; min-width: 150px;">
@@ -111,11 +110,11 @@
   </div>
 
   <!-- Share Modal (Bootstrap) -->
-  <div class="modal fade" id="shareModal" tabindex="-1" aria-hidden="true">
+  <div class="modal fade" id="shareModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content bg-dark text-white">
         <div class="modal-header border-secondary">
-          <h5 class="modal-title">Share File</h5>
+          <h2 class="modal-title h5">Share File</h2>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">

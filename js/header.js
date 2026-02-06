@@ -1,4 +1,29 @@
 // Header initialization and functionality
+function parseHtmlFragment(html) {
+  try {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    const bodyHtml = doc && doc.body ? doc.body.innerHTML : html;
+    const headLinks = doc && doc.head ? Array.from(doc.head.querySelectorAll('link[rel="stylesheet"]')) : [];
+    return { bodyHtml, headLinks };
+  } catch (e) {
+    return { bodyHtml: html, headLinks: [] };
+  }
+}
+
+function ensureStyles(links) {
+  if (!links || !links.length) return;
+  links.forEach((link) => {
+    const href = link.getAttribute('href');
+    if (!href) return;
+    if (document.querySelector(`link[rel="stylesheet"][href="${href}"]`)) return;
+    const newLink = document.createElement('link');
+    newLink.rel = 'stylesheet';
+    newLink.href = href;
+    document.head.appendChild(newLink);
+  });
+}
+
 function initializeHeader() {
   // Prefer a single container id '#header' and detect locale by path.
   // Fallback: if '#header' is missing but legacy '#header-eng' exists, use it.
@@ -33,7 +58,9 @@ function initializeHeader() {
     }
   };
   const applyHeader = (data) => {
-    targetElement.innerHTML = data;
+    const parsed = parseHtmlFragment(data);
+    targetElement.innerHTML = parsed.bodyHtml;
+    ensureStyles(parsed.headLinks);
     // Fade in header to prevent FOUC
     requestAnimationFrame(() => {
       targetElement.style.opacity = '1';
