@@ -1,7 +1,6 @@
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
 
 permissions:
@@ -11,19 +10,20 @@ permissions:
 
 jobs:
   test:
-    runs-on: ubuntu-slim
+    runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+    - uses: actions/checkout@v4
       with:
         fetch-depth: 0
-    - name: Secret Scanning
-      run: |
-        curl -sSfL https://raw.githubusercontent.com/trufflesecurity/trufflehog/main/scripts/install.sh | sh -s -- -b /usr/local/bin
-        trufflehog git file://. --only-verified --fail
-  
+    - name: TruffleHog OSS
+      uses: trufflesecurity/trufflehog@v3.93.1
+    - name: proof-html
+      uses: anishathalye/proof-html@v2
+      with:
+        directory: '.'
+
   deploy:
-    runs-on: ubuntu-slim
+    runs-on: ubuntu-latest
     needs: test
     if: github.ref == 'refs/heads/main'
     environment:
