@@ -85,6 +85,20 @@
   color:#3b2b00;
 }
 
+/* Instagram embeds: keep them in normal flow to avoid overlap */
+#instagram-container .instagram-media {
+  position: static !important;
+  display: block;
+  width: 100% !important;
+  max-width: 540px;
+  min-width: 0;
+  margin: 0 auto !important;
+}
+
+#instagram-container iframe.instagram-media {
+  position: static !important;
+}
+
 @media (max-width: 576px){
  .cover-image img { height:160px; } 
 }

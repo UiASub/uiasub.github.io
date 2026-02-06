@@ -17,7 +17,7 @@
 }
 
 .fish{
-	background-image: '/images/uiasub/fish.png';
+	background-image: url('/images/uiasub/fish.png');
 	width: 235px;
 	height: 104px;
 	margin-left: -235px;

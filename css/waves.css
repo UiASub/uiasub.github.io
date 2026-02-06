@@ -60,8 +60,6 @@
 @media (prefers-reduced-motion: no-preference) {
   .owd-fade-in {
     animation: owd-fade-in linear forwards;
-    animation-timeline: view();
-    animation-range: entry;
   }
 
   @keyframes owd-fade-in {

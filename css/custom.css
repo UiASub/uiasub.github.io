@@ -297,3 +297,22 @@ padding-top: 40px;
 .hover-lift:hover .card-img-top {
   opacity: 0.9;
 }
+
+/* Instagram section heading */
+.instagram-heading {
+  letter-spacing: 0.3px;
+}
+
+.instagram-accent {
+  color: #e1306c; /* Instagram pink fallback */
+  font-weight: 700;
+}
+
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .instagram-accent {
+    background: linear-gradient(90deg, #feda75 0%, #fa7e1e 30%, #d62976 60%, #962fbf 85%, #4f5bd5 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}

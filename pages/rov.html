@@ -19,7 +19,6 @@
     crossorigin="anonymous">
 
   <!-- Custom styles for this template -->
-  <link href="/css/carousel.css" rel="stylesheet">
   <link href="/css/custom.css" rel="stylesheet">
   <link href="/css/header.css" rel="stylesheet">
   <link href="/css/page-header.css" rel="stylesheet">
@@ -76,7 +75,6 @@
 
           <div class="mt-4">
             <a href="#technical-specs" class="btn btn-outline-light">Spesifikasjoner</a>
-            </a>
             <a href="#github-projects" class="btn btn-outline-light">GitHub Prosjekter</a>
           </div>
         </div>
@@ -111,7 +109,7 @@
         <div class="col-md-4">
           <div class="card h-100">
             <div class="card-body">
-              <h5 class="card-title">8 Vektoriserte Thrustere</h5>
+              <h3 class="card-title h5">8 Vektoriserte Thrustere</h3>
               <p class="card-text text-white">Presis vektorkontroll gir fin manøvrering i alle akser for inspeksjon og
                 stasjonshold.</p>
             </div>
@@ -120,7 +118,7 @@
         <div class="col-md-4">
           <div class="card h-100">
             <div class="card-body">
-              <h5 class="card-title">6 Frihetsgrader (6 DOF)</h5>
+              <h3 class="card-title h5">6 Frihetsgrader (6 DOF)</h3>
               <p class="card-text text-white">Full bevegelsesfrihet for komplekse oppgaver, inkludert pitch, yaw og
                 roll.</p>
             </div>
@@ -129,7 +127,7 @@
         <div class="col-md-4">
           <div class="card h-100">
             <div class="card-body">
-              <h5 class="card-title">Modulært Kraftsystem</h5>
+              <h3 class="card-title h5">Modulært Kraftsystem</h3>
               <p class="card-text text-white">Rask utskifting av batteripakker og modulære koblinger for
                 feltvedlikehold.</p>
             </div>
@@ -142,7 +140,7 @@
 
       <!-- Toggle button for detailed specs -->
       <div class="mt-4 text-center">
-        <button class="btn btn-primary me-2" id="specs-toggle" class="learn-more" type="button" aria-expanded="false"
+        <button class="btn btn-primary me-2 learn-more" id="specs-toggle" type="button" aria-expanded="false"
           aria-controls="specs-collapse">
           <span class="circle" aria-hidden="true">
             <span class="icon arrow"></span>
@@ -254,7 +252,7 @@
               <img src="/images/project/dashboard.png" alt="Hovedkontrollpanel" class="w-100 h-100"
                 style="object-fit:cover;">
             </div>
-            <h5 class="mb-1">Hovedkontrollpanel</h5>
+            <h3 class="mb-1 h5">Hovedkontrollpanel</h3>
             <p class="text-white-50 small mb-2">Joystick input, thruster allocation og sanntidsstatus</p>
             <span class="badge bg-primary">Mockup</span>
           </div>
@@ -267,7 +265,7 @@
               <img src="/images/project/sensor.png" alt="Sensor Dashboard" class="w-100 h-100"
                 style="object-fit:cover;">
             </div>
-            <h5 class="mb-1">Sensor Dashboard</h5>
+            <h3 class="mb-1 h5">Sensor Dashboard</h3>
             <p class="text-white-50 small mb-2">Sanntidsvisning av dybde, temperatur og orientering</p>
             <span class="badge bg-primary">Mockup</span>
           </div>
@@ -280,7 +278,7 @@
               <img src="/images/project/dashboard.png" alt="Video Feed Interface" class="w-100 h-100"
                 style="object-fit:cover;">
             </div>
-            <h5 class="mb-1">Video Feed Interface</h5>
+            <h3 class="mb-1 h5">Video Feed Interface</h3>
             <p class="text-white-50 small mb-2">Primær og sekundær kamera med overlay-informasjon</p>
             <span class="badge bg-primary">Mockup</span>
           </div>
@@ -293,7 +291,7 @@
               <img src="/images/project/sensor.png" alt="Thruster Kontroll" class="w-100 h-100"
                 style="object-fit:cover;">
             </div>
-            <h5 class="mb-1">Thruster Kontroll</h5>
+            <h3 class="mb-1 h5">Thruster Kontroll</h3>
             <p class="text-white-50 small mb-2">Individuell thruster-status og kraftfordeling</p>
             <span class="badge bg-primary">Mockup</span>
           </div>
@@ -306,7 +304,7 @@
               <img src="/images/project/dashboard.png" alt="Telemetri Visning" class="w-100 h-100"
                 style="object-fit:cover;">
             </div>
-            <h5 class="mb-1">Telemetri Visning</h5>
+            <h3 class="mb-1 h5">Telemetri Visning</h3>
             <p class="text-white-50 small mb-2">Grafisk telemetri og historiske målinger</p>
             <span class="badge bg-primary">Mockup</span>
           </div>
@@ -318,7 +316,7 @@
             <div class="rounded overflow-hidden mb-3" style="height:200px;">
               <img src="/images/project/sensor.png" alt="Systemstatus" class="w-100 h-100" style="object-fit:cover;">
             </div>
-            <h5 class="mb-1">Systemstatus</h5>
+            <h3 class="mb-1 h5">Systemstatus</h3>
             <p class="text-white-50 small mb-2">Helhetlig status for strøm, temperatur og feilvarsler</p>
             <span class="badge bg-primary">Mockup</span>
           </div>
@@ -326,11 +324,11 @@
       </div>
 
       <!-- Modal lightbox for UI mockups -->
-      <div class="modal fade" id="uiModal" tabindex="-1" aria-labelledby="uiModalLabel" aria-hidden="true">
+      <div class="modal fade" id="uiModal" tabindex="-1" role="dialog" aria-labelledby="uiModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-xl">
           <div class="modal-content bg-dark">
             <div class="modal-header">
-              <h5 class="modal-title text-white" id="uiModalLabel">UI Mockup</h5>
+              <h3 class="modal-title text-white h5" id="uiModalLabel">UI Mockup</h3>
               <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                 aria-label="Lukk"></button>
             </div>
@@ -368,8 +366,8 @@
         <div class="timeline-dot position-absolute top-50 start-50 translate-middle"></div>
         <div class="col-12 col-md-5 text-md-end">
           <div class="sponsor-logo-card h-100 p-3">
-            <h4 class="h5 text-primary mb-2">2024 - Etablering</h4>
-            <h5 class="h6 text-white mb-3">UiASub blir til</h5>
+            <h3 class="h5 text-primary mb-2">2024 - Etablering</h3>
+            <h4 class="h6 text-white mb-3">UiASub blir til</h4>
             <p class="text-white mb-2">Studentgruppen UiASub ble grunnlagt ved Universitetet i Agder med mål om å bygge
               autonome undervannsfarkoster.</p>
             <ul class="text-white-50 small">
@@ -390,8 +388,8 @@
         <div class="col-12 col-md-5 d-none d-md-block"></div>
         <div class="col-12 col-md-5 offset-md-2 text-md-start">
           <div class="sponsor-logo-card h-100 p-3">
-            <h4 class="h5 text-primary mb-2">2024 - Første ROV lagd</h4>
-            <h5 class="h6 text-white mb-3">Før K2 var Skagerrak</h5>
+            <h3 class="h5 text-primary mb-2">2024 - Første ROV lagd</h3>
+            <h4 class="h6 text-white mb-3">Før K2 var Skagerrak</h4>
             <p class="text-white mb-2">Tre kanistre ble brukt i første iterasjon av ROV-en.</p>
             <ul class="text-white-50 small">
               <li>Bygget og testet første ROV-prototype</li>
@@ -409,8 +407,8 @@
         <div class="timeline-dot position-absolute top-50 start-50 translate-middle" style="background:#FFA500"></div>
         <div class="col-12 col-md-5 text-md-end">
           <div class="sponsor-logo-card h-100 p-3">
-            <h4 class="h5 text-primary mb-2">2025 - K2 Utvikling</h4>
-            <h5 class="h6 text-white mb-3">Neste Generasjon ROV</h5>
+            <h3 class="h5 text-primary mb-2">2025 - K2 Utvikling</h3>
+            <h4 class="h6 text-white mb-3">Neste Generasjon ROV</h4>
             <p class="text-white mb-2">Startet utviklingen av K2 ROV med én kanister.</p>
             <ul class="text-white-50 small">
               <li>Designet ny rammestruktur i aluminium</li>
@@ -431,8 +429,8 @@
         <div class="col-12 col-md-5 d-none d-md-block"></div>
         <div class="col-12 col-md-5 offset-md-2 text-md-start">
           <div class="sponsor-logo-card h-100 p-3">
-            <h4 class="h5 text-primary mb-2">2026 - Ferdigstillelse</h4>
-            <h5 class="h6 text-white mb-3">K2 ROV Klar for Aksjon</h5>
+            <h3 class="h5 text-primary mb-2">2026 - Ferdigstillelse</h3>
+            <h4 class="h6 text-white mb-3">K2 ROV Klar for Aksjon</h4>
             <p class="text-white mb-2">Forventet ferdigstillelse av K2 ROV med full testing og validering. Klar for
               konkurranser og feltoppdrag.</p>
             <ul class="text-white-50 small">
@@ -461,7 +459,7 @@
             <div class="card-body">
               <div class="text-center mb-3"><span class="badge bg-primary"
                   style="font-size:1.25rem; padding:0.75rem 1.5rem;">WIKI</span></div>
-              <h5 class="card-title">GitHub Wiki</h5>
+              <h3 class="card-title h5">GitHub Wiki</h3>
               <p class="card-text text-white small">Guider og nyttig informasjon fra UiASub.</p>
               <div class="small text-white-50 mt-2">UiASub/wiki.uiasub.no • Kontinuerlig oppdatert</div>
               <a href="https://wiki.uiasub.no/" class="stretched-link" target="_blank"
@@ -476,7 +474,7 @@
             <div class="card-body">
               <div class="text-center mb-3"><span class="badge bg-primary"
                   style="font-size:1.25rem; padding:0.75rem 1.5rem;">FW</span></div>
-              <h5 class="card-title">K2-Zephyr Firmware</h5>
+              <h3 class="card-title h5">K2-Zephyr Firmware</h3>
               <p class="card-text text-white small">Repository for stm32 nucleo control system for ROV K2. Håndterer
                 motorstyring, sensorer, PID-regulatorer og UDP-kommunikasjon med topside.</p>
               <div class="small text-white-50 mt-2">C/C++ • Zephyr • NUCLEO-F767ZI</div>
@@ -492,7 +490,7 @@
             <div class="card-body">
               <div class="text-center mb-3"><span class="badge bg-primary"
                   style="font-size:1.25rem; padding:0.75rem 1.5rem;">APP</span></div>
-              <h5 class="card-title">Topside App</h5>
+              <h3 class="card-title h5">Topside App</h3>
               <p class="card-text text-white small">Cross-platform operatør-applikasjon bygget med Python. Sanntids
                 video, telemetri, joystick-input og datalogging.</p>
               <div class="small text-white-50 mt-2">Python • Flask • Joystick</div>
