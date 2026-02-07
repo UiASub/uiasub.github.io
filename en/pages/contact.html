@@ -54,28 +54,36 @@
     </div>
   </section>
 
-  <!--Dette er fra: https://codepen.io/geertjanhendriks/pen/ZEWrmd -->
-  <div id="form">
-    <div class="fish" id="fish"></div>
-    <div class="fish" id="fish2"></div>
-
-    <form id="waterform" method="post">
-      <div class="formgroup" id="name-form">
-        <label for="name">Your name*</label>
-        <input type="text" id="name" name="name" />
+  <div class="container">
+    <div class="form-success" id="contact-success" role="status" aria-live="polite">
+      Thanks! Your message has been sent.
+    </div>
+    <form class="row input-container" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="0dc13e99-9515-48d8-ace4-a9deadb74bf9">
+      <input type="hidden" name="redirect" value="https://uiasub.no/en/pages/contact.html?success=true">
+      <input type="hidden" name="subject" value="UiASub Contact">
+      <input type="text" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="col-xs-12">
+        <div class="styled-input wide">
+          <input type="text" name="name" required placeholder=" " />
+          <label>Your name</label>
+        </div>
       </div>
-
-      <div class="formgroup" id="email-form">
-        <label for="email">Your e-mail*</label>
-        <input type="email" id="email" name="email" />
+      <div class="col-xs-12">
+        <div class="styled-input wide">
+          <input type="email" name="email" required placeholder=" " />
+          <label>Your e-mail</label>
+        </div>
       </div>
-
-      <div class="formgroup" id="message-form">
-        <label for="message">Your message</label>
-        <textarea id="message" name="message"></textarea>
+      <div class="col-xs-12">
+        <div class="styled-input wide">
+          <textarea name="message" required placeholder=" "></textarea>
+          <label>Your message</label>
+        </div>
       </div>
-
-      <input type="submit" value="Send your message!" />
+      <div class="col-xs-12">
+        <button class="btn-lrg submit-btn" type="submit">Submit</button>
+      </div>
     </form>
   </div>
 

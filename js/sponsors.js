@@ -1,7 +1,8 @@
+const isEnglish = document.documentElement.lang === 'en' || window.location.pathname.startsWith('/en');
+
 // Sponsor Carousel Slider
 $(document).ready(function () {
   const sponsorContainer = $('.owl-carousel.sponsor-carousel');
-  const isEnglish = document.documentElement.lang === 'en' || window.location.pathname.includes('/en/');
   const visitText = isEnglish ? 'Visit Website' : 'Besøk Nettside';
 
   fetch('/data/sponsors.json')
@@ -54,3 +55,42 @@ $(document).ready(function () {
     })
     .catch(error => console.error('Error loading sponsors:', error));
 });
+function copyToClipboard(element) {
+  var $temp = $("<input>");
+  $("body").append($temp);
+  $temp.val($(element).text()).select();
+  document.execCommand("copy");
+  $temp.remove();
+}
+let button = document.getElementById("copy-email-btn");
+
+function alertHandler() {
+  const alerts = document.getElementById("alert-container");
+  if (!alerts) return;
+
+  const alertBox = document.createElement("div");
+  alertBox.classList.add("alert-msg", "slide-in");
+  alertBox.textContent = isEnglish ? "Email address copied." : "E-postadressen er kopiert.";
+  alerts.appendChild(alertBox);
+
+  while (alerts.childElementCount > 1) {
+    alerts.removeChild(alerts.firstChild);
+  }
+
+  setTimeout(() => {
+    alertBox.classList.add("slide-out");
+    setTimeout(() => {
+      if (alertBox.parentNode) {
+        alertBox.parentNode.removeChild(alertBox);
+      }
+    }, 800);
+  }, 2200);
+}
+
+if (button) {
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
+    copyToClipboard("#p2");
+    alertHandler();
+  });
+}
