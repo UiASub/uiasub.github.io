@@ -191,3 +191,82 @@
     width: 140px;
   }
 }
+
+.button-container {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  overflow: hidden;
+}
+.button-container button {
+  background: #d63f3f;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1.5em;
+  font-weight: 300;
+  padding: 10px 15px;
+  text-transform: lowercase;
+  transition: 0.3s;
+  z-index: 1;
+}
+.button-container button:hover {
+  transform: scale(1.1);
+}
+
+#alert-container {
+  position: fixed;
+  left: 24px;
+  bottom: 24px;
+  z-index: 9999;
+}
+#alert-container .alert-msg {
+  background: #000000;
+  border: 1px solid #ddd;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  position: relative;
+  z-index: 99;
+}
+#alert-container .alert-msg:before {
+  color: #d63f3f;
+  content: "";
+  font-family: "Font Awesome 5 Free";
+  font-size: 1.5em;
+  font-weight: 600;
+  margin-right: 10px;
+  vertical-align: sub;
+}
+
+.slide-in {
+  animation-name: slideIn;
+  animation-duration: 0.8s;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-400px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+.slide-out {
+  animation-name: slideOut;
+  animation-duration: 0.8s;
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(80px);
+    opacity: 0;
+  }
+}

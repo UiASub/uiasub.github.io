@@ -1,242 +1,147 @@
-/* Contact page specific styles */
-
-/* Animation webkit */
-@-webkit-keyframes myfirst
-{
-	0% {margin-left: -235px}
-	90% {margin-left: 100%;}
-	100% {margin-left: 100%;}
+body {
+    background-color: #3e467e;
+    padding-top: 85px;
 }
 
-/* Animation */
-@keyframes myfirst
-{
-	0% {margin-left: -235px}
-	70% {margin-left: 100%;}
-	100% {margin-left: 100%;}
+/* ///// inputs /////*/
+
+input:focus ~ label,
+textarea:focus ~ label,
+input:valid ~ label,
+textarea:valid ~ label,
+input:not(:placeholder-shown) ~ label,
+textarea:not(:placeholder-shown) ~ label {
+    font-size: 0.75em;
+    color: #999;
+    top: -5px;
+    -webkit-transition: all 0.225s ease;
+    transition: all 0.225s ease;
 }
 
-.fish{
-	background-image: url('/images/uiasub/fish.png');
-	width: 235px;
-	height: 104px;
-	margin-left: -235px;
-	position: absolute;	
-	animation: myfirst 24s;
-	-webkit-animation: myfirst 24s;
-	animation-iteration-count: infinite;
-	-webkit-animation-iteration-count: infinite;
-	animation-timing-function: linear;
-	-webkit-animation-timing-function: linear;
-	z-index: 1; /* keep fish behind the form */
-	pointer-events: none; /* don't interfere with inputs */
+.styled-input {
+    float: left;
+    margin: 1rem 0;
+    position: relative;
+    border-radius: 12px;
 }
 
-#fish{
-	top: 120px;
+@media only screen and (max-width: 768px){
+    .styled-input {
+        width:100%;
+    }
 }
 
-#fish2{
-	top: 260px;
-	animation-delay: 12s;
-	-webkit-animation-delay: 12s;
+.styled-input label {
+    color: #c9d2ff;
+    padding: 1.3rem 30px 1rem 30px;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+    pointer-events: none;
 }
 
-
-header{
-	height: 160px;
-	background: url('http://www.geertjanhendriks.nl/codepen/form/golf.png') repeat-x bottom;
+.styled-input.wide { 
+    width: 650px;
+    max-width: 100%;
 }
 
-/* Make the form container transparent and smaller */
-#form{
-	/* avoid forcing the form container to match viewport height;
-	   let it size based on content so waves sit directly after the callout */
-	height: auto;
-	background-color: transparent; /* was #98d4f3 */
-	overflow: hidden;
-	position: relative;
-	padding-top: 20px;
-	padding-bottom: 6px; /* reduce space before waves */
-}
-form{
-	margin: 0 auto;
-	max-width: 420px; /* smaller form */
-	width: 100%;
-	padding-top: 20px;
-	color: inherit; /* don't force white on descendants */
-	position: relative;
-	z-index: 3; /* ensure form is above absolute fish elements */
-}
-label, input, textarea{
-	display: block;	
-}
-input, textarea{
-	width: 100%;
-	max-width: 100%;
-	border: none;
-	border-radius: 14px;
-	outline: none;
-	padding: 10px;
-	font-family: inherit;
-	font-size: 0.95em;
-	color: #222222; /* ensure typed text is dark and readable */
-	transition: border 0.5s;
-	-webkit-transition: border 0.5s;
-	-moz-transition: border 0.5s;
-	-o-transition: border 0.5s;
-	border: solid 2px rgba(0,0,0,0.08);
-	-webkit-box-sizing:border-box;
-	-moz-box-sizing:border-box;
-	box-sizing:border-box;
+input,
+textarea {
+    padding: 30px;
+    border: 1px solid rgba(255,255,255,0.22);
+    width: 100%;
+    font-size: 1rem;
+    background-color: rgba(255,255,255,0.08);
+    color: #f5f8ff;
+    border-radius: 12px;
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.12),
+        0 10px 30px rgba(9,12,35,0.25);
+    -webkit-backdrop-filter: blur(12px) saturate(140%);
+    backdrop-filter: blur(12px) saturate(140%);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
-input::placeholder, textarea::placeholder{
-	color: #9aa;
-}
-input:focus, textarea:focus{
-	border: solid 3px #77bde0;	
-}
-
-textarea{
-	height: 110px;
-	resize: vertical; 
-	overflow: auto;
-}
-input[type="submit"]{
-	background-color: #F90;
-	color: white;
-	height: 44px;
-	cursor: pointer;
-	margin-top: 18px;
-	font-size: 1.05em;
-	font-family: inherit;
-	-webkit-transition: background-color 0.5s;
-	-moz-transition: background-color 0.5s;
-	-o-transition: background-color 0.5s;
-	transition: background-color 0.5s;
-	padding: 0 18px;
-	border-radius: 10px;
-}
-input[type="submit"]:hover{
-	background-color: #e58f0e;
-	
-}
-.formgroup label{
-	font-size: 1.15em;
-	margin-top: 14px;
-	padding-left: 6px;
-	display: block;
-}
-.formgroup, .formgroup-active, .formgroup-error{
-	background-repeat: no-repeat;
-	background-position: right bottom;
-	background-size: 12%;
-	transition: background-image 0.7s;
-	-webkit-transition: background-image 0.7s;
-	-moz-transition: background-image 0.7s;
-	-o-transition: background-image 0.7s;
-	width: 100%;
-	padding-top: 6px;
+input:focus,
+textarea:focus {
+    outline: 0;
+    border-color: rgba(255,255,255,0.5);
+    background-color: rgba(255,255,255,0.12);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.2),
+        0 12px 40px rgba(18,38,85,0.35);
 }
 
-.formgroup{
-	background-image: url('http://www.geertjanhendriks.nl/codepen/form/pixel.gif');	
-}
-.formgroup-active{
-	background-image: url('http://www.geertjanhendriks.nl/codepen/form/octo.png');
-}
-.formgroup-error{
-	background-image: url('http://www.geertjanhendriks.nl/codepen/form/octo-error.png');
-	color: red;
+textarea {
+    width: 100%;
+    min-height: 15em;
 }
 
-/* Ensure form inputs always display dark text (override other site rules) */
-#form input, #form textarea, #form input::placeholder, #form textarea::placeholder {
-	color: #222222 !important;
-	-webkit-text-fill-color: #222222 !important; /* Chrome autofill/text fill */
+.input-container {
+    width: 650px;
+    max-width: 100%;
+    margin: 20px auto 25px auto;
+    padding: 14px 20px 26px;
+    border-radius: 18px;
+    background-color: rgba(18,22,45,0.45);
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow:
+        0 30px 70px rgba(6,8,26,0.45),
+        inset 0 1px 0 rgba(255,255,255,0.06);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    backdrop-filter: blur(18px) saturate(140%);
 }
 
-/* Autofill background fix for Chrome (optional) */
-input:-webkit-autofill, textarea:-webkit-autofill {
-	-webkit-box-shadow: 0 0 0px 1000px white inset !important;
-	box-shadow: 0 0 0px 1000px white inset !important;
-	-webkit-text-fill-color: #222222 !important;
-}
-/* Sponsors callout (preserved from previous design) */
-.contact-callout {
-  position: relative;
-  padding: 120px 0 80px 0; /* desktop spacing */
-  overflow: hidden;
-}
-.contact-callout::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-}
-.contact-callout .callout-content {
-  position: relative;
-  z-index: 1;
-}
-.contact-callout .callout-content h1 {
-  font-weight: 700; /* stronger heading for hierarchy */
-  margin-bottom: 1rem;
-}
-.contact-callout .callout-content p {
-  font-weight: 400;
-  line-height: 1.6;
-  color: #e6f7ff;
-}
-/* keep Bootstrap's .lead behavior while providing tuned sizing */
-.contact-callout .callout-content .lead {
-  font-weight: 300;
-  line-height: 1.6;
-  color: #e6f7ff;
-}
-.contact-callout hr {
-  border-color: rgba(255,255,255,0.12);
-  margin: 1rem 0 1.25rem;
-  opacity: 0.8;
-}
-/* More specific link selectors so these override generic .callout a */
-.contact-callout .callout-content a {
-  color: #44B8FF;
-  transition: all 0.3s ease;
-}
-.contact-callout .callout-content a:hover {
-  transform: translateY(-2px);
-  text-decoration: none;
-}
-.contact-callout .callout-content a.btn-sponsor-cta {
-  color: #44B8FF;
+.form-success {
+    display: none;
+    width: 650px;
+    max-width: 100%;
+    margin: 0 auto 14px auto;
+    padding: 12px 18px;
+    border-radius: 14px;
+    background-color: rgba(18, 70, 45, 0.5);
+    border: 1px solid rgba(120, 255, 190, 0.35);
+    color: #eafff4;
+    text-align: center;
+    box-shadow:
+        0 14px 35px rgba(6, 20, 12, 0.35),
+        inset 0 1px 0 rgba(255,255,255,0.1);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    backdrop-filter: blur(16px) saturate(140%);
 }
 
-/* Bring sponsor CTA visual style into contact page as .btn-contact-cta
-	 to keep a consistent look for contact CTAs while scoping styles to this page. */
-.btn-contact-cta {
-	display: inline-block;
-	padding: 14px 32px;
-	border-radius: 12px;
-	background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-	border: 1px solid rgba(68,184,255,0.12);
-	color: #44B8FF;
-	font-weight: 600;
-	font-size: 16px;
-	text-decoration: none;
-	transition: all 0.3s cubic-bezier(0.65, 0, 0.076, 1);
-	box-shadow: 0 6px 18px rgba(0,0,0,0.24);
+.form-success.is-visible {
+    display: block;
 }
-.btn-contact-cta:hover {
-	background: rgba(68,184,255,0.10);
-	border-color: #44B8FF;
-	color: #ffffff;
-	transform: translateY(-3px);
-	box-shadow: 0 12px 32px rgba(68,184,255,0.14);
+
+.submit-btn {
+    float: right;
+    padding: 7px 35px;
+    border-radius: 60px;
+    display: inline-block;
+    background-image: linear-gradient(135deg, #6aa7ff 0%, #4b8cfb 55%, #5de0e6 100%);
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    border: 1px solid rgba(255,255,255,0.25);
+    box-shadow: 0 6px 18px rgba(8,12,32,0.25),
+              inset 0 1px 0 rgba(255,255,255,0.2);
+    -webkit-transition: all 300ms ease;
+    transition: all 300ms ease;
 }
-.btn-contact-cta:active { transform: translateY(0); }
+
+.submit-btn:hover {
+    transform: translateY(1px);
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.10),
+              0 1px 1px 0 rgba(0,0,0,0.09);
+}
 
 @media (max-width: 768px) {
-	.btn-contact-cta { padding: 12px 24px; font-size: 15px; }
+    .submit-btn {
+        width:100%;
+        float: none;
+        text-align:center;
+    }
 }
