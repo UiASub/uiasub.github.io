@@ -23,48 +23,54 @@ const a = document.querySelector('#a span');
 const st = document.querySelector('#st span');
 const ory = document.querySelector('#ory span');
 
+const hasNode = (node) => !!node;
+const hasNodes = (nodes) => nodes && nodes.length > 0;
+
 const showElements = () => {
   const timeline = gsap.timeline();
-  timeline
-        .fromTo(btnCircle, { autoAlpha: 0 }, { autoAlpha: 1, duration: fourtyFrames, ease: customEaseIn}, 0)
-        .fromTo(btnCircle, { scale: 0.417 }, { scale: 1, duration: fourtyFrames, ease: customEaseIn}, 0)
-        .to(eve, { x: '0vw', duration: fiftyFrames, ease: customEaseIn}, 0)
-        .to(book, {y: '0vw', duration: fourtyFrames, ease: customEaseIn}, twoFrames)
-        .to(fo, { x: '0vw', duration: fiftyFrames, ease: customEaseIn}, twoFrames)
-        .to(a, { x: '0vw', duration: fiftyFrames, ease: customEaseIn}, twoFrames)
-        .to(ory, { x: '0vw', duration: fiftyFrames, ease: customEaseIn}, twoFrames)
-        .to(open, {y: '0vw', duration: fourtyFrames, ease: customEaseIn}, fourFrames)
-        .to(btnText, {y: '0vw', duration: fourtyFrames, ease: customEaseIn}, fourFrames)
-        .to(ry, { x: '0vw', duration: fiftyFrames, ease: customEaseIn}, fourFrames)
-        .to(ssil, { x: '0vw', duration: fiftyFrames, ease: customEaseIn}, fourFrames)
-        .to(tells, { x: '0vw', duration: fiftyFrames, ease: customEaseIn}, fourFrames)
-        .to(st, { x: '0vw', duration: fiftyFrames, ease: customEaseIn}, fourFrames)
-        .to(copy, {y: '0vw', duration: fourtyFrames, ease: customEaseIn}, sixFrames)
-        .to(scrollToRows, {y: '0vw', duration: fourtyFrames, ease: customEaseIn}, sixFrames);
-  
+
+  if (hasNode(btnCircle)) {
+    timeline.fromTo(btnCircle, { autoAlpha: 0 }, { autoAlpha: 1, duration: fourtyFrames, ease: customEaseIn}, 0);
+    timeline.fromTo(btnCircle, { scale: 0.417 }, { scale: 1, duration: fourtyFrames, ease: customEaseIn}, 0);
+  }
+  if (hasNode(eve)) timeline.to(eve, { x: '0vw', duration: fiftyFrames, ease: customEaseIn}, 0);
+  if (hasNode(book)) timeline.to(book, {y: '0vw', duration: fourtyFrames, ease: customEaseIn}, twoFrames);
+  if (hasNode(fo)) timeline.to(fo, { x: '0vw', duration: fiftyFrames, ease: customEaseIn}, twoFrames);
+  if (hasNode(a)) timeline.to(a, { x: '0vw', duration: fiftyFrames, ease: customEaseIn}, twoFrames);
+  if (hasNode(ory)) timeline.to(ory, { x: '0vw', duration: fiftyFrames, ease: customEaseIn}, twoFrames);
+  if (hasNode(open)) timeline.to(open, {y: '0vw', duration: fourtyFrames, ease: customEaseIn}, fourFrames);
+  if (hasNode(btnText)) timeline.to(btnText, {y: '0vw', duration: fourtyFrames, ease: customEaseIn}, fourFrames);
+  if (hasNode(ry)) timeline.to(ry, { x: '0vw', duration: fiftyFrames, ease: customEaseIn}, fourFrames);
+  if (hasNode(ssil)) timeline.to(ssil, { x: '0vw', duration: fiftyFrames, ease: customEaseIn}, fourFrames);
+  if (hasNode(tells)) timeline.to(tells, { x: '0vw', duration: fiftyFrames, ease: customEaseIn}, fourFrames);
+  if (hasNode(st)) timeline.to(st, { x: '0vw', duration: fiftyFrames, ease: customEaseIn}, fourFrames);
+  if (hasNode(copy)) timeline.to(copy, {y: '0vw', duration: fourtyFrames, ease: customEaseIn}, sixFrames);
+  if (hasNodes(scrollToRows)) timeline.to(scrollToRows, {y: '0vw', duration: fourtyFrames, ease: customEaseIn}, sixFrames);
+
   return timeline;
 }
 
 const hideElements = () => {
   const timeline = gsap.timeline();
-  
-  timeline
-        .fromTo(copy, {y: '0vw'}, {y: '2.78vw', duration: fourtyFrames, ease: customEaseIn}, 0)
-        .fromTo(scrollToRows, {y: '0vw'}, {y: '3.47vw', duration: fourtyFrames, ease: customEaseIn}, 0)
-        .fromTo(open, {y: '0vw'}, {y: '2.08vw', duration: fourtyFrames, ease: customEaseIn}, twoFrames)
-        .fromTo(btnText, {y: '0vw'}, {y: '2.78vw', duration: fourtyFrames, ease: customEaseIn}, twoFrames)
-        .fromTo(ry, {x: '0vw'}, { x: '-13.89vw', duration: fiftyFrames, ease: customEaseIn}, twoFrames)
-        .fromTo(ssil, {x: '0vw'}, { x: '-21.53vw', duration: fiftyFrames, ease: customEaseIn}, twoFrames)
-        .fromTo(tells, {x: '0vw'}, { x: '29.86vw', duration: fiftyFrames, ease: customEaseIn}, twoFrames)
-        .fromTo(st, {x: '0vw'}, { x: '13.19vw', duration: fiftyFrames, ease: customEaseIn}, twoFrames)
-        .fromTo(book, {y: '0vw'}, {y: '3.47vw', duration: fourtyFrames, ease: customEaseIn}, fourFrames)
-        .fromTo(fo, {x: '0vw'}, { x: '14.58vw', duration: fiftyFrames, ease: customEaseIn}, fourFrames)
-        .fromTo(a, {x: '0vw'}, { x: '-8.33vw', duration: fiftyFrames, ease: customEaseIn}, fourFrames)
-        .fromTo(ory, {x: '0vw'}, { x: '-22.22vw', duration: fiftyFrames, ease: customEaseIn}, fourFrames)
-        .fromTo(btnCircle, { autoAlpha: 1 }, { autoAlpha: 0, duration: fourtyFrames, ease: customEaseIn}, sixFrames)
-        .fromTo(btnCircle, { scale: 1 }, { scale: 0.417, duration: fourtyFrames, ease: customEaseIn}, sixFrames)
-        .fromTo(eve, {x: '0vw'}, { x: '18.75vw', duration: fiftyFrames, ease: customEaseIn}, sixFrames);
-  
+
+  if (hasNode(copy)) timeline.fromTo(copy, {y: '0vw'}, {y: '2.78vw', duration: fourtyFrames, ease: customEaseIn}, 0);
+  if (hasNodes(scrollToRows)) timeline.fromTo(scrollToRows, {y: '0vw'}, {y: '3.47vw', duration: fourtyFrames, ease: customEaseIn}, 0);
+  if (hasNode(open)) timeline.fromTo(open, {y: '0vw'}, {y: '2.08vw', duration: fourtyFrames, ease: customEaseIn}, twoFrames);
+  if (hasNode(btnText)) timeline.fromTo(btnText, {y: '0vw'}, {y: '2.78vw', duration: fourtyFrames, ease: customEaseIn}, twoFrames);
+  if (hasNode(ry)) timeline.fromTo(ry, {x: '0vw'}, { x: '-13.89vw', duration: fiftyFrames, ease: customEaseIn}, twoFrames);
+  if (hasNode(ssil)) timeline.fromTo(ssil, {x: '0vw'}, { x: '-21.53vw', duration: fiftyFrames, ease: customEaseIn}, twoFrames);
+  if (hasNode(tells)) timeline.fromTo(tells, {x: '0vw'}, { x: '29.86vw', duration: fiftyFrames, ease: customEaseIn}, twoFrames);
+  if (hasNode(st)) timeline.fromTo(st, {x: '0vw'}, { x: '13.19vw', duration: fiftyFrames, ease: customEaseIn}, twoFrames);
+  if (hasNode(book)) timeline.fromTo(book, {y: '0vw'}, {y: '3.47vw', duration: fourtyFrames, ease: customEaseIn}, fourFrames);
+  if (hasNode(fo)) timeline.fromTo(fo, {x: '0vw'}, { x: '14.58vw', duration: fiftyFrames, ease: customEaseIn}, fourFrames);
+  if (hasNode(a)) timeline.fromTo(a, {x: '0vw'}, { x: '-8.33vw', duration: fiftyFrames, ease: customEaseIn}, fourFrames);
+  if (hasNode(ory)) timeline.fromTo(ory, {x: '0vw'}, { x: '-22.22vw', duration: fiftyFrames, ease: customEaseIn}, fourFrames);
+  if (hasNode(btnCircle)) {
+    timeline.fromTo(btnCircle, { autoAlpha: 1 }, { autoAlpha: 0, duration: fourtyFrames, ease: customEaseIn}, sixFrames);
+    timeline.fromTo(btnCircle, { scale: 1 }, { scale: 0.417, duration: fourtyFrames, ease: customEaseIn}, sixFrames);
+  }
+  if (hasNode(eve)) timeline.fromTo(eve, {x: '0vw'}, { x: '18.75vw', duration: fiftyFrames, ease: customEaseIn}, sixFrames);
+
   return timeline;
 }
 
