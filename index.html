@@ -18,8 +18,8 @@
   <script defer src="https://cloud.umami.is/script.js" data-website-id="410f43d3-648d-4b39-9a2a-d259c6cbab6e"></script>
 
   <!-- Preload critical assets -->
-  <link rel="preload" as="video" href="videos/7031358_Underwater_Breaking_1280x720.mp4" type="video/mp4">
-  <link rel="preload" as="image" href="images/front-icons/DSC01493.jpg" type="image/jpeg">
+  <link rel="preload" as="video" href="videos/underwater_breaking_1280x720.webm" type="video/webm">
+  <link rel="preload" as="image" href="images/front-icons/uia_entrance.jpg" type="image/jpeg">
 
   <!-- Bootstrap core CSS (v5) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -50,6 +50,7 @@
   <!-- HERO SECTION -->
   <section class="hero">
     <video class="hero-video" autoplay muted loop playsinline preload="auto">
+      <source src="videos/underwater_breaking_1280x720.webm" type="video/webm">
       <source src="videos/7031358_Underwater_Breaking_1280x720.mp4" type="video/mp4"/>
       Your browser does not support the video tag.
     </video>
@@ -100,7 +101,7 @@
           </div>
         </div>
         <div class="c-gallery-card-media-container">
-          <img loading="lazy" src="images/front-icons/DSC01493.jpg" alt="UiASub team" width="400" height="300" style="object-fit: cover; height: 300px;">
+          <img loading="lazy" src="images/front-icons/uia_entrance.jpg" alt="UiASub team" width="400" height="300" style="object-fit: cover; height: 300px;">
         </div>
       </section>
 
@@ -116,7 +117,7 @@
           </div>
         </div>
         <div class="c-gallery-card-media-container">
-          <img loading="lazy" src="images/front-icons/491440310_17895485013198102_8891979541426359705_n.jpg" alt="K2 ROV-render med 8 vektoriserte thrustere og avansert undervannssystem" width="400" height="300">
+          <img loading="lazy" src="images/front-icons/rov_k2_ad.jpg" alt="K2 ROV-render med 8 vektoriserte thrustere og avansert undervannssystem" width="400" height="300">
         </div>
       </section>
 
@@ -134,8 +135,12 @@
             <a href="pages/sponsors.html" rel="noopener noreferrer" class="btn btn-primary">Se mer</a>
           </div>
         </div>
+        <!-- i used https://github.com/methodofaction/Method-Draw to edit this image -->
         <div class="c-gallery-card-media-container">
-          <img loading="lazy" src="images/front-icons/blob-scene-haikei.png" alt="Abstrakt illustrasjon som representerer UiASub partnere og sponsorer" width="400" height="300">
+          <a href="pages/sponsors.html">
+            <img loading="lazy" src="images/front-icons/sponsors_listed.png"
+              alt="Abstrakt illustrasjon som representerer UiASub partnere og sponsorer"
+              width="400" height="300"> </a>
         </div>
       </section>
 
@@ -151,7 +156,7 @@
           </div>
         </div>
         <div class="c-gallery-card-media-container">
-          <img loading="lazy" src="images/front-icons/PXL_20251030_163108976.jpg" alt="UiASub-teammedlemmer som utplasserer ROV ved kai" width="400" height="300">
+          <img loading="lazy" src="images/front-icons/behind-uiasub.jpg" alt="UiASub-teammedlemmer som utplasserer ROV ved kai" width="400" height="300">
         </div>
       </section>
 
@@ -166,7 +171,7 @@
           </div>
         </div>
         <div class="c-gallery-card-media-container">
-          <img loading="lazy" src="images/uiasub/Onwall.jpg" alt="UiASub-logo på vegg med nyhetskunngjøringer" width="400" height="300" style="object-fit: cover; height: 300px;">
+          <img loading="lazy" src="images/uiasub/Onwall.webp" alt="UiASub-logo på vegg med nyhetskunngjøringer" width="400" height="300" style="object-fit: cover; height: 300px;">
         </div>
       </section>
 
@@ -181,7 +186,7 @@
           </div>
         </div>
         <div class="c-gallery-card-media-container">
-          <img loading="lazy" src="images/tac-challange/IMG_0277.jpg" alt="TAC Challenge - Internasjonal ROV/AUV-konkurranse" width="400" height="300" style="object-fit: cover; height: 300px;">
+          <img loading="lazy" src="images/tac-challange/tac-challange.webp" alt="TAC Challenge - Internasjonal ROV/AUV-konkurranse" width="400" height="300" style="object-fit: cover; height: 300px;">
         </div>
       </section>
     </div>
@@ -213,7 +218,6 @@
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
     crossorigin="anonymous"></script>
   <script src="js/hero-scroll.js"></script>
-  <script src="js/service-worker-register.js"></script>
   <script src='https://unpkg.com/gsap@3/dist/gsap.min.js'></script>
   <script src='https://unpkg.com/gsap@3/dist/CustomEase.min.js'></script><script  src="js/hero-script.js"></script>
 </body>
