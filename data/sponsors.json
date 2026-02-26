@@ -19,5 +19,12 @@
         "description": "FFU støtter studentorganisasjoner ved UiA.",
         "description_en": "FFU supports student organizations at UiA.",
         "link": "https://ffu.no"
+    },
+    {
+        "name": "Mechman",
+        "image": "/images/sponsors/Mechman.png",
+        "description": "Mechman leverer skreddersydde subsea-buoyancy-løsninger som gir ROV-er, verktøy og annet undervannsutstyr riktig oppdrift og balanse.",
+        "description_en": "Mechman delivers customized subsea buoyancy solutions that provide ROVs, tools, and other underwater equipment with the right amount of buoyancy and balance.",
+        "link": "https://www.mechman.no"
     }
 ]
