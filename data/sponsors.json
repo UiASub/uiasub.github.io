@@ -26,5 +26,12 @@
         "description": "Mechman leverer skreddersydde subsea-buoyancy-løsninger som gir ROV-er, verktøy og annet undervannsutstyr riktig oppdrift og balanse.",
         "description_en": "Mechman delivers customized subsea buoyancy solutions that provide ROVs, tools, and other underwater equipment with the right amount of buoyancy and balance.",
         "link": "https://www.mechman.no"
+    },
+    {
+        "name": "Norwegian Seals",
+        "image": "/images/sponsors/Norwegian_Seals.png",
+        "description": "Norwegian Seals leverer tekniske tetninger og polymerløsninger til industri og offshore.",
+        "description_en": "Norwegian Seals AS supplies technical sealing solutions and polymer products to the industrial and offshore sectors.",
+        "link": "https://www.norwegianseals.no/"
     }
 ]
