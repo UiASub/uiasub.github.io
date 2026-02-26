@@ -1,5 +1,18 @@
 { 
     "news": [
+            {
+            "title": "UiA Sub inngår samarbeid med Mechman",
+            "title_en": "UiA Sub Announces Partnership with Mechman",
+            "description": "UiA Sub har inngått samarbeid med Mechman for levering av oppdriftsløsninger til våre ROV-systemer. Samarbeidet styrker utviklingen av fremtidige undervannsprosjekter med pålitelige og profesjonelle buoyancy-løsninger.",
+            "description_en": "UiA Sub has entered a partnership with Mechman for the delivery of buoyancy solutions for our ROV systems. The collaboration strengthens the development of future underwater projects with reliable and professional buoyancy solutions.",
+            "image": "/images/news/Mechman.png",
+            "link": "https://www.mechman.no",
+            "date": "26. feb 2026",
+            "date_en": "26 Feb 2026",
+            "badge": "Nytt",
+            "badge_en": "New",
+            "badgeType": "new"
+        },
         {
             "title": "Quiz med UiASub",
             "title_en": "Quiz with UiASub",
