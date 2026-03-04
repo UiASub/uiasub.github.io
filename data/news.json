@@ -1,6 +1,19 @@
 { 
     "news": [
             {
+            "title": "UiA Sub inngår samarbeid med Norwegian Seals",
+            "title_en": "UiA Sub Announces Partnership with Norwegian Seals",
+            "description": "UiA Sub har inngått et samarbeid med Norwegian Seals, en leverandør av tekniske tetninger og polymerløsninger til industri og subsea.",
+            "description_en": "UiA Sub has entered into a partnership with Norwegian Seals, a supplier of technical seals and polymer solutions for industry and subsea applications.",
+            "image": "/images/news/Norwegian_Seals.png",
+            "link": "https://www.norwegianseals.no",
+            "date": "4. mar 2026",
+            "date_en": "4 Mar 2026",
+            "badge": "Nytt",
+            "badge_en": "New",
+            "badgeType": "new"
+        },
+        {
             "title": "UiA Sub inngår samarbeid med Mechman",
             "title_en": "UiA Sub Announces Partnership with Mechman",
             "description": "UiA Sub har inngått samarbeid med Mechman for levering av oppdriftsløsninger til våre ROV-systemer. Samarbeidet styrker utviklingen av fremtidige undervannsprosjekter med pålitelige og profesjonelle buoyancy-løsninger.",
