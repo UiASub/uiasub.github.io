@@ -59,7 +59,7 @@
       </div>
 
       <!-- Main Content Area -->
-      <div class="col-md-9 col-lg-10">
+      <div class="col-md-8 col-lg-9">
         <div class="d-flex justify-content-between align-items-center mb-3">
           <div>
             <h1 class="h3 text-white mb-1">Equipment Loan Manager</h1>
@@ -128,8 +128,48 @@
           </div>
         </div>
 
-        <!-- Pagination -->
-        <div id="pagination" class="mt-3"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit Modal -->
+  <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content bg-dark text-white border-secondary">
+        <div class="modal-header border-secondary">
+          <h2 class="modal-title h5" id="editModalLabel">Edit Equipment</h2>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form onsubmit="return false;">
+            <div class="row g-2">
+              <div class="col-md-6">
+                <label for="editEquipmentName" class="form-label small text-white-50">Equipment Name *</label>
+                <input type="text" id="editEquipmentName" class="form-control form-control-sm bg-dark text-white border-secondary" required>
+              </div>
+              <div class="col-md-6">
+                <label for="editEquipmentDesc" class="form-label small text-white-50">Description</label>
+                <input type="text" id="editEquipmentDesc" class="form-control form-control-sm bg-dark text-white border-secondary">
+              </div>
+              <div class="col-md-3 col-6">
+                <label for="editEquipmentNumber" class="form-label small text-white-50">Total Qty</label>
+                <input type="number" id="editEquipmentNumber" class="form-control form-control-sm bg-dark text-white border-secondary" min="0">
+              </div>
+              <div class="col-md-3 col-6">
+                <label for="editEquipmentNumberInStorage" class="form-label small text-white-50">In Storage</label>
+                <input type="number" id="editEquipmentNumberInStorage" class="form-control form-control-sm bg-dark text-white border-secondary" min="0">
+              </div>
+              <div class="col-md-6">
+                <label for="editEquipmentWhere" class="form-label small text-white-50">Location</label>
+                <input type="text" id="editEquipmentWhere" class="form-control form-control-sm bg-dark text-white border-secondary">
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer border-secondary">
+          <button type="button" id="cancelEdit" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" id="confirmEdit" class="btn btn-primary">Save Changes</button>
+        </div>
       </div>
     </div>
   </div>
