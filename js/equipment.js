@@ -19,80 +19,14 @@ function getAccessToken() {
   return window.localStorage.getItem('access_token');
 }
 
-// Render the current page of equipment
-async function displayCurrentPage() {
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  const pageEquipment = filteredEquipment.slice(startIndex, endIndex);
-  if (!pageEquipment || pageEquipment.length === 0) {
+// Render all equipment
+function renderFilteredEquipment() {
+  if (!filteredEquipment || filteredEquipment.length === 0) {
     equipmentList.innerHTML = '<div style="color:#b5bac1;text-align:center;padding:32px;">No equipment found.</div>';
-    updatePagination();
     return;
   }
-  const html = displayEquipment(pageEquipment);
+  const html = displayEquipment(filteredEquipment);
   equipmentList.innerHTML = html;
-  updatePagination();
-}
-
-function updatePagination() {
-  let container = document.getElementById('pagination');
-  if (!container) {
-    container = document.createElement('div');
-    container.id = 'pagination';
-    if (equipmentList && equipmentList.parentNode) {
-      equipmentList.parentNode.insertBefore(container, equipmentList.nextSibling);
-    }
-  }
-  const totalPages = Math.ceil(filteredEquipment.length / itemsPerPage) || 1;
-  if (totalPages <= 1) {
-    container.innerHTML = '';
-    return;
-  }
-  
-  // Bootstrap pagination
-  let html = '<nav aria-label="Equipment pagination"><ul class="pagination pagination-sm justify-content-center mb-0">';
-  
-  // Previous button
-  html += `<li class="page-item ${currentPage === 1 ? 'disabled' : ''}">`;
-  html += `<a class="page-link" href="#" onclick="changePage(${currentPage - 1}); return false;" aria-label="Previous">`;
-  html += '<span aria-hidden="true">&laquo;</span></a></li>';
-  
-  // Page numbers
-  const startPage = Math.max(1, currentPage - 2);
-  const endPage = Math.min(totalPages, currentPage + 2);
-  
-  if (startPage > 1) {
-    html += `<li class="page-item"><a class="page-link" href="#" onclick="changePage(1); return false;">1</a></li>`;
-    if (startPage > 2) html += '<li class="page-item disabled"><span class="page-link">...</span></li>';
-  }
-  
-  for (let i = startPage; i <= endPage; i++) {
-    html += `<li class="page-item ${i === currentPage ? 'active' : ''}">`;
-    html += `<a class="page-link" href="#" onclick="changePage(${i}); return false;">${i}</a></li>`;
-  }
-  
-  if (endPage < totalPages) {
-    if (endPage < totalPages - 1) html += '<li class="page-item disabled"><span class="page-link">...</span></li>';
-    html += `<li class="page-item"><a class="page-link" href="#" onclick="changePage(${totalPages}); return false;">${totalPages}</a></li>`;
-  }
-  
-  // Next button
-  html += `<li class="page-item ${currentPage === totalPages ? 'disabled' : ''}">`;
-  html += `<a class="page-link" href="#" onclick="changePage(${currentPage + 1}); return false;" aria-label="Next">`;
-  html += '<span aria-hidden="true">&raquo;</span></a></li>';
-  
-  html += '</ul></nav>';
-  container.innerHTML = html;
-}
-
-window.changePage = async (page) => {
-  const totalPages = Math.ceil(filteredEquipment.length / itemsPerPage) || 1;
-  if (page < 1 || page > totalPages) return;
-  currentPage = page;
-  await displayCurrentPage();
-  if (document.getElementById('equipmentList')) {
-    document.getElementById('equipmentList').scrollIntoView({ behavior: 'smooth' });
-  }
 }
 
 const accessToken = getAccessToken();
@@ -114,11 +48,12 @@ const assignModal = document.getElementById("assignModal");
 const assignUserName = document.getElementById("assignUserName");
 const cancelAssign = document.getElementById("cancelAssign");
 const confirmAssign = document.getElementById("confirmAssign");
+const editModal = document.getElementById("editModal");
+const cancelEdit = document.getElementById("cancelEdit");
+const confirmEdit = document.getElementById("confirmEdit");
 let currentEquipmentId = null;
 
 // Pagination / data state (module-level)
-let currentPage = 1;
-let itemsPerPage = 20;
 let allEquipment = [];
 let filteredEquipment = [];
 
@@ -153,8 +88,7 @@ async function loadEquipment() {
     }
     allEquipment = Array.isArray(data) ? data : [];
     filteredEquipment = allEquipment.slice();
-    currentPage = 1;
-    await displayCurrentPage();
+    renderFilteredEquipment();
   } catch (e) {
     equipmentList.innerHTML = `<div style='color:#f23f43;'>Error: ${e.message}</div>`;
   }
@@ -278,6 +212,7 @@ function displayEquipment(equipment) {
         html += `<button class="btn btn-primary btn-sm" onclick='openAssignModal("${esc(id)}")' title="Assign">Assign</button>`;
       }
       html += `<button class="btn btn-danger btn-sm" onclick='deleteEquipment("${esc(id)}","${esc(row.name)}")' title="Delete">Delete</button>`;
+      html += `<button class="btn btn-primary btn-sm" onclick='openEditModal("${esc(id)}")' title="Edit">Edit</button>`;
     }
     html += '</div></td>';
     
@@ -314,6 +249,70 @@ addEquipmentBtn.onclick = async () => {
   if (newEquipmentWhere) newEquipmentWhere.value = '';
   if (newEquipmentNumberInStorage) newEquipmentNumberInStorage.value = '';
   loadEquipment();
+};
+
+// Edit equipment
+window.openEditModal = equipmentId => {
+  const eq = allEquipment.find(e => e.id == equipmentId);
+  if (!eq) return;
+  currentEquipmentId = equipmentId;
+
+  document.getElementById('editEquipmentName').value = eq.name || '';
+  document.getElementById('editEquipmentDesc').value = eq.description || '';
+  document.getElementById('editEquipmentNumber').value = eq.number !== null && eq.number !== undefined ? eq.number : '';
+  document.getElementById('editEquipmentNumberInStorage').value = eq.number_in_storage !== null && eq.number_in_storage !== undefined ? eq.number_in_storage : '';
+  document.getElementById('editEquipmentWhere').value = eq.where || '';
+
+  const modalEl = document.getElementById('editModal');
+  const modal = new bootstrap.Modal(modalEl);
+  modal.show();
+};
+
+if (cancelEdit) {
+  cancelEdit.onclick = () => {
+    const modalEl = document.getElementById('editModal');
+    const modal = bootstrap.Modal.getInstance(modalEl);
+    if (modal) modal.hide();
+    currentEquipmentId = null;
+  };
+}
+
+if (confirmEdit) {
+  confirmEdit.onclick = async () => {
+    const name = document.getElementById('editEquipmentName').value.trim();
+    if (!name) return alert('Enter equipment name');
+    
+    try {
+      const payload = {
+        id: currentEquipmentId,
+        name,
+        description: document.getElementById('editEquipmentDesc').value.trim() || null
+      };
+      
+      const editEqNum = document.getElementById('editEquipmentNumber').value;
+      const num = editEqNum ? Number(editEqNum) : null;
+      if (num !== null && !isNaN(num)) payload.number = num;
+      
+      const editEqWhere = document.getElementById('editEquipmentWhere').value;
+      if (editEqWhere.trim()) payload.where = editEqWhere.trim();
+      
+      const editEqNIS = document.getElementById('editEquipmentNumberInStorage').value;
+      const nis = editEqNIS ? Number(editEqNIS) : null;
+      if (nis !== null && !isNaN(nis)) payload.number_in_storage = nis;
+
+      // Ensure that 'update_equipment' matches your Supabase Edge Function's expected action name
+      const res = await callEdge('update_equipment', payload);
+      if (!res.ok) throw new Error(res.error || 'Failed to update equipment');
+    } catch (e) {
+      alert(e.message);
+    }
+    
+    const modalEl = document.getElementById('editModal');
+    const modal = bootstrap.Modal.getInstance(modalEl);
+    if (modal) modal.hide();
+    currentEquipmentId = null;
+    loadEquipment();
+  };
 };
 
 // Open assign modal
