@@ -40,6 +40,20 @@
         "description": "Elmotor AS utvikler, designer og produserer skreddersydde elektriske maskiner, motorer og generatorer for krevende applikasjoner over og under vann.",
         "description_en": "Elmotor AS develops, designs, and manufactures customized electric machines, motors, and generators for demanding applications above and below water.",
         "link": "https://elmotor.no/"
+    },
+    {
+    "name": "UiA Fakultet for teknologi og realfag",
+    "image": "/images/sponsors/UiA.svg",
+    "description": "UiA Fakultet for teknologi og realfag.",
+    "description_en": "UiA Faculty of Engineering and Science.",
+    "link": "https://www.uia.no/om-uia/fakultet/teknologi-og-realfag/"
+    },
+    {
+    "name": "UiA Nyskaping",
+    "image": "/images/sponsors/UiA_nyskaping_logo.png",
+    "description": "UiA Nyskaping er Universitetet i Agders innovasjonsstøtte som hjelper studenter og ansatte med å utvikle og realisere innovative ideer.",
+    "description_en": "UiA Nyskaping is the University of Agder's innovation support service, helping students and employees develop and realize innovative ideas.",
+    "link": "https://www.uia.no/om-uia/senter-og-nettverk/uia-nyskaping/"
     }
 
     
