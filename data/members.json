@@ -230,5 +230,13 @@
         "role_no": "Data",
         "role_en": "Data",
         "group": "data"
+    },
+    {
+        "id": 28,
+        "image": "IMG_0475.jpg",
+        "name": "Jonathan Fedje",
+        "role_no": "Data",
+        "role_en": "Data",
+        "group": "data"
     }
 ]
