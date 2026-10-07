@@ -91,51 +91,19 @@ section.bg-dark.bg-opacity-25 {
   color: #002f47;
 }
 
-/* FIXES: Ensure the members toggle and collapse content sit above decorative wave SVGs */
-.learn-more,
-#members-collapse,
-.learn-more+#members-collapse {
+/* Keep member cards above the decorative waves. */
+#members-container {
   position: relative;
   z-index: 5;
 }
 
-/* During Bootstrap collapse transitions the element may get .collapsing class; ensure visibility
-   for both collapsing and shown states by forcing stacking and pointer events. */
-#members-collapse.collapsing,
-#members-collapse.collapsing {
-  position: relative !important;
-  z-index: 25 !important;
-  /* higher during the transition */
-  pointer-events: auto !important;
-}
-
-#members-collapse.show {
-  position: relative !important;
-  z-index: 10 !important;
-  pointer-events: auto !important;
-}
-
-/* DEBUG: Force member cards visible while diagnosing visibility issues under 'Medlemmer' */
-#members-collapse {
-  background: transparent !important;
-}
-
-#members-collapse .card {
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  z-index: 30 !important;
-}
-
-#members-collapse .card {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#members-collapse .card .card-body,
-#members-collapse .card-img-top {
-  visibility: visible !important;
-  opacity: 1 !important;
+.member-photo-placeholder {
+  aspect-ratio: 3 / 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 16, 26, 0.4);
+  color: #e6f7ff;
 }
 
 .about-visual {
