@@ -1,67 +1,19 @@
 [
     {
-        "id": 12,
-        "image": "IMG_0650.jpg",
-        "name": "Sverre Brattelid Stige",
-        "role_no": "Leder",
-        "role_en": "Leader",
-        "group": "leadership"
-    },
-    {
-        "id": 30,
-        "image": "IMG_0.jpg",
-        "name": "Håkon Holgernes",
-        "role_no": "Mekanisk leder",
-        "role_en": "Mechanical Leader",
-        "group": "mechanical"
-    },
-    {
         "id": 14,
         "image": "IMG_0657.jpg",
-        "name": "Marius Ringsby",
-        "role_no": "Data leder",
-        "role_en": "Data Leader",
-        "group": "data"
+        "name": "Marius Oppedal Ringsby",
+        "role_no": "Leder",
+        "role_en": "Leader",
+        "group": "board"
     },
     {
-        "id": 3,
-        "image": "IMG_0611.jpg",
-        "name": "Storm Selvig",
-        "role_no": "Data",
-        "role_en": "Data",
-        "group": "data"
-    },
-    {
-        "id": 17,
-        "image": "IMG_0668.jpg",
-        "name": "Daniel Lindestad",
-        "role_no": "Data",
-        "role_en": "Data",
-        "group": "data"
-    },
-    {
-        "id": 4,
-        "image": "IMG_0613.jpg",
-        "name": "Simen Hanisch",
-        "role_no": "Elektronikk leder",
-        "role_en": "Electronics Leader",
-        "group": "electronics"
-    },
-    {
-        "id": 13,
-        "image": "IMG_0654.jpg",
-        "name": "Ryan Kevique Ngabo",
-        "role_no": "Nestleder",
-        "role_en": "Assistant Leader",
-        "group": "leadership"
-    },
-    {
-        "id": 10,
-        "image": "IMG_0639.jpg",
-        "name": "Emil Soppeland",
-        "role_no": "Mekanisk",
-        "role_en": "Mechanical",
-        "group": "mechanical"
+        "id": 11,
+        "image": "IMG_0646.jpg",
+        "name": "Vilasini Vamathevan",
+        "role_no": "Bedriftsansvarlig",
+        "role_en": "Corporate Relations Manager",
+        "group": "board"
     },
     {
         "id": 25,
@@ -72,36 +24,188 @@
         "group": "mechanical"
     },
     {
+        "id": 24,
+        "image": "IMG_0694.jpg",
+        "name": "Olav Reiersdal",
+        "role_no": "Mekanisk",
+        "role_en": "Mechanical",
+        "group": "mechanical"
+    },
+    {
         "id": 27,
         "image": "IMG_0704.jpg",
-        "name": "Ella Bach",
-        "role_no": "Multimedia og design",
-        "role_en": "Multimedia and Design",
-        "group": "marketing"
+        "name": "Ella May Bach-Jæger",
+        "role_no": "Markedsføringsansvarlig",
+        "role_en": "Marketing Manager",
+        "group": "board"
     },
     {
-        "id": 1,
-        "image": "IMG_0598.jpg",
-        "name": "Astrid",
+        "id": 21,
+        "image": "IMG_0682.jpg",
+        "name": "Eskil Haaland Idsøe",
+        "role_no": "Mekanisk leder",
+        "role_en": "Mechanical Leader",
+        "group": "board"
+    },
+    {
+        "id": 31,
+        "image": null,
+        "name": "Thomas Vedå",
+        "role_no": "Data",
+        "role_en": "Data",
+        "group": "data"
+    },
+    {
+        "id": 32,
+        "image": null,
+        "name": "Oskar Juell",
+        "role_no": "Data",
+        "role_en": "Data",
+        "group": "data"
+    },
+    {
+        "id": 17,
+        "image": "IMG_0668.jpg",
+        "name": "Daniel Lindestad",
+        "role_no": "Data leder",
+        "role_en": "Data Leader",
+        "group": "board"
+    },
+    {
+        "id": 9,
+        "image": "IMG_0636.jpg",
+        "name": "Michael Nalon Evensen",
+        "role_no": "Data",
+        "role_en": "Data",
+        "group": "data"
+    },
+    {
+        "id": 3,
+        "image": "IMG_0611.jpg",
+        "name": "Storm Selvig",
+        "role_no": "Nestleder",
+        "role_en": "Deputy Leader",
+        "group": "board"
+    },
+    {
+        "id": 33,
+        "image": null,
+        "name": "Tiril Emilie Hjorth",
         "role_no": "Mekanisk",
         "role_en": "Mechanical",
         "group": "mechanical"
     },
     {
-        "id": 2,
-        "image": "IMG_0606.jpg",
-        "name": "Vetle Andreas Sand",
+        "id": 30,
+        "image": null,
+        "name": "Håkon Holgernes",
+        "role_no": "Elektronikk leder",
+        "role_en": "Electronics Leader",
+        "group": "board"
+    },
+    {
+        "id": 23,
+        "image": "IMG_0691.jpg",
+        "name": "Thomas Karlberg-Molvik",
         "role_no": "Mekanisk",
         "role_en": "Mechanical",
         "group": "mechanical"
     },
     {
-        "id": 5,
-        "image": "IMG_0619.jpg",
-        "name": "Jostein",
-        "role_no": "Bedriftsansvarlig",
-        "role_en": "Corporate Relations Manager",
-        "group": "members"
+        "id": 34,
+        "image": null,
+        "name": "Martin Olavsen",
+        "role_no": "Elektronikk",
+        "role_en": "Electronics",
+        "group": "electronics"
+    },
+    {
+        "id": 35,
+        "image": null,
+        "name": "Thea Thomassen-Lie",
+        "role_no": "Mekanisk",
+        "role_en": "Mechanical",
+        "group": "mechanical"
+    },
+    {
+        "id": 36,
+        "image": null,
+        "name": "Mikal Mjånes Berge",
+        "role_no": "Elektronikk",
+        "role_en": "Electronics",
+        "group": "electronics"
+    },
+    {
+        "id": 37,
+        "image": null,
+        "name": "Gawain Jørgen Kjæret",
+        "role_no": "Elektronikk",
+        "role_en": "Electronics",
+        "group": "electronics"
+    },
+    {
+        "id": 38,
+        "image": null,
+        "name": "Kasper Johan Haukland Jacobsen",
+        "role_no": "Data",
+        "role_en": "Data",
+        "group": "data"
+    },
+    {
+        "id": 39,
+        "image": null,
+        "name": "Tudor Burja",
+        "role_no": "Mekanisk",
+        "role_en": "Mechanical",
+        "group": "mechanical"
+    },
+    {
+        "id": 40,
+        "image": null,
+        "name": "Daniel Eikerapen",
+        "role_no": "Mekanisk",
+        "role_en": "Mechanical",
+        "group": "mechanical"
+    },
+    {
+        "id": 41,
+        "image": null,
+        "name": "Jakub Sobolewski",
+        "role_no": "Elektronikk",
+        "role_en": "Electronics",
+        "group": "electronics"
+    },
+    {
+        "id": 42,
+        "image": null,
+        "name": "Vårin Wirkola",
+        "role_no": "Mekanisk",
+        "role_en": "Mechanical",
+        "group": "mechanical"
+    },
+    {
+        "id": 43,
+        "image": null,
+        "name": "Salim Bukari",
+        "role_no": "Data",
+        "role_en": "Data",
+        "group": "data"
+    },
+    {
+        "id": 22,
+        "image": "IMG_0685.jpg",
+        "name": "Maksymilian Damian Dunajski",
+        "role_no": "Data",
+        "role_en": "Data",
+        "group": "data"
+    },
+    {
+        "id": 7,
+        "image": "IMG_0628.jpg",
+        "name": "Markus Sjøstrøm Orf",
+        "role_no": "Elektronikk",
+        "role_en": "Electronics",
+        "group": "electronics"
     },
     {
         "id": 6,
@@ -109,134 +213,22 @@
         "name": "Eivind Jøsang",
         "role_no": "Økonomiansvarlig",
         "role_en": "Finance Manager",
-        "group": "members"
+        "group": "board"
     },
     {
-        "id": 7,
-        "image": "IMG_0628.jpg",
-        "name": "Markus",
-        "role_no": "Elektronikk",
-        "role_en": "Electronics",
-        "group": "electronics"
-    },
-    {
-        "id": 8,
-        "image": "IMG_0632.jpg",
-        "name": "Chris",
-        "role_no": "Elektronikk",
-        "role_en": "Electronics",
-        "group": "electronics"
-    },
-    {
-        "id": 9,
-        "image": "IMG_0636.jpg",
-        "name": "Michael",
+        "id": 44,
+        "image": null,
+        "name": "Joan Ignasi Cid Guardia",
         "role_no": "Data",
         "role_en": "Data",
         "group": "data"
     },
     {
-        "id": 11,
-        "image": "IMG_0646.jpg",
-        "name": "Vilasini",
+        "id": 45,
+        "image": null,
+        "name": "Sander Nilsen",
         "role_no": "Data",
         "role_en": "Data",
         "group": "data"
-    },
-    {
-        "id": 15,
-        "image": "IMG_0660.jpg",
-        "name": "Elias",
-        "role_no": "Mekanisk",
-        "role_en": "Mechanical",
-        "group": "mechanical"
-    },
-    {
-        "id": 16,
-        "image": "IMG_0663.jpg",
-        "name": "Robert",
-        "role_no": "Data",
-        "role_en": "Data",
-        "group": "data"
-    },
-    {
-        "id": 18,
-        "image": "IMG_0671.jpg",
-        "name": "Sarah",
-        "role_no": "Elektronikk",
-        "role_en": "Electronics",
-        "group": "electronics"
-    },
-    {
-        "id": 19,
-        "image": "IMG_0674.jpg",
-        "name": "William",
-        "role_no": "UiASub",
-        "role_en": "UiASub",
-        "group": "members"
-    },
-    {
-        "id": 20,
-        "image": "IMG_0679.jpg",
-        "name": "Sondre",
-        "role_no": "Mekanisk",
-        "role_en": "Mechanical",
-        "group": "mechanical"
-    },
-    {
-        "id": 21,
-        "image": "IMG_0682.jpg",
-        "name": "Eskil",
-        "role_no": "Mekanisk",
-        "role_en": "Mechanical",
-        "group": "mechanical"
-    },
-    {
-        "id": 22,
-        "image": "IMG_0685.jpg",
-        "name": "Maks",
-        "role_no": "Data",
-        "role_en": "Data",
-        "group": "data"
-    },
-    {
-        "id": 23,
-        "image": "IMG_0691.jpg",
-        "name": "Thomas",
-        "role_no": "Mekanisk",
-        "role_en": "Mechanical",
-        "group": "mechanical"
-    },
-    {
-        "id": 24,
-        "image": "IMG_0694.jpg",
-        "name": "Olav",
-        "role_no": "Mekanisk",
-        "role_en": "Mechanical",
-        "group": "mechanical"
-    },
-    {
-        "id": 26,
-        "image": "IMG_0700.jpg",
-        "name": "Murad",
-        "role_no": "Elektronikk",
-        "role_en": "Electronics",
-        "group": "electronics"
-    },
-    {
-        "id": 28,
-        "image": "IMG_0475.jpg",
-        "name": "Jonathan Fedje",
-        "role_no": "Data",
-        "role_en": "Data",
-        "group": "data"
-    },
-    {
-        "id": 29,
-        "image": "IMG_0.jpg",
-        "name": "Mads Westbø Hansen",
-        "role_no": "Mekanisk",
-        "role_en": "Mechanical",
-        "group": "mechanical"
     }
 ]

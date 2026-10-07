@@ -70,7 +70,7 @@
           <div class="row mt-3">
             <div class="col-4">
               <div class="stat text-center">
-                <div class="stat-num h3">~30</div>
+                <div class="stat-num h3" id="member-count">29</div>
                 <div class="stat-label small text-white">Active Members</div>
               </div>
             </div>
@@ -103,19 +103,8 @@
       <h2 class="fs-3 fw-bold text-center mb-3">Our Members</h2>
       <p class="text-center text-white mb-4">Meet the team behind UiASub</p>
 
-      <div class="mt-4 text-center">
-        <button id="members-toggle" class="btn btn-outline-light" type="button" aria-expanded="false"
-          aria-controls="members-collapse" data-bs-toggle="collapse" data-bs-target="#members-collapse">
-          <span class="button-text">Show Members</span>
-        </button>
-      </div>
-
-      <div class="collapse mt-4" id="members-collapse">
-        <div class="container">
-          <div class="row justify-content-center g-4" id="members-container">
-            <!-- Members will be loaded dynamically from /data/members.json -->
-          </div>
-        </div>
+      <div class="row justify-content-center g-4 mt-4" id="members-container">
+        <!-- Members will be loaded dynamically from /data/members.json -->
       </div>
     </div>
   </section>

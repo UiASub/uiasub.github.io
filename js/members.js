@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Define group order and titles
   const groups = [
-    { id: 'leadership', title_no: 'Ledelse', title_en: 'Leadership' },
+    { id: 'board', title_no: 'Styre', title_en: 'Board' },
     { id: 'data', title_no: 'Data', title_en: 'Data' },
     { id: 'electronics', title_no: 'Elektronikk', title_en: 'Electronics' },
     { id: 'mechanical', title_no: 'Mekanisk', title_en: 'Mechanical' },
@@ -18,6 +18,9 @@ document.addEventListener('DOMContentLoaded', function () {
   fetch('/data/members.json')
     .then(response => response.json())
     .then(members => {
+      const memberCount = document.getElementById('member-count');
+      if (memberCount) memberCount.textContent = members.length;
+
       groups.forEach(group => {
         // Filter members for this group
         const groupMembers = members.filter(m => m.group === group.id);
@@ -46,7 +49,9 @@ document.addEventListener('DOMContentLoaded', function () {
             memberCard.setAttribute('data-id', member.id);
             memberCard.innerHTML = `
               <div class="card h-100">
-                <img src="/images/profie_shared/${member.image}" loading="lazy" decoding="async" class="card-img-top" alt="${name}">
+                ${member.image
+                  ? `<img src="/images/profie_shared/${member.image}" loading="lazy" decoding="async" class="card-img-top" alt="${name}">`
+                  : `<div class="card-img-top member-photo-placeholder">${isEnglish ? 'Photo coming soon' : 'Bilde kommer snart'}</div>`}
                 <div class="card-body">
                   <h5 class="card-title text-white">${name}</h5>
                   <h6 class="card-subtitle mb-2 text-white-50">${role}</h6>
