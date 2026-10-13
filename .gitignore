@@ -7,4 +7,3 @@ node_modules
 dist
 .env
 .env.local
-.github/workflows

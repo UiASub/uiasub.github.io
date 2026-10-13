@@ -1,43 +1,72 @@
+name: CI and Pages
+
 on:
   push:
     branches: [main]
   pull_request:
+  workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
+
+# Serialize main runs without interrupting deployments; replace stale PR checks.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
     steps:
-    - uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
-    - name: TruffleHog OSS
-      uses: trufflesecurity/trufflehog@v3.93.1
-    - name: proof-html
-      uses: anishathalye/proof-html@v2
-      with:
-        directory: '.'
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Setup Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 'lts/*'
+          check-latest: true
+          package-manager-cache: false
+      - name: Cache regression tests
+        run: node --test tests/service-worker.test.cjs
+      - name: TruffleHog OSS
+        uses: trufflesecurity/trufflehog@e76dff8a7e57d6df0c60ad8cbf5d5cba505a8fc9 # v3.99.2
+      - name: Validate HTML and links
+        uses: anishathalye/proof-html@f060b7619c2410bd85d970459a60ef431cf47ed5 # v2.2.5
+        with:
+          directory: '.'
 
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
     needs: test
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-    - name: Setup Pages
-      uses: actions/configure-pages@v4
-    - name: Upload artifact
-      uses: actions/upload-pages-artifact@v3
-      with:
-        path: '.'
-    - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v4
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Setup Pages
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
+      - name: Prepare site artifact
+        run: |
+          mkdir -p "$RUNNER_TEMP/site"
+          cp -a ./*.html CNAME favicon.ico manifest.webmanifest robots.txt service-worker.js \
+            css data en images js pages videos "$RUNNER_TEMP/site/"
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: ${{ runner.temp }}/site
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
