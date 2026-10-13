@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
     { id: 'members', title_no: 'Medlemmer', title_en: 'Members' }
   ];
 
-  fetch('/data/members.json')
+  fetch('/data/members.json', { cache: 'no-cache' })
     .then(response => response.json())
     .then(members => {
       const memberCount = document.getElementById('member-count');
