@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v11';
+const CACHE_VERSION = 'v12';
 const STATIC_CACHE = `uiasub-static-${CACHE_VERSION}`;
 const HTML_CACHE = `uiasub-html-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `uiasub-runtime-${CACHE_VERSION}`;
@@ -15,7 +15,7 @@ const PRECACHE_URL_SET = new Set(PRECACHE_URLS.map((url) => new URL(url, self.lo
 self.addEventListener('install', (event) => {
   event.waitUntil((async () => {
     const cache = await caches.open(STATIC_CACHE);
-    await cache.addAll(PRECACHE_URLS);
+    await cache.addAll(PRECACHE_URLS.map((url) => new Request(new URL(url, self.location.href), { cache: 'no-cache' })));
     await self.skipWaiting();
   })());
 });
@@ -23,17 +23,18 @@ self.addEventListener('install', (event) => {
 self.addEventListener('activate', (event) => {
   event.waitUntil((async () => {
     if (self.registration.navigationPreload) {
-      await self.registration.navigationPreload.enable();
+      // Fetch explicitly below so navigations also revalidate the HTTP cache.
+      await self.registration.navigationPreload.disable();
     }
 
     const keep = new Set([STATIC_CACHE, HTML_CACHE, RUNTIME_CACHE]);
     const keys = await caches.keys();
-    await Promise.all(keys.filter((k) => !keep.has(k)).map((k) => caches.delete(k)));
+    await Promise.all(keys.filter((k) => k.startsWith('uiasub-') && !keep.has(k)).map((k) => caches.delete(k)));
     await self.clients.claim();
   })());
 });
 
-// Simple fetch handler: navigation requests -> network-first, others -> cache-first
+// Check for updates on every visit; Cache Storage is only an offline fallback.
 self.addEventListener('fetch', (event) => {
   const request = event.request;
   const url = new URL(request.url);
@@ -43,69 +44,33 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  if (request.method !== 'GET') return;
+  if (request.method !== 'GET' || request.headers.has('range')) return;
 
   const isNavigation = request.mode === 'navigate' || request.headers.get('accept')?.includes('text/html');
 
-  if (isNavigation) {
-    event.respondWith((async () => {
-      const cache = await caches.open(HTML_CACHE);
-      try {
-        const preload = await event.preloadResponse;
-        if (preload) {
-          cache.put(request, preload.clone());
-          return preload;
-        }
+  const cacheName = isNavigation ? HTML_CACHE
+    : PRECACHE_URL_SET.has(request.url) ? STATIC_CACHE : RUNTIME_CACHE;
 
-        const response = await fetch(request);
-        cache.put(request, response.clone());
-        return response;
-      } catch {
-        const cached = await cache.match(request);
-        if (cached) return cached;
-        return caches.match(new URL('./offline.html', self.registration.scope));
-      }
-    })());
-    return;
-  }
-
-  if (PRECACHE_URL_SET.has(request.url)) {
-    event.respondWith((async () => {
-      const cache = await caches.open(STATIC_CACHE);
-      const cached = await cache.match(request);
-      if (cached) return cached;
-      const response = await fetch(request);
-      cache.put(request, response.clone());
-      return response;
-    })());
-    return;
-  }
-
-  const isAsset = ['style', 'script', 'image', 'font'].includes(request.destination);
-  if (isAsset) {
-    event.respondWith((async () => {
-      const cache = await caches.open(RUNTIME_CACHE);
-      const cached = await cache.match(request);
-      const fetchPromise = fetch(request).then((response) => {
-        cache.put(request, response.clone());
-        return response;
-      });
-      return cached || fetchPromise;
-    })());
-    return;
-  }
-
-  // Other same-origin GET requests: network-first with cache fallback
-  event.respondWith((async () => {
-    const cache = await caches.open(RUNTIME_CACHE);
-    try {
-      const response = await fetch(request);
-      cache.put(request, response.clone());
-      return response;
-    } catch {
-      const cached = await cache.match(request);
-      if (cached) return cached;
-      return Response.error();
+  // Conditional requests let unchanged files reuse their HTTP-cached body.
+  const networkResponse = fetch(request, { cache: 'no-cache' });
+  event.waitUntil(networkResponse.then(async (response) => {
+    if (response.status === 200) {
+      const copy = response.clone();
+      const cache = await caches.open(cacheName);
+      await cache.put(request, copy);
     }
-  })());
+  }).catch(() => {
+    // A full or unavailable cache must not prevent an online response.
+  }));
+
+  event.respondWith(networkResponse.catch(async () => {
+    const cache = await caches.open(cacheName);
+    const cached = await cache.match(request);
+    if (cached) return cached;
+    if (isNavigation) {
+      const fallback = await caches.match(new URL('/offline.html', self.registration.scope));
+      if (fallback) return fallback;
+    }
+    return Response.error();
+  }));
 });
