@@ -2,8 +2,6 @@
   const section = document.querySelector('.home-sponsors');
   if (!section) return;
   const list = section.querySelector('.home-sponsors__logos');
-  const english = document.documentElement.lang === 'en';
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
   function logoItem(sponsor) {
     const item = document.createElement('li');
@@ -34,7 +32,6 @@
       list.append(...sponsors.map(logoItem));
       section.hidden = false;
       const viewport = section.querySelector('.home-sponsors__viewport');
-      const toggle = section.querySelector('[data-sponsor-toggle]');
       // A second, inert copy makes the loop seamless without duplicate tab stops.
       const duplicate = list.cloneNode(true);
       duplicate.setAttribute('aria-hidden', 'true');
@@ -45,36 +42,37 @@
       list.className = 'home-sponsors__group';
       track.append(list, duplicate);
       viewport.replaceChildren(track);
-      let paused = reducedMotion.matches;
-      const updateToggle = () => {
-        track.classList.toggle('is-paused', paused);
-        toggle.textContent = paused ? '▶' : 'Ⅱ';
-        toggle.setAttribute('aria-pressed', String(paused));
-        toggle.setAttribute('aria-label', english ? (paused ? 'Play sponsor ticker' : 'Pause sponsor ticker') : (paused ? 'Spill sponsorlinjen' : 'Sett sponsorlinjen på pause'));
-      };
-      toggle.addEventListener('click', () => { paused = !paused; updateToggle(); });
-      // Keyboard users get a stationary list that scrolls each focused logo into view.
+      // Focus stops the animation in CSS and reveals each original sponsor link.
       track.addEventListener('focusin', event => {
-        paused = true;
-        updateToggle();
         event.target.scrollIntoView({ block: 'nearest', inline: 'nearest' });
       });
-      reducedMotion.addEventListener('change', () => { paused = reducedMotion.matches; updateToggle(); });
-      const attachToHeader = mast => {
-        mast.classList.add('masthead--sponsors-above');
-        mast.prepend(section);
+      // The sponsor strip stays in document flow; only the existing navigation is fixed.
+      const alignNavigation = mast => {
+        let ticking = false;
+        const updatePosition = () => {
+          mast.style.top = `${Math.max(0, section.getBoundingClientRect().bottom)}px`;
+          document.documentElement.style.setProperty('--home-sponsor-height', `${section.offsetHeight}px`);
+          ticking = false;
+        };
+        const requestPosition = () => {
+          if (ticking) return;
+          ticking = true;
+          requestAnimationFrame(updatePosition);
+        };
+        window.addEventListener('scroll', requestPosition, { passive: true });
+        new ResizeObserver(requestPosition).observe(section);
+        updatePosition();
       };
       const masthead = document.querySelector('.masthead');
       const headerHost = document.querySelector('#header');
-      if (masthead) attachToHeader(masthead);
+      if (masthead) alignNavigation(masthead);
       else if (headerHost) {
         const observer = new MutationObserver(() => {
           const mast = headerHost.querySelector('.masthead');
-          if (mast) { observer.disconnect(); attachToHeader(mast); }
+          if (mast) { observer.disconnect(); alignNavigation(mast); }
         });
         observer.observe(headerHost, { childList: true, subtree: true });
       }
-      updateToggle();
     })
     .catch(error => console.error('Could not load homepage sponsors:', error));
 })();
