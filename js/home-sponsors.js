@@ -3,6 +3,15 @@
   if (!section) return;
   const list = section.querySelector('.home-sponsors__logos');
 
+  // Off-screen SVG waves otherwise trigger layout on every frame of the homepage.
+  const waveVisibility = new IntersectionObserver(entries => {
+    entries.forEach(entry => entry.target.classList.toggle('waves--offscreen', !entry.isIntersecting));
+  }, { rootMargin: '100px 0px' });
+  document.querySelectorAll('.wavesContainer').forEach(wave => {
+    wave.classList.add('waves--offscreen');
+    waveVisibility.observe(wave);
+  });
+
   function logoItem(sponsor) {
     const item = document.createElement('li');
     item.className = 'home-sponsors__logo';
@@ -32,26 +41,49 @@
       list.append(...sponsors.map(logoItem));
       section.hidden = false;
       const viewport = section.querySelector('.home-sponsors__viewport');
-      // A second, inert copy makes the loop seamless without duplicate tab stops.
-      const duplicate = list.cloneNode(true);
-      duplicate.setAttribute('aria-hidden', 'true');
-      duplicate.inert = true;
-      duplicate.className = 'home-sponsors__copy';
       const track = document.createElement('div');
       track.className = 'home-sponsors__logos';
       list.className = 'home-sponsors__group';
-      track.append(list, duplicate);
+      track.append(list);
       viewport.replaceChildren(track);
+      const copies = [];
+      const syncLoop = () => {
+        const loopWidth = list.getBoundingClientRect().width;
+        if (!loopWidth) return;
+        // Keep enough inert copies to cover the viewport through the entire loop.
+        const needed = Math.max(1, Math.ceil(viewport.clientWidth / loopWidth));
+        while (copies.length < needed) {
+          const copy = list.cloneNode(true);
+          copy.className = 'home-sponsors__copy';
+          copy.setAttribute('aria-hidden', 'true');
+          copy.inert = true;
+          copies.push(copy);
+          track.append(copy);
+        }
+        while (copies.length > needed) copies.pop().remove();
+        track.style.setProperty('--sponsor-loop-width', `${loopWidth}px`);
+        track.style.setProperty('--sponsor-duration', `${loopWidth / 24}s`);
+      };
+      const loopObserver = new ResizeObserver(syncLoop);
+      loopObserver.observe(viewport);
+      loopObserver.observe(list);
+      syncLoop();
       // Focus stops the animation in CSS and reveals each original sponsor link.
       track.addEventListener('focusin', event => {
         event.target.scrollIntoView({ block: 'nearest', inline: 'nearest' });
       });
-      // The sponsor strip stays in document flow; only the existing navigation is fixed.
+      track.addEventListener('focusout', () => {
+        requestAnimationFrame(() => {
+          if (!track.contains(document.activeElement)) viewport.scrollLeft = 0;
+        });
+      });
+      // Scroll updates use the cached strip height and only move the navigation.
       const alignNavigation = mast => {
+        let height = section.offsetHeight;
         let ticking = false;
         const updatePosition = () => {
-          mast.style.top = `${Math.max(0, section.getBoundingClientRect().bottom)}px`;
-          document.documentElement.style.setProperty('--home-sponsor-height', `${section.offsetHeight}px`);
+          const top = `${Math.max(0, height - window.scrollY)}px`;
+          if (mast.style.top !== top) mast.style.top = top;
           ticking = false;
         };
         const requestPosition = () => {
@@ -60,7 +92,12 @@
           requestAnimationFrame(updatePosition);
         };
         window.addEventListener('scroll', requestPosition, { passive: true });
-        new ResizeObserver(requestPosition).observe(section);
+        new ResizeObserver(() => {
+          height = section.offsetHeight;
+          document.documentElement.style.setProperty('--home-sponsor-height', `${height}px`);
+          requestPosition();
+        }).observe(section);
+        document.documentElement.style.setProperty('--home-sponsor-height', `${height}px`);
         updatePosition();
       };
       const masthead = document.querySelector('.masthead');

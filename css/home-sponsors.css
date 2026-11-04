@@ -23,13 +23,12 @@
 
 .home-sponsors { position: relative; z-index: 1090; background: #082131; border-top: 1px solid #294757; border-bottom: 1px solid #294757; }
 .home-sponsors__inner { width: calc(100% - 64px); display: flex; align-items: center; gap: 24px; height: 76px; }
-.home-sponsors__viewport { flex: 1; min-width: 0; overflow-x: auto; scrollbar-width: none; padding: 4px; }
-.home-sponsors__viewport::-webkit-scrollbar { display: none; }
-.home-sponsors__logos { display: flex; width: max-content; gap: 28px; animation: sponsor-drift 45s linear infinite; }
+.home-sponsors__viewport { flex: 1; min-width: 0; overflow: hidden; contain: layout paint; padding: 4px; }
+.home-sponsors__logos { display: flex; width: max-content; gap: 28px; transform: translate3d(0, 0, 0); will-change: transform; animation: sponsor-drift var(--sponsor-duration, 60s) linear infinite; }
 .home-sponsors__logo { flex: 0 0 135px; width: 135px; }
 .home-sponsors__logo a { height: 48px; padding: 7px 10px; border-radius: 3px; }
 .home-sponsors:hover .home-sponsors__logos, .home-sponsors:focus-within .home-sponsors__logos { animation-play-state: paused; }
-@keyframes sponsor-drift { to { transform: translateX(-50%); } }
+@keyframes sponsor-drift { to { transform: translate3d(calc(-1 * var(--sponsor-loop-width, 0px)), 0, 0); } }
 @media (max-width: 700px) {
   .home-sponsors__inner { width: calc(100% - 24px); gap: 12px; height: 68px; }
   .home-sponsors__logo { flex-basis: 120px; width: 120px; }
@@ -38,8 +37,11 @@
 .hero { height: calc(100svh - var(--home-sponsor-height, 0px)); }
 .home-sponsors:focus-within .home-sponsors__logos { animation: none; }
 
-.home-sponsors__group, .home-sponsors__copy { display: flex; gap: 28px; list-style: none; padding: 0 28px 0 0; margin: 0; }
+.home-sponsors__group, .home-sponsors__copy { display: flex; flex: 0 0 auto; gap: 28px; list-style: none; padding: 0 28px 0 0; margin: 0; }
 .home-sponsors__logos { gap: 0; }
 @media (max-width: 700px) { .home-sponsors__group, .home-sponsors__copy { gap: 16px; padding-right: 16px; } }
 
-@media (prefers-reduced-motion: reduce) { .home-sponsors__logos { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .home-sponsors__logos { animation: none; will-change: auto; } }
+
+.wavesContainer.waves--offscreen .parallax > use { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) { .wavesContainer .parallax > use { animation: none; } }
