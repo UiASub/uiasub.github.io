@@ -35,6 +35,13 @@
         "link": "https://www.norwegianseals.no/"
     },
     {
+        "name": "Water Linked",
+        "image": "/images/sponsors/Main_logo_Norbit_background_waterlinked.png",
+        "description": "Water Linked utvikler sensorteknologi for navigasjon og kommunikasjon under vann.",
+        "description_en": "Water Linked develops sensor technology for underwater navigation and communication.",
+        "link": "https://www.waterlinked.com/"
+    },
+    {
         "name": "Elmotor AS",
         "image": "/images/sponsors/Elmotor.png",
         "description": "Elmotor AS utvikler, designer og produserer skreddersydde elektriske maskiner, motorer og generatorer for krevende applikasjoner over og under vann.",
