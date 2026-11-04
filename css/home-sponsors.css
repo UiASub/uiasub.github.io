@@ -1,0 +1,66 @@
+/* Homepage sponsor display. Logo artwork keeps its original colors. */
+.home-sponsors {
+  color: #e6f7ff;
+  font-family: "Poppins", sans-serif;
+}
+.home-sponsors[hidden] { display: none; }
+.home-sponsors__inner { width: min(1280px, calc(100% - 80px)); margin: 0 auto; }
+.home-sponsors__heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
+.home-sponsors h2 { font: 500 14px/1.5 "Poppins", sans-serif; letter-spacing: .12em; text-transform: uppercase; margin: 0; }
+.home-sponsors__all { color: #a5d9f5; font-size: 12px; text-decoration: none; white-space: nowrap; }
+.home-sponsors__all:hover { color: white; text-decoration: underline; }
+.home-sponsors__logos { list-style: none; padding: 0; margin: 0; }
+.home-sponsors__logo { min-width: 0; }
+.home-sponsors__logo a { display: flex; align-items: center; justify-content: center; height: 88px; padding: 14px 20px; background: #fff; border-radius: 5px; transition: box-shadow .2s; }
+.home-sponsors__logo a:hover { box-shadow: 0 0 0 2px #44b8ff; }
+.home-sponsors__logo a:focus-visible, .home-sponsors button:focus-visible, .home-sponsors__all:focus-visible { outline: 3px solid #44b8ff; outline-offset: 4px; }
+.home-sponsors__logo--dark a { background: #122b3e; }
+.home-sponsors__logo--waterlinked a { background: #1e3553; }
+.home-sponsors__logo img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.home-sponsors button { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; width: 36px; height: 36px; border: 1px solid #3e5968; border-radius: 50%; background: transparent; color: #e6f7ff; font: 18px/1 sans-serif; cursor: pointer; }
+.home-sponsors button:hover { background: #17384c; }
+@media (max-width: 700px) {
+  .home-sponsors__inner { width: calc(100% - 36px); }
+  .home-sponsors__heading { gap: 8px; margin-bottom: 16px; }
+  .home-sponsors h2 { font-size: 11px; letter-spacing: .08em; }
+  .home-sponsors__all { font-size: 11px; }
+  .home-sponsors__logo a { padding: 10px 12px; height: 70px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-sponsors *, .home-sponsors *::before, .home-sponsors *::after { scroll-behavior: auto !important; transition: none !important; }
+}
+
+.hero .title-block { padding-left: 5vw; max-width: 68%; }
+.hero .title-h1 { font-size: clamp(5rem, 7.2vw, 9rem); line-height: .92; }
+.hero .title-block .first-desc { position: static; margin-bottom: 24px; }
+.hero .desc-1 { font-size: clamp(12px, .95vw, 16px); }
+.home-sponsors { position: absolute; z-index: 4; right: 4vw; top: 50%; transform: translateY(-50%); width: 350px; padding: 24px; background: rgba(7, 29, 44, .92); border: 1px solid #365265; border-radius: 10px; backdrop-filter: blur(12px); }
+.home-sponsors__inner { width: 100%; }
+.home-sponsors__heading { display: block; margin-bottom: 18px; }
+.home-sponsors h2 { font-size: 11px; margin-bottom: 5px; }
+.home-sponsors__logos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.home-sponsors__logo a { height: 68px; padding: 9px; border-radius: 3px; }
+@media (min-width: 1001px) and (max-width: 1250px) {
+  .hero .title-block { padding-left: 2vw; max-width: 65%; }
+  .hero .title-h1 { font-size: 7vw; }
+  .home-sponsors { width: 310px; right: 3vw; padding: 20px; }
+}
+@media (max-width: 1000px) {
+  .hero { height: auto; min-height: 100svh; padding-bottom: 26px; }
+  .hero .hero-video { height: 100%; }
+  .hero .container { height: 58svh; min-height: 440px; padding-top: 80px; padding-bottom: 110px; }
+  .hero .title-block { max-width: 100%; width: 100%; padding: 0; text-align: center; }
+  .hero .title-h1 { font-size: 10vw; line-height: .95; }
+  .hero .title-block .title-row { justify-content: center; }
+  .hero .title-block .title-row-2 { padding-left: 0; }
+  .hero .title-block .first-desc { width: 100%; transform: none; margin-bottom: 20px; justify-content: center; }
+  .hero .desc-1 { font-size: 11px; line-height: 1.5; }
+  .hero .book-btn { bottom: 16px; right: 50%; transform: translateX(50%); width: 76px; height: 76px; }
+  .hero .book-btn__circle { width: 76px; height: 76px; }
+  .hero .book-btn .btn-text { width: 65px; }
+  .hero .btn-1 { font-size: 12px; }
+  .home-sponsors { position: relative; width: min(540px, calc(100% - 36px)); margin: 0 auto; top: auto; right: auto; transform: none; padding: 20px; }
+  .home-sponsors__heading { display: flex; margin-bottom: 14px; }
+  .home-sponsors h2 { margin-bottom: 0; }
+  .home-sponsors__logo a { height: 58px; }
+}
