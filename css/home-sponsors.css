@@ -1,0 +1,58 @@
+/* Homepage sponsor display. Logo artwork keeps its original colors. */
+.home-sponsors {
+  color: #e6f7ff;
+  font-family: "Poppins", sans-serif;
+}
+.home-sponsors[hidden] { display: none; }
+.home-sponsors__inner { width: min(1280px, calc(100% - 80px)); margin: 0 auto; }
+.home-sponsors__heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
+.home-sponsors h2 { font: 500 14px/1.5 "Poppins", sans-serif; letter-spacing: .12em; text-transform: uppercase; margin: 0; }
+.home-sponsors__all { color: #a5d9f5; font-size: 12px; text-decoration: none; white-space: nowrap; }
+.home-sponsors__all:hover { color: white; text-decoration: underline; }
+.home-sponsors__logos { list-style: none; padding: 0; margin: 0; }
+.home-sponsors__logo { min-width: 0; }
+.home-sponsors__logo a { display: flex; align-items: center; justify-content: center; height: 88px; padding: 14px 20px; background: #fff; border-radius: 5px; transition: box-shadow .2s; }
+.home-sponsors__logo a:hover { box-shadow: 0 0 0 2px #44b8ff; }
+.home-sponsors__logo a:focus-visible, .home-sponsors button:focus-visible, .home-sponsors__all:focus-visible { outline: 3px solid #44b8ff; outline-offset: 4px; }
+.home-sponsors__logo--dark a { background: #122b3e; }
+.home-sponsors__logo--waterlinked a { background: #1e3553; }
+.home-sponsors__logo img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.home-sponsors button { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; width: 36px; height: 36px; border: 1px solid #3e5968; border-radius: 50%; background: transparent; color: #e6f7ff; font: 18px/1 sans-serif; cursor: pointer; }
+.home-sponsors button:hover { background: #17384c; }
+@media (max-width: 700px) {
+  .home-sponsors__inner { width: calc(100% - 36px); }
+  .home-sponsors__heading { gap: 8px; margin-bottom: 16px; }
+  .home-sponsors h2 { font-size: 11px; letter-spacing: .08em; }
+  .home-sponsors__all { font-size: 11px; }
+  .home-sponsors__logo a { padding: 10px 12px; height: 70px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-sponsors *, .home-sponsors *::before, .home-sponsors *::after { scroll-behavior: auto !important; transition: none !important; }
+}
+
+.home-sponsors { position: fixed; top: var(--masthead-height, 76px); left: 0; right: 0; z-index: 1090; background: #082131; border-top: 1px solid #294757; border-bottom: 1px solid #294757; }
+.home-sponsors__inner { width: calc(100% - 64px); display: flex; align-items: center; gap: 24px; height: 76px; }
+.home-sponsors__heading { flex-shrink: 0; margin: 0; display: block; }
+.home-sponsors h2 { font-size: 10px; letter-spacing: .1em; margin-bottom: 3px; }
+.home-sponsors__all { font-size: 10px; }
+.home-sponsors__viewport { flex: 1; min-width: 0; overflow-x: auto; scrollbar-width: none; padding: 4px; }
+.home-sponsors__viewport::-webkit-scrollbar { display: none; }
+.home-sponsors__logos { display: flex; width: max-content; gap: 28px; animation: sponsor-drift 45s linear infinite; }
+.home-sponsors__logo { flex: 0 0 135px; width: 135px; }
+.home-sponsors__logo a { height: 48px; padding: 7px 10px; border-radius: 3px; }
+.home-sponsors__logos.is-paused, .home-sponsors:hover .home-sponsors__logos, .home-sponsors:focus-within .home-sponsors__logos { animation-play-state: paused; }
+.home-sponsors button { width: 30px; height: 30px; font-size: 14px; }
+@keyframes sponsor-drift { to { transform: translateX(-50%); } }
+@media (max-width: 700px) {
+  .home-sponsors__inner { width: calc(100% - 24px); gap: 12px; height: 68px; }
+  .home-sponsors h2 { font-size: 9px; }
+  .home-sponsors__logo { flex-basis: 120px; width: 120px; }
+  .home-sponsors__logos { gap: 16px; }
+}
+/* Follow the navigation when it hides, and stay below an expanded mobile menu. */
+.masthead .home-sponsors { position: absolute; top: 100%; }
+.home-sponsors:focus-within .home-sponsors__logos { animation: none; }
+
+.home-sponsors__group, .home-sponsors__copy { display: flex; gap: 28px; list-style: none; padding: 0 28px 0 0; margin: 0; }
+.home-sponsors__logos { gap: 0; }
+@media (max-width: 700px) { .home-sponsors__group, .home-sponsors__copy { gap: 16px; padding-right: 16px; } }
