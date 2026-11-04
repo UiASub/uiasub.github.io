@@ -60,7 +60,10 @@
         event.target.scrollIntoView({ block: 'nearest', inline: 'nearest' });
       });
       reducedMotion.addEventListener('change', () => { paused = reducedMotion.matches; updateToggle(); });
-      const attachToHeader = mast => mast.append(section);
+      const attachToHeader = mast => {
+        mast.classList.add('masthead--sponsors-above');
+        mast.prepend(section);
+      };
       const masthead = document.querySelector('.masthead');
       const headerHost = document.querySelector('#header');
       if (masthead) attachToHeader(masthead);

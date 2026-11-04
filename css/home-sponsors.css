@@ -30,7 +30,7 @@
   .home-sponsors *, .home-sponsors *::before, .home-sponsors *::after { scroll-behavior: auto !important; transition: none !important; }
 }
 
-.home-sponsors { position: fixed; top: var(--masthead-height, 76px); left: 0; right: 0; z-index: 1090; background: #082131; border-top: 1px solid #294757; border-bottom: 1px solid #294757; }
+.home-sponsors { position: fixed; top: 0; left: 0; right: 0; z-index: 1090; background: #082131; border-top: 1px solid #294757; border-bottom: 1px solid #294757; }
 .home-sponsors__inner { width: calc(100% - 64px); display: flex; align-items: center; gap: 24px; height: 76px; }
 .home-sponsors__heading { flex-shrink: 0; margin: 0; display: block; }
 .home-sponsors h2 { font-size: 10px; letter-spacing: .1em; margin-bottom: 3px; }
@@ -49,8 +49,11 @@
   .home-sponsors__logo { flex-basis: 120px; width: 120px; }
   .home-sponsors__logos { gap: 16px; }
 }
-/* Follow the navigation when it hides, and stay below an expanded mobile menu. */
-.masthead .home-sponsors { position: absolute; top: 100%; }
+/* Keep the sponsor strip above the navigation within the same fixed header. */
+.masthead--sponsors-above { padding-top: calc(78px + clamp(5px, .5vw, 12px)); }
+.masthead--sponsors-above .home-sponsors { position: absolute; top: 0; }
+@media (max-width: 1000px) { .masthead--sponsors-above { padding-top: 88px; } }
+@media (max-width: 700px) { .masthead--sponsors-above { padding-top: 80px; } }
 .home-sponsors:focus-within .home-sponsors__logos { animation: none; }
 
 .home-sponsors__group, .home-sponsors__copy { display: flex; gap: 28px; list-style: none; padding: 0 28px 0 0; margin: 0; }
