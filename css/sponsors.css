@@ -270,3 +270,9 @@
     opacity: 0;
   }
 }
+
+/* Preserve the supplied Water Linked artwork and its background colors. */
+.sponsor-carousel .owl-item img[src="/images/sponsors/Main_logo_Norbit_background_waterlinked.png"] {
+  mix-blend-mode: normal;
+  opacity: 1;
+}
